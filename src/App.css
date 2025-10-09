@@ -1,0 +1,41 @@
+#root {
+    padding: 2rem;
+    text-align: center;
+    width: 100%;
+}
+
+.App {
+    text-align: center;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    width: 100%;
+}
+
+.body-row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.form-container .task-container .task-options-container {
+/*    justify-self: start;
+    justify-content: start;*/
+    width: 100%;
+}
+
+.task-numeration {
+    font-size: large;
+    font-weight: bold;
+}
+
+.task-option{
+    margin-top: -25px;
+    /*justify-content: start;*/
+}
+
+.row {
+    padding-bottom: 20px;
+    width: 100%;
+    /*justify-self: center;
+    justify-content: start;*/
+}
