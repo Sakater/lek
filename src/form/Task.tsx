@@ -4,6 +4,7 @@ import {Button, Col, Input, Row} from 'antd';
 import {DeleteTwoTone, SettingTwoTone} from "@ant-design/icons";
 import type {Task as TaskType} from '../types';
 import {TaskOptionsCollapse} from "./TaskOptionsCollapse.tsx";
+import {TextEditor} from "../TextEditor.tsx";
 
 type Props = {
     task: TaskType;
@@ -24,6 +25,8 @@ export function Task({task}: Props) {
                                    updateTask(task.id, {...task, numeration: e.target.value})
                                }
                         />
+                        <TextEditor onChange={e =>
+                            updateTask(task.id, {...task, numeration: e.toString()})}/>
                     </div>
                 </Col>
                 <Col span={18}>

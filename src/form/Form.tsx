@@ -5,7 +5,7 @@ import {Task} from "./Task.tsx";
 import {PlusCircleTwoTone} from "@ant-design/icons";
 import dayjs from 'dayjs';
 import {TaskChoice} from "./TaskChoice.tsx";
-import {HtmlEditor} from "../HtmlEditor.tsx";
+import {TextEditor} from "../TextEditor.tsx";
 
 export function Form() {
     const {file, updateFile} = use(FileContext);
@@ -13,7 +13,7 @@ export function Form() {
     const [content, setContent] = useState('');
 
     return (
-        <div className={'form-container'}><HtmlEditor value={content} onChange={setContent}/>
+        <div className={'form-container'}><TextEditor value={content} onChange={setContent}/>
             <Row gutter={24} className={'row'}>
                 <Col xs={12} sm={12} md={6} xl={6}>
 
