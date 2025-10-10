@@ -1,7 +1,7 @@
 //FileContext/index.ts
 
 import {createContext} from 'react';
-import type {File, Task, TaskType} from '../types';
+import type {File, Task} from '../types';
 
 export type FileContextType = {
     file: File | null;
@@ -9,7 +9,7 @@ export type FileContextType = {
     updateFile: (patch: Partial<File>) => void;
     updateTask: (taskId: string, updatedTask: Task) => void;
     deleteTask: (taskId: string) => void;
-    addTask: (type:TaskType) => void;
+    addTask: (patch:Partial<Task>) => void;
     updateOption: (taskId: string, optionId: string, newName: string) => void;
     deleteOption: (taskId: string, optionId: string) => void;
     dynamicSize: (expanse: number) => number;

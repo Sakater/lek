@@ -2,7 +2,7 @@ import React, {ReactNode, useEffect, useState} from 'react';
 import type {FileContextType} from './index';
 import {FileContext} from './index';
 import type {File, Task} from '../types';
-import {TaskType} from '../types';
+import {Subject, TaskType} from '../types';
 
 type Props = {
     children: ReactNode;
@@ -32,7 +32,7 @@ export function FileContextProvider({children}: Props) {
         if (!file) return;
         setFile(prev => (prev ? {...prev, ...patch} : prev));
     };
-    const addTask = (type:TaskType) => {
+    const addTask = (patchTask: Partial<Task>) => {
         function extractLeadingNumber(input: string): number | null {
             const match = input.trim().match(/^[-+]?\d+(?:[.,]\d+)?/);
             console.log("input: ", input)
@@ -44,8 +44,9 @@ export function FileContextProvider({children}: Props) {
 
         if (!file) return;
 
-        const newTask: Task = {
-            type: type,
+        const baseTask: Task = {
+            type: TaskType.WriteIn,
+            subject: Subject.Akaid,
             numeration: `${file?.tasks.length > 0 ? extractLeadingNumber(file.tasks[file.tasks.length - 1].numeration) + 1 : 1})`,
             //`${file.tasks.length>0?Number(file.tasks[file.tasks.length-1].numeration[0])  + 1:1})`,
             question: 'Neue Frage',
@@ -55,6 +56,7 @@ export function FileContextProvider({children}: Props) {
             lines: 1,
             totalLines: 1
         };
+        const newTask = {...baseTask, ...patchTask};
         setFile({
             ...file,
             tasks: [...file.tasks, newTask]

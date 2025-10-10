@@ -120,3 +120,8 @@ code {
 .ant-col {
   padding-bottom: 8px;
 }
+
+.ant-drawer-title {
+  width: 100%;
+  text-align: center;
+}

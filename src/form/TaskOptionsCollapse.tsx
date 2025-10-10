@@ -7,23 +7,22 @@ import {TasksView} from "../view/TasksView.tsx";
 
 type Props = {
     task: TaskType;
+    open: boolean;
+    onClose: () => void;
 }
 
-export function TaskOptionsCollapse({task}: Props) {
+export function TaskOptionsCollapse({task, open, onClose}: Props) {
     const {updateTask, updateOption, deleteOption} = use(FileContext);
-    const [open, setOpen] = useState(false);
+
 
 
     return (
         <>
-            <Button type="primary" onClick={() => setOpen(true)} size={"small"}>
-                Details
-            </Button>
             <Drawer
                 title={`${task.numeration} ${task.question}`}
                 placement={'top'}
                 closable={false}
-                onClose={() => setOpen(false)}
+                onClose={onClose}
                 open={open}
                 key={'top'}
                 size={'large'}

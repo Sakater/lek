@@ -1,10 +1,24 @@
 export enum TaskType {
-    MultipleChoice = 'multiple-choice',
-    WriteIn = 'write-in',
-    Mixed = 'mixed',
+    MultipleChoice = 'Multiple-Choice',
+    WriteIn = 'Textfeld',
+    Mixed = 'Mixed',
+    FillInTheBlanks = 'Lückentext',
+}
+export enum Subject {
+    Siyer = 'Siyer',
+    Fikih = 'Fikih',
+    Akaid = 'Akaid',
+    Hadis = 'Hadis',
+    Kelam = 'Kelam',
+    Tefsir = 'Tefsir',
+    Arapca = 'Arapça',
+    Kuran = 'Kuran',
+    DiniTarih = 'Dini Tarih',
+    Diger = 'Diğer',
 }
 
 export type Task = {
+    subject?: Subject;
     type?: TaskType;
     numeration: string
     question: string;

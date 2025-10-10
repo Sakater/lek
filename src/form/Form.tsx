@@ -1,18 +1,22 @@
-import React, {use} from 'react';
+import React, {use, useState} from 'react';
 import {FileContext} from '../FileContext';
 import {Button, Col, DatePicker, Input, Row} from 'antd';
 import {Task} from "./Task.tsx";
 import {PlusCircleTwoTone} from "@ant-design/icons";
 import dayjs from 'dayjs';
-import {TaskType} from "../types";
+import {TaskChoice} from "./TaskChoice.tsx";
+import {HtmlEditor} from "../HtmlEditor.tsx";
 
 export function Form() {
-    const {file, updateFile, addTask} = use(FileContext);
+    const {file, updateFile} = use(FileContext);
+    const [taskOpen, setTaskOpen] = useState(false);
+    const [content, setContent] = useState('');
 
     return (
-        <div className={'form-container'}>
+        <div className={'form-container'}><HtmlEditor value={content} onChange={setContent}/>
             <Row gutter={24} className={'row'}>
                 <Col xs={12} sm={12} md={6} xl={6}>
+
                     <Input
                         type={"text"}
                         value={file?.author}
@@ -39,8 +43,9 @@ export function Form() {
             </Row>
             <Row className={'row'} style={{width: '100%', justifyContent: 'center'}}>
                 <Col>
-                    <Button onClick={() => addTask(TaskType.MultipleChoice)} className={'plus-circle-2-tone'}
+                    <Button onClick={() => setTaskOpen(true)} className={'plus-circle-2-tone'}
                             icon={<PlusCircleTwoTone/>}>Aufgabe</Button>
+                    <TaskChoice open={taskOpen} onClose={() => setTaskOpen(false)}/>
                 </Col>
             </Row>
             {file?.tasks.map(task => (
