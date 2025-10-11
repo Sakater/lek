@@ -4,7 +4,7 @@ import {Button, Col, Input, Row} from 'antd';
 import {DeleteTwoTone, SettingTwoTone} from "@ant-design/icons";
 import type {Task as TaskType} from '../types';
 import {TaskOptionsCollapse} from "./TaskOptionsCollapse.tsx";
-import {TextEditor} from "../TextEditor.tsx";
+import {TextEditor} from "../editor/TextEditor.tsx";
 
 type Props = {
     task: TaskType;
@@ -18,28 +18,20 @@ export function Task({task}: Props) {
         <>
             <Row className={'row task-container'}>
                 <Col span={3}>
-                    <div className={'task-numeration'}>
-                        <Input type={'text'}
-                               value={task.numeration}
-                               onChange={e =>
-                                   updateTask(task.id, {...task, numeration: e.target.value})
-                               }
-                        />
-                        <TextEditor onChange={e =>
-                            updateTask(task.id, {...task, numeration: e.toString()})}/>
-                    </div>
+                    <TextEditor
+                        content={task.numeration}
+                        onChange={e => updateTask(task.id, {...task, numeration: e})}
+                    />
                 </Col>
                 <Col span={18}>
-                    <Input
-                        type="text"
-                        value={task.question}
-                        onChange={e =>
-                            updateTask(task.id, {...task, question: e.target.value})
-                        }
+                    <TextEditor
+                        content={task.question}
+                        onChange={e => updateTask(task.id, {...task, question: e.target.value})}
+                        placeholder={'Autor'}
                     />
                 </Col>
                 <Col span={1}>
-                <Button type="default" onClick={() => setOpen(true)} size={"middle"} icon={<SettingTwoTone />}/>
+                    <Button type="default" onClick={() => setOpen(true)} size={"middle"} icon={<SettingTwoTone/>}/>
                 </Col>
                 <Col span={1}>
                     <Button className="icon-delete-2-tone" icon={<DeleteTwoTone/>}
@@ -48,7 +40,7 @@ export function Task({task}: Props) {
             </Row>
             <Row gutter={24} className={'row task-option'}>
                 <Col span={24}>
-                    <TaskOptionsCollapse task={task} onClose={()=>setOpen(false)} open={open} />
+                    <TaskOptionsCollapse task={task} onClose={() => setOpen(false)} open={open}/>
                 </Col>
             </Row>
         </>

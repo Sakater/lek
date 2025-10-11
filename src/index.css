@@ -125,3 +125,52 @@ code {
   width: 100%;
   text-align: center;
 }
+
+/* Wrapper-Styling für EditorContent */
+.antd-custom-input {
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  background-color: #ffffff;
+  transition: all 0.2s;
+  text-align: start;
+}
+
+.antd-custom-input:hover {
+  border-color: #4096ff;
+}
+
+.antd-custom-input:focus-within {
+  border-color: #1677ff;
+  box-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
+  outline: 0;
+}
+
+/* Innerer Editor-Bereich (.tiptap wird automatisch von TipTap hinzugefügt) */
+.antd-custom-input .tiptap {
+  padding: 4px 11px;
+  font-size: 14px;
+  line-height: 1.5715;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+.antd-custom-input .tiptap:focus {
+  outline: none;
+}
+
+/* Paragraph-Styling innerhalb des Editors */
+.antd-custom-input .tiptap p {
+  margin: 0;
+}
+
+.antd-custom-input .tiptap p:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+.antd-custom-input.disabled {
+  background-color: rgba(0, 0, 0, 0.04);
+  cursor: not-allowed;
+}
+
+.antd-custom-input.disabled .tiptap {
+  color: rgba(0, 0, 0, 0.25);
+}
+

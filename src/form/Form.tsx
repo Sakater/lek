@@ -5,31 +5,25 @@ import {Task} from "./Task.tsx";
 import {PlusCircleTwoTone} from "@ant-design/icons";
 import dayjs from 'dayjs';
 import {TaskChoice} from "./TaskChoice.tsx";
-import {TextEditor} from "../TextEditor.tsx";
+import { EditorProvider } from '../editor/EditorContext'
+import { CentralToolbar } from '../editor/CentralToolbar'
+import { TextEditor } from '../editor/TextEditor'
 
 export function Form() {
     const {file, updateFile} = use(FileContext);
     const [taskOpen, setTaskOpen] = useState(false);
-    const [content, setContent] = useState('');
 
     return (
-        <div className={'form-container'}><TextEditor value={content} onChange={setContent}/>
+        <EditorProvider>
+        <div className={'form-container'}>
+            <CentralToolbar />
             <Row gutter={24} className={'row'}>
                 <Col xs={12} sm={12} md={6} xl={6}>
 
-                    <Input
-                        type={"text"}
-                        value={file?.author}
-                        onChange={e => updateFile({author: e.target.value})}
-                        placeholder={"Autor"}
-                    />
+                    <TextEditor content={file?.author} onChange={e => updateFile({author: e}) } placeholder={'Autor'}/>
                 </Col>
                 <Col xs={18} sm={18} md={18} xl={12}>
-                    <Input
-                        type={"text"}
-                        value={file?.title}
-                        onChange={e => updateFile({title: e.target.value})}
-                    />
+                    <TextEditor content={file?.title} onChange={e => updateFile({title: e})} placeholder={'Autor'}/>
                 </Col>
                 <Col xs={12} sm={12} md={6} xl={6}>
                     <DatePicker
@@ -39,7 +33,6 @@ export function Form() {
                         onChange={d => updateFile({date: d ? d.format('DD.MM.YY') : ''})}
                     />
                 </Col>
-
             </Row>
             <Row className={'row'} style={{width: '100%', justifyContent: 'center'}}>
                 <Col>
@@ -55,5 +48,6 @@ export function Form() {
 
             ))}
         </div>
+        </EditorProvider>
     );
 }

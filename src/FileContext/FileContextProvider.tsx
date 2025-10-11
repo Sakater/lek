@@ -35,7 +35,6 @@ export function FileContextProvider({children}: Props) {
     const addTask = (patchTask: Partial<Task>) => {
         function extractLeadingNumber(input: string): number | null {
             const match = input.trim().match(/^[-+]?\d+(?:[.,]\d+)?/);
-            console.log("input: ", input)
             if (!match) return null;
             // Komma als Dezimaltrenner zulassen
 
@@ -61,7 +60,6 @@ export function FileContextProvider({children}: Props) {
             ...file,
             tasks: [...file.tasks, newTask]
         });
-        console.log(extractLeadingNumber(file.tasks[file.tasks.length - 1].numeration) + 1 + ")");
     };
     const updateTask = (taskId: string, updatedTask: Task) => {
         if (!file) return;

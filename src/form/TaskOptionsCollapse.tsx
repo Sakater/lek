@@ -4,6 +4,7 @@ import {Button, Col, Drawer, Input, InputNumber, Row, Select} from 'antd';
 import type {Task as TaskType} from '../types';
 import {DeleteTwoTone, PlusCircleTwoTone} from "@ant-design/icons";
 import {TasksView} from "../view/TasksView.tsx";
+import {TextEditor} from "../editor/TextEditor.tsx";
 
 type Props = {
     task: TaskType;
@@ -54,12 +55,14 @@ export function TaskOptionsCollapse({task, open, onClose}: Props) {
                                 {task.options.map((option) => (
                                     <Row gutter={24}>
                                         <Col span={22}>
-                                            <Input key={option.id}
-                                                   type="text"
-                                                   value={option.name}
-                                                   onChange={e => {
-                                                       updateOption(task.id, option.id, e.target.value)
-                                                   }}/>
+                                            <TextEditor
+                                                key={option.id}
+                                                content={option.name}
+                                                onChange={e => {
+                                                    updateOption(task.id, option.id, e)
+                                                }}
+                                                placeholder={'Autor'}
+                                            />
                                         </Col>
                                         <Col span={1}>
                                             <Button className="icon-delete-2-tone" icon={<DeleteTwoTone/>}

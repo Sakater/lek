@@ -26,7 +26,6 @@ export function TaskSearch({open, onClose}: Props) {
 
 
     useEffect(() => {
-        console.log(inputValue);
         if (inputValue.length === 0) {
             setTasks([]); // Ergebnisse ausblenden, wenn keine Suchbegriffe
             return;
