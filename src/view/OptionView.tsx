@@ -1,12 +1,14 @@
 import React, {JSX, use} from "react";
-import type {Option} from "../types";
+import type {Id, Option} from "../types";
 import {FileContext} from "../FileContext";
+import {sanitizeHtml} from "../utils/sanitizeHtml.ts";
 
 type OptionViewProps = {
     option: Option;
     indexOption: number;
     totalLines: number;
     lines: number;
+    key?: Id
 
 }
 
@@ -22,7 +24,8 @@ export function OptionView ({option,  indexOption, totalLines, lines}: OptionVie
                  }}>
                 {totalLines > 0 &&
                     Array.from({length: lines}, () => (
-                        <div style={{
+                        <div key={Math.random()}
+                            style={{
                             borderBottom: "solid black 1px",
                             paddingBottom: `${dynamicSize(10)}pt`
                         }}></div>
@@ -39,17 +42,20 @@ export function OptionView ({option,  indexOption, totalLines, lines}: OptionVie
             fontSize: `${dynamicSize(12)}pt`
         }}>
             <div>{`${alphabet.at(indexOption)}) `}</div>
-            <div style={{overflow: "hidden"}}>{option.name}
-
+            <div style={{overflow: "hidden"}}>
+            <div dangerouslySetInnerHTML={{__html: sanitizeHtml(option.name) || ""}}/>
                 {totalLines > 0 &&
-                    helpingLines(totalLines, lines)}{
-                    /*Array.from({length: totalLines}, (_, index) => (
-                        <div key={index} style={{marginRight: "10%", marginTop: "5%"}}>
-                            {lines > 0 &&
-                                Array.from({length: lines}, (_) => (
-                                    <div style={{borderBottom: "solid black 1px", marginBottom: "3%"}}></div>
-                                ))}
-                        </div>))*/}</div>
+                    helpingLines(totalLines, lines)}
+                {/*Array.from({length: totalLines}, (_, index) => (
+                    <div key={index} style={{marginRight: "10%", marginTop: "5%"}}>
+                        {lines > 0 &&
+                            Array.from({length: lines}, (_) => (
+                                <div style={{borderBottom: "solid black 1px", marginBottom: "3%"}}></div>
+                            ))}
+                    </div>))*/}
+            </div>
+
+
         </div>
     )
 }

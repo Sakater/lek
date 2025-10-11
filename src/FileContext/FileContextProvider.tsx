@@ -7,6 +7,8 @@ import {Subject, TaskType} from '../types';
 type Props = {
     children: ReactNode;
 }
+
+
 const initialFile = () => {
     const fileFromStorage = localStorage.getItem('cachedFile');
     return fileFromStorage ? JSON.parse(fileFromStorage) : {
@@ -32,7 +34,7 @@ export function FileContextProvider({children}: Props) {
         if (!file) return;
         setFile(prev => (prev ? {...prev, ...patch} : prev));
     };
-    const addTask = (patchTask: Partial<Task>) => {
+    const addTask = (patchTask: Partial<Task>={}) => {
         function extractLeadingNumber(input: string): number | null {
             const match = input.trim().match(/^[-+]?\d+(?:[.,]\d+)?/);
             if (!match) return null;

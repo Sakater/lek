@@ -164,7 +164,7 @@ export const CentralToolbar: React.FC = () => {
 
             <Select
                 value={editorState?.fontSize}
-                style={{width: 120}}
+                style={{width: 100}}
                 onOpenChange={handleSelectOpen}
                 onChange={(value) => {
                     setValueFontSize(value)

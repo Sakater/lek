@@ -2,7 +2,6 @@ import React, {use} from 'react';
 import {FileContext} from "../FileContext";
 import {Card, Col, Drawer, Row} from "antd";
 import {PlusCircleTwoTone, SearchOutlined} from "@ant-design/icons";
-import {TaskType} from "../types";
 import {TaskSearch} from "./TaskSearch.tsx";
 
 const {Meta} = Card;
@@ -74,7 +73,7 @@ export function TaskChoice({open, onClose}: Props) {
                                     style={{fontSize: 40, display: 'block', paddingTop: '20px', color: 'darkblue'}}/>
                             }
                             onClick={() => {
-                                addTask(TaskType.WriteIn);
+                                addTask({});
                                 onClose();
                             }}
                         >

@@ -1,9 +1,8 @@
 import React, {useEffect} from 'react'
-import { useEditor, EditorContent } from '@tiptap/react'
-import StarterKit from '@tiptap/starter-kit'
-import Underline from '@tiptap/extension-underline'
-import { useEditorHub } from './EditorContext.tsx'
-import { FontSize, TextStyle, Color, BackgroundColor } from '@tiptap/extension-text-style'
+import {EditorContent, useEditor} from '@tiptap/react'
+import {StarterKit} from '@tiptap/starter-kit'
+import {useEditorHub} from './EditorContext.tsx'
+import {BackgroundColor, Color, FontSize, TextStyle} from '@tiptap/extension-text-style'
 
 type EditorContentProps = React.ComponentProps<typeof EditorContent>
 
@@ -21,7 +20,7 @@ export const TextEditor: React.FC<Props> = ({
                                             }) => {
     const { setActiveEditor } = useEditorHub()
     const editor = useEditor({
-        extensions: [StarterKit, Underline, FontSize, TextStyle, Color, BackgroundColor],
+        extensions: [StarterKit, FontSize, TextStyle, Color, BackgroundColor],
         content,
         onUpdate: ({ editor }) => {
             if (onChange) {

@@ -2,6 +2,7 @@ import React, {use} from "react";
 import {FileContext} from "../FileContext";
 import {Col, Row} from "antd";
 import {TasksView} from "./TasksView.tsx";
+import {sanitizeHtml} from "../utils/sanitizeHtml.ts";
 
 
 export function PDFFile() {
@@ -34,11 +35,9 @@ export function PDFFile() {
         <div style={{...pdfContainer, textAlign: "start", flexDirection: "column", alignContent: "center"}}>
             <div style={{textAlign: "center", paddingTop: `${dynamicSize(15)}pt`, width:'100%'}}>
                 <Row justify="center">
-                    <Col span={6} style={{fontSize: `${dynamicSize(13)}pt`, paddingTop:'10px'}}>{file?.author}</Col>
-                    <Col span={12}>
-                        <h1 style={{fontSize: `${dynamicSize(16)}pt`}}>{file?.title}</h1>
-                    </Col>
-                    <Col span={6} style={{fontSize: `${dynamicSize(13)}pt`, paddingTop:'10px'}}>{file?.date}</Col>
+                    <Col span={6} style={{fontSize: `${dynamicSize(13)}pt`, paddingTop:'10px'}} dangerouslySetInnerHTML={{ __html: sanitizeHtml(file?.author) || "" }}/>
+                    <Col span={12} style={{fontSize: `${dynamicSize(16)}pt`}} dangerouslySetInnerHTML={{ __html: sanitizeHtml(file?.title) || "" }}/>
+                    <Col span={6} style={{fontSize: `${dynamicSize(13)}pt`, paddingTop:'10px', paddingLeft:'20px', display: 'flex',alignItems:'center', }} dangerouslySetInnerHTML={{ __html: 'Datum: '+sanitizeHtml(file?.date) || "" }}/>
 
                 </Row>
 
@@ -51,7 +50,7 @@ export function PDFFile() {
                 fontSize: `${dynamicSize(14)}pt`
             }}>
                 {file?.tasks.map((task, index) => (
-                    <TasksView task={task}/>
+                    <TasksView key={task.id} task={task}/>
                 ))}
             </div>
         </div>

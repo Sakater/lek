@@ -1,10 +1,11 @@
-import React, {use, useState} from 'react';
+import React, {use} from 'react';
 import {FileContext} from '../FileContext';
-import {Button, Col, Drawer, Input, InputNumber, Row, Select} from 'antd';
+import {Button, Col, Drawer, InputNumber, Row, Select} from 'antd';
 import type {Task as TaskType} from '../types';
 import {DeleteTwoTone, PlusCircleTwoTone} from "@ant-design/icons";
 import {TasksView} from "../view/TasksView.tsx";
 import {TextEditor} from "../editor/TextEditor.tsx";
+import {sanitizeHtml} from "../utils/sanitizeHtml.ts";
 
 type Props = {
     task: TaskType;
@@ -57,9 +58,9 @@ export function TaskOptionsCollapse({task, open, onClose}: Props) {
                                         <Col span={22}>
                                             <TextEditor
                                                 key={option.id}
-                                                content={option.name}
+                                                content={sanitizeHtml(option.name)}
                                                 onChange={e => {
-                                                    updateOption(task.id, option.id, e)
+                                                    updateOption(task.id, option.id, sanitizeHtml(e))
                                                 }}
                                                 placeholder={'Autor'}
                                             />

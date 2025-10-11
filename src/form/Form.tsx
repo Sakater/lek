@@ -8,6 +8,7 @@ import {TaskChoice} from "./TaskChoice.tsx";
 import { EditorProvider } from '../editor/EditorContext'
 import { CentralToolbar } from '../editor/CentralToolbar'
 import { TextEditor } from '../editor/TextEditor'
+import {sanitizeHtml, sanitizeHtmlToInput} from "../utils/sanitizeHtml.ts";
 
 export function Form() {
     const {file, updateFile} = use(FileContext);
@@ -20,10 +21,10 @@ export function Form() {
             <Row gutter={24} className={'row'}>
                 <Col xs={12} sm={12} md={6} xl={6}>
 
-                    <TextEditor content={file?.author} onChange={e => updateFile({author: e}) } placeholder={'Autor'}/>
+                    <TextEditor content={sanitizeHtmlToInput(file?.author)} onChange={e => updateFile({author: sanitizeHtml(e)}) } placeholder={'Autor'}/>
                 </Col>
                 <Col xs={18} sm={18} md={18} xl={12}>
-                    <TextEditor content={file?.title} onChange={e => updateFile({title: e})} placeholder={'Autor'}/>
+                    <TextEditor content={sanitizeHtml(file?.title)} onChange={e => updateFile({title: sanitizeHtml(e)})} placeholder={'Autor'}/>
                 </Col>
                 <Col xs={12} sm={12} md={6} xl={6}>
                     <DatePicker

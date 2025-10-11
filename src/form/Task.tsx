@@ -5,6 +5,7 @@ import {DeleteTwoTone, SettingTwoTone} from "@ant-design/icons";
 import type {Task as TaskType} from '../types';
 import {TaskOptionsCollapse} from "./TaskOptionsCollapse.tsx";
 import {TextEditor} from "../editor/TextEditor.tsx";
+import {sanitizeHtml} from "../utils/sanitizeHtml.ts";
 
 type Props = {
     task: TaskType;
@@ -19,15 +20,14 @@ export function Task({task}: Props) {
             <Row className={'row task-container'}>
                 <Col span={3}>
                     <TextEditor
-                        content={task.numeration}
-                        onChange={e => updateTask(task.id, {...task, numeration: e})}
+                        content={sanitizeHtml(task.numeration)}
+                        onChange={e => updateTask(task.id, {...task, numeration: sanitizeHtml(e)})}
                     />
                 </Col>
                 <Col span={18}>
                     <TextEditor
-                        content={task.question}
-                        onChange={e => updateTask(task.id, {...task, question: e.target.value})}
-                        placeholder={'Autor'}
+                        content={sanitizeHtml(task.question)}
+                        onChange={e => updateTask(task.id, {...task, question: sanitizeHtml(e)})}
                     />
                 </Col>
                 <Col span={1}>
