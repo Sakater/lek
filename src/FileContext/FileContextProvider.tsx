@@ -24,6 +24,8 @@ const initialFile = () => {
 export function FileContextProvider({children}: Props) {
     const [file, setFile] = useState<File | null>(initialFile);
     const size: number = 1.5
+    const [openCustomizer, setOpenCustomizer] = useState<boolean>(false);
+    const [openTemplateSearch, setOpenTemplateSearch] = useState<boolean>(false);
 
     useEffect(() => {
         if (file) {
@@ -121,7 +123,10 @@ export function FileContextProvider({children}: Props) {
 
     const context: FileContextType = {
         file,
-        //setFile,
+        openCustomizer,
+        setOpenCustomizer,
+        openTemplateSearch,
+        setOpenTemplateSearch,
         updateFile,
         addTask,
         updateTask,

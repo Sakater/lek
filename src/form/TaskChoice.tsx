@@ -2,7 +2,7 @@ import React, {use} from 'react';
 import {FileContext} from "../FileContext";
 import {Card, Col, Drawer, Row} from "antd";
 import {PlusCircleTwoTone, SearchOutlined} from "@ant-design/icons";
-import {TaskSearch} from "./TaskSearch.tsx";
+import {TaskSearch} from "../search/TaskSearch.tsx";
 
 const {Meta} = Card;
 type Props = {

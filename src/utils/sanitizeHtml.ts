@@ -15,6 +15,5 @@ export const sanitizeHtml = (input:string|undefined) => {
 export const sanitizeHtmlToInput = (input:string|undefined)=> {
     if (!input) return '';
     if (input.trim() === '<p></p>') return '';
-    console.log(DOMPurify.sanitize(input, {ALLOWED_TAGS: [], ALLOWED_ATTR: []}));
     return DOMPurify.sanitize(input, {ALLOWED_TAGS: [], ALLOWED_ATTR: []});
 }

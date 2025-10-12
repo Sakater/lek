@@ -73,6 +73,19 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@media print {
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .avoid-break {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
 .icon-delete-2-tone {
   svg path:nth-of-type(1) {
     fill: white;

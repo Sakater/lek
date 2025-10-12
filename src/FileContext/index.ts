@@ -5,6 +5,10 @@ import type {File, Task} from '../types';
 
 export type FileContextType = {
     file: File | null;
+    openCustomizer: boolean;
+    setOpenCustomizer: (open: boolean) => void;
+    openTemplateSearch: boolean;
+    setOpenTemplateSearch: (open: boolean) => void;
     //setFile: (file: File) => void;
     updateFile: (patch: Partial<File>) => void;
     updateTask: (taskId: string, updatedTask: Task) => void;
@@ -25,6 +29,10 @@ export const FileContext = createContext<FileContextType>({
         tasksPerPage: 0,
         tasks: []
     },
+    openCustomizer: false,
+    setOpenCustomizer: () => {},
+    openTemplateSearch: false,
+    setOpenTemplateSearch: () => {},
     //setFile: () => {},
     updateFile: () => {
     },
@@ -39,5 +47,5 @@ export const FileContext = createContext<FileContextType>({
     deleteOption: () => {
     },
     dynamicSize: () => 0,
-    size: 1
+    size: 1.2
 });

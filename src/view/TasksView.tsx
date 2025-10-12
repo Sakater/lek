@@ -6,14 +6,16 @@ import {sanitizeHtml} from "../utils/sanitizeHtml.ts";
 
 type Props = {
     task: TaskType,
+    size?:number;
     key?: Id
 }
 
-export function TasksView({task}: Props) {
-    const {size, dynamicSize} = use(FileContext);
+export function TasksView({task, size=1.5}: Props) {
+    const { dynamicSize} = use(FileContext);
     const value = size;
     const pageWidth = {
-        maxWidth: `${210 / value}mm`,
+        //maxWidth: `${210 / value}mm`,
+        maxWidth: `min(${210 / value}mm, 100%)`,
         minWidth: `${210 / value}mm`,
         width: `${210 / value}mm`
     }
@@ -45,7 +47,8 @@ export function TasksView({task}: Props) {
              style={{
                  display: "inline-grid",
                  gridTemplateRows: "10% auto", ...pageWidth,
-                 overflowWrap: "break-word"
+                 overflowWrap: "break-word",
+                 width:'100%'
              }}>
             <div key={task.id}
                  style={{
@@ -57,7 +60,7 @@ export function TasksView({task}: Props) {
                     style={{
                         ...pageWidth,
                         fontSize: `${dynamicSize(14)}pt`,
-                        paddingTop: `${dynamicSize(25)}pt`,
+                        /*paddingTop: `${dynamicSize(25)}pt`,*/
                         paddingLeft: `${dynamicSize(15)}pt`
                     }}
                     dangerouslySetInnerHTML={{__html: sanitizeHtml(task.numeration)}}
@@ -66,7 +69,7 @@ export function TasksView({task}: Props) {
                     style={{
                         ...pageWidth,
                         fontSize: `${dynamicSize(14)}pt`,
-                        paddingTop: `${dynamicSize(25)}pt`,
+                        /*paddingTop: `${dynamicSize(25)}pt`,*/
                         paddingLeft: `${dynamicSize(15)}pt`
                     }}
                     dangerouslySetInnerHTML={{__html: sanitizeHtml(task.question)}}
@@ -85,7 +88,7 @@ export function TasksView({task}: Props) {
                 display: "inline-grid",
                 gridTemplateColumns: gridTemplateColumns,
                 gridTemplateRows: "auto",
-                paddingTop: `${dynamicSize(15)}pt`
+                /*paddingTop: `${dynamicSize(15)}pt`*/
 
             }}>
                 {/*Options*/

@@ -9,6 +9,7 @@
     margin-bottom: 2%;
     margin-top: 2%;
     width: 100%;
+
 }
 
 .body-row {
@@ -34,4 +35,10 @@
     width: 100%;
     /*justify-self: center;
     justify-content: start;*/
+}
+.home-button{
+    /*links oben platzieren*/
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }

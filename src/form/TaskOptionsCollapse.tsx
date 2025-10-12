@@ -5,7 +5,7 @@ import type {Task as TaskType} from '../types';
 import {DeleteTwoTone, PlusCircleTwoTone} from "@ant-design/icons";
 import {TasksView} from "../view/TasksView.tsx";
 import {TextEditor} from "../editor/TextEditor.tsx";
-import {sanitizeHtml} from "../utils/sanitizeHtml.ts";
+import {sanitizeHtml, sanitizeHtmlToInput} from "../utils/sanitizeHtml.ts";
 
 type Props = {
     task: TaskType;
@@ -21,7 +21,7 @@ export function TaskOptionsCollapse({task, open, onClose}: Props) {
     return (
         <>
             <Drawer
-                title={`${task.numeration} ${task.question}`}
+                title={`${sanitizeHtmlToInput(task.numeration)} ${sanitizeHtmlToInput(task.question)}`}
                 placement={'top'}
                 closable={false}
                 onClose={onClose}

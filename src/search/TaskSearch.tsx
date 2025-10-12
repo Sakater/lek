@@ -1,11 +1,11 @@
 import {Button, Card, Col, Drawer, Input, Row, Select,} from "antd";
 import type {SelectProps} from 'antd';
 import React, {use, useEffect, useState} from "react";
-import {searchTasks} from '../services/taskService';
+import {searchTasks} from '../services/taskService.ts';
 import {TasksView} from "../view/TasksView.tsx";
 import type {Task} from "../types";
 import {TaskType} from "../types";
-import {Subject} from "../types/Types.ts";
+import {Subject} from "../types";
 import {FileContext} from "../FileContext";
 
 type Props = {
@@ -56,7 +56,7 @@ export function TaskSearch({open, onClose}: Props) {
                         <Row>
                             <Col>
                                 <Card>
-                                    <TasksView task={task}/>
+                                    <TasksView task={task} size={1.5}/>
                                 </Card>
                             </Col>
                             <Col>

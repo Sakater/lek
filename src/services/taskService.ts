@@ -1,5 +1,6 @@
-import type {Task} from '../types';
+import type {File, Task} from '../types';
 import {Subject, TaskType} from '../types';
+import dummyFiles from '../dummy_files.json';
 
 export async function searchTasks(queries: string[]): Promise<Task[]> {
     /*const response = await fetch('/api/tasks/search', {
@@ -124,4 +125,32 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             totalLines: 2,
         },
     ]
+}
+
+export async function searchFiles(queries: string[]): Promise<File[]> {
+    /*const response = await fetch('/api/tasks/search', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ queries })
+    });
+    const data = await response.json();
+    return data.tasks;*/
+    // Type Guard zur Validierung
+    function isFileArray(data: unknown): data is File[] {
+        if (!Array.isArray(data)) return false;
+
+        return data.every((item: any) =>
+            typeof item.title === 'string' &&
+            typeof item.author === 'string' &&
+            typeof item.date === 'string' &&
+            Array.isArray(item.tasks) &&
+            typeof item.tasksPerPage === 'number'
+        );
+    }
+    if (isFileArray(dummyFiles)) {
+        return dummyFiles;
+    }
+    throw new Error('Invalid file structure in JSON');
 }

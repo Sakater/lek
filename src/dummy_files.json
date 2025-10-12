@@ -1,0 +1,943 @@
+[
+  {
+    "title": "Übung Siyer - Teil 1",
+    "tasks": [
+      {
+        "subject": "Fikih",
+        "type": "Multiple-Choice",
+        "numeration": "1.",
+        "question": "Was sind die Bedingungen für das Fasten?",
+        "options": [
+          {
+            "name": "114",
+            "id": "opt_0_0_0"
+          },
+          {
+            "name": "110",
+            "id": "opt_0_0_1"
+          },
+          {
+            "name": "120",
+            "id": "opt_0_0_2"
+          },
+          {
+            "name": "100",
+            "id": "opt_0_0_3"
+          }
+        ],
+        "optionsInARow": 2,
+        "id": "task_0_0",
+        "lines": 0,
+        "totalLines": 0
+      },
+      {
+        "subject": "Akaid",
+        "type": "Mixed",
+        "numeration": "2.",
+        "question": "Erkläre den Begriff Qadar.",
+        "options": [
+          {
+            "name": "5",
+            "id": "opt_0_1_0"
+          },
+          {
+            "name": "3",
+            "id": "opt_0_1_1"
+          }
+        ],
+        "optionsInARow": 2,
+        "id": "task_0_1",
+        "lines": 2,
+        "totalLines": 2
+      },
+      {
+        "subject": "Arapça",
+        "type": "Mixed",
+        "numeration": "3.",
+        "question": "Konjugiere das Verb \"kataba\".",
+        "options": [
+          {
+            "name": "Ja",
+            "id": "opt_0_2_0"
+          },
+          {
+            "name": "Nein",
+            "id": "opt_0_2_1"
+          }
+        ],
+        "optionsInARow": 2,
+        "id": "task_0_2",
+        "lines": 2,
+        "totalLines": 2
+      },
+      {
+        "subject": "Tefsir",
+        "type": "Multiple-Choice",
+        "numeration": "4.",
+        "question": "Erkläre den Begriff Tafsir bil-Ma'thur.",
+        "options": [
+          {
+            "name": "570 n.Chr.",
+            "id": "opt_0_3_0"
+          },
+          {
+            "name": "571 n.Chr.",
+            "id": "opt_0_3_1"
+          },
+          {
+            "name": "572 n.Chr.",
+            "id": "opt_0_3_2"
+          },
+          {
+            "name": "573 n.Chr.",
+            "id": "opt_0_3_3"
+          }
+        ],
+        "optionsInARow": 2,
+        "id": "task_0_3",
+        "lines": 0,
+        "totalLines": 0
+      },
+      {
+        "subject": "Siyer",
+        "type": "Lückentext",
+        "numeration": "5.",
+        "question": "Wie hieß die erste Ehefrau des Propheten?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_0_4",
+        "lines": 1,
+        "totalLines": 6
+      }
+    ],
+    "author": "Mustafa Öztürk",
+    "date": "2025-11-10",
+    "tasksPerPage": 4
+  },
+  {
+    "title": "Test Fikih - Teil 2",
+    "tasks": [
+      {
+        "subject": "Akaid",
+        "type": "Multiple-Choice",
+        "numeration": "1.",
+        "question": "Was sind die Eigenschaften Allahs?",
+        "options": [
+          {
+            "name": "Al-Baqara",
+            "id": "opt_1_0_0"
+          },
+          {
+            "name": "Al-Fatiha",
+            "id": "opt_1_0_1"
+          },
+          {
+            "name": "Al-Ikhlas",
+            "id": "opt_1_0_2"
+          },
+          {
+            "name": "An-Nas",
+            "id": "opt_1_0_3"
+          }
+        ],
+        "optionsInARow": 4,
+        "id": "task_1_0",
+        "lines": 0,
+        "totalLines": 0
+      },
+      {
+        "subject": "Fikih",
+        "type": "Lückentext",
+        "numeration": "2.",
+        "question": "Was ist die Nisab-Grenze für Zakat?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_1_1",
+        "lines": 1,
+        "totalLines": 8
+      },
+      {
+        "subject": "Dini Tarih",
+        "type": "Textfeld",
+        "numeration": "3.",
+        "question": "Beispielfrage zu Dini Tarih?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_1_2",
+        "lines": 4,
+        "totalLines": 4
+      },
+      {
+        "subject": "Arapça",
+        "type": "Multiple-Choice",
+        "numeration": "4.",
+        "question": "Übersetze: السلام عليكم",
+        "options": [
+          {
+            "name": "Mekka",
+            "id": "opt_1_3_0"
+          },
+          {
+            "name": "Medina",
+            "id": "opt_1_3_1"
+          },
+          {
+            "name": "Jerusalem",
+            "id": "opt_1_3_2"
+          },
+          {
+            "name": "Damaskus",
+            "id": "opt_1_3_3"
+          }
+        ],
+        "optionsInARow": 2,
+        "id": "task_1_3",
+        "lines": 0,
+        "totalLines": 0
+      }
+    ],
+    "author": "Mustafa Öztürk",
+    "date": "2025-10-03",
+    "tasksPerPage": 2
+  },
+  {
+    "title": "Test Akaid - Teil 3",
+    "tasks": [
+      {
+        "subject": "Kelam",
+        "type": "Textfeld",
+        "numeration": "1.",
+        "question": "Beispielfrage zu Kelam?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_2_0",
+        "lines": 4,
+        "totalLines": 4
+      },
+      {
+        "subject": "Kelam",
+        "type": "Multiple-Choice",
+        "numeration": "2.",
+        "question": "Beispielfrage zu Kelam?",
+        "options": [
+          {
+            "name": "5",
+            "id": "opt_2_1_0"
+          },
+          {
+            "name": "3",
+            "id": "opt_2_1_1"
+          },
+          {
+            "name": "7",
+            "id": "opt_2_1_2"
+          },
+          {
+            "name": "4",
+            "id": "opt_2_1_3"
+          }
+        ],
+        "optionsInARow": 2,
+        "id": "task_2_1",
+        "lines": 0,
+        "totalLines": 0
+      },
+      {
+        "subject": "Dini Tarih",
+        "type": "Textfeld",
+        "numeration": "3.",
+        "question": "Beispielfrage zu Dini Tarih?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_2_2",
+        "lines": 6,
+        "totalLines": 6
+      },
+      {
+        "subject": "Kuran",
+        "type": "Multiple-Choice",
+        "numeration": "4.",
+        "question": "Was ist die längste Sure?",
+        "options": [
+          {
+            "name": "Al-Baqara",
+            "id": "opt_2_3_0"
+          },
+          {
+            "name": "Al-Fatiha",
+            "id": "opt_2_3_1"
+          },
+          {
+            "name": "Al-Ikhlas",
+            "id": "opt_2_3_2"
+          },
+          {
+            "name": "An-Nas",
+            "id": "opt_2_3_3"
+          }
+        ],
+        "optionsInARow": 2,
+        "id": "task_2_3",
+        "lines": 0,
+        "totalLines": 0
+      }
+    ],
+    "author": "Fatma Demir",
+    "date": "2025-09-16",
+    "tasksPerPage": 5
+  },
+  {
+    "title": "Klausur Hadis - Teil 4",
+    "tasks": [
+      {
+        "subject": "Tefsir",
+        "type": "Multiple-Choice",
+        "numeration": "1.",
+        "question": "Erkläre den Begriff Tafsir bil-Ma'thur.",
+        "options": [
+          {
+            "name": "Al-Baqara",
+            "id": "opt_3_0_0"
+          },
+          {
+            "name": "Al-Fatiha",
+            "id": "opt_3_0_1"
+          },
+          {
+            "name": "Al-Ikhlas",
+            "id": "opt_3_0_2"
+          },
+          {
+            "name": "An-Nas",
+            "id": "opt_3_0_3"
+          }
+        ],
+        "optionsInARow": 2,
+        "id": "task_3_0",
+        "lines": 0,
+        "totalLines": 0
+      },
+      {
+        "subject": "Akaid",
+        "type": "Lückentext",
+        "numeration": "2.",
+        "question": "Erkläre den Begriff Qadar.",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_3_1",
+        "lines": 1,
+        "totalLines": 6
+      },
+      {
+        "subject": "Arapça",
+        "type": "Multiple-Choice",
+        "numeration": "3.",
+        "question": "Übersetze: السلام عليكم",
+        "options": [
+          {
+            "name": "570 n.Chr.",
+            "id": "opt_3_2_0"
+          },
+          {
+            "name": "571 n.Chr.",
+            "id": "opt_3_2_1"
+          },
+          {
+            "name": "572 n.Chr.",
+            "id": "opt_3_2_2"
+          },
+          {
+            "name": "573 n.Chr.",
+            "id": "opt_3_2_3"
+          }
+        ],
+        "optionsInARow": 4,
+        "id": "task_3_2",
+        "lines": 0,
+        "totalLines": 0
+      },
+      {
+        "subject": "Hadis",
+        "type": "Textfeld",
+        "numeration": "4.",
+        "question": "Was bedeutet Isnad?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_3_3",
+        "lines": 6,
+        "totalLines": 6
+      },
+      {
+        "subject": "Hadis",
+        "type": "Multiple-Choice",
+        "numeration": "5.",
+        "question": "Was bedeutet Isnad?",
+        "options": [
+          {
+            "name": "5",
+            "id": "opt_3_4_0"
+          },
+          {
+            "name": "3",
+            "id": "opt_3_4_1"
+          },
+          {
+            "name": "7",
+            "id": "opt_3_4_2"
+          },
+          {
+            "name": "4",
+            "id": "opt_3_4_3"
+          }
+        ],
+        "optionsInARow": 4,
+        "id": "task_3_4",
+        "lines": 0,
+        "totalLines": 0
+      }
+    ],
+    "author": "Ahmed Yılmaz",
+    "date": "2025-09-25",
+    "tasksPerPage": 4
+  },
+  {
+    "title": "Klausur Kelam - Teil 5",
+    "tasks": [
+      {
+        "subject": "Akaid",
+        "type": "Lückentext",
+        "numeration": "1.",
+        "question": "Was sind die Eigenschaften Allahs?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_4_0",
+        "lines": 1,
+        "totalLines": 7
+      },
+      {
+        "subject": "Tefsir",
+        "type": "Lückentext",
+        "numeration": "2.",
+        "question": "Wer sind bekannte Mufassir?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_4_1",
+        "lines": 1,
+        "totalLines": 6
+      },
+      {
+        "subject": "Hadis",
+        "type": "Lückentext",
+        "numeration": "3.",
+        "question": "Was bedeutet Isnad?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_4_2",
+        "lines": 1,
+        "totalLines": 7
+      },
+      {
+        "subject": "Siyer",
+        "type": "Multiple-Choice",
+        "numeration": "4.",
+        "question": "Wann wurde der Prophet Muhammad (s.a.w.) geboren?",
+        "options": [
+          {
+            "name": "114",
+            "id": "opt_4_3_0"
+          },
+          {
+            "name": "110",
+            "id": "opt_4_3_1"
+          },
+          {
+            "name": "120",
+            "id": "opt_4_3_2"
+          },
+          {
+            "name": "100",
+            "id": "opt_4_3_3"
+          }
+        ],
+        "optionsInARow": 4,
+        "id": "task_4_3",
+        "lines": 0,
+        "totalLines": 0
+      }
+    ],
+    "author": "Mehmet Kaya",
+    "date": "2025-02-12",
+    "tasksPerPage": 5
+  },
+  {
+    "title": "Prüfung Tefsir - Teil 6",
+    "tasks": [
+      {
+        "subject": "Arapça",
+        "type": "Mixed",
+        "numeration": "1.",
+        "question": "Was bedeutet \"kitab\"?",
+        "options": [
+          {
+            "name": "5",
+            "id": "opt_5_0_0"
+          },
+          {
+            "name": "3",
+            "id": "opt_5_0_1"
+          }
+        ],
+        "optionsInARow": 2,
+        "id": "task_5_0",
+        "lines": 3,
+        "totalLines": 3
+      },
+      {
+        "subject": "Hadis",
+        "type": "Textfeld",
+        "numeration": "2.",
+        "question": "Erkläre die Hadith-Klassifikation.",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_5_1",
+        "lines": 3,
+        "totalLines": 3
+      },
+      {
+        "subject": "Tefsir",
+        "type": "Mixed",
+        "numeration": "3.",
+        "question": "Was bedeutet Tefsir?",
+        "options": [
+          {
+            "name": "Mekka",
+            "id": "opt_5_2_0"
+          },
+          {
+            "name": "Medina",
+            "id": "opt_5_2_1"
+          }
+        ],
+        "optionsInARow": 2,
+        "id": "task_5_2",
+        "lines": 2,
+        "totalLines": 2
+      },
+      {
+        "subject": "Tefsir",
+        "type": "Mixed",
+        "numeration": "4.",
+        "question": "Wer sind bekannte Mufassir?",
+        "options": [
+          {
+            "name": "Ja",
+            "id": "opt_5_3_0"
+          },
+          {
+            "name": "Nein",
+            "id": "opt_5_3_1"
+          }
+        ],
+        "optionsInARow": 2,
+        "id": "task_5_3",
+        "lines": 3,
+        "totalLines": 3
+      },
+      {
+        "subject": "Arapça",
+        "type": "Lückentext",
+        "numeration": "5.",
+        "question": "Was bedeutet \"kitab\"?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_5_4",
+        "lines": 1,
+        "totalLines": 7
+      }
+    ],
+    "author": "Mustafa Öztürk",
+    "date": "2025-10-03",
+    "tasksPerPage": 3
+  },
+  {
+    "title": "Test Arapça - Teil 7",
+    "tasks": [
+      {
+        "subject": "Fikih",
+        "type": "Lückentext",
+        "numeration": "1.",
+        "question": "Was sind die Bedingungen für das Fasten?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_6_0",
+        "lines": 1,
+        "totalLines": 4
+      },
+      {
+        "subject": "Arapça",
+        "type": "Textfeld",
+        "numeration": "2.",
+        "question": "Erkläre den Unterschied zwischen Mudari und Madi.",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_6_1",
+        "lines": 6,
+        "totalLines": 6
+      },
+      {
+        "subject": "Hadis",
+        "type": "Textfeld",
+        "numeration": "3.",
+        "question": "Was bedeutet Isnad?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_6_2",
+        "lines": 5,
+        "totalLines": 5
+      },
+      {
+        "subject": "Hadis",
+        "type": "Multiple-Choice",
+        "numeration": "4.",
+        "question": "Erkläre die Hadith-Klassifikation.",
+        "options": [
+          {
+            "name": "570 n.Chr.",
+            "id": "opt_6_3_0"
+          },
+          {
+            "name": "571 n.Chr.",
+            "id": "opt_6_3_1"
+          },
+          {
+            "name": "572 n.Chr.",
+            "id": "opt_6_3_2"
+          },
+          {
+            "name": "573 n.Chr.",
+            "id": "opt_6_3_3"
+          }
+        ],
+        "optionsInARow": 2,
+        "id": "task_6_3",
+        "lines": 0,
+        "totalLines": 0
+      },
+      {
+        "subject": "Tefsir",
+        "type": "Lückentext",
+        "numeration": "5.",
+        "question": "Was ist Asbab an-Nuzul?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_6_4",
+        "lines": 1,
+        "totalLines": 8
+      }
+    ],
+    "author": "Mehmet Kaya",
+    "date": "2025-06-05",
+    "tasksPerPage": 3
+  },
+  {
+    "title": "Test Kuran - Teil 8",
+    "tasks": [
+      {
+        "subject": "Kelam",
+        "type": "Textfeld",
+        "numeration": "1.",
+        "question": "Beispielfrage zu Kelam?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_7_0",
+        "lines": 3,
+        "totalLines": 3
+      },
+      {
+        "subject": "Kuran",
+        "type": "Textfeld",
+        "numeration": "2.",
+        "question": "Wie viele Suren hat der Quran?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_7_1",
+        "lines": 6,
+        "totalLines": 6
+      },
+      {
+        "subject": "Akaid",
+        "type": "Mixed",
+        "numeration": "3.",
+        "question": "Erkläre den Begriff Qadar.",
+        "options": [
+          {
+            "name": "114",
+            "id": "opt_7_2_0"
+          },
+          {
+            "name": "110",
+            "id": "opt_7_2_1"
+          }
+        ],
+        "optionsInARow": 2,
+        "id": "task_7_2",
+        "lines": 4,
+        "totalLines": 4
+      },
+      {
+        "subject": "Kuran",
+        "type": "Multiple-Choice",
+        "numeration": "4.",
+        "question": "Was ist die längste Sure?",
+        "options": [
+          {
+            "name": "570 n.Chr.",
+            "id": "opt_7_3_0"
+          },
+          {
+            "name": "571 n.Chr.",
+            "id": "opt_7_3_1"
+          },
+          {
+            "name": "572 n.Chr.",
+            "id": "opt_7_3_2"
+          },
+          {
+            "name": "573 n.Chr.",
+            "id": "opt_7_3_3"
+          }
+        ],
+        "optionsInARow": 2,
+        "id": "task_7_3",
+        "lines": 0,
+        "totalLines": 0
+      }
+    ],
+    "author": "Mustafa Öztürk",
+    "date": "2025-02-17",
+    "tasksPerPage": 3
+  },
+  {
+    "title": "Übung Dini Tarih - Teil 9",
+    "tasks": [
+      {
+        "subject": "Fikih",
+        "type": "Mixed",
+        "numeration": "1.",
+        "question": "Was ist die Nisab-Grenze für Zakat?",
+        "options": [
+          {
+            "name": "622 n.Chr.",
+            "id": "opt_8_0_0"
+          },
+          {
+            "name": "610 n.Chr.",
+            "id": "opt_8_0_1"
+          }
+        ],
+        "optionsInARow": 2,
+        "id": "task_8_0",
+        "lines": 4,
+        "totalLines": 4
+      },
+      {
+        "subject": "Siyer",
+        "type": "Multiple-Choice",
+        "numeration": "2.",
+        "question": "Welche Schlacht fand im Jahr 624 statt?",
+        "options": [
+          {
+            "name": "Ja",
+            "id": "opt_8_1_0"
+          },
+          {
+            "name": "Nein",
+            "id": "opt_8_1_1"
+          },
+          {
+            "name": "Manchmal",
+            "id": "opt_8_1_2"
+          },
+          {
+            "name": "Es kommt darauf an",
+            "id": "opt_8_1_3"
+          }
+        ],
+        "optionsInARow": 4,
+        "id": "task_8_1",
+        "lines": 0,
+        "totalLines": 0
+      },
+      {
+        "subject": "Siyer",
+        "type": "Lückentext",
+        "numeration": "3.",
+        "question": "In welchem Jahr fand die Hidschra statt?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_8_2",
+        "lines": 1,
+        "totalLines": 8
+      },
+      {
+        "subject": "Diğer",
+        "type": "Mixed",
+        "numeration": "4.",
+        "question": "Beispielfrage zu Diğer?",
+        "options": [
+          {
+            "name": "Al-Baqara",
+            "id": "opt_8_3_0"
+          },
+          {
+            "name": "Al-Fatiha",
+            "id": "opt_8_3_1"
+          }
+        ],
+        "optionsInARow": 2,
+        "id": "task_8_3",
+        "lines": 2,
+        "totalLines": 2
+      },
+      {
+        "subject": "Hadis",
+        "type": "Textfeld",
+        "numeration": "5.",
+        "question": "Was bedeutet Isnad?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_8_4",
+        "lines": 3,
+        "totalLines": 3
+      }
+    ],
+    "author": "Fatma Demir",
+    "date": "2025-11-08",
+    "tasksPerPage": 4
+  },
+  {
+    "title": "Übung Diğer - Teil 10",
+    "tasks": [
+      {
+        "subject": "Kelam",
+        "type": "Lückentext",
+        "numeration": "1.",
+        "question": "Beispielfrage zu Kelam?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_9_0",
+        "lines": 1,
+        "totalLines": 8
+      },
+      {
+        "subject": "Kuran",
+        "type": "Multiple-Choice",
+        "numeration": "2.",
+        "question": "Wie viele Suren hat der Quran?",
+        "options": [
+          {
+            "name": "114",
+            "id": "opt_9_1_0"
+          },
+          {
+            "name": "110",
+            "id": "opt_9_1_1"
+          },
+          {
+            "name": "120",
+            "id": "opt_9_1_2"
+          },
+          {
+            "name": "100",
+            "id": "opt_9_1_3"
+          }
+        ],
+        "optionsInARow": 2,
+        "id": "task_9_1",
+        "lines": 0,
+        "totalLines": 0
+      },
+      {
+        "subject": "Fikih",
+        "type": "Multiple-Choice",
+        "numeration": "3.",
+        "question": "Was sind die Bedingungen für das Fasten?",
+        "options": [
+          {
+            "name": "Ja",
+            "id": "opt_9_2_0"
+          },
+          {
+            "name": "Nein",
+            "id": "opt_9_2_1"
+          },
+          {
+            "name": "Manchmal",
+            "id": "opt_9_2_2"
+          },
+          {
+            "name": "Es kommt darauf an",
+            "id": "opt_9_2_3"
+          }
+        ],
+        "optionsInARow": 4,
+        "id": "task_9_2",
+        "lines": 0,
+        "totalLines": 0
+      },
+      {
+        "subject": "Arapça",
+        "type": "Textfeld",
+        "numeration": "4.",
+        "question": "Übersetze: السلام عليكم",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_9_3",
+        "lines": 3,
+        "totalLines": 3
+      },
+      {
+        "subject": "Dini Tarih",
+        "type": "Multiple-Choice",
+        "numeration": "5.",
+        "question": "Beispielfrage zu Dini Tarih?",
+        "options": [
+          {
+            "name": "622 n.Chr.",
+            "id": "opt_9_4_0"
+          },
+          {
+            "name": "610 n.Chr.",
+            "id": "opt_9_4_1"
+          },
+          {
+            "name": "630 n.Chr.",
+            "id": "opt_9_4_2"
+          },
+          {
+            "name": "632 n.Chr.",
+            "id": "opt_9_4_3"
+          }
+        ],
+        "optionsInARow": 4,
+        "id": "task_9_4",
+        "lines": 0,
+        "totalLines": 0
+      },
+      {
+        "subject": "Fikih",
+        "type": "Textfeld",
+        "numeration": "6.",
+        "question": "Was ist die Nisab-Grenze für Zakat?",
+        "options": [],
+        "optionsInARow": 1,
+        "id": "task_9_5",
+        "lines": 5,
+        "totalLines": 5
+      }
+    ],
+    "author": "Ali Çelik",
+    "date": "2025-03-04",
+    "tasksPerPage": 2
+  }
+]
