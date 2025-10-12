@@ -44,7 +44,6 @@ export function FileSearch() {
                 closable={false}
                 onClose={() => {
                     setOpenTemplateSearch(false);
-                    setOpenCustomizer(true)
                 }}
                 open={openTemplateSearch}
                 key={'top'}

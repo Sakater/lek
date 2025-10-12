@@ -7,40 +7,51 @@ import {FileContext} from "./FileContext";
 
 export function PDFCustomizer() {
     const {file} = use(FileContext);
-    const handleGeneratePdf = () => {
-        const doc = new jsPDF({
-            format: 'a4',
-            unit: 'px',
+    const reportTemplateRef = useRef<HTMLDivElement>(null as never);
 
-        });
+    const handleGeneratePdf = async () => {
+        if (!reportTemplateRef.current) return;
 
-        // Adding the fonts.
+        const doc = new jsPDF({format: "a4", unit: "px"});
 
-        doc.html(reportTemplateRef.current, {
-            async callback(doc) {
-                await doc.save('document');
+        // Warten bis Layout stabil ist (Framesprung)
+        await new Promise(r => requestAnimationFrame(() => r(null)));
+
+        const node = reportTemplateRef.current;
+        const width = node.scrollWidth;
+
+        doc.html(node, {
+            x: 0,
+            y: 0,
+            width, // skaliert Inhalt passend und verhindert Clipping
+            html2canvas: {
+                scale: window.devicePixelRatio || 2,
+                useCORS: true,
+                windowWidth: width
             },
+            callback(pdf) {
+                pdf.save("document");
+            }
         });
     };
-    const reportTemplateRef = useRef(null as never);
 
     return (
-        <Row gutter={24} className={'body-row'}>
-            <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={12}><Form/></Col>
+        <Row gutter={24} className={"body-row"}>
+            <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={12}>
+                <Form />
+            </Col>
             <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={12}>
                 <div style={{display: "flex", alignItems: "start", justifyContent: "center"}}>
-                    {/*pdf-viewer*/}
-                    <div className={"col avoid-break"} style={{display: "flex", justifyContent: "center"}}
-                         ref={reportTemplateRef}
-                    >
-                        <PDFFile file={file} size={1.2}/>
+                    <div className={"col avoid-break"} style={{display: "flex", justifyContent: "center"}} ref={reportTemplateRef}>
+                        <PDFFile file={file} size={1.2} />
                     </div>
                 </div>
             </Col>
             <Col>
-                <Button onClick={handleGeneratePdf} type="primary" style={{marginTop: '20px'}}>PDF
-                    generieren</Button>
+                <Button onClick={handleGeneratePdf} type="primary" style={{marginTop: "20px"}}>
+                    PDF generieren
+                </Button>
             </Col>
         </Row>
-    )
+    );
 }
