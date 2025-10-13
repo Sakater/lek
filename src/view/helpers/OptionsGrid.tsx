@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Option } from '../../types';
+import {sanitizeHtml} from "../../utils/sanitizeHtml.ts";
 
 type OptionsGridProps= {
     options: Option[];
@@ -28,7 +29,7 @@ export function OptionsGrid( {options, optionsInARow, isMultipleChoice = false}:
                             className="option-checkbox"
                         />
                     )}
-                    <label htmlFor={option.id}>{option.name}</label>
+                    <label htmlFor={option.id} dangerouslySetInnerHTML={{__html: sanitizeHtml(option.name)}}/>
                 </div>
             ))}
         </div>

@@ -2,6 +2,7 @@
 import React from 'react';
 import type {File} from '../types';
 import {TaskView} from './TaskView';
+import {sanitizeHtml} from "../utils/sanitizeHtml.ts";
 
 interface PDFFileProps {
     file: File|null;
@@ -15,10 +16,10 @@ export const PDFFile: React.FC<PDFFileProps> = ({ file, scale = 1 }) => {
             <div className="a4-page">
                 <div className="page-content">
                     <header className="page-header">
-                        <h1 className="page-title">{file?.title}</h1>
+                        <h1 className="page-title" dangerouslySetInnerHTML={{__html: sanitizeHtml(file?.title)}}/>
                         <div className="page-meta">
-                            <span className="page-author">Erstellt von: {file?.author}</span>
-                            <span className="page-date">Datum: {file?.date}</span>
+                            <span className="page-author" dangerouslySetInnerHTML={{__html: sanitizeHtml('Erstellt von: '+file?.author)}}/>
+                            <span className="page-date" dangerouslySetInnerHTML={{__html: sanitizeHtml('Datum:: '+file?.date)}}/>
                         </div>
                     </header>
 

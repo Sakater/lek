@@ -25,5 +25,5 @@ export function WritingLines( {helpingLines, totalLines}: WritingLinesProps) {
         );
     }
 
-    return <div className="writing-lines">{lines}</div>;
-};
+    return <div className="writing-lines" >{lines}</div>;
+}
