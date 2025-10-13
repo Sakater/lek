@@ -15,10 +15,10 @@ export type FileContextType = {
     deleteTask: (taskId: string) => void;
 
     // Function Overloads für addTask mit typspezifischen Patches
-    addTask(type: TaskType.WriteIn, patch?: Partial<Omit<WriteInTask, 'numeration'>>): void;
-    addTask(type: TaskType.MultipleChoice, patch?: Partial<Omit<MultipleChoiceTask, 'numeration'>>): void;
-    addTask(type: TaskType.Mixed, patch?: Partial<Omit<MixedTask, 'numeration'>>): void;
-    addTask(type: TaskType.FillInTheBlanks, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): void;
+    addTask(type: TaskType.WriteIn, patch?: Partial<Omit<WriteInTask, 'numeration'>>): WriteInTask;
+    addTask(type: TaskType.MultipleChoice, patch?: Partial<Omit<MultipleChoiceTask, 'numeration'>>): MultipleChoiceTask;
+    addTask(type: TaskType.Mixed, patch?: Partial<Omit<MixedTask, 'numeration'>>): MixedTask;
+    addTask(type: TaskType.FillInTheBlanks, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): FillInTheBlanksTask;
 
     updateOption: (taskId: string, optionId: string, newName: string) => void;
     deleteOption: (taskId: string, optionId: string) => void;
@@ -41,7 +41,7 @@ export const FileContext = createContext<FileContextType>({
     updateFile: () => {},
     updateTask: () => {},
     deleteTask: () => {},
-    addTask: () => {},
+    addTask: (() => {}) as any,
     updateOption: () => {},
     deleteOption: () => {},
     dynamicSize: () => 0,

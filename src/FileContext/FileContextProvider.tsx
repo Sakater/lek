@@ -71,20 +71,23 @@ export function FileContextProvider({children}: Props) {
     };*/
 
     // Überladungen für addTask
-    function addTask(type: TaskType.WriteIn, patch?: Partial<Omit<WriteInTask, 'numeration'>>): void;
-    function addTask(type: TaskType.MultipleChoice, patch?: Partial<Omit<MultipleChoiceTask, 'numeration'>>): void;
-    function addTask(type: TaskType.Mixed, patch?: Partial<Omit<MixedTask, 'numeration'>>): void;
-    function addTask(type: TaskType.FillInTheBlanks, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): void;
+    function addTask(type: TaskType.WriteIn, patch?: Partial<Omit<WriteInTask, 'numeration'>>): WriteInTask;
+    function addTask(type: TaskType.MultipleChoice, patch?: Partial<Omit<MultipleChoiceTask, 'numeration'>>): MultipleChoiceTask;
+    function addTask(type: TaskType.Mixed, patch?: Partial<Omit<MixedTask, 'numeration'>>): MixedTask;
+    function addTask(type: TaskType.FillInTheBlanks, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): FillInTheBlanksTask;
 
 // Implementierung
-    function addTask(type: TaskType, patch: any = {}): void {
+    function addTask(type: TaskType, patch: any = {}): Task {
         function extractLeadingNumber(input: string): number | null {
-            const match = input.trim().match(/^[-+]?\d+(?:[.,]\d+)?/);
+            const match = input.trim().match(/^[-+]?\\d+(?:[.,]\\d+)?/);
             if (!match) return null;
             return Number(match[0].replace(',', '.'));
         }
 
-        if (!file) return;
+        if (!file) {
+            // Fallback, wenn kein file vorhanden - sollte nicht passieren
+            throw new Error('File not initialized');
+        }
 
         const nextNumber = file?.tasks.length > 0
             ? (extractLeadingNumber(file.tasks[file.tasks.length - 1].numeration) ?? 0) + 1
@@ -99,6 +102,9 @@ export function FileContextProvider({children}: Props) {
             ...file,
             tasks: [...file.tasks, newTask]
         });
+
+        // Task zurückgeben!
+        return newTask;
     }
 
 

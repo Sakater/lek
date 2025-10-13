@@ -6,6 +6,8 @@ import type {Task as TaskType} from '../types';
 import {TaskOptions} from "./TaskOptions.tsx";
 import {TextEditor} from "../editor/TextEditor.tsx";
 import {sanitizeHtml} from "../utils/sanitizeHtml.ts";
+import {MultipleChoiceTaskForm} from "./taskTypes/MultipleChoiceTaskForm.tsx";
+import {TaskFormSelector} from "./TaskFormSelector.tsx";
 
 type Props = {
     task: TaskType;
@@ -40,7 +42,7 @@ export function Task({task}: Props) {
             </Row>
             <Row gutter={24} className={'row task-option'}>
                 <Col span={24}>
-                    <TaskOptions task={task} onClose={() => setOpen(false)} open={open}/>
+                    <TaskFormSelector task={task} onClose={() => setOpen(false)} open={open}/>
                 </Col>
             </Row>
         </>
