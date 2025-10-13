@@ -20,7 +20,7 @@ export function OptionView ({option,  indexOption, totalLines, lines}: OptionVie
             <div key={index}
                  style={{
                      marginRight: `${dynamicSize(30)}pt`,
-                     paddingTop: `${dynamicSize(5)}pt`
+                     paddingTop: `${dynamicSize(10)}pt`
                  }}>
                 {totalLines > 0 &&
                     Array.from({length: lines}, () => (

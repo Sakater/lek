@@ -24,8 +24,8 @@ export function TasksView({task, size=1.5}: Props) {
         Array.from({length: totalLines}, (_, index) => (
             <div key={index}
                  style={{
-                     marginLeft: `${dynamicSize(10)}%`,
-                     marginRight: `${dynamicSize(10)}%`,
+                     paddingLeft: `${dynamicSize(10)}%`,
+                     paddingRight: `${dynamicSize(10)}%`,
                      paddingTop: `${dynamicSize(15)}pt`
                  }}>
                 {totalLines > 0 &&
@@ -78,7 +78,7 @@ export function TasksView({task, size=1.5}: Props) {
 
             {task.totalLines > 0 && task.options.length === 0 &&
                 <div style={{
-                    paddingTop: `${dynamicSize(30)}pt`,
+                    //paddingTop: `${dynamicSize(30)}pt`,
                     ...pageWidth
                 }}>{task.options.length === 0 && task.totalLines > 0 &&
                     helpingLines(task.totalLines, task.lines)}</div>}
