@@ -7,15 +7,15 @@ type OptionViewProps = {
     option: Option;
     indexOption: number;
     totalLines: number;
-    lines: number;
+    helpingLines: number;
     key?: Id
 
 }
 
-export function OptionView ({option,  indexOption, totalLines, lines}: OptionViewProps)  {
+export function OptionView ({option,  indexOption, totalLines, helpingLines}: OptionViewProps)  {
     const alphabet: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
     const { dynamicSize} = use(FileContext);
-    const helpingLines = (totalLines: number, lines: number): JSX.Element[] =>
+    const drawHelpingLines = (totalLines: number, helpingLines: number): JSX.Element[] =>
         Array.from({length: totalLines}, (_, index) => (
             <div key={index}
                  style={{
@@ -23,7 +23,7 @@ export function OptionView ({option,  indexOption, totalLines, lines}: OptionVie
                      paddingTop: `${dynamicSize(10)}pt`
                  }}>
                 {totalLines > 0 &&
-                    Array.from({length: lines}, () => (
+                    Array.from({length: helpingLines}, () => (
                         <div key={Math.random()}
                             style={{
                             borderBottom: "solid black 1px",
@@ -45,11 +45,11 @@ export function OptionView ({option,  indexOption, totalLines, lines}: OptionVie
             <div style={{overflow: "hidden"}}>
             <div dangerouslySetInnerHTML={{__html: sanitizeHtml(option.name) || ""}}/>
                 {totalLines > 0 &&
-                    helpingLines(totalLines, lines)}
+                    drawHelpingLines(totalLines, helpingLines)}
                 {/*Array.from({length: totalLines}, (_, index) => (
                     <div key={index} style={{marginRight: "10%", marginTop: "5%"}}>
-                        {lines > 0 &&
-                            Array.from({length: lines}, (_) => (
+                        {helpingLines > 0 &&
+                            Array.from({length: helpingLines}, (_) => (
                                 <div style={{borderBottom: "solid black 1px", marginBottom: "3%"}}></div>
                             ))}
                     </div>))*/}

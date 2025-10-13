@@ -1,8 +1,10 @@
 import React, {ReactNode, useEffect, useState} from 'react';
 import type {FileContextType} from './index';
 import {FileContext} from './index';
-import type {File, Task} from '../types';
-import {Subject, TaskType} from '../types';
+import type {File, FillInTheBlanksTask, MixedTask, MultipleChoiceTask, Task, WriteInTask} from '../types';
+import {TaskType} from '../types';
+import {createTask} from "./taskFactory.ts";
+
 
 type Props = {
     children: ReactNode;
@@ -36,7 +38,9 @@ export function FileContextProvider({children}: Props) {
         if (!file) return;
         setFile(prev => (prev ? {...prev, ...patch} : prev));
     };
-    const addTask = (patchTask: Partial<Task>={}) => {
+
+
+    /*const addTask = (patchTask: Partial<Task>={}) => {
         function extractLeadingNumber(input: string): number | null {
             const match = input.trim().match(/^[-+]?\d+(?:[.,]\d+)?/);
             if (!match) return null;
@@ -56,7 +60,7 @@ export function FileContextProvider({children}: Props) {
             options: [],
             optionsInARow: 2,
             id: crypto.randomUUID(),
-            lines: 1,
+            helpingLines: 1,
             totalLines: 1
         };
         const newTask = {...baseTask, ...patchTask};
@@ -64,15 +68,67 @@ export function FileContextProvider({children}: Props) {
             ...file,
             tasks: [...file.tasks, newTask]
         });
-    };
-    const updateTask = (taskId: string, updatedTask: Task) => {
+    };*/
+
+    // Überladungen für addTask
+    function addTask(type: TaskType.WriteIn, patch?: Partial<Omit<WriteInTask, 'numeration'>>): void;
+    function addTask(type: TaskType.MultipleChoice, patch?: Partial<Omit<MultipleChoiceTask, 'numeration'>>): void;
+    function addTask(type: TaskType.Mixed, patch?: Partial<Omit<MixedTask, 'numeration'>>): void;
+    function addTask(type: TaskType.FillInTheBlanks, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): void;
+
+// Implementierung
+    function addTask(type: TaskType, patch: any = {}): void {
+        function extractLeadingNumber(input: string): number | null {
+            const match = input.trim().match(/^[-+]?\d+(?:[.,]\d+)?/);
+            if (!match) return null;
+            return Number(match[0].replace(',', '.'));
+        }
+
+        if (!file) return;
+
+        const nextNumber = file?.tasks.length > 0
+            ? (extractLeadingNumber(file.tasks[file.tasks.length - 1].numeration) ?? 0) + 1
+            : 1;
+
+        const newTask = createTask(type, {
+            ...patch,
+            numeration: `${nextNumber})`
+        });
+
+        setFile({
+            ...file,
+            tasks: [...file.tasks, newTask]
+        });
+    }
+
+
+    const updateTask = (taskId: string, updates: Partial<Task> | Task) => {
         if (!file) return;
 
         setFile({
             ...file,
-            tasks: file.tasks.map(task =>
-                task.id === taskId ? updatedTask : task
-            )
+            tasks: file.tasks.map(task => {
+                if (task.id !== taskId) return task;
+
+                // Wenn updates ein vollständiger Task ist, einfach verwenden
+                // Ansonsten mergen
+                const updatedTask = { ...task, ...updates };
+
+                // Type preservation
+                switch (task.type) {
+                    case TaskType.WriteIn:
+                        return updatedTask as WriteInTask;
+                    case TaskType.MultipleChoice:
+                        return updatedTask as MultipleChoiceTask;
+                    case TaskType.Mixed:
+                        return updatedTask as MixedTask;
+                    case TaskType.FillInTheBlanks:
+                        return updatedTask as FillInTheBlanksTask;
+                    default:
+                        const _exhaustive: never = task;
+                        return task;
+                }
+            })
         });
     };
 
@@ -84,40 +140,67 @@ export function FileContextProvider({children}: Props) {
             tasks: file.tasks.filter(task => task.id !== taskId)
         });
     };
+
     const updateOption = (taskId: string, optionId: string, newName: string) => {
         if (!file) return;
 
         setFile({
             ...file,
             tasks: file.tasks.map(task => {
-                if (task.id === taskId) {
-                    return {
-                        ...task,
-                        options: task.options.map(option =>
-                            option.id === optionId ? {...option, name: newName} : option
-                        )
-                    };
+                if (task.id !== taskId) return task;
+
+                // Typsichere Aktualisierung basierend auf dem Task-Typ
+                const updatedOptions = task.options.map(option =>
+                    option.id === optionId ? { ...option, name: newName } : option
+                );
+
+                // Type-spezifische Rückgabe, um Discriminated Union zu erhalten
+                switch (task.type) {
+                    case TaskType.WriteIn:
+                        return { ...task, options: updatedOptions } as WriteInTask;
+                    case TaskType.MultipleChoice:
+                        return { ...task, options: updatedOptions } as MultipleChoiceTask;
+                    case TaskType.Mixed:
+                        return { ...task, options: updatedOptions } as MixedTask;
+                    case TaskType.FillInTheBlanks:
+                        return { ...task, options: updatedOptions } as FillInTheBlanksTask;
+                    default:
+                        const _exhaustive: never = task;
+                        return task;
                 }
-                return task;
             })
         });
     };
+
     const deleteOption = (taskId: string, optionId: string) => {
         if (!file) return;
 
         setFile({
             ...file,
             tasks: file.tasks.map(task => {
-                if (task.id === taskId) {
-                    return {
-                        ...task,
-                        options: task.options.filter(option => option.id !== optionId)
-                    };
+                if (task.id !== taskId) return task;
+
+                // Gefilterte Options
+                const filteredOptions = task.options.filter(option => option.id !== optionId);
+
+                // Type-spezifische Rückgabe
+                switch (task.type) {
+                    case TaskType.WriteIn:
+                        return { ...task, options: filteredOptions } as WriteInTask;
+                    case TaskType.MultipleChoice:
+                        return { ...task, options: filteredOptions } as MultipleChoiceTask;
+                    case TaskType.Mixed:
+                        return { ...task, options: filteredOptions } as MixedTask;
+                    case TaskType.FillInTheBlanks:
+                        return { ...task, options: filteredOptions } as FillInTheBlanksTask;
+                    default:
+                        const _exhaustive: never = task;
+                        return task;
                 }
-                return task;
             })
-        })
-    }
+        });
+    };
+
 
     const dynamicSize = (expanse: number) => (expanse / size) | 0;
 
@@ -128,9 +211,9 @@ export function FileContextProvider({children}: Props) {
         openTemplateSearch,
         setOpenTemplateSearch,
         updateFile,
-        addTask,
         updateTask,
         deleteTask,
+        addTask,
         updateOption,
         deleteOption,
         dynamicSize,

@@ -3,7 +3,7 @@ import {FileContext} from '../FileContext';
 import {Button, Col, Drawer, InputNumber, Row, Select} from 'antd';
 import type {Task as TaskType} from '../types';
 import {DeleteTwoTone, PlusCircleTwoTone} from "@ant-design/icons";
-import {TasksView} from "../view/TasksView.tsx";
+import {TaskView} from "../view/TaskView.tsx";
 import {TextEditor} from "../editor/TextEditor.tsx";
 import {sanitizeHtml, sanitizeHtmlToInput} from "../utils/sanitizeHtml.ts";
 
@@ -15,7 +15,6 @@ type Props = {
 
 export function TaskOptionsCollapse({task, open, onClose}: Props) {
     const {updateTask, updateOption, deleteOption} = use(FileContext);
-
 
 
     return (
@@ -35,7 +34,6 @@ export function TaskOptionsCollapse({task, open, onClose}: Props) {
                             <Col span={8} style={{paddingTop: '20px'}}>
                                 <Button size={"small"} className={'plus-circle-2-tone'}
                                         icon={<PlusCircleTwoTone/>} onClick={() => updateTask(task.id, {
-                                    ...task,
                                     options: [...task.options, {id: crypto.randomUUID(), name: ''}]
                                 })}
                                         disabled={task.options.length >= 10}
@@ -48,7 +46,7 @@ export function TaskOptionsCollapse({task, open, onClose}: Props) {
                                 <InputNumber size="middle" min={1} max={10} defaultValue={1}
                                              onChange={(value: number | null) => {
                                                  if (value !== null) {
-                                                     updateTask(task.id, {...task, optionsInARow: value});
+                                                     updateTask(task.id, {optionsInARow: value});
                                                  }
                                              }}/>
                             </Col>
@@ -84,7 +82,7 @@ export function TaskOptionsCollapse({task, open, onClose}: Props) {
                                         {value: 2, label: '2 Hilfslinien'},
                                         {value: 3, label: '3 Hilfslinien'},
                                     ]}
-                                    onChange={(value: number) => updateTask(task.id, {...task, lines: value})}
+                                    onChange={(value: number) => updateTask(task.id, {helpingLines: value})}
                                 />
                             </Col>
                             <Col span={8}>
@@ -92,14 +90,14 @@ export function TaskOptionsCollapse({task, open, onClose}: Props) {
                                 <InputNumber size="middle" min={0} max={10} defaultValue={0}
                                              onChange={(value: number | null) => {
                                                  if (value !== null) {
-                                                     updateTask(task.id, {...task, totalLines: value});
+                                                     updateTask(task.id, {totalLines: value});
                                                  }
                                              }}/>
                             </Col>
                         </Row>
                     </Col>
                     <Col xs={24} xxl={12}>
-                        <TasksView task={task}/>
+                        <TaskView task={task} key={task.id}/>
                     </Col>
                 </Row>
 

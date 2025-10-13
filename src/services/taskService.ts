@@ -22,7 +22,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             options: [{name: "Lebensgeschichte", id: "opt1"}, {name: "Gebet", id: "opt2"}],
             optionsInARow: 2,
             id: "task1",
-            lines: 1,
+            helpingLines: 1,
             totalLines: 1,
         },
         {
@@ -33,7 +33,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             options: [{name: "", id: "opt3"}],
             optionsInARow: 1,
             id: "task2",
-            lines: 2,
+            helpingLines: 2,
             totalLines: 2,
         },
         {
@@ -44,7 +44,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             options: [{name: "Glaube", id: "opt4"}, {name: "Handlung", id: "opt5"}],
             optionsInARow: 2,
             id: "task3",
-            lines: 1,
+            helpingLines: 1,
             totalLines: 1,
         },
         {
@@ -55,7 +55,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             options: [{name: "", id: "opt6"}],
             optionsInARow: 1,
             id: "task4",
-            lines: 1,
+            helpingLines: 1,
             totalLines: 1,
         },
         {
@@ -66,7 +66,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             options: [{name: "Theologie", id: "opt7"}, {name: "Geschichte", id: "opt8"}],
             optionsInARow: 2,
             id: "task5",
-            lines: 1,
+            helpingLines: 1,
             totalLines: 1,
         },
         {
@@ -77,7 +77,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             options: [{name: "", id: "opt9"}],
             optionsInARow: 1,
             id: "task6",
-            lines: 2,
+            helpingLines: 2,
             totalLines: 2,
         },
         {
@@ -88,7 +88,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             options: [{name: "Sprache", id: "opt10"}, {name: "Land", id: "opt11"}],
             optionsInARow: 2,
             id: "task7",
-            lines: 1,
+            helpingLines: 1,
             totalLines: 1,
         },
         {
@@ -99,7 +99,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             options: [{name: "", id: "opt12"}],
             optionsInARow: 1,
             id: "task8",
-            lines: 1,
+            helpingLines: 1,
             totalLines: 1,
         },
         {
@@ -110,7 +110,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             options: [{name: "Religiöse Geschichte", id: "opt13"}, {name: "Mathematik", id: "opt14"}],
             optionsInARow: 2,
             id: "task9",
-            lines: 1,
+            helpingLines: 1,
             totalLines: 1,
         },
         {
@@ -121,9 +121,52 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             options: [{name: "", id: "opt15"}],
             optionsInARow: 1,
             id: "task10",
-            lines: 2,
+            helpingLines: 2,
             totalLines: 2,
         },
+        {
+            type: TaskType.FillInTheBlanks,
+            numeration: "1.",
+            question: "Der Prophet Muhammad wurde in {0} geboren und lebte im {1} Jahrhundert.",
+            options: [
+                { id: "1", name: "Mekka" },
+                { id: "2", name: "Medina" },
+                { id: "3", name: "6." },
+                { id: "4", name: "7." }
+            ],
+            optionsInARow: 2,
+            id: "task-1"
+        },
+        {
+            type: TaskType.WriteIn,
+            numeration: "2.",
+            question: "Erkläre die fünf Säulen des Islam:",
+            options: [
+                { id: "1", name: "Schahada" },
+                { id: "2", name: "Salat" },
+                { id: "3", name: "Zakat" },
+                { id: "4", name: "Saum" },
+                { id: "5", name: "Hadsch" }
+            ],
+            helpingLines: 2,
+            totalLines: 8,
+            id: "task-2"
+        },
+        {
+            type: TaskType.Mixed,
+            numeration: "3.",
+            question: "Welche Eigenschaften hatte der Prophet Muhammad?",
+            options: [
+                { id: "1", name: "Ehrlich" },
+                { id: "2", name: "Barmherzig" },
+                { id: "3", name: "Geduldig" },
+                { id: "4", name: "Gerecht" }
+            ],
+            optionsInARow: 2,
+            helpingLines: 1,
+            totalLines: 5,
+            id: "task-3"
+        }
     ]
 }
 
@@ -145,8 +188,7 @@ export async function searchFiles(queries: string[]): Promise<File[]> {
             typeof item.title === 'string' &&
             typeof item.author === 'string' &&
             typeof item.date === 'string' &&
-            Array.isArray(item.tasks) &&
-            typeof item.tasksPerPage === 'number'
+            Array.isArray(item.tasks)
         );
     }
     if (isFileArray(dummyFiles)) {

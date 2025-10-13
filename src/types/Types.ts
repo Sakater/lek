@@ -4,6 +4,7 @@ export enum TaskType {
     Mixed = 'Mixed',
     FillInTheBlanks = 'Lückentext',
 }
+
 export enum Subject {
     Siyer = 'Siyer',
     Fikih = 'Fikih',
@@ -17,21 +18,46 @@ export enum Subject {
     Diger = 'Diğer',
 }
 
-export type Task = {
+type BaseTask = {
     subject?: Subject;
-    type?: TaskType;
-    numeration: string
+    numeration: string;
     question: string;
-    options: Option[]; //Array of options to choose from, or write in
-    optionsInARow: number;
+    /**Array of options to choose from, or write in*/
+    options: Option[];
     id: Id;
-    /**
-     * helping-lines per row
-     * */
-    lines: number;
-    totalLines: number
+};
 
-}
+export type MultipleChoiceTask = BaseTask & {
+    type: TaskType.MultipleChoice;
+    optionsInARow: number;
+};
+
+export type WriteInTask = BaseTask & {
+    type: TaskType.WriteIn;
+    /** helping-lines per row*/
+    helpingLines: number;
+    /** Amount of lines given to answer (helping-lines not included*/
+    totalLines: number;
+};
+
+export type MixedTask = BaseTask & {
+    type: TaskType.Mixed;
+    optionsInARow: number;
+    /** helping-lines per row*/
+    helpingLines: number;
+    /** Amount of lines given to answer (helping-lines not included*/
+    totalLines: number;
+};
+
+export type FillInTheBlanksTask = BaseTask & {
+    type: TaskType.FillInTheBlanks;
+    optionsInARow: number;
+};
+
+export type Task = MultipleChoiceTask | WriteInTask | MixedTask | FillInTheBlanksTask;
+
+
+
 export type Option = {
     name: string;
     id: Id;
@@ -45,7 +71,6 @@ export type File = {
     tasks: Task[];
     author: string;
     date: string;
-    tasksPerPage: number;
 
 }
 

@@ -1,6 +1,6 @@
 import React, {use, useState} from 'react';
 import {FileContext} from '../FileContext';
-import {Button, Col, Input, Row} from 'antd';
+import {Button, Col, Row} from 'antd';
 import {DeleteTwoTone, SettingTwoTone} from "@ant-design/icons";
 import type {Task as TaskType} from '../types';
 import {TaskOptionsCollapse} from "./TaskOptionsCollapse.tsx";
@@ -21,13 +21,13 @@ export function Task({task}: Props) {
                 <Col span={3}>
                     <TextEditor
                         content={sanitizeHtml(task.numeration)}
-                        onChange={e => updateTask(task.id, {...task, numeration: sanitizeHtml(e)})}
+                        onChange={e => updateTask(task.id, {numeration: sanitizeHtml(e)})}
                     />
                 </Col>
                 <Col span={18}>
                     <TextEditor
                         content={sanitizeHtml(task.question)}
-                        onChange={e => updateTask(task.id, {...task, question: sanitizeHtml(e)})}
+                        onChange={e => updateTask(task.id, {question: sanitizeHtml(e)})}
                     />
                 </Col>
                 <Col span={1}>

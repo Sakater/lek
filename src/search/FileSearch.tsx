@@ -62,7 +62,7 @@ export function FileSearch() {
                             <Col>
                                 <Card>
 
-                                    <PDFFile file={template} size={1.5}/>
+                                    <PDFFile file={template} scale={0.5}/>
                                 </Card>
                             </Col>
                             <Col>

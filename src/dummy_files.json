@@ -27,7 +27,7 @@
         ],
         "optionsInARow": 2,
         "id": "task_0_0",
-        "lines": 0,
+        "helpingLines": 0,
         "totalLines": 0
       },
       {
@@ -47,7 +47,7 @@
         ],
         "optionsInARow": 2,
         "id": "task_0_1",
-        "lines": 2,
+        "helpingLines": 2,
         "totalLines": 2
       },
       {
@@ -67,7 +67,7 @@
         ],
         "optionsInARow": 2,
         "id": "task_0_2",
-        "lines": 2,
+        "helpingLines": 2,
         "totalLines": 2
       },
       {
@@ -95,7 +95,7 @@
         ],
         "optionsInARow": 2,
         "id": "task_0_3",
-        "lines": 0,
+        "helpingLines": 0,
         "totalLines": 0
       },
       {
@@ -106,7 +106,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_0_4",
-        "lines": 1,
+        "helpingLines": 1,
         "totalLines": 6
       }
     ],
@@ -142,7 +142,7 @@
         ],
         "optionsInARow": 4,
         "id": "task_1_0",
-        "lines": 0,
+        "helpingLines": 0,
         "totalLines": 0
       },
       {
@@ -153,7 +153,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_1_1",
-        "lines": 1,
+        "helpingLines": 1,
         "totalLines": 8
       },
       {
@@ -164,7 +164,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_1_2",
-        "lines": 4,
+        "helpingLines": 4,
         "totalLines": 4
       },
       {
@@ -192,7 +192,7 @@
         ],
         "optionsInARow": 2,
         "id": "task_1_3",
-        "lines": 0,
+        "helpingLines": 0,
         "totalLines": 0
       }
     ],
@@ -211,7 +211,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_2_0",
-        "lines": 4,
+        "helpingLines": 4,
         "totalLines": 4
       },
       {
@@ -239,7 +239,7 @@
         ],
         "optionsInARow": 2,
         "id": "task_2_1",
-        "lines": 0,
+        "helpingLines": 0,
         "totalLines": 0
       },
       {
@@ -250,7 +250,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_2_2",
-        "lines": 6,
+        "helpingLines": 6,
         "totalLines": 6
       },
       {
@@ -278,7 +278,7 @@
         ],
         "optionsInARow": 2,
         "id": "task_2_3",
-        "lines": 0,
+        "helpingLines": 0,
         "totalLines": 0
       }
     ],
@@ -314,7 +314,7 @@
         ],
         "optionsInARow": 2,
         "id": "task_3_0",
-        "lines": 0,
+        "helpingLines": 0,
         "totalLines": 0
       },
       {
@@ -325,7 +325,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_3_1",
-        "lines": 1,
+        "helpingLines": 1,
         "totalLines": 6
       },
       {
@@ -353,7 +353,7 @@
         ],
         "optionsInARow": 4,
         "id": "task_3_2",
-        "lines": 0,
+        "helpingLines": 0,
         "totalLines": 0
       },
       {
@@ -364,7 +364,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_3_3",
-        "lines": 6,
+        "helpingLines": 6,
         "totalLines": 6
       },
       {
@@ -392,7 +392,7 @@
         ],
         "optionsInARow": 4,
         "id": "task_3_4",
-        "lines": 0,
+        "helpingLines": 0,
         "totalLines": 0
       }
     ],
@@ -411,7 +411,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_4_0",
-        "lines": 1,
+        "helpingLines": 1,
         "totalLines": 7
       },
       {
@@ -422,7 +422,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_4_1",
-        "lines": 1,
+        "helpingLines": 1,
         "totalLines": 6
       },
       {
@@ -433,7 +433,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_4_2",
-        "lines": 1,
+        "helpingLines": 1,
         "totalLines": 7
       },
       {
@@ -461,7 +461,7 @@
         ],
         "optionsInARow": 4,
         "id": "task_4_3",
-        "lines": 0,
+        "helpingLines": 0,
         "totalLines": 0
       }
     ],
@@ -489,7 +489,7 @@
         ],
         "optionsInARow": 2,
         "id": "task_5_0",
-        "lines": 3,
+        "helpingLines": 3,
         "totalLines": 3
       },
       {
@@ -500,7 +500,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_5_1",
-        "lines": 3,
+        "helpingLines": 3,
         "totalLines": 3
       },
       {
@@ -520,7 +520,7 @@
         ],
         "optionsInARow": 2,
         "id": "task_5_2",
-        "lines": 2,
+        "helpingLines": 2,
         "totalLines": 2
       },
       {
@@ -540,7 +540,7 @@
         ],
         "optionsInARow": 2,
         "id": "task_5_3",
-        "lines": 3,
+        "helpingLines": 3,
         "totalLines": 3
       },
       {
@@ -551,7 +551,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_5_4",
-        "lines": 1,
+        "helpingLines": 1,
         "totalLines": 7
       }
     ],
@@ -570,7 +570,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_6_0",
-        "lines": 1,
+        "helpingLines": 1,
         "totalLines": 4
       },
       {
@@ -581,7 +581,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_6_1",
-        "lines": 6,
+        "helpingLines": 6,
         "totalLines": 6
       },
       {
@@ -592,7 +592,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_6_2",
-        "lines": 5,
+        "helpingLines": 5,
         "totalLines": 5
       },
       {
@@ -620,7 +620,7 @@
         ],
         "optionsInARow": 2,
         "id": "task_6_3",
-        "lines": 0,
+        "helpingLines": 0,
         "totalLines": 0
       },
       {
@@ -631,7 +631,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_6_4",
-        "lines": 1,
+        "helpingLines": 1,
         "totalLines": 8
       }
     ],
@@ -650,7 +650,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_7_0",
-        "lines": 3,
+        "helpingLines": 3,
         "totalLines": 3
       },
       {
@@ -661,7 +661,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_7_1",
-        "lines": 6,
+        "helpingLines": 6,
         "totalLines": 6
       },
       {
@@ -681,7 +681,7 @@
         ],
         "optionsInARow": 2,
         "id": "task_7_2",
-        "lines": 4,
+        "helpingLines": 4,
         "totalLines": 4
       },
       {
@@ -709,7 +709,7 @@
         ],
         "optionsInARow": 2,
         "id": "task_7_3",
-        "lines": 0,
+        "helpingLines": 0,
         "totalLines": 0
       }
     ],
@@ -737,7 +737,7 @@
         ],
         "optionsInARow": 2,
         "id": "task_8_0",
-        "lines": 4,
+        "helpingLines": 4,
         "totalLines": 4
       },
       {
@@ -765,7 +765,7 @@
         ],
         "optionsInARow": 4,
         "id": "task_8_1",
-        "lines": 0,
+        "helpingLines": 0,
         "totalLines": 0
       },
       {
@@ -776,7 +776,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_8_2",
-        "lines": 1,
+        "helpingLines": 1,
         "totalLines": 8
       },
       {
@@ -796,7 +796,7 @@
         ],
         "optionsInARow": 2,
         "id": "task_8_3",
-        "lines": 2,
+        "helpingLines": 2,
         "totalLines": 2
       },
       {
@@ -807,7 +807,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_8_4",
-        "lines": 3,
+        "helpingLines": 3,
         "totalLines": 3
       }
     ],
@@ -826,7 +826,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_9_0",
-        "lines": 1,
+        "helpingLines": 1,
         "totalLines": 8
       },
       {
@@ -854,7 +854,7 @@
         ],
         "optionsInARow": 2,
         "id": "task_9_1",
-        "lines": 0,
+        "helpingLines": 0,
         "totalLines": 0
       },
       {
@@ -882,7 +882,7 @@
         ],
         "optionsInARow": 4,
         "id": "task_9_2",
-        "lines": 0,
+        "helpingLines": 0,
         "totalLines": 0
       },
       {
@@ -893,7 +893,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_9_3",
-        "lines": 3,
+        "helpingLines": 3,
         "totalLines": 3
       },
       {
@@ -921,7 +921,7 @@
         ],
         "optionsInARow": 4,
         "id": "task_9_4",
-        "lines": 0,
+        "helpingLines": 0,
         "totalLines": 0
       },
       {
@@ -932,7 +932,7 @@
         "options": [],
         "optionsInARow": 1,
         "id": "task_9_5",
-        "lines": 5,
+        "helpingLines": 5,
         "totalLines": 5
       }
     ],

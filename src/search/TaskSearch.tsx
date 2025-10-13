@@ -2,7 +2,7 @@ import {Button, Card, Col, Drawer, Input, Row, Select,} from "antd";
 import type {SelectProps} from 'antd';
 import React, {use, useEffect, useState} from "react";
 import {searchTasks} from '../services/taskService.ts';
-import {TasksView} from "../view/TasksView.tsx";
+import {TaskView} from "../view/TaskView.tsx";
 import type {Task} from "../types";
 import {TaskType} from "../types";
 import {Subject} from "../types";
@@ -18,10 +18,10 @@ export function TaskSearch({open, onClose}: Props) {
     const [inputValue, setInputValue] = useState<string[]>([]);
     const [tasks, setTasks] = useState<Task[]>();
     const options: SelectProps['options'] = Object.values(TaskType).map(type => ({
-        label: '[Aufgabentyp] '+type,
+        label: '[Aufgabentyp] ' + type,
         value: type
     }))
-    const subjectList= Object.values(Subject).map(subject => ({label: '[Fach] '+subject, value: subject}));
+    const subjectList = Object.values(Subject).map(subject => ({label: '[Fach] ' + subject, value: subject}));
     options.push(...subjectList);
 
 
@@ -33,6 +33,31 @@ export function TaskSearch({open, onClose}: Props) {
         if (inputValue.length === 0 || !inputValue[0]) return;
         searchTasks(inputValue).then(setTasks);
     }, [inputValue]);
+
+    const addFromSearch = (task: Task) => {
+        switch (task.type) {
+            case TaskType.WriteIn: {
+                const {numeration, id, type, ...patch} = task as WriteInTask;
+                addTask(TaskType.WriteIn, patch);
+                break;
+            }
+            case TaskType.MultipleChoice: {
+                const {numeration, id, type, ...patch} = task as MultipleChoiceTask;
+                addTask(TaskType.MultipleChoice, patch);
+                break;
+            }
+            case TaskType.Mixed: {
+                const {numeration, id, type, ...patch} = task as MixedTask;
+                addTask(TaskType.Mixed, patch);
+                break;
+            }
+            case TaskType.FillInTheBlanks: {
+                const {numeration, id, type, ...patch} = task as FillInTheBlanksTask;
+                addTask(TaskType.FillInTheBlanks, patch);
+                break;
+            }
+        }
+    };
     return (
         <div>
             <Drawer
@@ -56,11 +81,14 @@ export function TaskSearch({open, onClose}: Props) {
                         <Row>
                             <Col>
                                 <Card>
-                                    <TasksView task={task} size={1.5}/>
+                                    <TaskView task={task}/>
                                 </Card>
                             </Col>
                             <Col>
-                                <Button type="default" onClick={() => {addTask(task); onClose()}}/>
+                                <Button type="default" onClick={() => {
+                                    addFromSearch(task);
+                                    onClose()
+                                }}/>
                             </Col>
                         </Row>
                     )

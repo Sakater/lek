@@ -1,10 +1,10 @@
 import {Button, Card, Col, Row} from "antd";
-import React, {use} from "react";
+import React, {use, useEffect} from "react";
 import {FileContext} from "./FileContext";
 import {HomeFilled} from "@ant-design/icons";
 import {AddNotes, DocumentSearch} from "./assets";
-import {PDFCustomizer} from "./PDFCustomizer.tsx";
 import {FileSearch} from "./search/FileSearch.tsx";
+import {PDFCustomizer} from "./PDFCustomizer.tsx";
 
 const {Meta} = Card;
 
@@ -13,7 +13,10 @@ export function Homepage() {
         openTemplateSearch, setOpenTemplateSearch,
         openCustomizer, setOpenCustomizer
     } = use(FileContext);
-
+    useEffect(() => {
+        setOpenTemplateSearch(false);
+        setOpenCustomizer(false);
+    }, []);
     return (
         <>
             <div className={'home-button'}>
