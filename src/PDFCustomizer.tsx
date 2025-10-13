@@ -5,6 +5,8 @@ import {Form} from "./form/Form.tsx";
 import {PDFFile} from "./view/PDFFile.tsx";
 import {FileContext} from "./FileContext";
 import html2pdf from "html2pdf.js";
+import {sanitizeHtmlToRaw} from "./utils/sanitizeHtml.ts";
+import {ToPdf} from "./assets";
 
 export function PDFCustomizer() {
     const {file} = use(FileContext);
@@ -52,8 +54,8 @@ export function PDFCustomizer() {
 
         const opt = {
             margin: 10,
-            filename: file?.title + '.pdf' || 'document' + '.pdf',
-            html2canvas: {scale: 2},
+            filename: sanitizeHtmlToRaw(file?.title) + '.pdf' || 'document' + '.pdf',
+            html2canvas: {scale: 4},
             jsPDF: {unit: 'mm', format: 'a4', orientation: 'portrait'},
             pagebreak: {mode: ['avoid-all', 'css', 'legacy']}
         };
@@ -104,8 +106,8 @@ export function PDFCustomizer() {
                 </div>
             </Col>
             <Col>
-                <Button onClick={exportWithCSS} type="primary" style={{marginTop: "20px"}}>
-                    PDF generieren
+                <Button onClick={exportWithCSS} type="primary" style={{marginTop: "20px", width:'auto'}} >
+                    <ToPdf width={30} fill={'white'}/> PDF generieren
                 </Button>
             </Col>
         </Row>

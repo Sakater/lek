@@ -1,9 +1,8 @@
-import React, {use} from 'react';
-import {FileContext} from "../FileContext";
+import React from 'react';
 import {Card, Col, Drawer, Row} from "antd";
 import {PlusCircleTwoTone, SearchOutlined} from "@ant-design/icons";
 import {TaskSearch} from "../search/TaskSearch.tsx";
-import {TaskType} from "../types";
+import {TaskTypeChoice} from "./TaskTypeChoice.tsx";
 
 const {Meta} = Card;
 type Props = {
@@ -12,8 +11,9 @@ type Props = {
 }
 
 export function TaskChoice({open, onClose}: Props) {
-    const {addTask} = use(FileContext);
+
     const [openSearch, setOpenSearch] = React.useState(false);
+    const [openTaskTypeChoice, setOpenTaskTypeChoice] = React.useState(false);
 
     return (
         <div>
@@ -74,8 +74,8 @@ export function TaskChoice({open, onClose}: Props) {
                                     style={{fontSize: 40, display: 'block', paddingTop: '20px', color: 'darkblue'}}/>
                             }
                             onClick={() => {
-                                addTask(TaskType.WriteIn);
                                 onClose();
+                                setOpenTaskTypeChoice(true)
                             }}
                         >
                             <Meta title="Neue Frage erstellen"
@@ -85,6 +85,7 @@ export function TaskChoice({open, onClose}: Props) {
                     </Col>
                 </Row>
             </Drawer>
+            {openTaskTypeChoice && <TaskTypeChoice open={openTaskTypeChoice} onClose={() => setOpenTaskTypeChoice(false)}/>}
 
         </div>
     );

@@ -226,6 +226,11 @@
 /* Kopfzeile */
 .page-header {
     margin-bottom: 15mm;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
 }
 
 .page-title {
@@ -234,6 +239,7 @@
     margin: 0 0 10px 0;
     text-align: center;
     color: #333;
+    width: auto;
 }
 
 .page-meta {
@@ -247,6 +253,7 @@
 .page-author,
 .page-date {
     font-style: italic;
+    width: auto;
 }
 
 /* Trennlinie */
@@ -318,4 +325,20 @@
     .task {
         page-break-inside: avoid;
     }
+}
+
+/*Drawer Cards*/
+.card {
+    justify-self: center;
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    height: 180px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 20px;
+    overflow-wrap: anywhere;
 }

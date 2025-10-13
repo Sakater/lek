@@ -3,7 +3,7 @@ import {FileContext} from '../FileContext';
 import {Button, Col, Row} from 'antd';
 import {DeleteTwoTone, SettingTwoTone} from "@ant-design/icons";
 import type {Task as TaskType} from '../types';
-import {TaskOptionsCollapse} from "./TaskOptionsCollapse.tsx";
+import {TaskOptions} from "./TaskOptions.tsx";
 import {TextEditor} from "../editor/TextEditor.tsx";
 import {sanitizeHtml} from "../utils/sanitizeHtml.ts";
 
@@ -40,7 +40,7 @@ export function Task({task}: Props) {
             </Row>
             <Row gutter={24} className={'row task-option'}>
                 <Col span={24}>
-                    <TaskOptionsCollapse task={task} onClose={() => setOpen(false)} open={open}/>
+                    <TaskOptions task={task} onClose={() => setOpen(false)} open={open}/>
                 </Col>
             </Row>
         </>
