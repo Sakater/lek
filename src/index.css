@@ -85,6 +85,10 @@ button:focus-visible {
     break-inside: avoid;
   }
 }
+.avoid-break {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
 
 .icon-delete-2-tone {
   svg path:nth-of-type(1) {

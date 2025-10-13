@@ -12,22 +12,30 @@ export function PDFCustomizer() {
     const handleGeneratePdf = async () => {
         if (!reportTemplateRef.current) return;
 
-        const doc = new jsPDF({format: "a4", unit: "px"});
-
-        // Warten bis Layout stabil ist (Framesprung)
+        // Fonts laden lassen und einen Frame warten
+        try {
+            // @ts-ignore
+            if (document.fonts?.ready) await document.fonts.ready;
+        } catch {}
         await new Promise(r => requestAnimationFrame(() => r(null)));
 
-        const node = reportTemplateRef.current;
-        const width = node.scrollWidth;
+        const node =
+            (reportTemplateRef.current.querySelector("[data-pdf-root]") as HTMLElement) ??
+            reportTemplateRef.current;
+
+        const doc = new jsPDF({format: "a4", unit: "px"});
+        const pageWidth = doc.internal.pageSize.getWidth();
 
         doc.html(node, {
             x: 0,
             y: 0,
-            width, // skaliert Inhalt passend und verhindert Clipping
+            width: pageWidth,
+            pagebreak: {mode: ["css", "legacy"]},
             html2canvas: {
                 scale: window.devicePixelRatio || 2,
                 useCORS: true,
-                windowWidth: width
+                backgroundColor: "#ffffff",
+                windowWidth: node.scrollWidth || pageWidth
             },
             callback(pdf) {
                 pdf.save("document");
