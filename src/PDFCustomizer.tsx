@@ -7,6 +7,7 @@ import {FileContext} from "./FileContext";
 import html2pdf from "html2pdf.js";
 import {sanitizeHtmlToRaw} from "./utils/sanitizeHtml.ts";
 import {ToPdf} from "./assets";
+import {DrawerContextProvider} from "./form/DrawerContext/DrawerContextProvider.tsx";
 
 export function PDFCustomizer() {
     const {file} = use(FileContext);
@@ -67,7 +68,9 @@ export function PDFCustomizer() {
     return (
         <Row gutter={24} className={"body-row"}>
             <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={12}>
-                <Form/>
+                <DrawerContextProvider>
+                    <Form/>
+                </DrawerContextProvider>
             </Col>
             <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={12}>
                 <div style={{display: "flex", alignItems: "start", justifyContent: "center"}}>
@@ -106,7 +109,7 @@ export function PDFCustomizer() {
                 </div>
             </Col>
             <Col>
-                <Button onClick={exportWithCSS} type="primary" style={{marginTop: "20px", width:'auto'}} >
+                <Button onClick={exportWithCSS} type="primary" style={{marginTop: "20px", width: 'auto'}}>
                     <ToPdf width={30} fill={'white'}/> PDF generieren
                 </Button>
             </Col>

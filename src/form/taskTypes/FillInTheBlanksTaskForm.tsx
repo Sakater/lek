@@ -21,6 +21,7 @@ export function FillInTheBlanksTaskForm({ task, open, onClose }: Props) {
             open={open}
             onClose={onClose}
             height={'80%'}
+            classNames={'fill-in-the-blanks-task-form'}
         >
             <TaskView task={task} />
 

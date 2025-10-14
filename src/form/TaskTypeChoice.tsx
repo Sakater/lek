@@ -1,11 +1,10 @@
 import {Card, Col, Drawer} from "antd";
 import {PlusOutlined} from "@ant-design/icons";
-import type {Task} from "../types";
 import {TaskType} from "../types";
-import React, {use} from "react";
+import React, {use, useEffect} from "react";
 import {FileContext} from "../FileContext";
 import {EditNote, Puzzle, Quiz} from "../assets";
-import {TaskFormSelector} from "./TaskFormSelector.tsx";
+import {DrawerContext} from "./DrawerContext";
 
 const {Meta} = Card;
 type Props = {
@@ -15,18 +14,22 @@ type Props = {
 
 export function TaskTypeChoice({open, onClose}: Props) {
     const {addTask} = use(FileContext);
-    const [openTaskForm, setOpenTaskForm] = React.useState(false);
-    const [selectedTask, setSelectedTask] = React.useState<Task | null>(null);
+    const { setSelectedTask, openDrawer} = use(DrawerContext);
 
     const handleTaskCreation = (taskType: TaskType) => {
+        console.log(`Creating task of type: ${taskType}`);
         // addTask mit dem spezifischen Type aufrufen
         // TypeScript inferiert automatisch den korrekten Rückgabetyp
         const newTask = addTask(taskType);
 
         setSelectedTask(newTask);
+        openDrawer('taskFormOpen')
         onClose(); // Schließe TaskTypeChoice
-        setOpenTaskForm(true); // Öffne TaskFormSelector
+        // Öffne TaskFormSelector
     };
+    useEffect(() => {
+        setSelectedTask(null)
+    }, []);
 
     return (
         <>
@@ -114,19 +117,8 @@ export function TaskTypeChoice({open, onClose}: Props) {
                         </Card>
                     </Col>
                 </div>
-            </Drawer>
 
-            {/* TaskFormSelector AUSSERHALB des Drawers */}
-            {selectedTask && (
-                <TaskFormSelector
-                    task={selectedTask}
-                    open={openTaskForm}
-                    onClose={() => {
-                        setOpenTaskForm(false);
-                        setSelectedTask(null);
-                    }}
-                />
-            )}
+            </Drawer>
         </>
     );
 }

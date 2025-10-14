@@ -1,8 +1,7 @@
-import React from 'react';
+import React, {use} from 'react';
 import {Card, Col, Drawer, Row} from "antd";
 import {PlusCircleTwoTone, SearchOutlined} from "@ant-design/icons";
-import {TaskSearch} from "../search/TaskSearch.tsx";
-import {TaskTypeChoice} from "./TaskTypeChoice.tsx";
+import {DrawerContext} from "./DrawerContext";
 
 const {Meta} = Card;
 type Props = {
@@ -11,9 +10,7 @@ type Props = {
 }
 
 export function TaskChoice({open, onClose}: Props) {
-
-    const [openSearch, setOpenSearch] = React.useState(false);
-    const [openTaskTypeChoice, setOpenTaskTypeChoice] = React.useState(false);
+    const {openDrawer} = use(DrawerContext)
 
     return (
         <div>
@@ -51,12 +48,12 @@ export function TaskChoice({open, onClose}: Props) {
                                     style={{fontSize: 40, display: 'block', paddingTop: '20px', color: 'darkblue'}}/>
                             }
                             onClick={() => {
-                                setOpenSearch(true);
+                                openDrawer('searchOpen');
                                 onClose()
                             }}
                         >
                             <Meta title="Frage finden" description="Suche nach Fragen und übernehme sie"/>
-                        </Card> <TaskSearch open={openSearch} onClose={() => setOpenSearch(false)}/>
+                        </Card>
                     </Col>
                     <Col>
                         <Card
@@ -74,8 +71,8 @@ export function TaskChoice({open, onClose}: Props) {
                                     style={{fontSize: 40, display: 'block', paddingTop: '20px', color: 'darkblue'}}/>
                             }
                             onClick={() => {
+                                openDrawer('taskTypeChoiceOpen')
                                 onClose();
-                                setOpenTaskTypeChoice(true)
                             }}
                         >
                             <Meta title="Neue Frage erstellen"
@@ -85,7 +82,7 @@ export function TaskChoice({open, onClose}: Props) {
                     </Col>
                 </Row>
             </Drawer>
-            {openTaskTypeChoice && <TaskTypeChoice open={openTaskTypeChoice} onClose={() => setOpenTaskTypeChoice(false)}/>}
+
 
         </div>
     );

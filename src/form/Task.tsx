@@ -1,13 +1,11 @@
-import React, {use, useState} from 'react';
+import React, {use} from 'react';
 import {FileContext} from '../FileContext';
 import {Button, Col, Row} from 'antd';
 import {DeleteTwoTone, SettingTwoTone} from "@ant-design/icons";
 import type {Task as TaskType} from '../types';
-import {TaskOptions} from "./TaskOptions.tsx";
 import {TextEditor} from "../editor/TextEditor.tsx";
 import {sanitizeHtml} from "../utils/sanitizeHtml.ts";
-import {MultipleChoiceTaskForm} from "./taskTypes/MultipleChoiceTaskForm.tsx";
-import {TaskFormSelector} from "./TaskFormSelector.tsx";
+import {DrawerContext} from "./DrawerContext";
 
 type Props = {
     task: TaskType;
@@ -15,7 +13,7 @@ type Props = {
 
 export function Task({task}: Props) {
     const {updateTask, deleteTask} = use(FileContext);
-    const [open, setOpen] = useState(false);
+    const {drawerState, openDrawer, setSelectedTask} = use(DrawerContext);
 
     return (
         <>
@@ -33,16 +31,14 @@ export function Task({task}: Props) {
                     />
                 </Col>
                 <Col span={1}>
-                    <Button type="default" onClick={() => setOpen(true)} size={"middle"} icon={<SettingTwoTone/>}/>
+                    <Button type="default" onClick={() => {
+                        openDrawer('taskFormOpen');
+                        setSelectedTask(task);
+                    }} size={"middle"} icon={<SettingTwoTone/>}/>
                 </Col>
                 <Col span={1}>
                     <Button className="icon-delete-2-tone" icon={<DeleteTwoTone/>}
                             onClick={() => deleteTask(task.id)}>Delete</Button>
-                </Col>
-            </Row>
-            <Row gutter={24} className={'row task-option'}>
-                <Col span={24}>
-                    <TaskFormSelector task={task} onClose={() => setOpen(false)} open={open}/>
                 </Col>
             </Row>
         </>

@@ -1,4 +1,4 @@
-import React, {use, useState} from 'react';
+import React, {use, useEffect} from 'react';
 import {FileContext} from '../FileContext';
 import {Button, Col, DatePicker, Row} from 'antd';
 import {Task} from "./Task.tsx";
@@ -9,46 +9,70 @@ import {EditorProvider} from '../editor/EditorContext'
 import {CentralToolbar} from '../editor/CentralToolbar'
 import {TextEditor} from '../editor/TextEditor'
 import {sanitizeHtml} from "../utils/sanitizeHtml.ts";
+import {TaskTypeChoice} from "./TaskTypeChoice.tsx";
+import {TaskSearch} from "../search/TaskSearch.tsx";
+import {DrawerContext} from "./DrawerContext";
+import {TaskFormSelector} from "./TaskFormSelector.tsx";
 
 export function Form() {
+    const {drawerState, openDrawer, closeDrawer, selectedTask, setSelectedTask} = use(DrawerContext)
     const {file, updateFile} = use(FileContext);
-    const [taskOpen, setTaskOpen] = useState(false);
 
     return (
         <EditorProvider>
-        <div className={'form-container'}>
-            <CentralToolbar />
-            <Row gutter={24} className={'row'}>
-                <Col xs={12} sm={12} md={6} xl={6}>
 
-                    <TextEditor content={sanitizeHtml(file?.author)} onChange={e => updateFile({author: sanitizeHtml(e)}) } placeholder={'Autor'}/>
-                </Col>
-                <Col xs={18} sm={18} md={18} xl={12}>
-                    <TextEditor content={sanitizeHtml(file?.title)} onChange={e => updateFile({title: sanitizeHtml(e)})} placeholder={'Autor'}/>
-                </Col>
-                <Col xs={12} sm={12} md={6} xl={6}>
-                    <DatePicker
-                        style={{width: '100%'}}
-                        value={file?.date ? dayjs(file.date, 'DD.MM.YY') : null}
-                        format="DD.MM.YY"
-                        onChange={d => updateFile({date: d ? d.format('DD.MM.YY') : ''})}
+            <div className={'form-container'}>
+                <CentralToolbar/>
+                <Row gutter={24} className={'row'}>
+                    <Col xs={12} sm={12} md={6} xl={6}>
+
+                        <TextEditor content={sanitizeHtml(file?.author)}
+                                    onChange={e => updateFile({author: sanitizeHtml(e)})} placeholder={'Autor'}/>
+                    </Col>
+                    <Col xs={18} sm={18} md={18} xl={12}>
+                        <TextEditor content={sanitizeHtml(file?.title)}
+                                    onChange={e => updateFile({title: sanitizeHtml(e)})} placeholder={'Autor'}/>
+                    </Col>
+                    <Col xs={12} sm={12} md={6} xl={6}>
+                        <DatePicker
+                            style={{width: '100%'}}
+                            value={file?.date ? dayjs(file.date, 'DD.MM.YY') : null}
+                            format="DD.MM.YY"
+                            onChange={d => updateFile({date: d ? d.format('DD.MM.YY') : ''})}
+                        />
+                    </Col>
+                </Row>
+                <Row className={'row'} style={{width: '100%', justifyContent: 'center'}}>
+                    <Col>
+                        <Button onClick={() => openDrawer('taskOpen')} className={'plus-circle-2-tone'}
+                                icon={<PlusCircleTwoTone/>}>Aufgabe</Button>
+                    </Col>
+                </Row>
+                {file?.tasks.map(task => (<>
+                    <div key={task.id}>
+                        <Task task={task}/>
+                    </div>
+
+                </>))}
+                {drawerState.taskFormOpen && selectedTask &&
+                    <TaskFormSelector
+                        task={selectedTask}
+                        onClose={() => {
+                            closeDrawer('taskFormOpen');
+                            setSelectedTask(null)
+                        }}
+                        open={drawerState.taskFormOpen}
                     />
-                </Col>
-            </Row>
-            <Row className={'row'} style={{width: '100%', justifyContent: 'center'}}>
-                <Col>
-                    <Button onClick={() => setTaskOpen(true)} className={'plus-circle-2-tone'}
-                            icon={<PlusCircleTwoTone/>}>Aufgabe</Button>
-                    <TaskChoice open={taskOpen} onClose={() => setTaskOpen(false)}/>
-                </Col>
-            </Row>
-            {file?.tasks.map(task => (
-                <div key={task.id}>
-                    <Task task={task}/>
-                </div>
+                }
+                {drawerState.taskOpen &&
+                    <TaskChoice open={drawerState.taskOpen} onClose={() => closeDrawer('taskOpen')}/>}
+                {drawerState.searchOpen &&
+                    <TaskSearch open={drawerState.searchOpen} onClose={() => closeDrawer('searchOpen')}/>}
+                {drawerState.taskTypeChoiceOpen && <TaskTypeChoice open={drawerState.taskTypeChoiceOpen}
+                                                                   onClose={() => closeDrawer('taskTypeChoiceOpen')}/>}
 
-            ))}
-        </div>
+
+            </div>
         </EditorProvider>
     );
 }

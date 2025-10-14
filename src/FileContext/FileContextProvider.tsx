@@ -75,9 +75,8 @@ export function FileContextProvider({children}: Props) {
     function addTask(type: TaskType.MultipleChoice, patch?: Partial<Omit<MultipleChoiceTask, 'numeration'>>): MultipleChoiceTask;
     function addTask(type: TaskType.Mixed, patch?: Partial<Omit<MixedTask, 'numeration'>>): MixedTask;
     function addTask(type: TaskType.FillInTheBlanks, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): FillInTheBlanksTask;
-
-// Implementierung
-    function addTask(type: TaskType, patch: any = {}): Task {
+    function addTask(type: TaskType, patch: Partial<Omit<TaskType, 'numeration'>> = {}): Task {
+        console.log('Adding task of type:', type, 'with patch:', patch);
         function extractLeadingNumber(input: string): number | null {
             const match = input.trim().match(/^[-+]?\\d+(?:[.,]\\d+)?/);
             if (!match) return null;

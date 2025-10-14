@@ -13,6 +13,7 @@ type Props = {
 };
 
 export function TaskFormSelector({ task, open, onClose }: Props) {
+    console.log('task in TaskFormSelector:', task.type);
     switch (task.type) {
         case TaskType.MultipleChoice:
             return <MultipleChoiceTaskForm task={task} open={open} onClose={onClose} />;
