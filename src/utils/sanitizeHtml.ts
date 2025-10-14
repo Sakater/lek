@@ -11,19 +11,19 @@ const allowedHtmlWithoutP= {
     ALLOWED_CSS_PROPERTIES: ['font-size', 'background-color'],
 }
 
-export const sanitizeHtml = (input:string|undefined) => {
+export const sanitizeHtml = (input:string|undefined):string => {
     if (!input) return '';
     if (input.trim() === '<p></p>') return '';
     return DOMPurify.sanitize(input, allowedHtml);
 }
 
-export const sanitizeHtmlWithoutP = (input:string|undefined) => {
+export const sanitizeHtmlWithoutP = (input:string|undefined):string => {
     if (!input) return '';
     if (input.trim() === '<p></p>') return '';
     return DOMPurify.sanitize(input, allowedHtmlWithoutP);
 }
 
-export const sanitizeHtmlToRaw = (input:string|undefined)=> {
+export const sanitizeHtmlToRaw = (input:string|undefined):string=> {
     if (!input) return '';
     if (input.trim() === '<p></p>') return '';
     return DOMPurify.sanitize(input, {ALLOWED_TAGS: [], ALLOWED_ATTR: []});

@@ -13,7 +13,7 @@ type Props = {
 
 export function Task({task}: Props) {
     const {updateTask, deleteTask} = use(FileContext);
-    const {drawerState, openDrawer, setSelectedTask} = use(DrawerContext);
+    const {openDrawer, setSelectedTaskId} = use(DrawerContext);
 
     return (
         <>
@@ -33,7 +33,7 @@ export function Task({task}: Props) {
                 <Col span={1}>
                     <Button type="default" onClick={() => {
                         openDrawer('taskFormOpen');
-                        setSelectedTask(task);
+                        setSelectedTaskId(task.id);
                     }} size={"middle"} icon={<SettingTwoTone/>}/>
                 </Col>
                 <Col span={1}>

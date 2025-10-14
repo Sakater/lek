@@ -1,4 +1,4 @@
-import React, {use, useEffect} from 'react';
+import React, {use} from 'react';
 import {FileContext} from '../FileContext';
 import {Button, Col, DatePicker, Row} from 'antd';
 import {Task} from "./Task.tsx";
@@ -15,9 +15,9 @@ import {DrawerContext} from "./DrawerContext";
 import {TaskFormSelector} from "./TaskFormSelector.tsx";
 
 export function Form() {
-    const {drawerState, openDrawer, closeDrawer, selectedTask, setSelectedTask} = use(DrawerContext)
+    const {drawerState, openDrawer, closeDrawer, selectedTaskId, setSelectedTaskId} = use(DrawerContext)
     const {file, updateFile} = use(FileContext);
-
+    const selectedTask = selectedTaskId ? file?.tasks.find(task => task.id === selectedTaskId) ?? null : null;
     return (
         <EditorProvider>
 
@@ -59,7 +59,7 @@ export function Form() {
                         task={selectedTask}
                         onClose={() => {
                             closeDrawer('taskFormOpen');
-                            setSelectedTask(null)
+                            setSelectedTaskId(null)
                         }}
                         open={drawerState.taskFormOpen}
                     />

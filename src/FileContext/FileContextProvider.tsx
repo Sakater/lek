@@ -109,14 +109,14 @@ export function FileContextProvider({children}: Props) {
 
     const updateTask = (taskId: string, updates: Partial<Task> | Task) => {
         if (!file) return;
-
+        console.log( 'Updating task:', taskId, 'with updates:', updates);
         setFile({
             ...file,
             tasks: file.tasks.map(task => {
                 if (task.id !== taskId) return task;
 
-                // Wenn updates ein vollständiger Task ist, einfach verwenden
-                // Ansonsten mergen
+                // Wenn updates ein vollständiger Task ist, einfach verwenden,
+                // ansonsten mergen
                 const updatedTask = { ...task, ...updates };
 
                 // Type preservation
@@ -145,6 +145,43 @@ export function FileContextProvider({children}: Props) {
             tasks: file.tasks.filter(task => task.id !== taskId)
         });
     };
+
+    const addOption = (taskId: string, optionName: string = 'Neue Option') => {
+        if (!file) return;
+
+        setFile({
+            ...file,
+            tasks: file.tasks.map(task => {
+                if (task.id !== taskId) return task;
+                console.log('Adding option to task:', taskId, optionName);
+                // Neue Option erstellen
+                const newOption = {
+                    id: crypto.randomUUID(),
+                    name: optionName
+                };
+
+                const updatedOptions = [...task.options, newOption];
+
+                // Type-spezifische Rückgabe
+                switch (task.type) {
+                    case TaskType.WriteIn:
+                        return { ...task, options: updatedOptions } as WriteInTask;
+                    case TaskType.MultipleChoice:
+                        return { ...task, options: updatedOptions } as MultipleChoiceTask;
+                    case TaskType.Mixed:
+                        return { ...task, options: updatedOptions } as MixedTask;
+                    case TaskType.FillInTheBlanks:
+                        return { ...task, options: updatedOptions } as FillInTheBlanksTask;
+                    default:
+                        const _exhaustive: never = task;
+                        return task;
+                }
+            })
+        });
+        console.log('new option added', taskId, optionName)
+        console.log('really added?:' , file.tasks.find(t => t.id === taskId)?.options)
+    };
+
 
     const updateOption = (taskId: string, optionId: string, newName: string) => {
         if (!file) return;
@@ -219,6 +256,7 @@ export function FileContextProvider({children}: Props) {
         updateTask,
         deleteTask,
         addTask,
+        addOption,
         updateOption,
         deleteOption,
         dynamicSize,

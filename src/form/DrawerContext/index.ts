@@ -13,8 +13,8 @@ export type DrawerContextType = {
     openDrawer: (drawer: keyof DrawerState) => void;
     closeDrawer: (drawer: keyof DrawerState) => void;
     toggleDrawer: (drawer: keyof DrawerState) => void;
-    selectedTask: Task | null;
-    setSelectedTask: (task: Task | null) => void;
+    selectedTaskId: string | null;
+    setSelectedTaskId: (taskId: string | null) => void;
 };
 
 // Dummy-Defaultwerte für TypeScript
@@ -28,6 +28,6 @@ export const DrawerContext = createContext<DrawerContextType>({
     openDrawer: () => {},
     closeDrawer: () => {},
     toggleDrawer: () => {},
-    selectedTask: null,
-    setSelectedTask: () => {},
+    selectedTaskId: null,
+    setSelectedTaskId: () => {},
 });

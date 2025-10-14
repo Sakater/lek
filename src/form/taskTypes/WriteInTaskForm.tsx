@@ -2,7 +2,7 @@ import React, { use } from 'react';
 import { Drawer, InputNumber } from 'antd';
 import { FileContext } from '../../FileContext';
 import { TaskView } from '../../view/TaskView';
-import type { WriteInTask } from '../../types';
+import type {Task, WriteInTask} from '../../types';
 import { BaseTaskFields } from '../BaseTaskFields';
 
 type Props = {
@@ -34,7 +34,7 @@ export function WriteInTaskForm({ task, open, onClose }: Props) {
                     value={task.helpingLines}
                     onChange={(value) => {
                         if (value !== null) {
-                            updateTask(task.id, { helpingLines: value });
+                            updateTask(task.id, { helpingLines: value } as Partial<Task>);
                         }
                     }}
                 />
@@ -48,7 +48,7 @@ export function WriteInTaskForm({ task, open, onClose }: Props) {
                     value={task.totalLines}
                     onChange={(value) => {
                         if (value !== null) {
-                            updateTask(task.id, { totalLines: value });
+                            updateTask(task.id, { totalLines: value } as Partial<Task>);
                         }
                     }}
                 />

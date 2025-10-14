@@ -14,7 +14,7 @@ type Props = {
 
 export function TaskTypeChoice({open, onClose}: Props) {
     const {addTask} = use(FileContext);
-    const { setSelectedTask, openDrawer} = use(DrawerContext);
+    const { setSelectedTaskId, openDrawer} = use(DrawerContext);
 
     const handleTaskCreation = (taskType: TaskType) => {
         console.log(`Creating task of type: ${taskType}`);
@@ -22,13 +22,13 @@ export function TaskTypeChoice({open, onClose}: Props) {
         // TypeScript inferiert automatisch den korrekten Rückgabetyp
         const newTask = addTask(taskType);
 
-        setSelectedTask(newTask);
+        setSelectedTaskId(newTask.id);
         openDrawer('taskFormOpen')
         onClose(); // Schließe TaskTypeChoice
         // Öffne TaskFormSelector
     };
     useEffect(() => {
-        setSelectedTask(null)
+        setSelectedTaskId(null)
     }, []);
 
     return (

@@ -20,6 +20,7 @@ export type FileContextType = {
     addTask(type: TaskType.Mixed, patch?: Partial<Omit<MixedTask, 'numeration'>>): MixedTask;
     addTask(type: TaskType.FillInTheBlanks, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): FillInTheBlanksTask;
 
+    addOption: (taskId: string, optionName?: string) => void;
     updateOption: (taskId: string, optionId: string, newName: string) => void;
     deleteOption: (taskId: string, optionId: string) => void;
     dynamicSize: (expanse: number) => number;
@@ -42,6 +43,7 @@ export const FileContext = createContext<FileContextType>({
     updateTask: () => {},
     deleteTask: () => {},
     addTask: (() => {}) as any,
+    addOption: () => {},
     updateOption: () => {},
     deleteOption: () => {},
     dynamicSize: () => 0,

@@ -1,4 +1,3 @@
-import jsPDF from "jspdf";
 import {use, useRef, useState} from "react";
 import {Button, Col, Row} from "antd";
 import {Form} from "./form/Form.tsx";
@@ -13,42 +12,6 @@ export function PDFCustomizer() {
     const {file} = use(FileContext);
     const reportTemplateRef = useRef<HTMLDivElement>(null as never);
     const [scale, setScale] = useState(1);
-
-
-    const handleGeneratePdf = async () => {
-        if (!reportTemplateRef.current) return;
-
-        // Fonts laden lassen und einen Frame warten
-        try {
-            // @ts-ignore
-            if (document.fonts?.ready) await document.fonts.ready;
-        } catch {
-        }
-        await new Promise(r => requestAnimationFrame(() => r(null)));
-
-        const node =
-            (reportTemplateRef.current.querySelector("[data-pdf-root]") as HTMLElement) ??
-            reportTemplateRef.current;
-
-        const doc = new jsPDF({format: "a4", unit: "px"});
-        const pageWidth = doc.internal.pageSize.getWidth();
-
-        doc.html(node, {
-            x: 0,
-            y: 0,
-            width: pageWidth,
-            pagebreak: {mode: ["css", "legacy"]},
-            html2canvas: {
-                scale: window.devicePixelRatio || 2,
-                useCORS: true,
-                backgroundColor: "#ffffff",
-                windowWidth: node.scrollWidth || pageWidth
-            },
-            callback(pdf) {
-                pdf.save("document");
-            }
-        });
-    };
 
     const exportWithCSS = () => {
         const element = document.getElementById('pdf-content');
@@ -95,7 +58,10 @@ export function PDFCustomizer() {
                                     max="1.5"
                                     step="0.1"
                                     value={scale}
-                                    onChange={(e) => setScale(Number(e.target.value))}
+                                    onChange={(e) => {
+                                        setScale(Number(e.target.value));
+                                        console.log('scale: ', scale);
+                                    }}
                                     style={{marginLeft: '10px'}}
                                 />
                                 <span style={{marginLeft: '10px'}}>{Math.round(scale * 100)}%</span>
@@ -103,13 +69,16 @@ export function PDFCustomizer() {
                         </div>
 
                         {/* A4 Seite */}
-                        <PDFFile file={file} scale={0.7}/>
+                        <PDFFile file={file} scale={scale}/>
                     </div>
 
                 </div>
             </Col>
             <Col>
-                <Button onClick={exportWithCSS} type="primary" style={{marginTop: "20px", width: 'auto'}}>
+                <Button onClick={() => {
+                    setScale(1);
+                    exportWithCSS()
+                }} type="primary" style={{marginTop: "20px", width: 'auto'}}>
                     <ToPdf width={30} fill={'white'}/> PDF generieren
                 </Button>
             </Col>

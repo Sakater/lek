@@ -3,7 +3,7 @@ import React, {use} from 'react';
 import {Drawer, InputNumber} from 'antd';
 import {FileContext} from '../../FileContext';
 import {TaskView} from '../../view/TaskView';
-import type {MultipleChoiceTask} from '../../types';
+import type {MultipleChoiceTask, Task} from '../../types';
 import {BaseTaskFields} from '../BaseTaskFields';
 
 type Props = {
@@ -35,7 +35,7 @@ export function MultipleChoiceTaskForm({task, open, onClose}: Props) {
                     value={task.optionsInARow}
                     onChange={(value) => {
                         if (value !== null) {
-                            updateTask(task.id, {...task, optionsInARow: value});
+                            updateTask(task.id, {...task, optionsInARow: value} as Partial<Task>);
                         }
                     }}
                 />

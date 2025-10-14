@@ -1,10 +1,10 @@
 import React from 'react';
-import type { Task } from '../types';
-import { TaskType } from '../types';
-import { MultipleChoiceTaskForm } from './taskTypes/MultipleChoiceTaskForm.tsx';
-import { WriteInTaskForm } from './taskTypes/WriteInTaskForm.tsx';
-import { MixedTaskForm } from './taskTypes/MixedTaskForm.tsx';
-import { FillInTheBlanksTaskForm } from './taskTypes/FillInTheBlanksTaskForm.tsx';
+import type {Task} from '../types';
+import {TaskType} from '../types';
+import {MultipleChoiceTaskForm} from './taskTypes/MultipleChoiceTaskForm.tsx';
+import {WriteInTaskForm} from './taskTypes/WriteInTaskForm.tsx';
+import {MixedTaskForm} from './taskTypes/MixedTaskForm.tsx';
+import {FillInTheBlanksTaskForm} from './taskTypes/FillInTheBlanksTaskForm.tsx';
 
 type Props = {
     task: Task;
@@ -13,6 +13,7 @@ type Props = {
 };
 
 export function TaskFormSelector({ task, open, onClose }: Props) {
+
     console.log('task in TaskFormSelector:', task.type);
     switch (task.type) {
         case TaskType.MultipleChoice:
