@@ -7,25 +7,47 @@ import html2pdf from "html2pdf.js";
 import {sanitizeHtmlToRaw} from "./utils/sanitizeHtml.ts";
 import {ToPdf} from "./assets";
 import {DrawerContextProvider} from "./form/DrawerContext/DrawerContextProvider.tsx";
+import {PDFExportView} from "./view/PDFExportView.tsx";
 
 export function PDFCustomizer() {
     const {file} = use(FileContext);
     const reportTemplateRef = useRef<HTMLDivElement>(null as never);
     const [scale, setScale] = useState(1);
 
-    const exportWithCSS = () => {
-        const element = document.getElementById('pdf-content');
+
+    const exportWithCSS = async () => {
+        // ✅ Warte kurz, damit PDFExportView gerendert wird
+        await new Promise(resolve => setTimeout(resolve, 100));
+
+        const element = document.getElementById('pdf-export-container');
+        if (!element) {
+            console.error('Export container nicht gefunden');
+            return;
+        }  // ✅ Klammer geschlossen
 
         const opt = {
-            margin: 10,
-            filename: sanitizeHtmlToRaw(file?.title) + '.pdf' || 'document' + '.pdf',
-            html2canvas: {scale: 4},
-            jsPDF: {unit: 'mm', format: 'a4', orientation: 'portrait'},
-            pagebreak: {mode: ['avoid-all', 'css', 'legacy']}
+            margin: 0,  // ✅ Auf 0 gesetzt
+            filename: (sanitizeHtmlToRaw(file?.title) || 'document') + '.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: {
+                scale: 2,
+                useCORS: true,
+                letterRendering: true
+            },
+            jsPDF: {
+                unit: 'mm',
+                format: 'a4',
+                orientation: 'portrait'
+            },
+            pagebreak: {
+                mode: 'css',  // ✅ Vereinfacht
+                after: '.pdf-page'  // ✅ Bezieht sich auf PDFExportView
+            }
         };
 
         html2pdf().set(opt).from(element).save();
     };
+
 
 
     return (
@@ -74,13 +96,12 @@ export function PDFCustomizer() {
                 </div>
             </Col>
             <Col>
-                <Button onClick={() => {
-                    setScale(1);
-                    exportWithCSS()
-                }} type="primary" style={{marginTop: "20px", width: 'auto'}}>
+                <Button onClick={exportWithCSS} type="primary" style={{marginTop: "20px", width: 'auto'}}>
                     <ToPdf width={30} fill={'white'}/> PDF generieren
                 </Button>
             </Col>
+            <PDFExportView file={file} maxPageHeight={1050}/>
         </Row>
+
     );
 }

@@ -77,7 +77,8 @@ export function FileContextProvider({children}: Props) {
     function addTask(type: TaskType.FillInTheBlanks, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): FillInTheBlanksTask;
     function addTask(type: TaskType, patch: Partial<Omit<TaskType, 'numeration'>> = {}): Task {
         function extractLeadingNumber(input: string): number | null {
-            const match = input.trim().match(/^[-+]?\\d+(?:[.,]\\d+)?/);
+            const match = input.trim().match(/[-+]?\d+(?:[.,]\d+)?/);
+            console.log(match);
             if (!match) return null;
             return Number(match[0].replace(',', '.'));
         }
