@@ -76,7 +76,6 @@ export function FileContextProvider({children}: Props) {
     function addTask(type: TaskType.Mixed, patch?: Partial<Omit<MixedTask, 'numeration'>>): MixedTask;
     function addTask(type: TaskType.FillInTheBlanks, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): FillInTheBlanksTask;
     function addTask(type: TaskType, patch: Partial<Omit<TaskType, 'numeration'>> = {}): Task {
-        console.log('Adding task of type:', type, 'with patch:', patch);
         function extractLeadingNumber(input: string): number | null {
             const match = input.trim().match(/^[-+]?\\d+(?:[.,]\\d+)?/);
             if (!match) return null;
@@ -109,7 +108,6 @@ export function FileContextProvider({children}: Props) {
 
     const updateTask = (taskId: string, updates: Partial<Task> | Task) => {
         if (!file) return;
-        console.log( 'Updating task:', taskId, 'with updates:', updates);
         setFile({
             ...file,
             tasks: file.tasks.map(task => {
@@ -117,7 +115,7 @@ export function FileContextProvider({children}: Props) {
 
                 // Wenn updates ein vollständiger Task ist, einfach verwenden,
                 // ansonsten mergen
-                const updatedTask = { ...task, ...updates };
+                const updatedTask = {...task, ...updates};
 
                 // Type preservation
                 switch (task.type) {
@@ -153,7 +151,6 @@ export function FileContextProvider({children}: Props) {
             ...file,
             tasks: file.tasks.map(task => {
                 if (task.id !== taskId) return task;
-                console.log('Adding option to task:', taskId, optionName);
                 // Neue Option erstellen
                 const newOption = {
                     id: crypto.randomUUID(),
@@ -165,21 +162,19 @@ export function FileContextProvider({children}: Props) {
                 // Type-spezifische Rückgabe
                 switch (task.type) {
                     case TaskType.WriteIn:
-                        return { ...task, options: updatedOptions } as WriteInTask;
+                        return {...task, options: updatedOptions} as WriteInTask;
                     case TaskType.MultipleChoice:
-                        return { ...task, options: updatedOptions } as MultipleChoiceTask;
+                        return {...task, options: updatedOptions} as MultipleChoiceTask;
                     case TaskType.Mixed:
-                        return { ...task, options: updatedOptions } as MixedTask;
+                        return {...task, options: updatedOptions} as MixedTask;
                     case TaskType.FillInTheBlanks:
-                        return { ...task, options: updatedOptions } as FillInTheBlanksTask;
+                        return {...task, options: updatedOptions} as FillInTheBlanksTask;
                     default:
                         const _exhaustive: never = task;
                         return task;
                 }
             })
         });
-        console.log('new option added', taskId, optionName)
-        console.log('really added?:' , file.tasks.find(t => t.id === taskId)?.options)
     };
 
 
@@ -193,19 +188,19 @@ export function FileContextProvider({children}: Props) {
 
                 // Typsichere Aktualisierung basierend auf dem Task-Typ
                 const updatedOptions = task.options.map(option =>
-                    option.id === optionId ? { ...option, name: newName } : option
+                    option.id === optionId ? {...option, name: newName} : option
                 );
 
                 // Type-spezifische Rückgabe, um Discriminated Union zu erhalten
                 switch (task.type) {
                     case TaskType.WriteIn:
-                        return { ...task, options: updatedOptions } as WriteInTask;
+                        return {...task, options: updatedOptions} as WriteInTask;
                     case TaskType.MultipleChoice:
-                        return { ...task, options: updatedOptions } as MultipleChoiceTask;
+                        return {...task, options: updatedOptions} as MultipleChoiceTask;
                     case TaskType.Mixed:
-                        return { ...task, options: updatedOptions } as MixedTask;
+                        return {...task, options: updatedOptions} as MixedTask;
                     case TaskType.FillInTheBlanks:
-                        return { ...task, options: updatedOptions } as FillInTheBlanksTask;
+                        return {...task, options: updatedOptions} as FillInTheBlanksTask;
                     default:
                         const _exhaustive: never = task;
                         return task;
@@ -228,13 +223,13 @@ export function FileContextProvider({children}: Props) {
                 // Type-spezifische Rückgabe
                 switch (task.type) {
                     case TaskType.WriteIn:
-                        return { ...task, options: filteredOptions } as WriteInTask;
+                        return {...task, options: filteredOptions} as WriteInTask;
                     case TaskType.MultipleChoice:
-                        return { ...task, options: filteredOptions } as MultipleChoiceTask;
+                        return {...task, options: filteredOptions} as MultipleChoiceTask;
                     case TaskType.Mixed:
-                        return { ...task, options: filteredOptions } as MixedTask;
+                        return {...task, options: filteredOptions} as MixedTask;
                     case TaskType.FillInTheBlanks:
-                        return { ...task, options: filteredOptions } as FillInTheBlanksTask;
+                        return {...task, options: filteredOptions} as FillInTheBlanksTask;
                     default:
                         const _exhaustive: never = task;
                         return task;

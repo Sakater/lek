@@ -60,7 +60,6 @@ export function PDFCustomizer() {
                                     value={scale}
                                     onChange={(e) => {
                                         setScale(Number(e.target.value));
-                                        console.log('scale: ', scale);
                                     }}
                                     style={{marginLeft: '10px'}}
                                 />

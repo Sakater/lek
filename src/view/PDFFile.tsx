@@ -2,7 +2,7 @@
 import React from 'react';
 import type {File} from '../types';
 import {TaskView} from './TaskView';
-import {sanitizeHtml, sanitizeHtmlToRaw, sanitizeHtmlWithoutP} from "../utils/sanitizeHtml.ts";
+import {sanitizeHtml, sanitizeHtmlWithoutP} from "../utils/sanitizeHtml.ts";
 
 interface PDFFileProps {
     file: File | null;

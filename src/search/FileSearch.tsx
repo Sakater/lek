@@ -24,8 +24,6 @@ export function FileSearch() {
     }));
     options.push(...subjectList);
 
-    console.log('FileSearch -> openTemplateSearch: ', openTemplateSearch)
-
     useEffect(() => {
         if (inputValue.length === 0) {
             setTemplates([]); // Ergebnisse ausblenden, wenn keine Suchbegriffe

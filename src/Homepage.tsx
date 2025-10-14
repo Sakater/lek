@@ -52,8 +52,6 @@ export function Homepage() {
                             }
                             onClick={() => {
                                 setOpenTemplateSearch(true);
-                                console.log('templatesearch: ', openTemplateSearch, 'Customizer: ', openCustomizer);
-
                             }}
                         >
                             <Meta style={{textWrap: 'pretty'}} title="Vorhandene Dokumente"

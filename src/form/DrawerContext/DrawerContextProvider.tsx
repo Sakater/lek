@@ -17,8 +17,6 @@ export function DrawerContextProvider({children}: Props) {
     const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null)
     const openDrawer = (drawer: keyof DrawerState) => {
         setDrawerState(prev => ({...prev, [drawer]: true}));
-        console.log(`Opened drawer: ${drawer}`); // Debug-Ausgabe
-        console.log('states: ', drawerState); // Debug-Ausgabe
     };
 
     const closeDrawer = (drawer: keyof DrawerState) => {
