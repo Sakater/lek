@@ -1,12 +1,12 @@
 import DOMPurify from "dompurify";
 
 const allowedHtml= {
-    ALLOWED_TAGS: ['strong', 'em', 'u', 'p', 'br', 'span'],
+    ALLOWED_TAGS: ['strong', 'em', 'u', 'p', 'br', 'span', 'li', 'ul', 'ol', 'dl', 'dd', 'dt'],
     ALLOWED_ATTR: ['style'],
     ALLOWED_CSS_PROPERTIES: ['font-size', 'background-color'],
 }
 const allowedHtmlWithoutP= {
-    ALLOWED_TAGS: ['strong', 'em', 'u', 'br', 'span'],
+    ALLOWED_TAGS: ['strong', 'em', 'u', 'br', 'span', 'li', 'ul', 'ol', 'dl', 'dd', 'dt'],
     ALLOWED_ATTR: ['style'],
     ALLOWED_CSS_PROPERTIES: ['font-size', 'background-color'],
 }

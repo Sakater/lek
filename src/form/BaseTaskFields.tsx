@@ -4,27 +4,46 @@ import {Button, Col, Row} from 'antd';
 import {DeleteTwoTone, PlusCircleTwoTone} from '@ant-design/icons';
 import {FileContext} from '../FileContext';
 import {TextEditor} from '../editor/TextEditor';
-import {sanitizeHtml} from '../utils/sanitizeHtml';
+import {sanitizeHtml, sanitizeHtmlWithoutP} from '../utils/sanitizeHtml';
 import type {Task} from '../types';
-import {TaskType} from "../types";
 
 type Props = {
     task: Task;
 };
 
 export function BaseTaskFields({task}: Props) {
-    const {file, updateOption, addOption,deleteOption,} = use(FileContext);
+    const {file, updateTask, updateOption, addOption, deleteOption,} = use(FileContext);
 
     return (
         <>
+            <Row className={'row task-container'}>
+                <Col span={3}>
+                    <label>Num.</label>
+                    <TextEditor
+                        content={sanitizeHtml(task.numeration)}
+                        onChange={e => updateTask(task.id, {numeration: sanitizeHtmlWithoutP(e)})}
+                    />
+                </Col>
+                <Col span={18}>
+                    <label>Frage</label>
+                    <TextEditor
+                        content={sanitizeHtml(task.question)}
+                        onChange={e => {
+                            updateTask(task.id, {question: sanitizeHtmlWithoutP(e)});
+                            console.log('e: ', e);
+                        }}
+                        placeholder={"question"}
+                    />
+                </Col>
+            </Row>
             <Button
                 icon={<PlusCircleTwoTone/>}
                 onClick={() =>
                     addOption(task.id)
                 }
-                disabled={task.options.length >= 10}
+                disabled={task.options.length >= 10 || (task.type === 'Freitext' && task.options.length >= 1)}
             >
-                Option
+                {task.type === 'Freitext'?<>Hinweis</>:<>Option</>}
             </Button>
 
             {task.options.map((option) => (

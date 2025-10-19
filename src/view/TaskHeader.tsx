@@ -1,5 +1,5 @@
 import React from "react";
-import {sanitizeHtml} from "../utils/sanitizeHtml.ts";
+import {sanitizeHtml, sanitizeHtmlWithoutP} from "../utils/sanitizeHtml.ts";
 type Props= {
     numeration: string;
     question: string;
@@ -8,8 +8,8 @@ type Props= {
 export function TaskHeader( {numeration, question}: Props) {
     return (
         <div className="task-header">
-            <span className="task-numeration" dangerouslySetInnerHTML={{__html: sanitizeHtml(numeration)}}/>
-            <p className="task-question" dangerouslySetInnerHTML={{__html: sanitizeHtml(question)}}/>
+            <div className="task-numeration" dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(numeration)}}/>
+            <div className="task-question" dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(question)}}/>
         </div>
     );
 };

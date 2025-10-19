@@ -7,20 +7,17 @@ interface PDFFileProps {
     file: File | null;
     scale?: number;
     maxPageHeight?: number; // in px, z.B. 1050px für A4
-    onPaginationUpdate?: (tasks: Task[][]) => void;
 }
 
-export const PDFFile: React.FC<PDFFileProps> = ({
+export const PDFFilecopy: React.FC<PDFFileProps> = ({
                                                     file,
                                                     scale = 1,
-                                                    maxPageHeight = 1050, // A4 Höhe minus Header/Footer
-                                                    onPaginationUpdate
+                                                    maxPageHeight = 1050 // A4 Höhe minus Header/Footer
                                                 }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [taskHeights, setTaskHeights] = useState<Map<string, number>>(new Map());
     const [paginatedTasks, setPaginatedTasks] = useState<Task[][]>([]);
     const taskRefs = useRef<Map<string, HTMLDivElement>>(new Map());
-
 
     // Messe die Höhe aller Tasks
     useEffect(() => {
@@ -66,18 +63,20 @@ export const PDFFile: React.FC<PDFFileProps> = ({
         const pages: Task[][] = [];
         let currentPageTasks: Task[] = [];
         let currentPageHeight = 0;
-        const SPACING = 20;
-        const HEADER_HEIGHT = 80;
-        const FOOTER_HEIGHT = 40;
+        const SPACING = 20; // Abstand zwischen Tasks
+        const HEADER_HEIGHT = 80; // Header Höhe
+        const FOOTER_HEIGHT = 40; // Footer Höhe
         const availableHeight = maxPageHeight - HEADER_HEIGHT - FOOTER_HEIGHT;
 
         file.tasks.forEach((task) => {
             const taskHeight = taskHeights.get(task.id) || 0;
 
+            // Prüfe, ob Task auf aktuelle Seite passt
             if (currentPageHeight + taskHeight + SPACING <= availableHeight) {
                 currentPageTasks.push(task);
                 currentPageHeight += taskHeight + SPACING;
             } else {
+                // Task passt nicht mehr, starte neue Seite
                 if (currentPageTasks.length > 0) {
                     pages.push([...currentPageTasks]);
                 }
@@ -86,16 +85,13 @@ export const PDFFile: React.FC<PDFFileProps> = ({
             }
         });
 
+        // Füge letzte Seite hinzu
         if (currentPageTasks.length > 0) {
             pages.push(currentPageTasks);
         }
 
         setPaginatedTasks(pages);
-
-        if (onPaginationUpdate) {
-            onPaginationUpdate(pages);
-        }
-    }, [file?.tasks, taskHeights, maxPageHeight, onPaginationUpdate]);
+    }, [file?.tasks, taskHeights, maxPageHeight]);
 
     const totalPages = paginatedTasks.length;
     const currentTasks = paginatedTasks[currentPage - 1] || [];
@@ -219,74 +215,6 @@ export const PDFFile: React.FC<PDFFileProps> = ({
                     </div>
                 </div>
             </div>
-        </div>
-    );
-};
-interface PDFExportContainerProps {
-    file: File | null;
-    paginatedTasks: Task[][];
-}
-
-// Erstellen Sie eine Export-Komponente die JSX zurückgibt
-export const PDFExportContainer: React.FC<PDFExportContainerProps> = ({
-                                                                          file,
-                                                                          paginatedTasks
-                                                                      }) => {
-    return (
-        <div id="pdf-export-container"
-             style={{
-                 opacity: 0,  // ✅ Unsichtbar aber im DOM
-                 pointerEvents: 'none',  // ✅ Keine Interaktion
-                 position: 'absolute',
-                 top: 0,
-                 left: 0,
-                 zIndex: -1,
-                 width: '210mm'
-             }}>
-            {paginatedTasks.map((pageTasks, pageIndex) => (
-                <div
-                    key={pageIndex}
-                    className="pdf-page a4-page"
-                    style={{
-                        width: '210mm',
-                        minHeight: '297mm',
-                        padding: '20mm',
-                        pageBreakAfter: 'always',
-                        backgroundColor: 'white',
-                        boxSizing: 'border-box',
-                        position: 'relative'
-                    }}
-                >
-                    {/* Header */}
-                    <header className="page-header">
-                        <span className="page-author"
-                              dangerouslySetInnerHTML={{ __html: file?.author || '' }}
-                        />
-                        <div className="page-title"
-                             dangerouslySetInnerHTML={{ __html: file?.title || 'Titel' }}
-                        />
-                        <span className="page-date"
-                              dangerouslySetInnerHTML={{ __html: file?.date || '' }}
-                        />
-                    </header>
-
-                    <hr className="header-divider" />
-
-                    {/* Content - Hier verwenden wir direkt TaskView */}
-                    <div className="tasks-section">
-                        {pageTasks.map((task) => (
-                            <TaskView key={task.id} task={task} />
-                        ))}
-                    </div>
-
-                    {/* Footer */}
-                    <footer className="page-footer">
-                        <div className="footer-content">
-                            Seite {pageIndex + 1} von {paginatedTasks.length}
-                        </div>
-                    </footer>
-                </div>
-            ))}
         </div>
     );
 };

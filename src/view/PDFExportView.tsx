@@ -90,7 +90,7 @@ export function PDFExportView({file, maxPageHeight = 1050}: PDFFileProps) {
     }, [file?.tasks, taskHeights, maxPageHeight]);
 
     return (
-        <div id="pdf-export-container" style={{position: 'absolute', left: '-9999px'}}>
+        <div id="pdf-export-container" style={{}}>
             {paginatedTasks.map((pageTasks, pageIndex) => (
                 <div
                     key={pageIndex}
@@ -102,7 +102,7 @@ export function PDFExportView({file, maxPageHeight = 1050}: PDFFileProps) {
                         pageBreakAfter: 'always',
                         backgroundColor: 'white'
                     }}
-                >
+                >Gute Fahrt!
                     {/* Header */}
                     <div className="pdf-header">
                         <h1>{file?.title}</h1>
@@ -111,6 +111,7 @@ export function PDFExportView({file, maxPageHeight = 1050}: PDFFileProps) {
 
                     {/* Content */}
                     <div className="pdf-content">
+                        Gute Fahrt!
                         {pageTasks.map((task) => (
                             <TaskView key={task.id} task={task}/>
                         ))}

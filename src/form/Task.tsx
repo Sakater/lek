@@ -4,7 +4,7 @@ import {Button, Col, Row} from 'antd';
 import {DeleteTwoTone, SettingTwoTone} from "@ant-design/icons";
 import type {Task as TaskType} from '../types';
 import {TextEditor} from "../editor/TextEditor.tsx";
-import {sanitizeHtml} from "../utils/sanitizeHtml.ts";
+import {sanitizeHtml, sanitizeHtmlWithoutP} from "../utils/sanitizeHtml.ts";
 import {DrawerContext} from "./DrawerContext";
 
 type Props = {
@@ -21,13 +21,16 @@ export function Task({task}: Props) {
                 <Col span={3}>
                     <TextEditor
                         content={sanitizeHtml(task.numeration)}
-                        onChange={e => updateTask(task.id, {numeration: sanitizeHtml(e)})}
+                        onChange={e => updateTask(task.id, {numeration: sanitizeHtmlWithoutP(e)})}
                     />
                 </Col>
                 <Col span={18}>
                     <TextEditor
                         content={sanitizeHtml(task.question)}
-                        onChange={e => updateTask(task.id, {question: sanitizeHtml(e)})}
+                        onChange={e => {
+                            updateTask(task.id, {question: sanitizeHtmlWithoutP(e)});
+                            console.log('e: ', e);
+                        }}
                     />
                 </Col>
                 <Col span={1}>

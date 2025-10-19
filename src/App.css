@@ -54,6 +54,8 @@
 
 .task-header {
     margin-bottom: 15px;
+    display: flex;
+    align-items: center;
 }
 
 .task-numeration {
@@ -89,31 +91,18 @@
 
 .writing-line-container {
     position: relative;
-    height: 30px;
+    height: 40px;
+    padding-top: 3px;
     margin-bottom: 5px;
 }
 
-.writing-line {
-    width: 100%;
-    height: 1px;
-    background-color: #333;
-    position: absolute;
-    bottom: 0;
-}
-.helping-lines{
-    width: 100%;
-    height: 1px;
-    background-color: #441eb3;
-    position: absolute;
-    /*border-style: dashed;*/
-}
 
-.helping-line{
+.helping-line {
     width: 100%;
     height: 1px;
-    background-color: #c31e1e;
-    position: absolute;
-    /*border-style: dashed;*/
+    position: relative; /* absolute entfernt, damit margin wirkt */
+    margin-top: 10px;   /* vertikaler Abstand nach oben */
+    border-bottom: solid #1a1a1a 1px;
 }
 
 /* WriteInTask */
@@ -194,7 +183,6 @@
 
 /* Container für die A4-Seite */
 .a4-container {
-    background-color: #f4f4f4;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -258,7 +246,7 @@
 .header-divider {
     border: none;
     border-top: 2px solid #333;
-    margin: 10px 0 15mm 0;
+    margin: 10px 0 5mm 0;
 }
 
 /* Aufgabenbereich */
@@ -329,7 +317,6 @@
     width: 210mm;
     min-height: 297mm;
     max-height: 297mm;
-    padding: 20mm;
     margin: 0 auto;
     background: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -406,9 +393,9 @@
 
 /* Export Container */
 .pdf-export-hidden {
-    position: absolute;
-    left: -9999px;
-    top: 0;
+    /*position: absolute;*/
+    /*left: -9999px;*/
+    /*top: 0;*/
 }
 
 /* Beim Export anzeigen */
@@ -438,7 +425,7 @@
 .a4-page {
     width: 210mm;
     min-height: 297mm;
-    padding: 20mm;
+    padding: 15mm; /*15mm vs 20mm*/
     margin: 0 auto;
     background: white;
     box-sizing: border-box;
@@ -492,3 +479,9 @@
     }
 }
 
+
+.task-form-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}

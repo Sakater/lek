@@ -17,30 +17,33 @@ export function MultipleChoiceTaskForm({task, open, onClose}: Props) {
 
     return (
         <Drawer
-            title="Multiple-Choice Task bearbeiten"
+            title="Multiple-Choice-Aufgabe Task bearbeiten"
             placement="top"
             open={open}
             onClose={onClose}
             height={'80%'}
         >
+            <div className={'task-form-grid'}>
+                <div>
 
+                    <BaseTaskFields task={task}/>
 
-            <BaseTaskFields task={task}/>
-
-            <div style={{marginTop: 16}}>
-                <label>Optionen pro Zeile:</label>
-                <InputNumber
-                    min={1}
-                    max={10}
-                    value={task.optionsInARow}
-                    onChange={(value) => {
-                        if (value !== null) {
-                            updateTask(task.id, {...task, optionsInARow: value} as Partial<Task>);
-                        }
-                    }}
-                />
+                    <div style={{marginTop: 16}}>
+                        <label>Optionen pro Zeile: </label>
+                        <InputNumber
+                            min={1}
+                            max={10}
+                            value={task.optionsInARow}
+                            onChange={(value) => {
+                                if (value !== null) {
+                                    updateTask(task.id, {...task, optionsInARow: value} as Partial<Task>);
+                                }
+                            }}
+                        />
+                    </div>
+                </div>
+                <TaskView task={task}/>
             </div>
-            <TaskView task={task}/>
         </Drawer>
     );
 }

@@ -158,7 +158,7 @@
       },
       {
         "subject": "Dini Tarih",
-        "type": "Textfeld",
+        "type": "Freitext",
         "numeration": "3.",
         "question": "Beispielfrage zu Dini Tarih?",
         "options": [],
@@ -205,7 +205,7 @@
     "tasks": [
       {
         "subject": "Kelam",
-        "type": "Textfeld",
+        "type": "Freitext",
         "numeration": "1.",
         "question": "Beispielfrage zu Kelam?",
         "options": [],
@@ -244,7 +244,7 @@
       },
       {
         "subject": "Dini Tarih",
-        "type": "Textfeld",
+        "type": "Freitext",
         "numeration": "3.",
         "question": "Beispielfrage zu Dini Tarih?",
         "options": [],
@@ -358,7 +358,7 @@
       },
       {
         "subject": "Hadis",
-        "type": "Textfeld",
+        "type": "Freitext",
         "numeration": "4.",
         "question": "Was bedeutet Isnad?",
         "options": [],
@@ -494,7 +494,7 @@
       },
       {
         "subject": "Hadis",
-        "type": "Textfeld",
+        "type": "Freitext",
         "numeration": "2.",
         "question": "Erkläre die Hadith-Klassifikation.",
         "options": [],
@@ -575,7 +575,7 @@
       },
       {
         "subject": "Arapça",
-        "type": "Textfeld",
+        "type": "Freitext",
         "numeration": "2.",
         "question": "Erkläre den Unterschied zwischen Mudari und Madi.",
         "options": [],
@@ -586,7 +586,7 @@
       },
       {
         "subject": "Hadis",
-        "type": "Textfeld",
+        "type": "Freitext",
         "numeration": "3.",
         "question": "Was bedeutet Isnad?",
         "options": [],
@@ -644,7 +644,7 @@
     "tasks": [
       {
         "subject": "Kelam",
-        "type": "Textfeld",
+        "type": "Freitext",
         "numeration": "1.",
         "question": "Beispielfrage zu Kelam?",
         "options": [],
@@ -655,7 +655,7 @@
       },
       {
         "subject": "Kuran",
-        "type": "Textfeld",
+        "type": "Freitext",
         "numeration": "2.",
         "question": "Wie viele Suren hat der Quran?",
         "options": [],
@@ -801,7 +801,7 @@
       },
       {
         "subject": "Hadis",
-        "type": "Textfeld",
+        "type": "Freitext",
         "numeration": "5.",
         "question": "Was bedeutet Isnad?",
         "options": [],
@@ -887,7 +887,7 @@
       },
       {
         "subject": "Arapça",
-        "type": "Textfeld",
+        "type": "Freitext",
         "numeration": "4.",
         "question": "Übersetze: السلام عليكم",
         "options": [],
@@ -926,7 +926,7 @@
       },
       {
         "subject": "Fikih",
-        "type": "Textfeld",
+        "type": "Freitext",
         "numeration": "6.",
         "question": "Was ist die Nisab-Grenze für Zakat?",
         "options": [],

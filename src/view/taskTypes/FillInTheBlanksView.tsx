@@ -22,6 +22,7 @@ export const FillInTheBlanksView: React.FC<FillInTheBlanksTaskProps> = ({ task }
 
             if (match) {
                 const blankId = match[1];
+                console.log(`Rendering blank with id: ${blankId}`);
                 return (
                     <input
                         key={`blank-${blankId}-${index}`}
@@ -32,7 +33,7 @@ export const FillInTheBlanksView: React.FC<FillInTheBlanksTaskProps> = ({ task }
                             ...blankValues,
                             [blankId]: e.target.value
                         })}
-                        placeholder="___"
+                        style={{width: `${blankId}%`}}
                         aria-label={`Lücke ${blankId}`}
                     />
                 );

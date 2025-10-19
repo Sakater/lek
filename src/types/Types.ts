@@ -1,6 +1,6 @@
 export enum TaskType {
     MultipleChoice = 'Multiple-Choice',
-    WriteIn = 'Textfeld',
+    WriteIn = 'Freitext',
     Mixed = 'Mixed',
     FillInTheBlanks = 'Lückentext',
 }

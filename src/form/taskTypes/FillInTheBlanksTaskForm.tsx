@@ -16,29 +16,34 @@ export function FillInTheBlanksTaskForm({task, open, onClose}: Props) {
 
     return (
         <Drawer
-            title="Lückentext Task bearbeiten"
+            title="Lückentext-Aufgabe bearbeiten"
             placement="top"
             open={open}
             onClose={onClose}
             height={'80%'}
             classNames='fill-in-the-blanks-task-form'
         >
-            <TaskView task={task}/>
+            <div className={'task-form-grid'}>
+                <div>
 
-            <BaseTaskFields task={task}/>
 
-            <div style={{marginTop: 16}}>
-                <label>Optionen pro Zeile:</label>
-                <InputNumber
-                    min={1}
-                    max={10}
-                    value={task.optionsInARow}
-                    onChange={(value) => {
-                        if (value !== null) {
-                            updateTask(task.id, {optionsInARow: value} as Partial<Task>);
-                        }
-                    }}
-                />
+                    <BaseTaskFields task={task}/>
+
+                    <div style={{marginTop: 16}}>
+                        <label>Optionen pro Zeile:</label>
+                        <InputNumber
+                            min={1}
+                            max={10}
+                            value={task.optionsInARow}
+                            onChange={(value) => {
+                                if (value !== null) {
+                                    updateTask(task.id, {optionsInARow: value} as Partial<Task>);
+                                }
+                            }}
+                        />
+                    </div>
+                </div>
+                <TaskView task={task}/>
             </div>
         </Drawer>
     );
