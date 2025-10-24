@@ -1,85 +1,63 @@
-import React, { use, useState } from "react";
-import ReactDOM from 'react-dom/client';
-import { Button, Col, Row } from "antd";
-import { Form } from "./form/Form.tsx";
-import { PDFFile } from "./view/PDFFile.tsx";
-import { PDFExportContainer } from "./view/PDFFile.tsx"; // Neue Import
-import { FileContext } from "./FileContext";
-import html2pdf from "html2pdf.js";
-import { sanitizeHtmlToRaw } from "./utils/sanitizeHtml.ts";
-import { ToPdf } from "./assets";
-import { DrawerContextProvider } from "./form/DrawerContext/DrawerContextProvider.tsx";
+import React, {use, useRef, useState} from "react";
+import {Button, Col, Row} from "antd";
+import {Form} from "./form/Form.tsx";
+import {PDFFile} from "./view/PDFFile.tsx";
+import {FileContext} from "./FileContext";
+import {ToPdf} from "./assets";
+import {DrawerContextProvider} from "./form/DrawerContext/DrawerContextProvider.tsx";
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 export function PDFCustomizer() {
     const { file } = use(FileContext);
     const [scale, setScale] = useState(1);
     const [isExporting, setIsExporting] = useState(false);
     const [paginatedTasks, setPaginatedTasks] = useState([]);
+    const pdfRef = useRef<HTMLDivElement>(null);
 
     const handlePaginationUpdate = (tasks) => {
         setPaginatedTasks(tasks);
     };
 
     const exportPDF = async () => {
+        if (!pdfRef.current) return;
+
         setIsExporting(true);
 
         try {
-            const tempContainer = document.createElement('div');
-            tempContainer.id = 'pdf-temp-container';
-            tempContainer.style.position = 'fixed';
-            tempContainer.style.top = '0';
-            tempContainer.style.left = '0';
-            tempContainer.style.width = '210mm';
-            tempContainer.style.zIndex = '9999';
-            tempContainer.style.backgroundColor = 'white';
+            const element = pdfRef.current;
+            const canvas = await html2canvas(element, {
+                scale: 2,
+                useCORS: true,
+                logging: false
+            });
 
-            document.body.appendChild(tempContainer);
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF({
+                orientation: 'portrait',
+                unit: 'mm',
+                format: 'a4'
+            });
 
-            // ✅ Verwende createRoot hier
-            const root = ReactDOM.createRoot(tempContainer);
-            root.render(
-                <PDFExportContainer
-                    file={file}
-                    paginatedTasks={paginatedTasks}
-                /> as React.ReactNode
-            );
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = pdf.internal.pageSize.getHeight();
+            const imgWidth = canvas.width;
+            const imgHeight = canvas.height;
+            const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
 
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            const imgX = (pdfWidth - imgWidth * ratio) / 2;
+            const imgY = 0;
 
-            const element = tempContainer.querySelector('#pdf-export-container');
-
-            const opt = {
-                margin: 0,
-                filename: (sanitizeHtmlToRaw(file?.title) || 'document') + '.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: {
-                    scale: 2,
-                    useCORS: true,
-                    letterRendering: true
-                },
-                jsPDF: {
-                    unit: 'mm',
-                    format: 'a4',
-                    orientation: 'portrait'
-                },
-                pagebreak: {
-                    mode: 'css',
-                    after: '.pdf-page'
-                }
-            };
-
-            await html2pdf().set(opt).from(element).save();
-
-            // Cleanup
-            root.unmount();
-            document.body.removeChild(tempContainer);
-
+            pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
+            pdf.save('export.pdf');
         } catch (error) {
-            console.error('PDF Export Fehler:', error);
+            console.error('PDF Export failed:', error);
         } finally {
             setIsExporting(false);
         }
     };
+
+
     return (
         <DrawerContextProvider>
             <Row style={{ padding: '20px' }}>
@@ -103,7 +81,7 @@ export function PDFCustomizer() {
                     </div>
 
                     {/* Sichtbare PDF Preview */}
-                    <div style={{ transform: `scale(${scale})`, transformOrigin: 'top left' }}>
+                    <div ref={pdfRef} style={{ transform: `scale(${scale})`, transformOrigin: 'top left' }}>
                         <PDFFile
                             file={file}
                             scale={scale}
@@ -133,12 +111,12 @@ export function PDFCustomizer() {
             </Row>
 
             {/* Hidden Container für Export - Wird nur gerendert wenn Export läuft */}
-            <>{isExporting && (
-                <PDFExportContainer
-                    file={file}
-                    paginatedTasks={paginatedTasks}
-                />
-            )}</>
+            {/*<>{isExporting && (*/}
+            {/*    <PDFExportContainer*/}
+            {/*        file={file}*/}
+            {/*        paginatedTasks={paginatedTasks}*/}
+            {/*    />*/}
+            {/*)}</>*/}
         </DrawerContextProvider>
     );
 }

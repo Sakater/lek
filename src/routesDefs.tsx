@@ -13,6 +13,6 @@ export const routesDefs = [
     },
     {
         path: '/export',
-        element: <PDFExportView/>
+        element: <PDFExportView />
     }
 ]
