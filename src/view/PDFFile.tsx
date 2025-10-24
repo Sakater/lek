@@ -23,79 +23,92 @@ export const PDFFile: React.FC<PDFFileProps> = ({
 
 
     // Messe die Höhe aller Tasks
-    useEffect(() => {
-        if (!file?.tasks || file.tasks.length === 0) return;
+   // Messe die Höhe aller Tasks
+useEffect(() => {
+    if (!file?.tasks || file.tasks.length === 0) return;
 
-        const measureTasks = () => {
-            const heights = new Map<string, number>();
+    const measureTasks = () => {
+        const heights = new Map<string, number>();
 
-            taskRefs.current.forEach((element, taskId) => {
-                if (element) {
-                    // getBoundingClientRect gibt die tatsächliche gerenderte Höhe
-                    const height = element.getBoundingClientRect().height;
-                    heights.set(taskId, height);
-                }
+        taskRefs.current.forEach((element, taskId) => {
+            if (element) {
+                const height = element.getBoundingClientRect().height;
+                heights.set(taskId, height);
+            }
+        });
+
+        // Nur State aktualisieren wenn sich Höhen tatsächlich geändert haben
+        setTaskHeights(prev => {
+            if (prev.size !== heights.size) return heights;
+
+            let hasChanged = false;
+            heights.forEach((height, id) => {
+                if (prev.get(id) !== height) hasChanged = true;
             });
 
-            setTaskHeights(heights);
-        };
+            return hasChanged ? heights : prev;
+        });
+    };
 
-        // Initiale Messung
+    // Verzögere initiale Messung bis DOM fertig gerendert ist
+    const timeoutId = setTimeout(measureTasks, 0);
+
+    const resizeObserver = new ResizeObserver(() => {
         measureTasks();
+    });
 
-        // ResizeObserver für dynamische Änderungen
-        const resizeObserver = new ResizeObserver(() => {
-            measureTasks();
-        });
-
-        taskRefs.current.forEach((element) => {
-            if (element) {
-                resizeObserver.observe(element);
-            }
-        });
-
-        return () => {
-            resizeObserver.disconnect();
-        };
-    }, [file?.tasks]);
-
-    // Berechne Seiten basierend auf gemessenen Höhen
-    useEffect(() => {
-        if (!file?.tasks || taskHeights.size === 0) return;
-
-        const pages: Task[][] = [];
-        let currentPageTasks: Task[] = [];
-        let currentPageHeight = 0;
-        const SPACING = 20;
-        const HEADER_HEIGHT = 80;
-        const FOOTER_HEIGHT = 40;
-        const availableHeight = maxPageHeight - HEADER_HEIGHT - FOOTER_HEIGHT;
-
-        file.tasks.forEach((task) => {
-            const taskHeight = taskHeights.get(task.id) || 0;
-
-            if (currentPageHeight + taskHeight + SPACING <= availableHeight) {
-                currentPageTasks.push(task);
-                currentPageHeight += taskHeight + SPACING;
-            } else {
-                if (currentPageTasks.length > 0) {
-                    pages.push([...currentPageTasks]);
-                }
-                currentPageTasks = [task];
-                currentPageHeight = taskHeight + SPACING;
-            }
-        });
-
-        if (currentPageTasks.length > 0) {
-            pages.push(currentPageTasks);
+    taskRefs.current.forEach((element) => {
+        if (element) {
+            resizeObserver.observe(element);
         }
+    });
 
-        setPaginatedTasks(pages);
+    return () => {
+        clearTimeout(timeoutId);
+        resizeObserver.disconnect();
+    };
+}, [file?.tasks]);
 
-        if (onPaginationUpdate) {
-            onPaginationUpdate(pages);
+// Berechne Seiten basierend auf gemessenen Höhen
+useEffect(() => {
+    if (!file?.tasks || taskHeights.size === 0) return;
+
+    const pages: Task[][] = [];
+    let currentPageTasks: Task[] = [];
+    let currentPageHeight = 0;
+    const SPACING = 20;
+    const HEADER_HEIGHT = 80;
+    const FOOTER_HEIGHT = 40;
+    const availableHeight = maxPageHeight - HEADER_HEIGHT - FOOTER_HEIGHT;
+
+    file.tasks.forEach((task) => {
+        const taskHeight = taskHeights.get(task.id) || 0;
+
+        if (currentPageHeight + taskHeight + SPACING <= availableHeight) {
+            currentPageTasks.push(task);
+            currentPageHeight += taskHeight + SPACING;
+        } else {
+            if (currentPageTasks.length > 0) {
+                pages.push([...currentPageTasks]);
+            }
+            currentPageTasks = [task];
+            currentPageHeight = taskHeight + SPACING;
         }
-    }, [file?.tasks, taskHeights, maxPageHeight, onPaginationUpdate]);
+    });
+
+    if (currentPageTasks.length > 0) {
+        pages.push(currentPageTasks);
+    }
+
+    setPaginatedTasks(pages);
+}, [file?.tasks, taskHeights, maxPageHeight]);
+
+// Separate Effect für Callback - nur wenn sich paginatedTasks ändert
+useEffect(() => {
+    if (onPaginationUpdate && paginatedTasks.length > 0) {
+        onPaginationUpdate(paginatedTasks);
+    }
+}, [paginatedTasks, onPaginationUpdate]);
 
     const totalPages = paginatedTasks.length;
     const currentTasks = paginatedTasks[currentPage - 1] || [];

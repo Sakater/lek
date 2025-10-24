@@ -1,13 +1,28 @@
 import './App.css'
-import React from "react";
+import React, {use} from "react";
 import {FileContextProvider} from "./FileContext/FileContextProvider.tsx";
-import {Homepage} from "./Homepage.tsx";
+import {Route, Routes, useNavigate} from "react-router"
+import {routesDefs} from "./routesDefs.tsx";
+import {Button} from "antd";
+import {HomeFilled} from "@ant-design/icons";
+import {FileContext} from "./FileContext";
 
 function App() {
+    const {setOpenTemplateSearch} = use(FileContext);
+    const navigate= useNavigate()
     return (
         <FileContextProvider>
             <div className={'App'}>
-                <Homepage/>
+                <div className={'home-button'}>
+                    <Button onClick={() => {
+                        navigate('/')
+                        setOpenTemplateSearch(false);
+                    }} icon={<HomeFilled/>}/></div>
+                <Routes>
+                    {routesDefs.map(({path, element}) => (
+                        <Route key={path} path={path} element={element}/>
+                    ))}
+                </Routes>
             </div>
         </FileContextProvider>
 

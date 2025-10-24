@@ -4,27 +4,18 @@ import {FileContext} from "./FileContext";
 import {HomeFilled} from "@ant-design/icons";
 import {AddNotes, DocumentSearch} from "./assets";
 import {FileSearch} from "./search/FileSearch.tsx";
-import {PDFCustomizer} from "./PDFCustomizer.tsx";
+import {useNavigate} from "react-router";
 
 const {Meta} = Card;
 
 export function Homepage() {
-    const {
-        openTemplateSearch, setOpenTemplateSearch,
-        openCustomizer, setOpenCustomizer
-    } = use(FileContext);
-    useEffect(() => {
-        setOpenTemplateSearch(false);
-        setOpenCustomizer(false);
-    }, []);
+    const {openTemplateSearch,setOpenTemplateSearch} = use(FileContext);
+    useEffect(() => {setOpenTemplateSearch(false)}, []);
+    const navigate= useNavigate()
     return (
         <>
-            <div className={'home-button'}>
-                <Button onClick={() => {
-                    setOpenCustomizer(false);
-                    setOpenTemplateSearch(false);
-                }} icon={<HomeFilled/>}/></div>
-            {!openTemplateSearch && !openCustomizer &&
+
+            {!openTemplateSearch?(
                 <Row gutter={24} className={'App'} style={{
                     height: '100vh',
                     alignContent: 'space-evenly',
@@ -73,7 +64,7 @@ export function Homepage() {
                                           style={{display: 'block', paddingTop: '20px', color: 'darkblue'}}/>
                             }
                             onClick={() => {
-                                setOpenCustomizer(true);
+                                navigate('/editor');
                             }}
                         >
                             <Meta title="Neues Dokument erstellen"
@@ -81,9 +72,8 @@ export function Homepage() {
                         </Card>
                     </Col>
                 </Row>
-            }
-            {openTemplateSearch && <FileSearch/>}
-            {openCustomizer && <PDFCustomizer/>}
+            ):undefined}
+            {openTemplateSearch ? <FileSearch/>:undefined}
         </>
     )
 }
