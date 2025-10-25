@@ -2,6 +2,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import type {File, Task} from '../types';
 import {TaskView} from './TaskView';
+import {sanitizeHtmlWithoutP} from "../utils/sanitizeHtml.ts";
 
 interface PDFFileProps {
     file: File | null;
@@ -204,9 +205,9 @@ useEffect(() => {
                     <div className="page-content">
                         {/* Header */}
                         <header className="page-header">
-                            <span className="page-author" dangerouslySetInnerHTML={{__html: file?.author || 'Autor'}}/>
-                            <div className="page-title" dangerouslySetInnerHTML={{__html: file?.title || 'Titel'}}/>
-                            <span className="page-date" dangerouslySetInnerHTML={{__html: file?.date || ''}}/>
+                            <span className="page-author" dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(file?.author) || 'Autor'}}/>
+                            <div className="page-title" dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(file?.title) || 'Titel'}}/>
+                            <span className="page-date" dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(file?.date) || ''}}/>
 
                         </header>
                         <hr className="header-divider"/>
@@ -235,6 +236,7 @@ useEffect(() => {
         </div>
     );
 };
+
 interface PDFExportContainerProps {
     file: File | null;
     paginatedTasks: Task[][];
@@ -273,13 +275,13 @@ export const PDFExportContainer: React.FC<PDFExportContainerProps> = ({
                     {/* Header */}
                     <header className="page-header">
                         <span className="page-author"
-                              dangerouslySetInnerHTML={{ __html: file?.author || '' }}
+                              dangerouslySetInnerHTML={{ __html: sanitizeHtmlWithoutP(file?.author) || '' }}
                         />
                         <div className="page-title"
-                             dangerouslySetInnerHTML={{ __html: file?.title || 'Titel' }}
+                             dangerouslySetInnerHTML={{ __html: sanitizeHtmlWithoutP(file?.title) || 'Titel' }}
                         />
                         <span className="page-date"
-                              dangerouslySetInnerHTML={{ __html: file?.date || '' }}
+                              dangerouslySetInnerHTML={{ __html: sanitizeHtmlWithoutP(file?.date) || '' }}
                         />
                     </header>
 

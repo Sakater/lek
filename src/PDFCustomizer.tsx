@@ -1,10 +1,12 @@
-import React, {use, useRef, useState} from "react";
+import {use, useState} from "react";
 import {Button, Col, Row} from "antd";
 import {Form} from "./form/Form.tsx";
 import {PDFFile} from "./view/PDFFile.tsx";
 import {FileContext} from "./FileContext";
 import {ToPdf} from "./assets";
 import {DrawerContextProvider} from "./form/DrawerContext/DrawerContextProvider.tsx";
+import {PDFExportView} from "./PDFExportView.tsx";
+import type {Task} from "./types";
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
@@ -12,51 +14,53 @@ export function PDFCustomizer() {
     const { file } = use(FileContext);
     const [scale, setScale] = useState(1);
     const [isExporting, setIsExporting] = useState(false);
-    const [paginatedTasks, setPaginatedTasks] = useState([]);
-    const pdfRef = useRef<HTMLDivElement>(null);
+    const [paginatedTasks, setPaginatedTasks] = useState<Task[][]>([]);
 
-    const handlePaginationUpdate = (tasks) => {
+    const handlePaginationUpdate = (tasks: Task[][]) => {
         setPaginatedTasks(tasks);
     };
 
     const exportPDF = async () => {
-        if (!pdfRef.current) return;
+        const container = document.getElementById('pdf-export-view');
+        if (!container) return;
 
         setIsExporting(true);
 
         try {
-            const element = pdfRef.current;
-            const canvas = await html2canvas(element, {
-                scale: 2,
-                useCORS: true,
-                logging: false
-            });
-
-            const imgData = canvas.toDataURL('image/png');
+            const pages = container.querySelectorAll('.pdf-page');
             const pdf = new jsPDF({
                 orientation: 'portrait',
                 unit: 'mm',
                 format: 'a4'
             });
 
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = pdf.internal.pageSize.getHeight();
-            const imgWidth = canvas.width;
-            const imgHeight = canvas.height;
-            const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+            for (let i = 0; i < pages.length; i++) {
+                const page = pages[i] as HTMLElement;
 
-            const imgX = (pdfWidth - imgWidth * ratio) / 2;
-            const imgY = 0;
+                const canvas = await html2canvas(page, {
+                    scale: 2,
+                    useCORS: true,
+                    logging: false,
+                    width: 794,
+                    windowWidth: 794
+                });
 
-            pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
-            pdf.save('export.pdf');
+                const imgData = canvas.toDataURL('image/png');
+
+                if (i > 0) {
+                    pdf.addPage();
+                }
+
+                pdf.addImage(imgData, 'PNG', 0, 0, 210, 297);
+            }
+
+            pdf.save(`${file?.title || 'export'}.pdf`);
         } catch (error) {
             console.error('PDF Export failed:', error);
         } finally {
             setIsExporting(false);
         }
     };
-
 
     return (
         <DrawerContextProvider>
@@ -65,7 +69,6 @@ export function PDFCustomizer() {
                     <Form />
                 </Col>
                 <Col xs={24} xxl={12}>
-                    {/* Zoom Control */}
                     <div style={{ marginBottom: '20px' }}>
                         Zoom:
                         <input
@@ -80,43 +83,35 @@ export function PDFCustomizer() {
                         {Math.round(scale * 100)}%
                     </div>
 
-                    {/* Sichtbare PDF Preview */}
-                    <div ref={pdfRef} style={{ transform: `scale(${scale})`, transformOrigin: 'top left' }}>
-                        <PDFFile
-                            file={file}
-                            scale={scale}
-                            onPaginationUpdate={handlePaginationUpdate}
-                        />
-                    </div>
+                    <PDFFile
+                        file={file}
+                        scale={scale}
+                        onPaginationUpdate={handlePaginationUpdate}
+                    />
 
-                    {/* Export Button */}
                     <div style={{ marginTop: '20px' }}>
                         <Button
                             onClick={exportPDF}
                             type="primary"
                             loading={isExporting}
                             disabled={paginatedTasks.length === 0}
-
                         >
                             <ToPdf />{isExporting ? 'Generiere PDF...' : 'PDF exportieren'}
                         </Button>
 
-                        {paginatedTasks.length > 0 ? (
+                        {paginatedTasks.length > 0 && (
                             <span style={{ marginLeft: '10px', color: '#666' }}>
                                 ({paginatedTasks.length} Seiten)
                             </span>
-                        ) : null}
+                        )}
                     </div>
                 </Col>
             </Row>
 
-            {/* Hidden Container für Export - Wird nur gerendert wenn Export läuft */}
-            {/*<>{isExporting && (*/}
-            {/*    <PDFExportContainer*/}
-            {/*        file={file}*/}
-            {/*        paginatedTasks={paginatedTasks}*/}
-            {/*    />*/}
-            {/*)}</>*/}
+            <PDFExportView
+                file={file}
+                paginatedTasks={paginatedTasks}
+            />
         </DrawerContextProvider>
     );
 }

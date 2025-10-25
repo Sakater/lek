@@ -1,5 +1,5 @@
 import './App.css'
-import React, {use} from "react";
+import {use} from "react";
 import {FileContextProvider} from "./FileContext/FileContextProvider.tsx";
 import {Route, Routes, useNavigate} from "react-router"
 import {routesDefs} from "./routesDefs.tsx";

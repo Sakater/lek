@@ -1,6 +1,5 @@
 import {Homepage} from "./Homepage.tsx";
 import {PDFCustomizer} from "./PDFCustomizer.tsx";
-import {PDFExportView} from "./view/PDFExportView.tsx";
 
 export const routesDefs = [
     {
@@ -10,9 +9,5 @@ export const routesDefs = [
     {
         path:'/editor',
         element: <PDFCustomizer/>
-    },
-    {
-        path: '/export',
-        element: <PDFExportView />
     }
 ]
