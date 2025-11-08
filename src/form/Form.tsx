@@ -1,4 +1,4 @@
-import React, {use} from 'react';
+import  {use} from 'react';
 import {FileContext} from '../FileContext';
 import {Button, Col, DatePicker, Row} from 'antd';
 import {Task} from "./Task.tsx";
@@ -49,7 +49,7 @@ export function Form() {
                     </Col>
                 </Row>
                 {file?.tasks.map(task => (<>
-                    <div key={task.id}>
+                    <div key={task.id} className={"taskForm-container"}>
                         <Task task={task}/>
                     </div>
 

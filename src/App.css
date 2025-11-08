@@ -24,6 +24,11 @@
     width: 100%;
 }
 
+.taskForm-container{
+    text-align: left;
+    margin-bottom: 10px;
+}
+
 
 .task-option{
     margin-top: -25px;

@@ -35,7 +35,6 @@ export function FileSearch() {
 
     return (
         <div>
-            {openTemplateSearch.toString()}
             <Drawer
                 title={'Dokumente finden'}
                 placement={'top'}

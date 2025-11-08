@@ -145,7 +145,7 @@ export const CentralToolbar: React.FC = () => {
     }
 
     return (
-        <div className="toolbar">
+        <div>
             <Button
                 onMouseDown={onBold}
                 icon={<BoldOutlined/>}
