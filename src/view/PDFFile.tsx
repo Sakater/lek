@@ -24,78 +24,102 @@ export const PDFFile: React.FC<PDFFileProps> = ({
 
 
     // Messe die Höhe aller Tasks
-   // Messe die Höhe aller Tasks
-useEffect(() => {
-    if (!file?.tasks || file.tasks.length === 0) return;
+    // Messe die Höhe aller Tasks
+    useEffect(() => {
+        if (!file?.tasks || file.tasks.length === 0) return;
 
-    const measureTasks = () => {
-        const heights = new Map<string, number>();
+        const measureTasks = () => {
+            const heights = new Map<string, number>();
 
-        taskRefs.current.forEach((element, taskId) => {
+            taskRefs.current.forEach((element, taskId) => {
+                if (element) {
+                    const height = element.getBoundingClientRect().height;
+                    heights.set(taskId, height);
+                }
+            });
+
+            // Nur State aktualisieren wenn sich Höhen tatsächlich geändert haben
+            setTaskHeights(prev => {
+                if (prev.size !== heights.size) return heights;
+
+                let hasChanged = false;
+                heights.forEach((height, id) => {
+                    if (prev.get(id) !== height) hasChanged = true;
+                });
+
+                return hasChanged ? heights : prev;
+            });
+        };
+
+        // Verzögere initiale Messung bis DOM fertig gerendert ist
+        const timeoutId = setTimeout(measureTasks, 0);
+
+        const resizeObserver = new ResizeObserver(() => {
+            measureTasks();
+        });
+
+        taskRefs.current.forEach((element) => {
             if (element) {
-                const height = element.getBoundingClientRect().height;
-                heights.set(taskId, height);
+                resizeObserver.observe(element);
             }
         });
 
-        // Nur State aktualisieren wenn sich Höhen tatsächlich geändert haben
-        setTaskHeights(prev => {
-            if (prev.size !== heights.size) return heights;
-
-            let hasChanged = false;
-            heights.forEach((height, id) => {
-                if (prev.get(id) !== height) hasChanged = true;
-            });
-
-            return hasChanged ? heights : prev;
-        });
-    };
-
-    // Verzögere initiale Messung bis DOM fertig gerendert ist
-    const timeoutId = setTimeout(measureTasks, 0);
-
-    const resizeObserver = new ResizeObserver(() => {
-        measureTasks();
-    });
-
-    taskRefs.current.forEach((element) => {
-        if (element) {
-            resizeObserver.observe(element);
-        }
-    });
-
-    return () => {
-        clearTimeout(timeoutId);
-        resizeObserver.disconnect();
-    };
-}, [file?.tasks]);
+        return () => {
+            clearTimeout(timeoutId);
+            resizeObserver.disconnect();
+        };
+    }, [file?.tasks]);
 
 // Berechne Seiten basierend auf gemessenen Höhen
 useEffect(() => {
     if (!file?.tasks || taskHeights.size === 0) return;
 
+    // Dynamisch Header- und Footer-Höhe messen
+    const headerElement = document.querySelector('.page-header');
+    const footerElement = document.querySelector('.page-footer');
+    const dividerElement = document.querySelector('.header-divider');
+
+    const headerHeight = headerElement?.getBoundingClientRect().height || 80;
+    const footerHeight = footerElement?.getBoundingClientRect().height || 40;
+    const dividerHeight = dividerElement?.getBoundingClientRect().height || 0;
+
+    // Dynamisch Spacing zwischen Tasks messen
+    const taskWrappers = document.querySelectorAll('.task-wrapper');
+    let measuredSpacing = 5; // Fallback
+
+    if (taskWrappers.length >= 2) {
+        const firstTask = taskWrappers[0].getBoundingClientRect();
+        const secondTask = taskWrappers[1].getBoundingClientRect();
+        measuredSpacing = secondTask.top - firstTask.bottom;
+    }
+
+    const availableHeight = maxPageHeight - headerHeight - footerHeight - dividerHeight;
+
     const pages: Task[][] = [];
     let currentPageTasks: Task[] = [];
     let currentPageHeight = 0;
-    const SPACING = 20;
-    const HEADER_HEIGHT = 80;
-    const FOOTER_HEIGHT = 40;
-    const availableHeight = maxPageHeight - HEADER_HEIGHT - FOOTER_HEIGHT;
 
     file.tasks.forEach((task) => {
         const taskHeight = taskHeights.get(task.id) || 0;
+        const spacingToAdd = currentPageTasks.length > 0 ? measuredSpacing : 0;
 
-        if (currentPageHeight + taskHeight + SPACING <= availableHeight) {
+        if (currentPageHeight + spacingToAdd + taskHeight <= availableHeight) {
             currentPageTasks.push(task);
-            currentPageHeight += taskHeight + SPACING;
+            currentPageHeight += spacingToAdd + taskHeight;
         } else {
             if (currentPageTasks.length > 0) {
                 pages.push([...currentPageTasks]);
             }
             currentPageTasks = [task];
-            currentPageHeight = taskHeight + SPACING;
+            currentPageHeight = taskHeight;
         }
     });
+
+    console.log('Available height:', availableHeight);
+    console.log('Task heights:', Array.from(taskHeights.entries()));
+    console.log('Header height:', headerHeight);
+    console.log('Footer height:', footerHeight);
+    console.log('Measured spacing:', measuredSpacing);
 
     if (currentPageTasks.length > 0) {
         pages.push(currentPageTasks);
@@ -105,11 +129,11 @@ useEffect(() => {
 }, [file?.tasks, taskHeights, maxPageHeight]);
 
 // Separate Effect für Callback - nur wenn sich paginatedTasks ändert
-useEffect(() => {
-    if (onPaginationUpdate && paginatedTasks.length > 0) {
-        onPaginationUpdate(paginatedTasks);
-    }
-}, [paginatedTasks, onPaginationUpdate]);
+    useEffect(() => {
+        if (onPaginationUpdate && paginatedTasks.length > 0) {
+            onPaginationUpdate(paginatedTasks);
+        }
+    }, [paginatedTasks, onPaginationUpdate]);
 
     const totalPages = paginatedTasks.length;
     const currentTasks = paginatedTasks[currentPage - 1] || [];
@@ -205,9 +229,12 @@ useEffect(() => {
                     <div className="page-content">
                         {/* Header */}
                         <header className="page-header">
-                            <span className="page-author" dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(file?.author) || 'Autor'}}/>
-                            <div className="page-title" dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(file?.title) || 'Titel'}}/>
-                            <span className="page-date" dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(file?.date) || ''}}/>
+                            <span className="page-author"
+                                  dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(file?.author) || 'Autor'}}/>
+                            <div className="page-title"
+                                 dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(file?.title) || 'Titel'}}/>
+                            <span className="page-date"
+                                  dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(file?.date) || ''}}/>
 
                         </header>
                         <hr className="header-divider"/>
@@ -247,6 +274,7 @@ export const PDFExportContainer: React.FC<PDFExportContainerProps> = ({
                                                                           file,
                                                                           paginatedTasks
                                                                       }) => {
+    console.log('date: ', file?.date, sanitizeHtmlWithoutP(file?.date || ''));
     return (
         <div id="pdf-export-container"
              style={{
@@ -275,22 +303,22 @@ export const PDFExportContainer: React.FC<PDFExportContainerProps> = ({
                     {/* Header */}
                     <header className="page-header">
                         <span className="page-author"
-                              dangerouslySetInnerHTML={{ __html: sanitizeHtmlWithoutP(file?.author) || '' }}
+                              dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(file?.author) || ''}}
                         />
                         <div className="page-title"
-                             dangerouslySetInnerHTML={{ __html: sanitizeHtmlWithoutP(file?.title) || 'Titel' }}
+                             dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(file?.title) || 'Titel'}}
                         />
                         <span className="page-date"
-                              dangerouslySetInnerHTML={{ __html: sanitizeHtmlWithoutP(file?.date) || '' }}
+                              dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(file?.date) || ''}}
                         />
                     </header>
 
-                    <hr className="header-divider" />
+                    <hr className="header-divider"/>
 
                     {/* Content - Hier verwenden wir direkt TaskView */}
                     <div className="tasks-section">
                         {pageTasks.map((task) => (
-                            <TaskView key={task.id} task={task} />
+                            <TaskView key={task.id} task={task}/>
                         ))}
                     </div>
 

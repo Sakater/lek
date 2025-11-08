@@ -66,7 +66,7 @@ export type Id = string;
 
 
 export type File = {
-
+    id: Id;
     title: string;
     tasks: Task[];
     author: string;

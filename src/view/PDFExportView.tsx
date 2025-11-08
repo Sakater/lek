@@ -1,6 +1,6 @@
 import React from 'react';
-import type {File, Task} from './types';
-import {PDFExportContainer} from './view/PDFFile';
+import type {File, Task} from '../types';
+import {PDFExportContainer} from './PDFFile.tsx';
 
 interface PDFExportViewProps {
     file: File | null;

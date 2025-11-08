@@ -1,17 +1,18 @@
-import {use, useState} from "react";
+import {useState} from "react";
+import type {File, Task} from "./types";
 import {Button, Col, Row} from "antd";
-import {Form} from "./form/Form.tsx";
 import {PDFFile} from "./view/PDFFile.tsx";
-import {FileContext} from "./FileContext";
 import {ToPdf} from "./assets";
-import {DrawerContextProvider} from "./form/DrawerContext/DrawerContextProvider.tsx";
 import {PDFExportView} from "./view/PDFExportView.tsx";
-import type {Task} from "./types";
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
+import {DrawerContextProvider} from "./form/DrawerContext/DrawerContextProvider.tsx";
 
-export function PDFCustomizer() {
-    const { file } = use(FileContext);
+type Props= {
+    file: File
+}
+
+export function Preview({file}:Props) {
     const [scale, setScale] = useState(1);
     const [isExporting, setIsExporting] = useState(false);
     const [paginatedTasks, setPaginatedTasks] = useState<Task[][]>([]);
@@ -61,14 +62,10 @@ export function PDFCustomizer() {
             setIsExporting(false);
         }
     };
-
     return (
         <DrawerContextProvider>
             <Row style={{ padding: '20px' }}>
-                <Col xs={24} xxl={12}>
-                    <Form />
-                </Col>
-                <Col xs={24} xxl={12}>
+        <Col xs={24} xxl={12}>
                     <div style={{ marginBottom: '20px' }}>
                         Zoom:
                         <input
@@ -114,4 +111,5 @@ export function PDFCustomizer() {
             />
         </DrawerContextProvider>
     );
+    )
 }
