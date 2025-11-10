@@ -1,17 +1,9 @@
 import React, {use} from 'react';
 import {FileContext} from '../FileContext';
-import {Button, Col, Row, Card, Avatar} from 'antd';
-import {
-    CopyOutlined,
-    DeleteTwoTone,
-    EditOutlined,
-    EllipsisOutlined,
-    SettingOutlined,
-    SettingTwoTone
-} from "@ant-design/icons";
+import {Card} from 'antd';
+import {CopyOutlined, DeleteTwoTone, EditOutlined} from "@ant-design/icons";
 import type {Task as TaskType} from '../types';
-import {TextEditor} from "../editor/TextEditor.tsx";
-import {sanitizeHtml, sanitizeHtmlWithoutP} from "../utils/sanitizeHtml.ts";
+import {sanitizeHtml} from "../utils/sanitizeHtml.ts";
 import {DrawerContext} from "./DrawerContext";
 
 type Props = {
@@ -19,14 +11,14 @@ type Props = {
 }
 
 export function Task({task}: Props) {
-    const {updateTask, deleteTask} = use(FileContext);
+    const {deleteTask} = use(FileContext);
     const {openDrawer, setSelectedTaskId} = use(DrawerContext);
     const actions: React.ReactNode[] = [
         <EditOutlined key="edit" onClick={() => {
             openDrawer('taskFormOpen');
             setSelectedTaskId(task.id)
         }}/>,
-        <CopyOutlined key={"duplicate"} />,
+        <CopyOutlined key={"duplicate"}/>,
         <DeleteTwoTone key={"delete"} onClick={() => deleteTask(task.id)} className="icon-delete-2-tone"/>
     ];
     return (

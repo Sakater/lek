@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Option } from '../../types';
 import {sanitizeHtml} from "../../utils/sanitizeHtml.ts";
 

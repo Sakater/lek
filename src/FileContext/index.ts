@@ -30,6 +30,7 @@ export type FileContextType = {
 // Dummy-Defaultwerte für TypeScript
 export const FileContext = createContext<FileContextType>({
     file: {
+        id: '',
         title: '',
         author: '',
         date: '',

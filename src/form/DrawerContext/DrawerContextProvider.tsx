@@ -1,7 +1,6 @@
-import React, {ReactNode, useState} from 'react';
+import {type ReactNode, useState} from 'react';
 import type {DrawerContextType, DrawerState} from './index';
 import {DrawerContext} from './index';
-import type {Task} from "../../types";
 
 type Props = {
     children: ReactNode;

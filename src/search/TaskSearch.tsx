@@ -1,11 +1,10 @@
-import {Button, Card, Col, Drawer, Input, Row, Select,} from "antd";
 import type {SelectProps} from 'antd';
-import React, {use, useEffect, useState} from "react";
+import {Button, Card, Col, Drawer, Row, Select,} from "antd";
+import {use, useEffect, useState} from "react";
 import {searchTasks} from '../services/taskService.ts';
 import {TaskView} from "../view/TaskView.tsx";
-import type {Task} from "../types";
-import {TaskType} from "../types";
-import {Subject} from "../types";
+import type {FillInTheBlanksTask, MixedTask, MultipleChoiceTask, Task, WriteInTask} from "../types";
+import {Subject, TaskType} from "../types";
 import {FileContext} from "../FileContext";
 
 type Props = {

@@ -1,4 +1,4 @@
-import React, {ReactNode, useEffect, useState} from 'react';
+import {type ReactNode, useEffect, useState} from 'react';
 import type {FileContextType} from './index';
 import {FileContext} from './index';
 import type {File, FillInTheBlanksTask, MixedTask, MultipleChoiceTask, Task, WriteInTask} from '../types';
@@ -78,7 +78,6 @@ export function FileContextProvider({children}: Props) {
     function addTask(type: TaskType, patch: Partial<Omit<TaskType, 'numeration'>> = {}): Task {
         function extractLeadingNumber(input: string): number | null {
             const match = input.trim().match(/[-+]?\d+(?:[.,]\d+)?/);
-            console.log(match);
             if (!match) return null;
             return Number(match[0].replace(',', '.'));
         }
@@ -129,8 +128,8 @@ export function FileContextProvider({children}: Props) {
                     case TaskType.FillInTheBlanks:
                         return updatedTask as FillInTheBlanksTask;
                     default:
-                        const _exhaustive: never = task;
-                        return task;
+                        {
+                            return task; }
                 }
             })
         });
@@ -171,8 +170,8 @@ export function FileContextProvider({children}: Props) {
                     case TaskType.FillInTheBlanks:
                         return {...task, options: updatedOptions} as FillInTheBlanksTask;
                     default:
-                        const _exhaustive: never = task;
-                        return task;
+                        {
+                            return task; }
                 }
             })
         });

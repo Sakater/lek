@@ -1,11 +1,11 @@
-import React from "react";
-import {sanitizeHtml, sanitizeHtmlWithoutP} from "../utils/sanitizeHtml.ts";
-type Props= {
+import {sanitizeHtmlWithoutP} from "../utils/sanitizeHtml.ts";
+
+type Props = {
     numeration: string;
     question: string;
 }
 
-export function TaskHeader( {numeration, question}: Props) {
+export function TaskHeader({numeration, question}: Props) {
     return (
         <div className="task-header">
             <div className="task-numeration" dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(numeration)}}/>

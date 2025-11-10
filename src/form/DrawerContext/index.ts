@@ -1,5 +1,4 @@
-import { createContext } from 'react';
-import type {Task} from "../../types";
+import {createContext} from 'react';
 
 export type DrawerState = {
     taskOpen: boolean;

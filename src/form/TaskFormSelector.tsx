@@ -1,4 +1,3 @@
-import React from 'react';
 import type {Task} from '../types';
 import {TaskType} from '../types';
 import {MultipleChoiceTaskForm} from './taskTypes/MultipleChoiceTaskForm.tsx';
@@ -12,23 +11,22 @@ type Props = {
     onClose: () => void;
 };
 
-export function TaskFormSelector({ task, open, onClose }: Props) {
+export function TaskFormSelector({task, open, onClose}: Props) {
 
     switch (task.type) {
         case TaskType.MultipleChoice:
-            return <MultipleChoiceTaskForm task={task} open={open} onClose={onClose} />;
+            return <MultipleChoiceTaskForm task={task} open={open} onClose={onClose}/>;
 
         case TaskType.WriteIn:
-            return <WriteInTaskForm task={task} open={open} onClose={onClose} />;
+            return <WriteInTaskForm task={task} open={open} onClose={onClose}/>;
 
         case TaskType.Mixed:
-            return <MixedTaskForm task={task} open={open} onClose={onClose} />;
+            return <MixedTaskForm task={task} open={open} onClose={onClose}/>;
 
         case TaskType.FillInTheBlanks:
-            return <FillInTheBlanksTaskForm task={task} open={open} onClose={onClose} />;
+            return <FillInTheBlanksTaskForm task={task} open={open} onClose={onClose}/>;
 
-        default:
-            const _exhaustiveCheck: never = task;
-            return _exhaustiveCheck;
+        default: {
+            return task; }
     }
 }

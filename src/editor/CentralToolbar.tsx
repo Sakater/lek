@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react'
+import {useRef, useEffect} from 'react'
 import {useEditorHub} from './EditorContext.tsx'
 import {Button, ColorPicker, Select} from "antd"
 import {BgColorsOutlined, BoldOutlined, FontColorsOutlined, ItalicOutlined, UnderlineOutlined} from "@ant-design/icons"

@@ -1,6 +1,6 @@
 // taskFactory.ts
-import type { Task,  WriteInTask, MultipleChoiceTask, MixedTask, FillInTheBlanksTask, Option, Id } from '../types';
-import {TaskType, Subject} from '../types';
+import type {FillInTheBlanksTask, Id, MixedTask, MultipleChoiceTask, Option, Task, WriteInTask} from '../types';
+import {Subject, TaskType} from '../types';
 // Factory-Funktion für WriteInTask
 export const createWriteInTask = (overrides: Partial<WriteInTask> = {}): WriteInTask => {
     const baseTask: WriteInTask = {
@@ -91,8 +91,7 @@ export const createTask = (type: TaskType, overrides: Partial<Task> = {}): Task 
             return createMixedTask(overrides as Partial<MixedTask>);
         case TaskType.FillInTheBlanks:
             return createFillInTheBlanksTask(overrides as Partial<FillInTheBlanksTask>);
-        default:
-            const _exhaustive: never = type;
-            throw new Error(`Unknown task type: ${_exhaustive}`);
+        default: {
+            throw new Error(`Unknown task type: ${type}`); }
     }
 };

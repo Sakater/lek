@@ -1,7 +1,6 @@
-import {Button, Card, Col, Row} from "antd";
-import React, {use, useEffect} from "react";
+import {Card, Col, Row} from "antd";
+import {use, useEffect} from "react";
 import {FileContext} from "./FileContext";
-import {HomeFilled} from "@ant-design/icons";
 import {AddNotes, DocumentSearch} from "./assets";
 import {FileSearch} from "./search/FileSearch.tsx";
 import {useNavigate} from "react-router";

@@ -1,7 +1,7 @@
 import {Card, Col, Drawer} from "antd";
 import {PlusOutlined} from "@ant-design/icons";
 import {TaskType} from "../types";
-import React, {use, useEffect} from "react";
+import {use, useEffect} from "react";
 import {FileContext} from "../FileContext";
 import {EditNote, Puzzle, Quiz} from "../assets";
 import {DrawerContext} from "./DrawerContext";
@@ -24,7 +24,6 @@ export function TaskTypeChoice({open, onClose}: Props) {
         setSelectedTaskId(newTask.id);
         openDrawer('taskFormOpen')
         onClose(); // Schließe TaskTypeChoice
-        // Öffne TaskFormSelector
     };
     useEffect(() => {
         setSelectedTaskId(null)
@@ -60,7 +59,7 @@ export function TaskTypeChoice({open, onClose}: Props) {
                               <Quiz
                                   style={{display: 'block', paddingTop: '20px',}}/>
                           }
-                          onClick={() => handleTaskCreation(TaskType.MultipleChoice)}
+                          onClick={() => handleTaskCreation('Multiple-Choice')}
                     >
                         <Meta title="Multiple-Choice" description="Erstelle eine Multiple-Choice Aufgabe"/>
                     </Card>

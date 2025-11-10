@@ -1,5 +1,5 @@
 // BaseTaskFields.tsx
-import React, {use} from 'react';
+import {use} from 'react';
 import {Button, Col, Row} from 'antd';
 import {DeleteTwoTone, PlusCircleTwoTone} from '@ant-design/icons';
 import {FileContext} from '../FileContext';
@@ -12,7 +12,7 @@ type Props = {
 };
 
 export function BaseTaskFields({task}: Props) {
-    const {file, updateTask, updateOption, addOption, deleteOption,} = use(FileContext);
+    const { updateTask, updateOption, addOption, deleteOption,} = use(FileContext);
 
     return (
         <>
