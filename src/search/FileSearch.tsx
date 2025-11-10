@@ -1,6 +1,6 @@
 import type {SelectProps} from 'antd';
 import {Button, Card, Col, Drawer, Row, Select,} from "antd";
-import React, {use, useEffect, useState} from "react";
+import {use, useEffect, useState} from "react";
 import {searchFiles} from '../services/taskService.ts';
 import type {File} from "../types";
 import {TaskType} from "../types";

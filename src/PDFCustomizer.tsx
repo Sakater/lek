@@ -12,7 +12,6 @@ import html2canvas from 'html2canvas';
 
 export function PDFCustomizer() {
     const { file } = use(FileContext);
-    const [scale, setScale] = useState(1);
     const [isExporting, setIsExporting] = useState(false);
     const [paginatedTasks, setPaginatedTasks] = useState<Task[][]>([]);
 
@@ -64,40 +63,27 @@ export function PDFCustomizer() {
 
     return (
         <DrawerContextProvider>
-            <Row style={{ padding: '20px' }}>
+            <Row style={{ padding: '20px', overflow:"hidden" }}>
                 <Col xs={24} xxl={12}>
                     <Form />
                 </Col>
                 <Col xs={24} xxl={12}>
-                    <div style={{ marginBottom: '20px' }}>
-                        Zoom:
-                        <input
-                            type="range"
-                            min="0.5"
-                            max="1.5"
-                            step="0.1"
-                            value={scale}
-                            onChange={(e) => setScale(Number(e.target.value))}
-                            style={{ marginLeft: '10px', width: '200px' }}
-                        />
-                        {Math.round(scale * 100)}%
-                    </div>
+                    <Button
+                        onClick={exportPDF}
+                        type="primary"
+                        loading={isExporting}
+                        disabled={paginatedTasks.length === 0}
+                    >
+                        <ToPdf/>{isExporting ? 'Generiere PDF...' : 'PDF exportieren'}
+                    </Button>
 
                     <PDFFile
                         file={file}
-                        scale={scale}
                         onPaginationUpdate={handlePaginationUpdate}
                     />
 
                     <div style={{ marginTop: '20px' }}>
-                        <Button
-                            onClick={exportPDF}
-                            type="primary"
-                            loading={isExporting}
-                            disabled={paginatedTasks.length === 0}
-                        >
-                            <ToPdf />{isExporting ? 'Generiere PDF...' : 'PDF exportieren'}
-                        </Button>
+
 
                         {paginatedTasks.length > 0 && (
                             <span style={{ marginLeft: '10px', color: '#666' }}>

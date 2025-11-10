@@ -184,11 +184,11 @@
 /* Container für die A4-Seite */
 .a4-container {
     min-height: 100vh;
-    min-width: 100vw;
+    min-width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    transform-origin: top center;
+    transform-origin: top left;
 }
 
 /* A4-Seite mit korrekten Dimensionen (210mm x 297mm) */
@@ -276,6 +276,7 @@
 @media screen and (max-width: 900px) {
     .a4-container {
         padding: 10px;
+        width: 794px;
     }
 
     .a4-page {
@@ -392,9 +393,6 @@
 /*--------------css für breaks ----------------------------*/
 
 /* Export Container */
-.pdf-container{
-    width: 100vw;
-}
 .pdf-export-hidden {
     /*position: absolute;*/
     /*left: -9999px;*/

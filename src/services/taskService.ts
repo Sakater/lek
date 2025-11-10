@@ -22,8 +22,6 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             options: [{name: "Lebensgeschichte", id: "opt1"}, {name: "Gebet", id: "opt2"}],
             optionsInARow: 2,
             id: "task1",
-            helpingLines: 1,
-            totalLines: 1,
         },
         {
             subject: Subject.Fikih,
@@ -31,7 +29,6 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             numeration: "2",
             question: "Was bedeutet Fikih?",
             options: [{name: "", id: "opt3"}],
-            optionsInARow: 1,
             id: "task2",
             helpingLines: 2,
             totalLines: 2,
@@ -55,8 +52,6 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             options: [{name: "", id: "opt6"}],
             optionsInARow: 1,
             id: "task4",
-            helpingLines: 1,
-            totalLines: 1,
         },
         {
             subject: Subject.Kelam,
@@ -66,8 +61,6 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             options: [{name: "Theologie", id: "opt7"}, {name: "Geschichte", id: "opt8"}],
             optionsInARow: 2,
             id: "task5",
-            helpingLines: 1,
-            totalLines: 1,
         },
         {
             subject: Subject.Tefsir,
@@ -75,7 +68,6 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             numeration: "6",
             question: "Was macht ein Tefsir?",
             options: [{name: "", id: "opt9"}],
-            optionsInARow: 1,
             id: "task6",
             helpingLines: 2,
             totalLines: 2,
@@ -99,8 +91,6 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             options: [{name: "", id: "opt12"}],
             optionsInARow: 1,
             id: "task8",
-            helpingLines: 1,
-            totalLines: 1,
         },
         {
             subject: Subject.DiniTarih,
@@ -110,8 +100,6 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             options: [{name: "Religiöse Geschichte", id: "opt13"}, {name: "Mathematik", id: "opt14"}],
             optionsInARow: 2,
             id: "task9",
-            helpingLines: 1,
-            totalLines: 1,
         },
         {
             subject: Subject.Diger,
@@ -119,7 +107,6 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             numeration: "10",
             question: "Was fällt unter 'Diğer'?",
             options: [{name: "", id: "opt15"}],
-            optionsInARow: 1,
             id: "task10",
             helpingLines: 2,
             totalLines: 2,
@@ -184,7 +171,7 @@ export async function searchFiles(queries: string[]): Promise<File[]> {
     function isFileArray(data: unknown): data is File[] {
         if (!Array.isArray(data)) return false;
 
-        return data.every((item: any) =>
+        return data.every((item: File) =>
             typeof item.title === 'string' &&
             typeof item.author === 'string' &&
             typeof item.date === 'string' &&

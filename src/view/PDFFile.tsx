@@ -13,7 +13,7 @@ interface PDFFileProps {
 
 export const PDFFile: React.FC<PDFFileProps> = ({
                                                     file,
-                                                    scale = 1,
+                                                    scale,
                                                     maxPageHeight = 1050, // A4 Höhe minus Header/Footer
                                                     onPaginationUpdate
                                                 }) => {
@@ -21,7 +21,30 @@ export const PDFFile: React.FC<PDFFileProps> = ({
     const [taskHeights, setTaskHeights] = useState<Map<string, number>>(new Map());
     const [paginatedTasks, setPaginatedTasks] = useState<Task[][]>([]);
     const taskRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+    const [pdfScale, setPdfScale] = useState(1);
+    const [computedScale, setComputedScale] = useState(1);
 
+    useEffect(() => {
+        const calculateScale = () => {
+            if (scale) {
+                setComputedScale(scale);
+                setPdfScale(scale);
+                return;
+            }
+            const availableWidth = window.innerWidth -40; // 40px padding
+            console.log('Available width:', availableWidth);
+            const newScale = Math.min(availableWidth / 794, pdfScale); // 794px = A4 Breite
+
+            console.log('Calculated scale:', newScale);
+            setComputedScale(newScale);
+            setPdfScale(newScale);
+        };
+
+        calculateScale(); // Initiale Berechnung
+
+        window.addEventListener('resize', calculateScale);
+        return () => window.removeEventListener('resize', calculateScale);
+    }, [scale, pdfScale]);
 
     // Messe die Höhe aller Tasks
     // Messe die Höhe aller Tasks
@@ -71,62 +94,62 @@ export const PDFFile: React.FC<PDFFileProps> = ({
     }, [file?.tasks]);
 
 // Berechne Seiten basierend auf gemessenen Höhen
-useEffect(() => {
-    if (!file?.tasks || taskHeights.size === 0) return;
+    useEffect(() => {
+        if (!file?.tasks || taskHeights.size === 0) return;
 
-    // Dynamisch Header- und Footer-Höhe messen
-    const headerElement = document.querySelector('.page-header');
-    const footerElement = document.querySelector('.page-footer');
-    const dividerElement = document.querySelector('.header-divider');
+        // Dynamisch Header- und Footer-Höhe messen
+        const headerElement = document.querySelector('.page-header');
+        const footerElement = document.querySelector('.page-footer');
+        const dividerElement = document.querySelector('.header-divider');
 
-    const headerHeight = headerElement?.getBoundingClientRect().height || 80;
-    const footerHeight = footerElement?.getBoundingClientRect().height || 40;
-    const dividerHeight = dividerElement?.getBoundingClientRect().height || 0;
+        const headerHeight = headerElement?.getBoundingClientRect().height || 80;
+        const footerHeight = footerElement?.getBoundingClientRect().height || 40;
+        const dividerHeight = dividerElement?.getBoundingClientRect().height || 0;
 
-    // Dynamisch Spacing zwischen Tasks messen
-    const taskWrappers = document.querySelectorAll('.task-wrapper');
-    let measuredSpacing = 5; // Fallback
+        // Dynamisch Spacing zwischen Tasks messen
+        const taskWrappers = document.querySelectorAll('.task-wrapper');
+        let measuredSpacing = 5; // Fallback
 
-    if (taskWrappers.length >= 2) {
-        const firstTask = taskWrappers[0].getBoundingClientRect();
-        const secondTask = taskWrappers[1].getBoundingClientRect();
-        measuredSpacing = secondTask.top - firstTask.bottom;
-    }
-
-    const availableHeight = maxPageHeight - headerHeight - footerHeight - dividerHeight;
-
-    const pages: Task[][] = [];
-    let currentPageTasks: Task[] = [];
-    let currentPageHeight = 0;
-
-    file.tasks.forEach((task) => {
-        const taskHeight = taskHeights.get(task.id) || 0;
-        const spacingToAdd = currentPageTasks.length > 0 ? measuredSpacing : 0;
-
-        if (currentPageHeight + spacingToAdd + taskHeight <= availableHeight) {
-            currentPageTasks.push(task);
-            currentPageHeight += spacingToAdd + taskHeight;
-        } else {
-            if (currentPageTasks.length > 0) {
-                pages.push([...currentPageTasks]);
-            }
-            currentPageTasks = [task];
-            currentPageHeight = taskHeight;
+        if (taskWrappers.length >= 2) {
+            const firstTask = taskWrappers[0].getBoundingClientRect();
+            const secondTask = taskWrappers[1].getBoundingClientRect();
+            measuredSpacing = secondTask.top - firstTask.bottom;
         }
-    });
 
-    console.log('Available height:', availableHeight);
-    console.log('Task heights:', Array.from(taskHeights.entries()));
-    console.log('Header height:', headerHeight);
-    console.log('Footer height:', footerHeight);
-    console.log('Measured spacing:', measuredSpacing);
+        const availableHeight = maxPageHeight - headerHeight - footerHeight - dividerHeight;
 
-    if (currentPageTasks.length > 0) {
-        pages.push(currentPageTasks);
-    }
+        const pages: Task[][] = [];
+        let currentPageTasks: Task[] = [];
+        let currentPageHeight = 0;
 
-    setPaginatedTasks(pages);
-}, [file?.tasks, taskHeights, maxPageHeight]);
+        file.tasks.forEach((task) => {
+            const taskHeight = taskHeights.get(task.id) || 0;
+            const spacingToAdd = currentPageTasks.length > 0 ? measuredSpacing : 0;
+
+            if (currentPageHeight + spacingToAdd + taskHeight <= availableHeight) {
+                currentPageTasks.push(task);
+                currentPageHeight += spacingToAdd + taskHeight;
+            } else {
+                if (currentPageTasks.length > 0) {
+                    pages.push([...currentPageTasks]);
+                }
+                currentPageTasks = [task];
+                currentPageHeight = taskHeight;
+            }
+        });
+
+        console.log('Available height:', availableHeight);
+        console.log('Task heights:', Array.from(taskHeights.entries()));
+        console.log('Header height:', headerHeight);
+        console.log('Footer height:', footerHeight);
+        console.log('Measured spacing:', measuredSpacing);
+
+        if (currentPageTasks.length > 0) {
+            pages.push(currentPageTasks);
+        }
+
+        setPaginatedTasks(pages);
+    }, [file?.tasks, taskHeights, maxPageHeight]);
 
 // Separate Effect für Callback - nur wenn sich paginatedTasks ändert
     useEffect(() => {
@@ -163,8 +186,22 @@ useEffect(() => {
         }
     };
 
+
     return (
         <div className="pdf-container">
+            <div style={{marginBottom: '20px'}}>
+                Zoom:
+                <input
+                    type="range"
+                    min="0.1"
+                    max={(window.innerWidth - 40) / 794}
+                    step="0.001"
+                    value={pdfScale}
+                    onChange={(e) => setPdfScale(Number(e.target.value))}
+                    style={{marginLeft: '10px', width: '200px'}}
+                />
+                {Math.round(computedScale * 100)}%
+            </div>
             {/* Navigation Controls */}
             <div className="pagination-controls">
                 <button
@@ -224,7 +261,7 @@ useEffect(() => {
             </div>
 
             {/* Sichtbare PDF Seite */}
-            <div className="a4-container" id={'a4-container'} style={{transform: `scale(${scale})`}}>
+            <div className="a4-container" id={'a4-container'} style={{transform: `scale(${computedScale})`}}>
                 <div className="a4-page">
                     <div className="page-content">
                         {/* Header */}
