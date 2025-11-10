@@ -70,11 +70,11 @@ export function FileContextProvider({children}: Props) {
         });
     };*/
 
-    // Überladungen für addTask
-    function addTask(type: TaskType.WriteIn, patch?: Partial<Omit<WriteInTask, 'numeration'>>): WriteInTask;
-    function addTask(type: TaskType.MultipleChoice, patch?: Partial<Omit<MultipleChoiceTask, 'numeration'>>): MultipleChoiceTask;
-    function addTask(type: TaskType.Mixed, patch?: Partial<Omit<MixedTask, 'numeration'>>): MixedTask;
-    function addTask(type: TaskType.FillInTheBlanks, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): FillInTheBlanksTask;
+    // // Überladungen für addTask
+    // function addTask(type: TaskType.WriteIn, patch?: Partial<Omit<WriteInTask, 'numeration'>>): WriteInTask;
+    // function addTask(type: TaskType.MultipleChoice, patch?: Partial<Omit<MultipleChoiceTask, 'numeration'>>): MultipleChoiceTask;
+    // function addTask(type: TaskType.Mixed, patch?: Partial<Omit<MixedTask, 'numeration'>>): MixedTask;
+    // function addTask(type: TaskType.FillInTheBlanks, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): FillInTheBlanksTask;
     function addTask(type: TaskType, patch: Partial<Omit<TaskType, 'numeration'>> = {}): Task {
         function extractLeadingNumber(input: string): number | null {
             const match = input.trim().match(/[-+]?\d+(?:[.,]\d+)?/);
@@ -202,7 +202,6 @@ export function FileContextProvider({children}: Props) {
                     case TaskType.FillInTheBlanks:
                         return {...task, options: updatedOptions} as FillInTheBlanksTask;
                     default:
-                        const _exhaustive: never = task;
                         return task;
                 }
             })
@@ -231,7 +230,6 @@ export function FileContextProvider({children}: Props) {
                     case TaskType.FillInTheBlanks:
                         return {...task, options: filteredOptions} as FillInTheBlanksTask;
                     default:
-                        const _exhaustive: never = task;
                         return task;
                 }
             })

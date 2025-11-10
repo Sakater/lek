@@ -1,7 +1,7 @@
 //FileContext/index.ts
 
 import {createContext} from 'react';
-import type {File, FillInTheBlanksTask, MixedTask, MultipleChoiceTask, Task, WriteInTask} from '../types';
+import type {File, Task} from '../types';
 import {TaskType} from "../types";
 
 export type FileContextType = {
@@ -15,10 +15,11 @@ export type FileContextType = {
     deleteTask: (taskId: string) => void;
 
     // Function Overloads für addTask mit typspezifischen Patches
-    addTask(type: TaskType.WriteIn, patch?: Partial<Omit<WriteInTask, 'numeration'>>): WriteInTask;
-    addTask(type: TaskType.MultipleChoice, patch?: Partial<Omit<MultipleChoiceTask, 'numeration'>>): MultipleChoiceTask;
-    addTask(type: TaskType.Mixed, patch?: Partial<Omit<MixedTask, 'numeration'>>): MixedTask;
-    addTask(type: TaskType.FillInTheBlanks, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): FillInTheBlanksTask;
+    // addTask(type: TaskType.WriteIn, patch?: Partial<Omit<WriteInTask, 'numeration'>>): WriteInTask;
+    // addTask(type: TaskType.MultipleChoice, patch?: Partial<Omit<MultipleChoiceTask, 'numeration'>>): MultipleChoiceTask;
+    // addTask(type: TaskType.Mixed, patch?: Partial<Omit<MixedTask, 'numeration'>>): MixedTask;
+    //addTask(type: TaskType.FillInTheBlanks, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): FillInTheBlanksTask;
+    addTask(type: TaskType, patch?: Partial<Omit<TaskType, 'numeration'>>): Task;
 
     addOption: (taskId: string, optionName?: string) => void;
     updateOption: (taskId: string, optionId: string, newName: string) => void;
@@ -43,7 +44,7 @@ export const FileContext = createContext<FileContextType>({
     updateFile: () => {},
     updateTask: () => {},
     deleteTask: () => {},
-    addTask: (() => {}) as any,
+    addTask: (() => {}) as unknown as () => Task,
     addOption: () => {},
     updateOption: () => {},
     deleteOption: () => {},
