@@ -1,4 +1,4 @@
-import  {use} from 'react';
+import {use} from 'react';
 import {FileContext} from '../FileContext';
 import {Button, Col, DatePicker, Row} from 'antd';
 import {Task} from "./Task.tsx";
@@ -64,12 +64,13 @@ export function Form() {
                         open={drawerState.taskFormOpen}
                     />
                 }
-                {drawerState.taskOpen &&
-                    <TaskChoice open={drawerState.taskOpen} onClose={() => closeDrawer('taskOpen')}/>}
-                {drawerState.searchOpen &&
-                    <TaskSearch open={drawerState.searchOpen} onClose={() => closeDrawer('searchOpen')}/>}
-                {drawerState.taskTypeChoiceOpen && <TaskTypeChoice open={drawerState.taskTypeChoiceOpen}
-                                                                   onClose={() => closeDrawer('taskTypeChoiceOpen')}/>}
+                {drawerState.taskOpen ?
+                    <TaskChoice open={drawerState.taskOpen} onClose={() => closeDrawer('taskOpen')}/> : null}
+                {drawerState.searchOpen ?
+                    <TaskSearch open={drawerState.searchOpen} onClose={() => closeDrawer('searchOpen')}/> : null}
+                {drawerState.taskTypeChoiceOpen ?
+                    <TaskTypeChoice open={drawerState.taskTypeChoiceOpen}
+                                    onClose={() => closeDrawer('taskTypeChoiceOpen')}/> : null}
 
 
             </div>

@@ -6,6 +6,7 @@ import {FileContext} from '../FileContext';
 import {TextEditor} from '../editor/TextEditor';
 import {sanitizeHtml, sanitizeHtmlWithoutP} from '../utils/sanitizeHtml';
 import type {Task} from '../types';
+import {CentralToolbar} from "../editor/CentralToolbar.tsx";
 
 type Props = {
     task: Task;
@@ -16,6 +17,7 @@ export function BaseTaskFields({task}: Props) {
 
     return (
         <>
+            <CentralToolbar/>
             <Row className={'row task-container'}>
                 <Col span={3}>
                     <label>Num.</label>
@@ -30,7 +32,7 @@ export function BaseTaskFields({task}: Props) {
                         content={sanitizeHtml(task.question)}
                         onChange={e => {
                             updateTask(task.id, {question: sanitizeHtmlWithoutP(e)});
-                            console.log('e: ', e);
+                            console.log('e: ', e, "sanitized: ", sanitizeHtmlWithoutP(e));
                         }}
                         placeholder={"question"}
                     />

@@ -3,7 +3,7 @@ import {FileContext} from '../FileContext';
 import {Card} from 'antd';
 import {CopyOutlined, DeleteTwoTone, EditOutlined} from "@ant-design/icons";
 import type {Task as TaskType} from '../types';
-import {sanitizeHtml} from "../utils/sanitizeHtml.ts";
+import {sanitizeHtml, sanitizeHtmlToRaw} from "../utils/sanitizeHtml.ts";
 import {DrawerContext} from "./DrawerContext";
 
 type Props = {
@@ -29,7 +29,7 @@ export function Task({task}: Props) {
                     title={"Aufgabe " + sanitizeHtml(task.numeration)}
                     description={
                         <>
-                            <p>{sanitizeHtml(task.question)}</p>
+                            <p dangerouslySetInnerHTML={{__html: sanitizeHtmlToRaw(task.question)}}/>
                         </>
                     }
                     style={{borderColor: "#d9d9d9"}}

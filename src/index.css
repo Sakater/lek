@@ -1,201 +1,216 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    text-align: center;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 0 0!important;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0 0 !important;
+}
+#root{
+    width: 100%;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
 }
+
 a:hover {
-  color: #535bf2;
+    color: #535bf2;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: start;
-  min-width: 100vw;
-  min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    display: flex;
+    place-items: start;
+    min-width: 100vw;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+    font-size: 3.2em;
+    line-height: 1.1;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-  width: 100px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    width: 100px;
 }
+
 button:hover {
-  border-color: #646cff;
+    border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+    outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+
+    a:hover {
+        color: #747bff;
+    }
+
+    button {
+        background-color: #f9f9f9;
+    }
 }
 
 @media print {
-  .page-break {
-    page-break-before: always;
-    break-before: page;
-  }
+    .page-break {
+        page-break-before: always;
+        break-before: page;
+    }
 
-  .avoid-break {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
+    .avoid-break {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
 }
+
 .avoid-break {
-  break-inside: avoid;
-  page-break-inside: avoid;
+    break-inside: avoid;
+    page-break-inside: avoid;
 }
 
 .task {
-  page-break-inside: avoid;
-  break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
 }
 
 .icon-delete-2-tone {
-  svg path:nth-of-type(1) {
-    fill: white;
-  }
+    svg path:nth-of-type(1) {
+        fill: white;
+    }
 
-  svg path:nth-of-type(2) {
-    fill: red;
-  }
-  cursor: pointer;
-  transition: color .2s;
+    svg path:nth-of-type(2) {
+        fill: red;
+    }
+
+    cursor: pointer;
+    transition: color .2s;
 }
+
 .icon-delete-2-tone:hover {
-  border-color: red;
-  svg path:nth-of-type(1) {
-    fill: red;
-  }
+    border-color: red;
 
-  svg path:nth-of-type(2) {
-    fill: red;
-  }
+    svg path:nth-of-type(1) {
+        fill: red;
+    }
+
+    svg path:nth-of-type(2) {
+        fill: red;
+    }
 }
 
-.plus-circle-2-tone{
-  svg path:nth-of-type(1) {
-    fill: darkgreen;
-  }
+.plus-circle-2-tone {
+    svg path:nth-of-type(1) {
+        fill: darkgreen;
+    }
 
-  svg path:nth-of-type(2) {
-    fill: white;
-  }
+    svg path:nth-of-type(2) {
+        fill: white;
+    }
 
-  svg path:nth-of-type(3) {
-    fill: darkgreen;
-    border-width: thick;
-  }
-  cursor: pointer;
-  transition: color .2s;
+    svg path:nth-of-type(3) {
+        fill: darkgreen;
+        border-width: thick;
+    }
+
+    cursor: pointer;
+    transition: color .2s;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-  monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
 .ant-col {
-  padding-bottom: 8px;
+    padding-bottom: 8px;
 }
 
 .ant-drawer-title {
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    text-align: center;
 }
 
 /* Wrapper-Styling für EditorContent */
 .antd-custom-input {
-  border: 1px solid #d9d9d9;
-  border-radius: 6px;
-  background-color: #ffffff;
-  transition: all 0.2s;
-  text-align: start;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    background-color: #ffffff;
+    transition: all 0.2s;
+    text-align: start;
 }
 
 .antd-custom-input:hover {
-  border-color: #4096ff;
+    border-color: #4096ff;
 }
 
 .antd-custom-input:focus-within {
-  border-color: #1677ff;
-  box-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
-  outline: 0;
+    border-color: #1677ff;
+    box-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
+    outline: 0;
 }
 
 /* Innerer Editor-Bereich (.tiptap wird automatisch von TipTap hinzugefügt) */
 .antd-custom-input .tiptap {
-  padding: 4px 11px;
-  font-size: 14px;
-  line-height: 1.5715;
-  color: rgba(0, 0, 0, 0.88);
+    padding: 4px 11px;
+    font-size: 14px;
+    line-height: 1.5715;
+    color: rgba(0, 0, 0, 0.88);
 }
 
 .antd-custom-input .tiptap:focus {
-  outline: none;
+    outline: none;
 }
 
 /* Paragraph-Styling innerhalb des Editors */
 .antd-custom-input .tiptap p {
-  margin: 0;
+    margin: 0;
 }
 
 .antd-custom-input .tiptap p:not(:last-child) {
-  margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
 }
+
 .antd-custom-input.disabled {
-  background-color: rgba(0, 0, 0, 0.04);
-  cursor: not-allowed;
+    background-color: rgba(0, 0, 0, 0.04);
+    cursor: not-allowed;
 }
 
 .antd-custom-input.disabled .tiptap {
-  color: rgba(0, 0, 0, 0.25);
+    color: rgba(0, 0, 0, 0.25);
 }
 
 .antd-custom-input * {
-  font-size: 10pt !important;
+    font-size: 10pt !important;
 }
