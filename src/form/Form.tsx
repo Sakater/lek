@@ -1,4 +1,4 @@
-import {use} from 'react';
+import {use, useState} from 'react';
 import {FileContext} from '../FileContext';
 import {Button, Col, DatePicker, Row} from 'antd';
 import {Task} from "./Task.tsx";
@@ -13,11 +13,13 @@ import {TaskTypeChoice} from "./TaskTypeChoice.tsx";
 import {TaskSearch} from "../search/TaskSearch.tsx";
 import {DrawerContext} from "./DrawerContext";
 import {TaskFormSelector} from "./TaskFormSelector.tsx";
+import {AnimatePresence, Reorder} from "framer-motion";
 
 export function Form() {
     const {drawerState, openDrawer, closeDrawer, selectedTaskId, setSelectedTaskId} = use(DrawerContext)
     const {file, updateFile} = use(FileContext);
     const selectedTask = selectedTaskId ? file?.tasks.find(task => task.id === selectedTaskId) ?? null : null;
+    const [active, setActive] = useState<number>(0)
     return (
         <EditorProvider>
 
@@ -48,12 +50,30 @@ export function Form() {
                                 icon={<PlusCircleTwoTone/>}>Aufgabe</Button>
                     </Col>
                 </Row>
-                {file?.tasks.map(task => (<>
-                    <div key={task.id} className={"taskForm-container"}>
-                        <Task task={task}/>
-                    </div>
+                <Reorder.Group
+                    as={"span"}
+                    values={file?.tasks ?? []}
+                    onReorder={(e) => {
+                        e.map((task, index) => {
+                            const activeElement = file?.tasks[active]
+                            if (task === activeElement) {
+                                moveTo(active, index)
+                                setActive(index)
+                            }
+                        })
+                        updateFile({tasks: e})
+                    }}
+                >
+                    <AnimatePresence>
+                        {file?.tasks.map((task, index) => (
 
-                </>))}
+
+                                <div key={task.id} className={"taskForm-container"}>
+                                    <Task task={task} setActive={setActive} index={index}/>
+                                </div>
+                        ))}
+                    </AnimatePresence>
+                </Reorder.Group>
                 {drawerState.taskFormOpen && selectedTask &&
                     <TaskFormSelector
                         task={selectedTask}

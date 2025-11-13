@@ -32,10 +32,10 @@ export const PDFFile: React.FC<PDFFileProps> = ({
                 return;
             }
             const availableWidth = window.innerWidth -40; // 40px padding
-            console.log('Available width:', availableWidth);
+            //console.log('Available width:', availableWidth);
             const newScale = Math.min(availableWidth / 794, pdfScale); // 794px = A4 Breite
 
-            console.log('Calculated scale:', newScale);
+            //console.log('Calculated scale:', newScale);
             setComputedScale(newScale);
             setPdfScale(newScale);
         };
@@ -46,7 +46,6 @@ export const PDFFile: React.FC<PDFFileProps> = ({
         return () => window.removeEventListener('resize', calculateScale);
     }, [scale, pdfScale]);
 
-    // Messe die Höhe aller Tasks
     // Messe die Höhe aller Tasks
     useEffect(() => {
         if (!file?.tasks || file.tasks.length === 0) return;
@@ -138,11 +137,11 @@ export const PDFFile: React.FC<PDFFileProps> = ({
             }
         });
 
-        console.log('Available height:', availableHeight);
+        /*console.log('Available height:', availableHeight);
         console.log('Task heights:', Array.from(taskHeights.entries()));
         console.log('Header height:', headerHeight);
         console.log('Footer height:', footerHeight);
-        console.log('Measured spacing:', measuredSpacing);
+        console.log('Measured spacing:', measuredSpacing);*/
 
         if (currentPageTasks.length > 0) {
             pages.push(currentPageTasks);
@@ -311,7 +310,7 @@ export const PDFExportContainer: React.FC<PDFExportContainerProps> = ({
                                                                           file,
                                                                           paginatedTasks
                                                                       }) => {
-    console.log('date: ', file?.date, sanitizeHtmlWithoutP(file?.date || ''));
+    //console.log('date: ', file?.date, sanitizeHtmlWithoutP(file?.date || ''));
     return (
         <div id="pdf-export-container"
              style={{
