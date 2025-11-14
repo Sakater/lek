@@ -1,4 +1,4 @@
-import React, {use} from 'react';
+import {use, useState, useRef, PointerEvent, TouchEvent} from 'react';
 import {FileContext} from '../FileContext';
 import {Card} from 'antd';
 import {CopyOutlined, DeleteTwoTone, EditOutlined, HolderOutlined} from "@ant-design/icons";
@@ -17,26 +17,33 @@ export function Task({task, setActive, index}: Props) {
     const {deleteTask} = use(FileContext);
     const {openDrawer, setSelectedTaskId} = use(DrawerContext);
     const dragControls = useDragControls();
-    const [isDragEnabled, setIsDragEnabled] = React.useState(false);
-    const [isDragging, setIsDragging] = React.useState(false);
-    const timerRef = React.useRef<number | null>(null);
-    const startPositionRef = React.useRef<{ x: number, y: number } | null>(null);
-    const wasCancelledRef = React.useRef(false);
-    const [touchAction, setTouchAction] = React.useState<'pan-y' | 'none'>('pan-y');
+    const [isDragEnabled, setIsDragEnabled] = useState(false);
+    const [isDragging, setIsDragging] = useState(false);
+    const timerRef = useRef<number | null>(null);
+    const startPositionRef = useRef<{ x: number, y: number } | null>(null);
+    const wasCancelledRef = useRef(false);
+    const [touchAction, setTouchAction] = useState<'pan-y' | 'none'>('pan-y');
 
-    const startDragTimer = (e: React.PointerEvent | React.TouchEvent) => {
+    const startDragTimer = (e: PointerEvent | TouchEvent) => {
+        console.log('startDragTimer called');
         const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
         const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
 
         startPositionRef.current = {x: clientX, y: clientY};
         wasCancelledRef.current = false;
         setTouchAction('none');
+        console.log('touchAction set to none');
 
         timerRef.current = window.setTimeout(() => {
-            // Nur starten, wenn nicht abgebrochen
-            if (wasCancelledRef.current) return;
+            if (wasCancelledRef.current) {
+                console.log('Drag cancelled due to movement');
+                return;
+            }
 
+            console.log('Starting drag');
             setIsDragEnabled(true);
+            setTouchAction('pan-y'); // WICHTIG: Nach Drag-Start wieder erlauben
+
             if ('touches' in e && e.touches.length > 0) {
                 const touch = e.touches[0];
                 const pointerEvent = new PointerEvent('pointerdown', {
@@ -60,13 +67,17 @@ export function Task({task, setActive, index}: Props) {
         const dx = Math.abs(clientX - startPositionRef.current.x);
         const dy = Math.abs(clientY - startPositionRef.current.y);
 
+        console.log(`Movement: dx=${dx}, dy=${dy}`);
+
         if (dx > 10 || dy > 10) {
+            console.log('Movement threshold exceeded, cancelling timer');
             wasCancelledRef.current = true;
             cancelDragTimer();
         }
     };
 
     const cancelDragTimer = () => {
+        console.log('cancelDragTimer called');
         if (timerRef.current) {
             clearTimeout(timerRef.current);
             timerRef.current = null;
@@ -74,6 +85,7 @@ export function Task({task, setActive, index}: Props) {
         setIsDragEnabled(false);
         setIsDragging(false);
         setTouchAction('pan-y');
+        console.log('touchAction set to pan-y');
         startPositionRef.current = null;
     };
 
