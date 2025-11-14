@@ -17,8 +17,6 @@ export function TaskTypeChoice({open, onClose}: Props) {
     const {setSelectedTaskId, openDrawer} = use(DrawerContext);
 
     const handleTaskCreation = (taskType: TaskType) => {
-        // addTask mit dem spezifischen Type aufrufen
-        // TypeScript inferiert automatisch den korrekten Rückgabetyp
         const newTask = addTask(taskType);
 
         setSelectedTaskId(newTask.id);
@@ -59,7 +57,7 @@ export function TaskTypeChoice({open, onClose}: Props) {
                               <Quiz
                                   style={{display: 'block', paddingTop: '20px',}}/>
                           }
-                          onClick={() => handleTaskCreation('Multiple-Choice')}
+                          onClick={() => handleTaskCreation(TaskType.MultipleChoice)}
                     >
                         <Meta title="Multiple-Choice" description="Erstelle eine Multiple-Choice Aufgabe"/>
                     </Card>

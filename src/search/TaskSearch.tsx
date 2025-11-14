@@ -3,7 +3,7 @@ import {Button, Card, Col, Drawer, Row, Select,} from "antd";
 import {use, useEffect, useState} from "react";
 import {searchTasks} from '../services/taskService.ts';
 import {TaskView} from "../view/TaskView.tsx";
-import type {FillInTheBlanksTask, MixedTask, MultipleChoiceTask, Task, WriteInTask} from "../types";
+import type {Task} from "../types";
 import {Subject, TaskType} from "../types";
 import {FileContext} from "../FileContext";
 
@@ -34,28 +34,10 @@ export function TaskSearch({open, onClose}: Props) {
     }, [inputValue]);
 
     const addFromSearch = (task: Task) => {
-        switch (task.type) {
-            case TaskType.WriteIn: {
-                const {numeration, id, type, ...patch} = task as WriteInTask;
-                addTask(TaskType.WriteIn, patch);
-                break;
-            }
-            case TaskType.MultipleChoice: {
-                const {numeration, id, type, ...patch} = task as MultipleChoiceTask;
-                addTask(TaskType.MultipleChoice, patch);
-                break;
-            }
-            case TaskType.Mixed: {
-                const {numeration, id, type, ...patch} = task as MixedTask;
-                addTask(TaskType.Mixed, patch);
-                break;
-            }
-            case TaskType.FillInTheBlanks: {
-                const {numeration, id, type, ...patch} = task as FillInTheBlanksTask;
-                addTask(TaskType.FillInTheBlanks, patch);
-                break;
-            }
-        }
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const {numeration, id, type, ...patch} = task;
+        addTask(task.type, patch);
+
     };
     return (
         <div>

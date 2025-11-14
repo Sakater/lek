@@ -1,30 +1,43 @@
-import {use, type ReactNode} from 'react';
+import {type ReactNode, use} from 'react';
 import {FileContext} from '../FileContext';
 import {Card} from 'antd';
-import {CopyOutlined, DeleteTwoTone, EditOutlined, HolderOutlined} from "@ant-design/icons";
-import type {Task as TaskType} from '../types';
+import {DeleteTwoTone, EditOutlined, HolderOutlined} from "@ant-design/icons";
+import type {Task} from '../types';
 import {sanitizeHtml, sanitizeHtmlToRaw} from "../utils/sanitizeHtml.ts";
 import {DrawerContext} from "./DrawerContext";
 import {Reorder, useDragControls} from "framer-motion";
+import {Duplicate} from "../assets";
 
 type Props = {
-    task: TaskType;
+    task: Task;
     setActive: (index: number) => void;
     index: number;
 }
 
 export function Task({task, setActive, index}: Props) {
-    const {deleteTask} = use(FileContext);
+    const {deleteTask, addTask} = use(FileContext);
     const {openDrawer, setSelectedTaskId} = use(DrawerContext);
     const dragControls = useDragControls();
 
+    const duplicateTask = (task: Task, currentIndex:number) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { numeration, id, type, ...patch } = task;
+        addTask(task.type, patch, currentIndex);
+    };
+
     const actions: ReactNode[] = [
+        <span className="icon-with-tooltip" data-tooltip="Bearbeiten">
         <EditOutlined key="edit" onClick={() => {
             openDrawer('taskFormOpen');
             setSelectedTaskId(task.id)
-        }}/>,
-        <CopyOutlined key={"duplicate"}/>,
+        }}/>
+    </span>,
+        <span className="icon-with-tooltip" data-tooltip="Duplizieren">
+        <Duplicate key={"duplicate"} onClick={()=> duplicateTask(task, index)} style={{fontWeight:200}}/>
+    </span>,
+        <span className="icon-with-tooltip" data-tooltip="Löschen">
         <DeleteTwoTone key={"delete"} onClick={() => deleteTask(task.id)} className="icon-delete-2-tone"/>
+    </span>
     ];
     return (
         <>

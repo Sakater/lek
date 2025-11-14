@@ -34,48 +34,19 @@ export function FileContextProvider({children}: Props) {
             localStorage.setItem('cachedFile', JSON.stringify(file));
         }
     }, [file]);
+
     const updateFile = (patch: Partial<File>) => {
         if (!file) return;
         setFile(prev => (prev ? {...prev, ...patch} : prev));
     };
 
 
-    /*const addTask = (patchTask: Partial<Task>={}) => {
-        function extractLeadingNumber(input: string): number | null {
-            const match = input.trim().match(/^[-+]?\d+(?:[.,]\d+)?/);
-            if (!match) return null;
-            // Komma als Dezimaltrenner zulassen
-
-            return Number(match[0].replace(',', '.'));
-        }
-
-        if (!file) return;
-
-        const baseTask: Task = {
-            type: TaskType.WriteIn,
-            subject: Subject.Akaid,
-            numeration: `${file?.tasks.length > 0 ? extractLeadingNumber(file.tasks[file.tasks.length - 1].numeration) + 1 : 1})`,
-            //`${file.tasks.length>0?Number(file.tasks[file.tasks.length-1].numeration[0])  + 1:1})`,
-            question: 'Neue Frage',
-            options: [],
-            optionsInARow: 2,
-            id: crypto.randomUUID(),
-            helpingLines: 1,
-            totalLines: 1
-        };
-        const newTask = {...baseTask, ...patchTask};
-        setFile({
-            ...file,
-            tasks: [...file.tasks, newTask]
-        });
-    };*/
-
     // // Überladungen für addTask
     // function addTask(type: TaskType.WriteIn, patch?: Partial<Omit<WriteInTask, 'numeration'>>): WriteInTask;
     // function addTask(type: TaskType.MultipleChoice, patch?: Partial<Omit<MultipleChoiceTask, 'numeration'>>): MultipleChoiceTask;
     // function addTask(type: TaskType.Mixed, patch?: Partial<Omit<MixedTask, 'numeration'>>): MixedTask;
     // function addTask(type: TaskType.FillInTheBlanks, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): FillInTheBlanksTask;
-    function addTask(type: TaskType, patch: Partial<Omit<TaskType, 'numeration'>> = {}): Task {
+    function addTask(type: TaskType, patch: Partial<Omit<Task, 'numeration' | 'id' | 'type'>> = {}, index?: number): Task {
         function extractLeadingNumber(input: string): number | null {
             const match = input.trim().match(/[-+]?\d+(?:[.,]\d+)?/);
             if (!match) return null;
@@ -96,12 +67,18 @@ export function FileContextProvider({children}: Props) {
             numeration: `${nextNumber})`
         });
 
-        setFile({
-            ...file,
-            tasks: [...file.tasks, newTask]
-        });
+        setFile(prev => {
+            if (!prev) return prev;
+            const tasks = [...prev.tasks];
 
-        // Task zurückgeben!
+            if (index !== undefined) {
+                tasks.splice(index + 1, 0, newTask);
+            } else {
+                tasks.push(newTask);
+            }
+
+            return {...prev, tasks};
+        });
         return newTask;
     }
 
@@ -127,9 +104,9 @@ export function FileContextProvider({children}: Props) {
                         return updatedTask as MixedTask;
                     case TaskType.FillInTheBlanks:
                         return updatedTask as FillInTheBlanksTask;
-                    default:
-                        {
-                            return task; }
+                    default: {
+                        return task;
+                    }
                 }
             })
         });
@@ -169,9 +146,9 @@ export function FileContextProvider({children}: Props) {
                         return {...task, options: updatedOptions} as MixedTask;
                     case TaskType.FillInTheBlanks:
                         return {...task, options: updatedOptions} as FillInTheBlanksTask;
-                    default:
-                        {
-                            return task; }
+                    default: {
+                        return task;
+                    }
                 }
             })
         });

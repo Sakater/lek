@@ -19,7 +19,7 @@ export type FileContextType = {
     // addTask(type: TaskType.MultipleChoice, patch?: Partial<Omit<MultipleChoiceTask, 'numeration'>>): MultipleChoiceTask;
     // addTask(type: TaskType.Mixed, patch?: Partial<Omit<MixedTask, 'numeration'>>): MixedTask;
     //addTask(type: TaskType.FillInTheBlanks, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): FillInTheBlanksTask;
-    addTask(type: TaskType, patch?: Partial<Omit<TaskType, 'numeration'>>): Task;
+    addTask(type: TaskType, patch?: Partial<Omit<Task, 'numeration'| 'id' | 'type'>>, index?:number): Task;
 
     addOption: (taskId: string, optionName?: string) => void;
     updateOption: (taskId: string, optionId: string, newName: string) => void;
