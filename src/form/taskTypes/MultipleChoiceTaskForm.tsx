@@ -1,5 +1,5 @@
 // MultipleChoiceTaskForm.tsx
-import React, {use} from 'react';
+import {use} from 'react';
 import {Drawer, InputNumber} from 'antd';
 import {FileContext} from '../../FileContext';
 import {TaskView} from '../../view/TaskView';

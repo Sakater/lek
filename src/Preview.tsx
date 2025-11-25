@@ -111,5 +111,4 @@ export function Preview({file}:Props) {
             />
         </DrawerContextProvider>
     );
-    )
 }

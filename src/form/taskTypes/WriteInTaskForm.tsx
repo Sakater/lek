@@ -1,4 +1,4 @@
-import React, {use} from 'react';
+import {use} from 'react';
 import {Drawer, InputNumber, Select} from 'antd';
 import {FileContext} from '../../FileContext';
 import {TaskView} from '../../view/TaskView';
@@ -30,7 +30,7 @@ export function WriteInTaskForm({task, open, onClose}: Props) {
                         <label>Hilfslinien pro Zeile: </label>
                         <Select
 
-                            defaultValue="0"
+                            defaultValue={0}
                             style={{width: 140}}
                             options={[
                                 {value: 0, label: 'Keine Hilfslinien'},

@@ -12,7 +12,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
     });
     const data = await response.json();
     return data.tasks;*/
-
+    console.log('Searching tasks with queries:', queries);
     return [
         {
             subject: Subject.Siyer,
@@ -158,6 +158,8 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
 }
 
 export async function searchFiles(queries: string[]): Promise<File[]> {
+    console.log('Searching tasks with queries:', queries);
+
     /*const response = await fetch('/api/tasks/search', {
         method: 'GET',
         headers: {

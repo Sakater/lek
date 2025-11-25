@@ -1,6 +1,22 @@
 // taskFactory.ts
 import type {FillInTheBlanksTask, Id, MixedTask, MultipleChoiceTask, Option, Task, WriteInTask} from '../types';
 import {Subject, TaskType} from '../types';
+
+
+// Hilfsfunktion für UUID-Generierung mit Fallback
+const generateUUID = (): string => {
+    if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+        return crypto.randomUUID();
+    }
+
+    // Fallback für unsichere Kontexte
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+};
+
 // Factory-Funktion für WriteInTask
 export const createWriteInTask = (overrides: Partial<WriteInTask> = {}): WriteInTask => {
     const baseTask: WriteInTask = {
@@ -11,7 +27,7 @@ export const createWriteInTask = (overrides: Partial<WriteInTask> = {}): WriteIn
         options: [] as Option[],
         helpingLines: 1,
         totalLines: 1,
-        id: crypto.randomUUID() as Id
+        id: generateUUID() as Id
     };
 
     return {
@@ -30,7 +46,7 @@ export const createMultipleChoiceTask = (overrides: Partial<MultipleChoiceTask> 
         question: 'Neue Frage',
         options: [] as Option[],
         optionsInARow: 2,
-        id: crypto.randomUUID() as Id
+        id: generateUUID() as Id
     };
 
     return {
@@ -51,7 +67,7 @@ export const createMixedTask = (overrides: Partial<MixedTask> = {}): MixedTask =
         optionsInARow: 2,
         helpingLines: 1,
         totalLines: 1,
-        id: crypto.randomUUID() as Id
+        id: generateUUID() as Id
     };
 
     return {
@@ -70,7 +86,7 @@ export const createFillInTheBlanksTask = (overrides: Partial<FillInTheBlanksTask
         question: 'Neue Frage mit {0} und {1}',
         options: [] as Option[],
         optionsInARow: 2,
-        id: crypto.randomUUID() as Id
+        id: generateUUID() as Id
     };
 
     return {
