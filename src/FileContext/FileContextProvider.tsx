@@ -14,7 +14,7 @@ type Props = {
 const initialFile = () => {
     const fileFromStorage = localStorage.getItem('cachedFile');
     return fileFromStorage ? JSON.parse(fileFromStorage) : {
-        type: TaskType.MultipleChoice,
+        type: TaskType.MULTIPLE_CHOICE,
         title: 'Mein Dokument',
         author: 'Autor',
         date: new Date().toLocaleDateString('de-DE', {day: '2-digit', month: '2-digit', year: '2-digit'}),
@@ -42,10 +42,10 @@ export function FileContextProvider({children}: Props) {
 
 
     // // Überladungen für addTask
-    // function addTask(type: TaskType.WriteIn, patch?: Partial<Omit<WriteInTask, 'numeration'>>): WriteInTask;
-    // function addTask(type: TaskType.MultipleChoice, patch?: Partial<Omit<MultipleChoiceTask, 'numeration'>>): MultipleChoiceTask;
-    // function addTask(type: TaskType.Mixed, patch?: Partial<Omit<MixedTask, 'numeration'>>): MixedTask;
-    // function addTask(type: TaskType.FillInTheBlanks, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): FillInTheBlanksTask;
+    // function addTask(type: TaskType.WRITE_IN, patch?: Partial<Omit<WriteInTask, 'numeration'>>): WriteInTask;
+    // function addTask(type: TaskType.MULTIPLE_CHOICE, patch?: Partial<Omit<MultipleChoiceTask, 'numeration'>>): MultipleChoiceTask;
+    // function addTask(type: TaskType.MIXED, patch?: Partial<Omit<MixedTask, 'numeration'>>): MixedTask;
+    // function addTask(type: TaskType.FILL_IN_THE_BLANKS, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): FillInTheBlanksTask;
     function addTask(type: TaskType, patch: Partial<Omit<Task, 'numeration' | 'id' | 'type'>> = {}, index?: number): Task {
         function extractLeadingNumber(input: string): number | null {
             const match = input.trim().match(/[-+]?\d+(?:[.,]\d+)?/);
@@ -96,13 +96,13 @@ export function FileContextProvider({children}: Props) {
 
                 // Type preservation
                 switch (task.type) {
-                    case TaskType.WriteIn:
+                    case TaskType.WRITE_IN:
                         return updatedTask as WriteInTask;
-                    case TaskType.MultipleChoice:
+                    case TaskType.MULTIPLE_CHOICE:
                         return updatedTask as MultipleChoiceTask;
-                    case TaskType.Mixed:
+                    case TaskType.MIXED:
                         return updatedTask as MixedTask;
-                    case TaskType.FillInTheBlanks:
+                    case TaskType.FILL_IN_THE_BLANKS:
                         return updatedTask as FillInTheBlanksTask;
                     default: {
                         return task;
@@ -121,7 +121,7 @@ export function FileContextProvider({children}: Props) {
         });
     };
 
-    const addOption = (taskId: string, optionName: string = 'Neue Option') => {
+    const addOption = (taskId: string, optionText: string = 'Neue Option') => {
         if (!file) return;
 
         setFile({
@@ -131,20 +131,20 @@ export function FileContextProvider({children}: Props) {
                 // Neue Option erstellen
                 const newOption = {
                     id: crypto.randomUUID(),
-                    name: optionName
+                    optionText: optionText
                 };
 
                 const updatedOptions = [...task.options, newOption];
 
                 // Type-spezifische Rückgabe
                 switch (task.type) {
-                    case TaskType.WriteIn:
+                    case TaskType.WRITE_IN:
                         return {...task, options: updatedOptions} as WriteInTask;
-                    case TaskType.MultipleChoice:
+                    case TaskType.MULTIPLE_CHOICE:
                         return {...task, options: updatedOptions} as MultipleChoiceTask;
-                    case TaskType.Mixed:
+                    case TaskType.MIXED:
                         return {...task, options: updatedOptions} as MixedTask;
-                    case TaskType.FillInTheBlanks:
+                    case TaskType.FILL_IN_THE_BLANKS:
                         return {...task, options: updatedOptions} as FillInTheBlanksTask;
                     default: {
                         return task;
@@ -165,18 +165,18 @@ export function FileContextProvider({children}: Props) {
 
                 // Typsichere Aktualisierung basierend auf dem Task-Typ
                 const updatedOptions = task.options.map(option =>
-                    option.id === optionId ? {...option, name: newName} : option
+                    option.id === optionId ? {...option, optionText: newName} : option
                 );
 
                 // Type-spezifische Rückgabe, um Discriminated Union zu erhalten
                 switch (task.type) {
-                    case TaskType.WriteIn:
+                    case TaskType.WRITE_IN:
                         return {...task, options: updatedOptions} as WriteInTask;
-                    case TaskType.MultipleChoice:
+                    case TaskType.MULTIPLE_CHOICE:
                         return {...task, options: updatedOptions} as MultipleChoiceTask;
-                    case TaskType.Mixed:
+                    case TaskType.MIXED:
                         return {...task, options: updatedOptions} as MixedTask;
-                    case TaskType.FillInTheBlanks:
+                    case TaskType.FILL_IN_THE_BLANKS:
                         return {...task, options: updatedOptions} as FillInTheBlanksTask;
                     default:
                         return task;
@@ -198,13 +198,13 @@ export function FileContextProvider({children}: Props) {
 
                 // Type-spezifische Rückgabe
                 switch (task.type) {
-                    case TaskType.WriteIn:
+                    case TaskType.WRITE_IN:
                         return {...task, options: filteredOptions} as WriteInTask;
-                    case TaskType.MultipleChoice:
+                    case TaskType.MULTIPLE_CHOICE:
                         return {...task, options: filteredOptions} as MultipleChoiceTask;
-                    case TaskType.Mixed:
+                    case TaskType.MIXED:
                         return {...task, options: filteredOptions} as MixedTask;
-                    case TaskType.FillInTheBlanks:
+                    case TaskType.FILL_IN_THE_BLANKS:
                         return {...task, options: filteredOptions} as FillInTheBlanksTask;
                     default:
                         return task;

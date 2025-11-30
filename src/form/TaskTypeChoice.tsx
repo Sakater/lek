@@ -57,7 +57,7 @@ export function TaskTypeChoice({open, onClose}: Props) {
                               <Quiz
                                   style={{display: 'block', paddingTop: '20px',}}/>
                           }
-                          onClick={() => handleTaskCreation(TaskType.MultipleChoice)}
+                          onClick={() => handleTaskCreation(TaskType.MULTIPLE_CHOICE)}
                     >
                         <Meta title="Multiple-Choice" description="Erstelle eine Multiple-Choice Aufgabe"/>
                     </Card>
@@ -69,7 +69,7 @@ export function TaskTypeChoice({open, onClose}: Props) {
                               <EditNote
                                   style={{display: 'block', paddingTop: '20px',}}/>
                           }
-                          onClick={() => handleTaskCreation(TaskType.WriteIn)}
+                          onClick={() => handleTaskCreation(TaskType.WRITE_IN)}
                     >
                         <Meta title="Freitext"
                               description="Erstelle eine Freitext-Aufgabe und lasse den Antworten freien Lauf"/>
@@ -94,7 +94,7 @@ export function TaskTypeChoice({open, onClose}: Props) {
                               <Quiz width={30}
                                     style={{display: 'block'}}/></div>
                           }
-                          onClick={() => handleTaskCreation(TaskType.Mixed)}
+                          onClick={() => handleTaskCreation(TaskType.MIXED)}
                     >
                         <Meta title="Aufgabenmix" description="Kombiniere Multiple-Choice und Freitext-Aufgaben"/>
                     </Card>
@@ -107,7 +107,7 @@ export function TaskTypeChoice({open, onClose}: Props) {
                                   <Puzzle
                                       style={{display: 'block', paddingTop: '20px',}}/>
                               }
-                              onClick={() => handleTaskCreation(TaskType.FillInTheBlanks)}
+                              onClick={() => handleTaskCreation(TaskType.FILL_IN_THE_BLANKS)}
                         >
                             <Meta title="Lückentext" description="Erstelle einen Lückentext und lasse diese befüllen"/>
                         </Card>

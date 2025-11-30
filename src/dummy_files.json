@@ -1,943 +1,957 @@
 [
   {
-    "title": "Übung Siyer - Teil 1",
+    "id": 1,
+    "title": "Siyer - Das Leben des Propheten Muhammad (saw)",
+    "author": "Admin",
+    "date": "2025-11-30",
     "tasks": [
       {
-        "subject": "Fikih",
-        "type": "Multiple-Choice",
-        "numeration": "1.",
-        "question": "Was sind die Bedingungen für das Fasten?",
+        "id": 1,
+        "type": "MULTIPLE_CHOICE",
+        "subject": "Siyer",
+        "numeration": "1",
+        "question": "In welchem Jahr wurde der Prophet Muhammad (saw) geboren?",
+        "points": 10,
+        "level": 1,
+        "topic": "Geburt des Propheten",
+        "grade": 5,
         "options": [
           {
-            "name": "114",
-            "id": "opt_0_0_0"
+            "id": 1,
+            "optionText": "570 n. Chr."
           },
           {
-            "name": "110",
-            "id": "opt_0_0_1"
+            "id": 2,
+            "optionText": "580 n. Chr."
           },
           {
-            "name": "120",
-            "id": "opt_0_0_2"
+            "id": 3,
+            "optionText": "560 n. Chr."
           },
           {
-            "name": "100",
-            "id": "opt_0_0_3"
+            "id": 4,
+            "optionText": "590 n. Chr."
           }
         ],
-        "optionsInARow": 2,
-        "id": "task_0_0",
-        "helpingLines": 0,
-        "totalLines": 0
+        "optionsInARow": 2
       },
       {
-        "subject": "Akaid",
-        "type": "Mixed",
-        "numeration": "2.",
-        "question": "Erkläre den Begriff Qadar.",
+        "id": 2,
+        "type": "FILL_IN_THE_BLANKS",
+        "subject": "Siyer",
+        "numeration": "2",
+        "question": "Der Prophet Muhammad (saw) erhielt die erste Offenbarung durch den Engel _____ in der Höhle _____.",
+        "points": 15,
+        "level": 2,
+        "topic": "Erste Offenbarung",
+        "grade": 6,
+        "hint": "Der Name des Engels beginnt mit G, der Name der Höhle mit H",
         "options": [
           {
-            "name": "5",
-            "id": "opt_0_1_0"
+            "id": 5,
+            "optionText": "Gabriel (Dschibril)"
           },
           {
-            "name": "3",
-            "id": "opt_0_1_1"
+            "id": 6,
+            "optionText": "Hira"
+          }
+        ],
+        "optionsInARow": 2
+      },
+      {
+        "id": 3,
+        "type": "WRITE_IN",
+        "subject": "Siyer",
+        "numeration": "3",
+        "question": "Erkläre kurz, warum die Auswanderung (Hidschra) von Mekka nach Medina im Jahr 622 wichtig für den Islam war.",
+        "points": 20,
+        "level": 3,
+        "topic": "Hidschra",
+        "grade": 7,
+        "hint": "Denke an die Verfolgung in Mekka und den Aufbau der ersten muslimischen Gemeinschaft",
+        "options": [],
+        "helpingLines": 1,
+        "totalLines": 4
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Akaid - Die Glaubensgrundsätze",
+    "author": "Admin",
+    "date": "2025-11-30",
+    "tasks": [
+      {
+        "id": 4,
+        "type": "MULTIPLE_CHOICE",
+        "subject": "Akaid",
+        "numeration": "1",
+        "question": "Wie viele Glaubensgrundsätze (Iman) gibt es im Islam?",
+        "points": 10,
+        "level": 1,
+        "topic": "Glaubensgrundsätze",
+        "grade": 5,
+        "options": [
+          {
+            "id": 7,
+            "optionText": "5"
+          },
+          {
+            "id": 8,
+            "optionText": "6"
+          },
+          {
+            "id": 9,
+            "optionText": "7"
+          },
+          {
+            "id": 10,
+            "optionText": "4"
+          }
+        ],
+        "optionsInARow": 4
+      },
+      {
+        "id": 5,
+        "type": "MIXED",
+        "subject": "Akaid",
+        "numeration": "2",
+        "question": "Nenne drei der sechs Glaubensgrundsätze im Islam.",
+        "points": 15,
+        "level": 2,
+        "topic": "Die 6 Säulen des Glaubens",
+        "grade": 6,
+        "hint": "Glaube an Allah, an die Engel, an die Bücher...",
+        "options": [
+          {
+            "id": 11,
+            "optionText": "Glaube an Allah"
+          },
+          {
+            "id": 12,
+            "optionText": "Glaube an die Engel"
+          },
+          {
+            "id": 13,
+            "optionText": "Glaube an die Bücher"
+          },
+          {
+            "id": 14,
+            "optionText": "Glaube an die Gesandten"
+          },
+          {
+            "id": 15,
+            "optionText": "Glaube an den Jüngsten Tag"
+          },
+          {
+            "id": 16,
+            "optionText": "Glaube an Qadar (Schicksal)"
           }
         ],
         "optionsInARow": 2,
-        "id": "task_0_1",
-        "helpingLines": 2,
+        "helpingLines": 1,
+        "totalLines": 3
+      },
+      {
+        "id": 6,
+        "type": "FILL_IN_THE_BLANKS",
+        "subject": "Akaid",
+        "numeration": "3",
+        "question": "Der Glaube an _____ bedeutet, dass alles nach Allahs Willen und Wissen geschieht.",
+        "points": 10,
+        "level": 2,
+        "topic": "Qadar",
+        "grade": 6,
+        "options": [
+          {
+            "id": 17,
+            "optionText": "Qadar"
+          },
+          {
+            "id": 18,
+            "optionText": "Schicksal"
+          },
+          {
+            "id": 19,
+            "optionText": "göttliche Vorherbestimmung"
+          }
+        ],
+        "optionsInARow": 3
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Fikih - Islamisches Recht: Gebet und Reinheit",
+    "author": "Admin",
+    "date": "2025-11-30",
+    "tasks": [
+      {
+        "id": 7,
+        "type": "MULTIPLE_CHOICE",
+        "subject": "Fikih",
+        "numeration": "1",
+        "question": "Wie viele Pflichtgebete (Fard) gibt es täglich im Islam?",
+        "points": 10,
+        "level": 1,
+        "topic": "Gebet (Salat)",
+        "grade": 5,
+        "options": [
+          {
+            "id": 20,
+            "optionText": "3"
+          },
+          {
+            "id": 21,
+            "optionText": "4"
+          },
+          {
+            "id": 22,
+            "optionText": "5"
+          },
+          {
+            "id": 23,
+            "optionText": "6"
+          }
+        ],
+        "optionsInARow": 4
+      },
+      {
+        "id": 8,
+        "type": "FILL_IN_THE_BLANKS",
+        "subject": "Fikih",
+        "numeration": "2",
+        "question": "Die fünf täglichen Gebete sind: _____ (Morgen), _____ (Mittag), Asr (Nachmittag), Maghrib (Abend) und Ischa (Nacht).",
+        "points": 15,
+        "level": 2,
+        "topic": "Die fünf Gebetszeiten",
+        "grade": 6,
+        "hint": "Das Morgengebet heißt Fajr, das Mittagsgebet Dhuhr",
+        "options": [
+          {
+            "id": 24,
+            "optionText": "Fajr"
+          },
+          {
+            "id": 25,
+            "optionText": "Dhuhr"
+          }
+        ],
+        "optionsInARow": 2
+      },
+      {
+        "id": 9,
+        "type": "WRITE_IN",
+        "subject": "Fikih",
+        "numeration": "3",
+        "question": "Erkläre, warum die rituelle Gebetswaschung (Wudu) vor dem Gebet wichtig ist.",
+        "points": 20,
+        "level": 3,
+        "topic": "Wudu - Gebetswaschung",
+        "grade": 7,
+        "hint": "Denke an körperliche und spirituelle Reinheit",
+        "options": [],
+        "helpingLines": 1,
+        "totalLines": 4
+      },
+      {
+        "id": 10,
+        "type": "MULTIPLE_CHOICE",
+        "subject": "Fikih",
+        "numeration": "4",
+        "question": "Was gehört NICHT zu den Pflichten (Fard) der Gebetswaschung (Wudu)?",
+        "points": 15,
+        "level": 2,
+        "topic": "Wudu",
+        "grade": 6,
+        "options": [
+          {
+            "id": 26,
+            "optionText": "Das Gesicht waschen"
+          },
+          {
+            "id": 27,
+            "optionText": "Die Arme bis zu den Ellbogen waschen"
+          },
+          {
+            "id": 28,
+            "optionText": "Den Bart kämmen"
+          },
+          {
+            "id": 29,
+            "optionText": "Über den Kopf streichen"
+          }
+        ],
+        "optionsInARow": 2
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Fikih - Fasten im Ramadan",
+    "author": "Admin",
+    "date": "2025-11-30",
+    "tasks": [
+      {
+        "id": 11,
+        "type": "MULTIPLE_CHOICE",
+        "subject": "Fikih",
+        "numeration": "1",
+        "question": "Wann beginnt die Fastenzeit am Tag während des Ramadan?",
+        "points": 10,
+        "level": 1,
+        "topic": "Ramadan Fasten",
+        "grade": 5,
+        "options": [
+          {
+            "id": 30,
+            "optionText": "Bei Sonnenaufgang"
+          },
+          {
+            "id": 31,
+            "optionText": "Bei der Morgendämmerung (Fajr-Zeit)"
+          },
+          {
+            "id": 32,
+            "optionText": "Um Mitternacht"
+          },
+          {
+            "id": 33,
+            "optionText": "Nach dem Morgengebet"
+          }
+        ],
+        "optionsInARow": 2
+      },
+      {
+        "id": 12,
+        "type": "MIXED",
+        "subject": "Fikih",
+        "numeration": "2",
+        "question": "Nenne zwei Dinge, die das Fasten ungültig machen würden.",
+        "points": 15,
+        "level": 2,
+        "topic": "Fastenbrechen",
+        "grade": 6,
+        "hint": "Denke an das, was in den Körper gelangt",
+        "options": [
+          {
+            "id": 34,
+            "optionText": "Essen"
+          },
+          {
+            "id": 35,
+            "optionText": "Trinken"
+          },
+          {
+            "id": 36,
+            "optionText": "Rauchen"
+          },
+          {
+            "id": 37,
+            "optionText": "Absichtliches Erbrechen"
+          }
+        ],
+        "optionsInARow": 2,
+        "helpingLines": 1,
         "totalLines": 2
       },
       {
-        "subject": "Arapça",
-        "type": "Mixed",
-        "numeration": "3.",
-        "question": "Konjugiere das Verb \"kataba\".",
+        "id": 13,
+        "type": "FILL_IN_THE_BLANKS",
+        "subject": "Fikih",
+        "numeration": "3",
+        "question": "Das Fastenbrechen am Abend heißt _____ und findet bei Sonnenuntergang zur _____-Zeit statt.",
+        "points": 10,
+        "level": 1,
+        "topic": "Iftar",
+        "grade": 5,
         "options": [
           {
-            "name": "Ja",
-            "id": "opt_0_2_0"
+            "id": 38,
+            "optionText": "Iftar"
           },
           {
-            "name": "Nein",
-            "id": "opt_0_2_1"
+            "id": 39,
+            "optionText": "Maghrib"
+          }
+        ],
+        "optionsInARow": 2
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Kuran - Grundwissen über den Heiligen Quran",
+    "author": "Admin",
+    "date": "2025-11-30",
+    "tasks": [
+      {
+        "id": 14,
+        "type": "MULTIPLE_CHOICE",
+        "subject": "Kuran",
+        "numeration": "1",
+        "question": "Wie viele Suren (Kapitel) hat der Quran?",
+        "points": 10,
+        "level": 1,
+        "topic": "Aufbau des Quran",
+        "grade": 5,
+        "options": [
+          {
+            "id": 40,
+            "optionText": "99"
+          },
+          {
+            "id": 41,
+            "optionText": "114"
+          },
+          {
+            "id": 42,
+            "optionText": "124"
+          },
+          {
+            "id": 43,
+            "optionText": "104"
+          }
+        ],
+        "optionsInARow": 4
+      },
+      {
+        "id": 15,
+        "type": "FILL_IN_THE_BLANKS",
+        "subject": "Kuran",
+        "numeration": "2",
+        "question": "Die erste Sure des Quran heißt _____ und wird auch _____ genannt (Die Öffnende).",
+        "points": 15,
+        "level": 2,
+        "topic": "Surat Al-Fatiha",
+        "grade": 6,
+        "hint": "Al-Fatiha bedeutet die Eröffnung",
+        "options": [
+          {
+            "id": 44,
+            "optionText": "Al-Fatiha"
+          },
+          {
+            "id": 45,
+            "optionText": "die Eröffnende"
+          }
+        ],
+        "optionsInARow": 2
+      },
+      {
+        "id": 16,
+        "type": "WRITE_IN",
+        "subject": "Kuran",
+        "numeration": "3",
+        "question": "Warum ist es wichtig, den Quran mit Verständnis zu lesen und nicht nur auswendig zu lernen?",
+        "points": 20,
+        "level": 3,
+        "topic": "Quran-Verständnis",
+        "grade": 7,
+        "hint": "Denke an die Botschaft und Lebensführung",
+        "options": [],
+        "helpingLines": 1,
+        "totalLines": 4
+      },
+      {
+        "id": 17,
+        "type": "MULTIPLE_CHOICE",
+        "subject": "Kuran",
+        "numeration": "4",
+        "question": "In welcher Sprache wurde der Quran offenbart?",
+        "points": 10,
+        "level": 1,
+        "topic": "Originalsprache",
+        "grade": 5,
+        "options": [
+          {
+            "id": 46,
+            "optionText": "Persisch"
+          },
+          {
+            "id": 47,
+            "optionText": "Arabisch"
+          },
+          {
+            "id": 48,
+            "optionText": "Türkisch"
+          },
+          {
+            "id": 49,
+            "optionText": "Urdu"
+          }
+        ],
+        "optionsInARow": 4
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Ahlak - Islamische Ethik und Moral",
+    "author": "Admin",
+    "date": "2025-11-30",
+    "tasks": [
+      {
+        "id": 18,
+        "type": "MULTIPLE_CHOICE",
+        "subject": "Ahlak",
+        "numeration": "1",
+        "question": "Welche Eigenschaft wird im Islam besonders geschätzt?",
+        "points": 10,
+        "level": 1,
+        "topic": "Gute Charaktereigenschaften",
+        "grade": 5,
+        "options": [
+          {
+            "id": 50,
+            "optionText": "Ehrlichkeit (Sidq)"
+          },
+          {
+            "id": 51,
+            "optionText": "Lügen"
+          },
+          {
+            "id": 52,
+            "optionText": "Arroganz"
+          },
+          {
+            "id": 53,
+            "optionText": "Geiz"
+          }
+        ],
+        "optionsInARow": 2
+      },
+      {
+        "id": 19,
+        "type": "MIXED",
+        "subject": "Ahlak",
+        "numeration": "2",
+        "question": "Nenne drei gute Charaktereigenschaften, die ein Muslim haben sollte, und erkläre eine davon kurz.",
+        "points": 20,
+        "level": 3,
+        "topic": "Islamische Tugenden",
+        "grade": 7,
+        "hint": "Denke an Geduld, Ehrlichkeit, Barmherzigkeit, Demut",
+        "options": [
+          {
+            "id": 54,
+            "optionText": "Geduld (Sabr)"
+          },
+          {
+            "id": 55,
+            "optionText": "Ehrlichkeit (Sidq)"
+          },
+          {
+            "id": 56,
+            "optionText": "Barmherzigkeit (Rahma)"
+          },
+          {
+            "id": 57,
+            "optionText": "Demut (Tawadu)"
+          },
+          {
+            "id": 58,
+            "optionText": "Großzügigkeit (Karam)"
           }
         ],
         "optionsInARow": 2,
-        "id": "task_0_2",
-        "helpingLines": 2,
+        "helpingLines": 1,
+        "totalLines": 4
+      },
+      {
+        "id": 20,
+        "type": "FILL_IN_THE_BLANKS",
+        "subject": "Ahlak",
+        "numeration": "3",
+        "question": "Respekt gegenüber den _____ ist eine wichtige Pflicht im Islam.",
+        "points": 10,
+        "level": 1,
+        "topic": "Respekt vor Eltern",
+        "grade": 5,
+        "options": [
+          {
+            "id": 59,
+            "optionText": "Eltern"
+          },
+          {
+            "id": 60,
+            "optionText": "Mutter und Vater"
+          }
+        ],
+        "optionsInARow": 2
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Hadis - Überlieferungen des Propheten",
+    "author": "Admin",
+    "date": "2025-11-30",
+    "tasks": [
+      {
+        "id": 21,
+        "type": "MULTIPLE_CHOICE",
+        "subject": "Hadis",
+        "numeration": "1",
+        "question": "Was ist ein Hadis?",
+        "points": 10,
+        "level": 1,
+        "topic": "Definition Hadis",
+        "grade": 5,
+        "options": [
+          {
+            "id": 61,
+            "optionText": "Ein Vers aus dem Quran"
+          },
+          {
+            "id": 62,
+            "optionText": "Eine Überlieferung über Worte und Taten des Propheten"
+          },
+          {
+            "id": 63,
+            "optionText": "Ein islamisches Gebet"
+          },
+          {
+            "id": 64,
+            "optionText": "Ein arabisches Gedicht"
+          }
+        ],
+        "optionsInARow": 2
+      },
+      {
+        "id": 22,
+        "type": "WRITE_IN",
+        "subject": "Hadis",
+        "numeration": "2",
+        "question": "Erkläre, warum die Hadithe wichtig für Muslime sind.",
+        "points": 20,
+        "level": 3,
+        "topic": "Bedeutung der Hadithe",
+        "grade": 7,
+        "hint": "Denke an die Sunna (das Vorbild) des Propheten",
+        "options": [],
+        "helpingLines": 1,
+        "totalLines": 4
+      },
+      {
+        "id": 23,
+        "type": "FILL_IN_THE_BLANKS",
+        "subject": "Hadis",
+        "numeration": "3",
+        "question": "Die beiden bekanntesten Hadis-Sammlungen sind Sahih _____ und Sahih _____.",
+        "points": 15,
+        "level": 2,
+        "topic": "Hadis-Sammlungen",
+        "grade": 6,
+        "hint": "Zwei große Gelehrte: Al-Bukhari und Muslim",
+        "options": [
+          {
+            "id": 65,
+            "optionText": "Bukhari"
+          },
+          {
+            "id": 66,
+            "optionText": "Muslim"
+          }
+        ],
+        "optionsInARow": 2
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Tefsir - Quran-Auslegung und Interpretation",
+    "author": "Admin",
+    "date": "2025-11-30",
+    "tasks": [
+      {
+        "id": 24,
+        "type": "MULTIPLE_CHOICE",
+        "subject": "Tefsir",
+        "numeration": "1",
+        "question": "Was bedeutet das Wort 'Tefsir'?",
+        "points": 10,
+        "level": 1,
+        "topic": "Definition Tefsir",
+        "grade": 6,
+        "options": [
+          {
+            "id": 67,
+            "optionText": "Auswendiglernen des Quran"
+          },
+          {
+            "id": 68,
+            "optionText": "Auslegung und Erklärung des Quran"
+          },
+          {
+            "id": 69,
+            "optionText": "Rezitation des Quran"
+          },
+          {
+            "id": 70,
+            "optionText": "Übersetzung des Quran"
+          }
+        ],
+        "optionsInARow": 2
+      },
+      {
+        "id": 25,
+        "type": "WRITE_IN",
+        "subject": "Tefsir",
+        "numeration": "2",
+        "question": "Warum ist es hilfreich, einen Tefsir (Quran-Erklärung) zu lesen, wenn man den Quran studiert?",
+        "points": 20,
+        "level": 3,
+        "topic": "Nutzen von Tefsir",
+        "grade": 7,
+        "hint": "Denke an historischen Kontext und tieferes Verständnis",
+        "options": [],
+        "helpingLines": 1,
+        "totalLines": 4
+      },
+      {
+        "id": 26,
+        "type": "MIXED",
+        "subject": "Tefsir",
+        "numeration": "3",
+        "question": "Welche Hilfsmittel nutzen Gelehrte für die Quran-Auslegung? Nenne zwei.",
+        "points": 15,
+        "level": 2,
+        "topic": "Methoden der Auslegung",
+        "grade": 7,
+        "hint": "Hadithe, arabische Sprachwissenschaft, Offenbarungsanlässe",
+        "options": [
+          {
+            "id": 71,
+            "optionText": "Hadithe des Propheten"
+          },
+          {
+            "id": 72,
+            "optionText": "Arabische Sprachwissenschaft"
+          },
+          {
+            "id": 73,
+            "optionText": "Historischer Kontext (Asbab an-Nuzul)"
+          },
+          {
+            "id": 74,
+            "optionText": "Meinungen der Sahaba (Gefährten)"
+          }
+        ],
+        "optionsInARow": 2,
+        "helpingLines": 1,
         "totalLines": 2
-      },
-      {
-        "subject": "Tefsir",
-        "type": "Multiple-Choice",
-        "numeration": "4.",
-        "question": "Erkläre den Begriff Tafsir bil-Ma'thur.",
-        "options": [
-          {
-            "name": "570 n.Chr.",
-            "id": "opt_0_3_0"
-          },
-          {
-            "name": "571 n.Chr.",
-            "id": "opt_0_3_1"
-          },
-          {
-            "name": "572 n.Chr.",
-            "id": "opt_0_3_2"
-          },
-          {
-            "name": "573 n.Chr.",
-            "id": "opt_0_3_3"
-          }
-        ],
-        "optionsInARow": 2,
-        "id": "task_0_3",
-        "helpingLines": 0,
-        "totalLines": 0
-      },
-      {
-        "subject": "Siyer",
-        "type": "Lückentext",
-        "numeration": "5.",
-        "question": "Wie hieß die erste Ehefrau des Propheten?",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_0_4",
-        "helpingLines": 1,
-        "totalLines": 6
       }
-    ],
-    "author": "Mustafa Öztürk",
-    "date": "2025-11-10",
-    "tasksPerPage": 4
+    ]
   },
   {
-    "title": "Test Fikih - Teil 2",
+    "id": 9,
+    "title": "Dini Tarih - Islamische Geschichte",
+    "author": "Admin",
+    "date": "2025-11-30",
     "tasks": [
       {
-        "subject": "Akaid",
-        "type": "Multiple-Choice",
-        "numeration": "1.",
-        "question": "Was sind die Eigenschaften Allahs?",
+        "id": 27,
+        "type": "MULTIPLE_CHOICE",
+        "subject": "Dini_Tarih",
+        "numeration": "1",
+        "question": "Wer war der erste Kalif nach dem Tod des Propheten Muhammad (saw)?",
+        "points": 10,
+        "level": 2,
+        "topic": "Die rechtgeleiteten Kalifen",
+        "grade": 6,
         "options": [
           {
-            "name": "Al-Baqara",
-            "id": "opt_1_0_0"
+            "id": 75,
+            "optionText": "Ali ibn Abi Talib (ra)"
           },
           {
-            "name": "Al-Fatiha",
-            "id": "opt_1_0_1"
+            "id": 76,
+            "optionText": "Abu Bakr as-Siddiq (ra)"
           },
           {
-            "name": "Al-Ikhlas",
-            "id": "opt_1_0_2"
+            "id": 77,
+            "optionText": "Umar ibn al-Khattab (ra)"
           },
           {
-            "name": "An-Nas",
-            "id": "opt_1_0_3"
+            "id": 78,
+            "optionText": "Uthman ibn Affan (ra)"
           }
         ],
-        "optionsInARow": 4,
-        "id": "task_1_0",
-        "helpingLines": 0,
-        "totalLines": 0
+        "optionsInARow": 2
       },
       {
-        "subject": "Fikih",
-        "type": "Lückentext",
-        "numeration": "2.",
-        "question": "Was ist die Nisab-Grenze für Zakat?",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_1_1",
-        "helpingLines": 1,
-        "totalLines": 8
-      },
-      {
-        "subject": "Dini Tarih",
-        "type": "Freitext",
-        "numeration": "3.",
-        "question": "Beispielfrage zu Dini Tarih?",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_1_2",
-        "helpingLines": 4,
-        "totalLines": 4
-      },
-      {
-        "subject": "Arapça",
-        "type": "Multiple-Choice",
-        "numeration": "4.",
-        "question": "Übersetze: السلام عليكم",
+        "id": 28,
+        "type": "FILL_IN_THE_BLANKS",
+        "subject": "Dini_Tarih",
+        "numeration": "2",
+        "question": "Die vier rechtgeleiteten Kalifen werden auch _____ genannt und herrschten nach dem Tod des Propheten.",
+        "points": 15,
+        "level": 2,
+        "topic": "Khulafa ar-Rashidun",
+        "grade": 7,
+        "hint": "Al-Khulafa ar-Rashidun",
         "options": [
           {
-            "name": "Mekka",
-            "id": "opt_1_3_0"
+            "id": 79,
+            "optionText": "Al-Khulafa ar-Rashidun"
           },
           {
-            "name": "Medina",
-            "id": "opt_1_3_1"
-          },
-          {
-            "name": "Jerusalem",
-            "id": "opt_1_3_2"
-          },
-          {
-            "name": "Damaskus",
-            "id": "opt_1_3_3"
+            "id": 80,
+            "optionText": "die rechtgeleiteten Kalifen"
           }
         ],
-        "optionsInARow": 2,
-        "id": "task_1_3",
-        "helpingLines": 0,
-        "totalLines": 0
-      }
-    ],
-    "author": "Mustafa Öztürk",
-    "date": "2025-10-03",
-    "tasksPerPage": 2
-  },
-  {
-    "title": "Test Akaid - Teil 3",
-    "tasks": [
+        "optionsInARow": 2
+      },
       {
-        "subject": "Kelam",
-        "type": "Freitext",
-        "numeration": "1.",
-        "question": "Beispielfrage zu Kelam?",
+        "id": 29,
+        "type": "WRITE_IN",
+        "subject": "Dini_Tarih",
+        "numeration": "3",
+        "question": "Beschreibe kurz die Bedeutung der Schlacht von Badr für die frühe muslimische Gemeinschaft.",
+        "points": 20,
+        "level": 3,
+        "topic": "Schlacht von Badr",
+        "grade": 8,
+        "hint": "Erste große Schlacht, göttliche Hilfe trotz Unterzahl",
         "options": [],
-        "optionsInARow": 1,
-        "id": "task_2_0",
-        "helpingLines": 4,
-        "totalLines": 4
-      },
-      {
-        "subject": "Kelam",
-        "type": "Multiple-Choice",
-        "numeration": "2.",
-        "question": "Beispielfrage zu Kelam?",
-        "options": [
-          {
-            "name": "5",
-            "id": "opt_2_1_0"
-          },
-          {
-            "name": "3",
-            "id": "opt_2_1_1"
-          },
-          {
-            "name": "7",
-            "id": "opt_2_1_2"
-          },
-          {
-            "name": "4",
-            "id": "opt_2_1_3"
-          }
-        ],
-        "optionsInARow": 2,
-        "id": "task_2_1",
-        "helpingLines": 0,
-        "totalLines": 0
-      },
-      {
-        "subject": "Dini Tarih",
-        "type": "Freitext",
-        "numeration": "3.",
-        "question": "Beispielfrage zu Dini Tarih?",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_2_2",
-        "helpingLines": 6,
-        "totalLines": 6
-      },
-      {
-        "subject": "Kuran",
-        "type": "Multiple-Choice",
-        "numeration": "4.",
-        "question": "Was ist die längste Sure?",
-        "options": [
-          {
-            "name": "Al-Baqara",
-            "id": "opt_2_3_0"
-          },
-          {
-            "name": "Al-Fatiha",
-            "id": "opt_2_3_1"
-          },
-          {
-            "name": "Al-Ikhlas",
-            "id": "opt_2_3_2"
-          },
-          {
-            "name": "An-Nas",
-            "id": "opt_2_3_3"
-          }
-        ],
-        "optionsInARow": 2,
-        "id": "task_2_3",
-        "helpingLines": 0,
-        "totalLines": 0
-      }
-    ],
-    "author": "Fatma Demir",
-    "date": "2025-09-16",
-    "tasksPerPage": 5
-  },
-  {
-    "title": "Klausur Hadis - Teil 4",
-    "tasks": [
-      {
-        "subject": "Tefsir",
-        "type": "Multiple-Choice",
-        "numeration": "1.",
-        "question": "Erkläre den Begriff Tafsir bil-Ma'thur.",
-        "options": [
-          {
-            "name": "Al-Baqara",
-            "id": "opt_3_0_0"
-          },
-          {
-            "name": "Al-Fatiha",
-            "id": "opt_3_0_1"
-          },
-          {
-            "name": "Al-Ikhlas",
-            "id": "opt_3_0_2"
-          },
-          {
-            "name": "An-Nas",
-            "id": "opt_3_0_3"
-          }
-        ],
-        "optionsInARow": 2,
-        "id": "task_3_0",
-        "helpingLines": 0,
-        "totalLines": 0
-      },
-      {
-        "subject": "Akaid",
-        "type": "Lückentext",
-        "numeration": "2.",
-        "question": "Erkläre den Begriff Qadar.",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_3_1",
-        "helpingLines": 1,
-        "totalLines": 6
-      },
-      {
-        "subject": "Arapça",
-        "type": "Multiple-Choice",
-        "numeration": "3.",
-        "question": "Übersetze: السلام عليكم",
-        "options": [
-          {
-            "name": "570 n.Chr.",
-            "id": "opt_3_2_0"
-          },
-          {
-            "name": "571 n.Chr.",
-            "id": "opt_3_2_1"
-          },
-          {
-            "name": "572 n.Chr.",
-            "id": "opt_3_2_2"
-          },
-          {
-            "name": "573 n.Chr.",
-            "id": "opt_3_2_3"
-          }
-        ],
-        "optionsInARow": 4,
-        "id": "task_3_2",
-        "helpingLines": 0,
-        "totalLines": 0
-      },
-      {
-        "subject": "Hadis",
-        "type": "Freitext",
-        "numeration": "4.",
-        "question": "Was bedeutet Isnad?",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_3_3",
-        "helpingLines": 6,
-        "totalLines": 6
-      },
-      {
-        "subject": "Hadis",
-        "type": "Multiple-Choice",
-        "numeration": "5.",
-        "question": "Was bedeutet Isnad?",
-        "options": [
-          {
-            "name": "5",
-            "id": "opt_3_4_0"
-          },
-          {
-            "name": "3",
-            "id": "opt_3_4_1"
-          },
-          {
-            "name": "7",
-            "id": "opt_3_4_2"
-          },
-          {
-            "name": "4",
-            "id": "opt_3_4_3"
-          }
-        ],
-        "optionsInARow": 4,
-        "id": "task_3_4",
-        "helpingLines": 0,
-        "totalLines": 0
-      }
-    ],
-    "author": "Ahmed Yılmaz",
-    "date": "2025-09-25",
-    "tasksPerPage": 4
-  },
-  {
-    "title": "Klausur Kelam - Teil 5",
-    "tasks": [
-      {
-        "subject": "Akaid",
-        "type": "Lückentext",
-        "numeration": "1.",
-        "question": "Was sind die Eigenschaften Allahs?",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_4_0",
-        "helpingLines": 1,
-        "totalLines": 7
-      },
-      {
-        "subject": "Tefsir",
-        "type": "Lückentext",
-        "numeration": "2.",
-        "question": "Wer sind bekannte Mufassir?",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_4_1",
-        "helpingLines": 1,
-        "totalLines": 6
-      },
-      {
-        "subject": "Hadis",
-        "type": "Lückentext",
-        "numeration": "3.",
-        "question": "Was bedeutet Isnad?",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_4_2",
-        "helpingLines": 1,
-        "totalLines": 7
-      },
-      {
-        "subject": "Siyer",
-        "type": "Multiple-Choice",
-        "numeration": "4.",
-        "question": "Wann wurde der Prophet Muhammad (s.a.w.) geboren?",
-        "options": [
-          {
-            "name": "114",
-            "id": "opt_4_3_0"
-          },
-          {
-            "name": "110",
-            "id": "opt_4_3_1"
-          },
-          {
-            "name": "120",
-            "id": "opt_4_3_2"
-          },
-          {
-            "name": "100",
-            "id": "opt_4_3_3"
-          }
-        ],
-        "optionsInARow": 4,
-        "id": "task_4_3",
-        "helpingLines": 0,
-        "totalLines": 0
-      }
-    ],
-    "author": "Mehmet Kaya",
-    "date": "2025-02-12",
-    "tasksPerPage": 5
-  },
-  {
-    "title": "Prüfung Tefsir - Teil 6",
-    "tasks": [
-      {
-        "subject": "Arapça",
-        "type": "Mixed",
-        "numeration": "1.",
-        "question": "Was bedeutet \"kitab\"?",
-        "options": [
-          {
-            "name": "5",
-            "id": "opt_5_0_0"
-          },
-          {
-            "name": "3",
-            "id": "opt_5_0_1"
-          }
-        ],
-        "optionsInARow": 2,
-        "id": "task_5_0",
-        "helpingLines": 3,
-        "totalLines": 3
-      },
-      {
-        "subject": "Hadis",
-        "type": "Freitext",
-        "numeration": "2.",
-        "question": "Erkläre die Hadith-Klassifikation.",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_5_1",
-        "helpingLines": 3,
-        "totalLines": 3
-      },
-      {
-        "subject": "Tefsir",
-        "type": "Mixed",
-        "numeration": "3.",
-        "question": "Was bedeutet Tefsir?",
-        "options": [
-          {
-            "name": "Mekka",
-            "id": "opt_5_2_0"
-          },
-          {
-            "name": "Medina",
-            "id": "opt_5_2_1"
-          }
-        ],
-        "optionsInARow": 2,
-        "id": "task_5_2",
-        "helpingLines": 2,
-        "totalLines": 2
-      },
-      {
-        "subject": "Tefsir",
-        "type": "Mixed",
-        "numeration": "4.",
-        "question": "Wer sind bekannte Mufassir?",
-        "options": [
-          {
-            "name": "Ja",
-            "id": "opt_5_3_0"
-          },
-          {
-            "name": "Nein",
-            "id": "opt_5_3_1"
-          }
-        ],
-        "optionsInARow": 2,
-        "id": "task_5_3",
-        "helpingLines": 3,
-        "totalLines": 3
-      },
-      {
-        "subject": "Arapça",
-        "type": "Lückentext",
-        "numeration": "5.",
-        "question": "Was bedeutet \"kitab\"?",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_5_4",
-        "helpingLines": 1,
-        "totalLines": 7
-      }
-    ],
-    "author": "Mustafa Öztürk",
-    "date": "2025-10-03",
-    "tasksPerPage": 3
-  },
-  {
-    "title": "Test Arapça - Teil 7",
-    "tasks": [
-      {
-        "subject": "Fikih",
-        "type": "Lückentext",
-        "numeration": "1.",
-        "question": "Was sind die Bedingungen für das Fasten?",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_6_0",
         "helpingLines": 1,
         "totalLines": 4
       },
       {
-        "subject": "Arapça",
-        "type": "Freitext",
-        "numeration": "2.",
-        "question": "Erkläre den Unterschied zwischen Mudari und Madi.",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_6_1",
-        "helpingLines": 6,
-        "totalLines": 6
-      },
-      {
-        "subject": "Hadis",
-        "type": "Freitext",
-        "numeration": "3.",
-        "question": "Was bedeutet Isnad?",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_6_2",
-        "helpingLines": 5,
-        "totalLines": 5
-      },
-      {
-        "subject": "Hadis",
-        "type": "Multiple-Choice",
-        "numeration": "4.",
-        "question": "Erkläre die Hadith-Klassifikation.",
+        "id": 30,
+        "type": "MULTIPLE_CHOICE",
+        "subject": "Dini_Tarih",
+        "numeration": "4",
+        "question": "In welchem Jahr eroberten die Muslime Mekka friedlich?",
+        "points": 15,
+        "level": 2,
+        "topic": "Eroberung von Mekka",
+        "grade": 7,
         "options": [
           {
-            "name": "570 n.Chr.",
-            "id": "opt_6_3_0"
+            "id": 81,
+            "optionText": "628 n. Chr."
           },
           {
-            "name": "571 n.Chr.",
-            "id": "opt_6_3_1"
+            "id": 82,
+            "optionText": "630 n. Chr."
           },
           {
-            "name": "572 n.Chr.",
-            "id": "opt_6_3_2"
+            "id": 83,
+            "optionText": "632 n. Chr."
           },
           {
-            "name": "573 n.Chr.",
-            "id": "opt_6_3_3"
+            "id": 84,
+            "optionText": "622 n. Chr."
           }
         ],
-        "optionsInARow": 2,
-        "id": "task_6_3",
-        "helpingLines": 0,
-        "totalLines": 0
-      },
-      {
-        "subject": "Tefsir",
-        "type": "Lückentext",
-        "numeration": "5.",
-        "question": "Was ist Asbab an-Nuzul?",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_6_4",
-        "helpingLines": 1,
-        "totalLines": 8
+        "optionsInARow": 2
       }
-    ],
-    "author": "Mehmet Kaya",
-    "date": "2025-06-05",
-    "tasksPerPage": 3
+    ]
   },
   {
-    "title": "Test Kuran - Teil 8",
+    "id": 10,
+    "title": "Arapça - Arabische Sprache im Islam",
+    "author": "Admin",
+    "date": "2025-11-30",
     "tasks": [
       {
-        "subject": "Kelam",
-        "type": "Freitext",
-        "numeration": "1.",
-        "question": "Beispielfrage zu Kelam?",
-        "options": [],
+        "id": 31,
+        "type": "MULTIPLE_CHOICE",
+        "subject": "Arapca",
+        "numeration": "1",
+        "question": "Was bedeutet 'Bismillah ar-Rahman ar-Rahim'?",
+        "points": 10,
+        "level": 1,
+        "topic": "Basmalah",
+        "grade": 5,
+        "options": [
+          {
+            "id": 85,
+            "optionText": "Im Namen Allahs, des Allerbarmers, des Barmherzigen"
+          },
+          {
+            "id": 86,
+            "optionText": "Alles Lob gebührt Allah"
+          },
+          {
+            "id": 87,
+            "optionText": "Es gibt keinen Gott außer Allah"
+          },
+          {
+            "id": 88,
+            "optionText": "Allah ist der Größte"
+          }
+        ],
+        "optionsInARow": 2
+      },
+      {
+        "id": 32,
+        "type": "FILL_IN_THE_BLANKS",
+        "subject": "Arapca",
+        "numeration": "2",
+        "question": "Das islamische Glaubensbekenntnis 'La ilaha illa Allah, Muhammadun Rasul Allah' bedeutet: Es gibt keinen Gott außer _____, _____ ist sein Gesandter.",
+        "points": 15,
+        "level": 2,
+        "topic": "Shahada",
+        "grade": 6,
+        "options": [
+          {
+            "id": 89,
+            "optionText": "Allah"
+          },
+          {
+            "id": 90,
+            "optionText": "Muhammad"
+          }
+        ],
+        "optionsInARow": 2
+      },
+      {
+        "id": 33,
+        "type": "MIXED",
+        "subject": "Arapca",
+        "numeration": "3",
+        "question": "Übersetze folgende arabische Begriffe ins Deutsche: As-Salat, Az-Zakat, As-Saum",
+        "points": 20,
+        "level": 2,
+        "topic": "Islamische Begriffe",
+        "grade": 6,
+        "hint": "Die drei Begriffe beziehen sich auf drei der fünf Säulen des Islam",
+        "options": [
+          {
+            "id": 91,
+            "optionText": "As-Salat = Gebet"
+          },
+          {
+            "id": 92,
+            "optionText": "Az-Zakat = Sozialabgabe"
+          },
+          {
+            "id": 93,
+            "optionText": "As-Saum = Fasten"
+          }
+        ],
         "optionsInARow": 1,
-        "id": "task_7_0",
-        "helpingLines": 3,
+        "helpingLines": 1,
         "totalLines": 3
       },
       {
-        "subject": "Kuran",
-        "type": "Freitext",
-        "numeration": "2.",
-        "question": "Wie viele Suren hat der Quran?",
+        "id": 34,
+        "type": "WRITE_IN",
+        "subject": "Arapca",
+        "numeration": "4",
+        "question": "Warum ist es wichtig, einige arabische Begriffe im Islam zu kennen, auch wenn man kein Arabisch spricht?",
+        "points": 20,
+        "level": 3,
+        "topic": "Bedeutung der arabischen Sprache",
+        "grade": 7,
+        "hint": "Denke an die Originalsprache des Quran und islamische Rituale",
         "options": [],
-        "optionsInARow": 1,
-        "id": "task_7_1",
-        "helpingLines": 6,
-        "totalLines": 6
-      },
-      {
-        "subject": "Akaid",
-        "type": "Mixed",
-        "numeration": "3.",
-        "question": "Erkläre den Begriff Qadar.",
-        "options": [
-          {
-            "name": "114",
-            "id": "opt_7_2_0"
-          },
-          {
-            "name": "110",
-            "id": "opt_7_2_1"
-          }
-        ],
-        "optionsInARow": 2,
-        "id": "task_7_2",
-        "helpingLines": 4,
+        "helpingLines": 1,
         "totalLines": 4
-      },
-      {
-        "subject": "Kuran",
-        "type": "Multiple-Choice",
-        "numeration": "4.",
-        "question": "Was ist die längste Sure?",
-        "options": [
-          {
-            "name": "570 n.Chr.",
-            "id": "opt_7_3_0"
-          },
-          {
-            "name": "571 n.Chr.",
-            "id": "opt_7_3_1"
-          },
-          {
-            "name": "572 n.Chr.",
-            "id": "opt_7_3_2"
-          },
-          {
-            "name": "573 n.Chr.",
-            "id": "opt_7_3_3"
-          }
-        ],
-        "optionsInARow": 2,
-        "id": "task_7_3",
-        "helpingLines": 0,
-        "totalLines": 0
       }
-    ],
-    "author": "Mustafa Öztürk",
-    "date": "2025-02-17",
-    "tasksPerPage": 3
-  },
-  {
-    "title": "Übung Dini Tarih - Teil 9",
-    "tasks": [
-      {
-        "subject": "Fikih",
-        "type": "Mixed",
-        "numeration": "1.",
-        "question": "Was ist die Nisab-Grenze für Zakat?",
-        "options": [
-          {
-            "name": "622 n.Chr.",
-            "id": "opt_8_0_0"
-          },
-          {
-            "name": "610 n.Chr.",
-            "id": "opt_8_0_1"
-          }
-        ],
-        "optionsInARow": 2,
-        "id": "task_8_0",
-        "helpingLines": 4,
-        "totalLines": 4
-      },
-      {
-        "subject": "Siyer",
-        "type": "Multiple-Choice",
-        "numeration": "2.",
-        "question": "Welche Schlacht fand im Jahr 624 statt?",
-        "options": [
-          {
-            "name": "Ja",
-            "id": "opt_8_1_0"
-          },
-          {
-            "name": "Nein",
-            "id": "opt_8_1_1"
-          },
-          {
-            "name": "Manchmal",
-            "id": "opt_8_1_2"
-          },
-          {
-            "name": "Es kommt darauf an",
-            "id": "opt_8_1_3"
-          }
-        ],
-        "optionsInARow": 4,
-        "id": "task_8_1",
-        "helpingLines": 0,
-        "totalLines": 0
-      },
-      {
-        "subject": "Siyer",
-        "type": "Lückentext",
-        "numeration": "3.",
-        "question": "In welchem Jahr fand die Hidschra statt?",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_8_2",
-        "helpingLines": 1,
-        "totalLines": 8
-      },
-      {
-        "subject": "Diğer",
-        "type": "Mixed",
-        "numeration": "4.",
-        "question": "Beispielfrage zu Diğer?",
-        "options": [
-          {
-            "name": "Al-Baqara",
-            "id": "opt_8_3_0"
-          },
-          {
-            "name": "Al-Fatiha",
-            "id": "opt_8_3_1"
-          }
-        ],
-        "optionsInARow": 2,
-        "id": "task_8_3",
-        "helpingLines": 2,
-        "totalLines": 2
-      },
-      {
-        "subject": "Hadis",
-        "type": "Freitext",
-        "numeration": "5.",
-        "question": "Was bedeutet Isnad?",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_8_4",
-        "helpingLines": 3,
-        "totalLines": 3
-      }
-    ],
-    "author": "Fatma Demir",
-    "date": "2025-11-08",
-    "tasksPerPage": 4
-  },
-  {
-    "title": "Übung Diğer - Teil 10",
-    "tasks": [
-      {
-        "subject": "Kelam",
-        "type": "Lückentext",
-        "numeration": "1.",
-        "question": "Beispielfrage zu Kelam?",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_9_0",
-        "helpingLines": 1,
-        "totalLines": 8
-      },
-      {
-        "subject": "Kuran",
-        "type": "Multiple-Choice",
-        "numeration": "2.",
-        "question": "Wie viele Suren hat der Quran?",
-        "options": [
-          {
-            "name": "114",
-            "id": "opt_9_1_0"
-          },
-          {
-            "name": "110",
-            "id": "opt_9_1_1"
-          },
-          {
-            "name": "120",
-            "id": "opt_9_1_2"
-          },
-          {
-            "name": "100",
-            "id": "opt_9_1_3"
-          }
-        ],
-        "optionsInARow": 2,
-        "id": "task_9_1",
-        "helpingLines": 0,
-        "totalLines": 0
-      },
-      {
-        "subject": "Fikih",
-        "type": "Multiple-Choice",
-        "numeration": "3.",
-        "question": "Was sind die Bedingungen für das Fasten?",
-        "options": [
-          {
-            "name": "Ja",
-            "id": "opt_9_2_0"
-          },
-          {
-            "name": "Nein",
-            "id": "opt_9_2_1"
-          },
-          {
-            "name": "Manchmal",
-            "id": "opt_9_2_2"
-          },
-          {
-            "name": "Es kommt darauf an",
-            "id": "opt_9_2_3"
-          }
-        ],
-        "optionsInARow": 4,
-        "id": "task_9_2",
-        "helpingLines": 0,
-        "totalLines": 0
-      },
-      {
-        "subject": "Arapça",
-        "type": "Freitext",
-        "numeration": "4.",
-        "question": "Übersetze: السلام عليكم",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_9_3",
-        "helpingLines": 3,
-        "totalLines": 3
-      },
-      {
-        "subject": "Dini Tarih",
-        "type": "Multiple-Choice",
-        "numeration": "5.",
-        "question": "Beispielfrage zu Dini Tarih?",
-        "options": [
-          {
-            "name": "622 n.Chr.",
-            "id": "opt_9_4_0"
-          },
-          {
-            "name": "610 n.Chr.",
-            "id": "opt_9_4_1"
-          },
-          {
-            "name": "630 n.Chr.",
-            "id": "opt_9_4_2"
-          },
-          {
-            "name": "632 n.Chr.",
-            "id": "opt_9_4_3"
-          }
-        ],
-        "optionsInARow": 4,
-        "id": "task_9_4",
-        "helpingLines": 0,
-        "totalLines": 0
-      },
-      {
-        "subject": "Fikih",
-        "type": "Freitext",
-        "numeration": "6.",
-        "question": "Was ist die Nisab-Grenze für Zakat?",
-        "options": [],
-        "optionsInARow": 1,
-        "id": "task_9_5",
-        "helpingLines": 5,
-        "totalLines": 5
-      }
-    ],
-    "author": "Ali Çelik",
-    "date": "2025-03-04",
-    "tasksPerPage": 2
+    ]
   }
 ]

@@ -13,13 +13,13 @@ interface TaskViewProps {
 
 export const TaskView: React.FC<TaskViewProps> = ({ task }) => {
     switch (task.type) {
-        case TaskType.MultipleChoice:
+        case TaskType.MULTIPLE_CHOICE:
             return <MultipleChoiceView task={task} />;
-        case TaskType.WriteIn:
+        case TaskType.WRITE_IN:
             return <WriteInView task={task} />;
-        case TaskType.Mixed:
+        case TaskType.MIXED:
             return <MixedView task={task} />;
-        case TaskType.FillInTheBlanks:
+        case TaskType.FILL_IN_THE_BLANKS:
             return <FillInTheBlanksView task={task} />;
         default:
             return <div>Unknown task type</div>;

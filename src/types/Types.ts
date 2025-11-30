@@ -1,8 +1,8 @@
 export enum TaskType {
-    MultipleChoice = 'Multiple-Choice',
-    WriteIn = 'Freitext',
-    Mixed = 'Mixed',
-    FillInTheBlanks = 'Lückentext',
+    MULTIPLE_CHOICE = 'MULTIPLE_CHOICE',
+    WRITE_IN = 'WRITE_IN',
+    MIXED = 'MIXED',
+    FILL_IN_THE_BLANKS = 'FILL_IN_THE_BLANKS',
 }
 
 export enum Subject {
@@ -13,10 +13,10 @@ export enum Subject {
     Hadis = 'Hadis',
     Kelam = 'Kelam',
     Tefsir = 'Tefsir',
-    Arapca = 'Arapça',
+    Arapca = 'Arapca',
     Kuran = 'Kuran',
-    Dini_Tarih = 'Dini Tarih',
-    Diger = 'Diğer',
+    Dini_Tarih = 'Dini_Tarih',
+    Diger = 'Diger',
 }
 
 type BaseTask = {
@@ -24,8 +24,8 @@ type BaseTask = {
     points?: number;
     level?: number;
     hint?: string;
-    topic?:string;
-    grade?:number;
+    topic?: string;
+    grade?: number;
     subject?: Subject;
     numeration: string;
     question: string;
@@ -35,12 +35,12 @@ type BaseTask = {
 };
 
 export type MultipleChoiceTask = BaseTask & {
-    type: TaskType.MultipleChoice;
+    type: TaskType.MULTIPLE_CHOICE;
     optionsInARow: number;
 };
 
 export type WriteInTask = BaseTask & {
-    type: TaskType.WriteIn;
+    type: TaskType.WRITE_IN;
     /** helping-lines per row*/
     helpingLines: number;
     /** Amount of lines given to answer (helping-lines not included*/
@@ -48,7 +48,7 @@ export type WriteInTask = BaseTask & {
 };
 
 export type MixedTask = BaseTask & {
-    type: TaskType.Mixed;
+    type: TaskType.MIXED;
     optionsInARow: number;
     /** helping-lines per row*/
     helpingLines: number;
@@ -57,19 +57,18 @@ export type MixedTask = BaseTask & {
 };
 
 export type FillInTheBlanksTask = BaseTask & {
-    type: TaskType.FillInTheBlanks;
+    type: TaskType.FILL_IN_THE_BLANKS;
     optionsInARow: number;
 };
 
 export type Task = MultipleChoiceTask | WriteInTask | MixedTask | FillInTheBlanksTask;
 
 
-
 export type Option = {
-    value: string;
+    optionText: string;
     id: Id;
 }
-export type Id = string;
+export type Id = number;
 
 
 export type File = {
@@ -81,3 +80,15 @@ export type File = {
 
 }
 
+export type TaskRequest = {
+    text?: string[];
+    id?: number[];
+    question?: string[];
+    subject?: Subject[];
+    taskType?: TaskType[];
+    grade?: number[];
+    level?: number[];
+    hint?: string[];
+    createdBy?: string[];
+    topic?: string[];
+}

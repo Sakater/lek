@@ -20,7 +20,7 @@ const generateUUID = (): string => {
 // Factory-Funktion für WriteInTask
 export const createWriteInTask = (overrides: Partial<WriteInTask> = {}): WriteInTask => {
     const baseTask: WriteInTask = {
-        type: TaskType.WriteIn,
+        type: TaskType.WRITE_IN,
         subject: Subject.Akaid,
         numeration: '1)',
         question: 'Neue Frage',
@@ -33,14 +33,14 @@ export const createWriteInTask = (overrides: Partial<WriteInTask> = {}): WriteIn
     return {
         ...baseTask,
         ...overrides,
-        type: TaskType.WriteIn // Type sicherstellen, falls überschrieben
+        type: TaskType.WRITE_IN // Type sicherstellen, falls überschrieben
     };
 };
 
 // Factory-Funktion für MultipleChoiceTask
 export const createMultipleChoiceTask = (overrides: Partial<MultipleChoiceTask> = {}): MultipleChoiceTask => {
     const baseTask: MultipleChoiceTask = {
-        type: TaskType.MultipleChoice,
+        type: TaskType.MULTIPLE_CHOICE,
         subject: Subject.Akaid,
         numeration: '1)',
         question: 'Neue Frage',
@@ -52,14 +52,14 @@ export const createMultipleChoiceTask = (overrides: Partial<MultipleChoiceTask> 
     return {
         ...baseTask,
         ...overrides,
-        type: TaskType.MultipleChoice
+        type: TaskType.MULTIPLE_CHOICE
     };
 };
 
 // Factory-Funktion für MixedTask
 export const createMixedTask = (overrides: Partial<MixedTask> = {}): MixedTask => {
     const baseTask: MixedTask = {
-        type: TaskType.Mixed,
+        type: TaskType.MIXED,
         subject: Subject.Akaid,
         numeration: '1)',
         question: 'Neue Frage',
@@ -73,14 +73,14 @@ export const createMixedTask = (overrides: Partial<MixedTask> = {}): MixedTask =
     return {
         ...baseTask,
         ...overrides,
-        type: TaskType.Mixed
+        type: TaskType.MIXED
     };
 };
 
 // Factory-Funktion für FillInTheBlanksTask
 export const createFillInTheBlanksTask = (overrides: Partial<FillInTheBlanksTask> = {}): FillInTheBlanksTask => {
     const baseTask: FillInTheBlanksTask = {
-        type: TaskType.FillInTheBlanks,
+        type: TaskType.FILL_IN_THE_BLANKS,
         subject: Subject.Akaid,
         numeration: '1)',
         question: 'Neue Frage mit {0} und {1}',
@@ -92,20 +92,20 @@ export const createFillInTheBlanksTask = (overrides: Partial<FillInTheBlanksTask
     return {
         ...baseTask,
         ...overrides,
-        type: TaskType.FillInTheBlanks
+        type: TaskType.FILL_IN_THE_BLANKS
     };
 };
 
 // Haupt-Factory mit Exhaustiveness Check
 export const createTask = (type: TaskType, overrides: Partial<Task> = {}): Task => {
     switch (type) {
-        case TaskType.WriteIn:
+        case TaskType.WRITE_IN:
             return createWriteInTask(overrides as Partial<WriteInTask>);
-        case TaskType.MultipleChoice:
+        case TaskType.MULTIPLE_CHOICE:
             return createMultipleChoiceTask(overrides as Partial<MultipleChoiceTask>);
-        case TaskType.Mixed:
+        case TaskType.MIXED:
             return createMixedTask(overrides as Partial<MixedTask>);
-        case TaskType.FillInTheBlanks:
+        case TaskType.FILL_IN_THE_BLANKS:
             return createFillInTheBlanksTask(overrides as Partial<FillInTheBlanksTask>);
         default: {
             throw new Error(`Unknown task type: ${type}`); }

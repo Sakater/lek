@@ -1,11 +1,13 @@
 import type {SelectProps} from 'antd';
-import {Button, Card, Col, Drawer, Row, Select,} from "antd";
-import {use, useEffect, useState} from "react";
+import {Button, Card, Col, Drawer, Row,} from "antd";
+import {use, useState} from "react";
 import {searchTasks} from '../services/taskService.ts';
 import {TaskView} from "../view/TaskView.tsx";
 import type {Task} from "../types";
 import {Subject, TaskType} from "../types";
 import {FileContext} from "../FileContext";
+import {GenericSearchBar} from "./GenericSearchBar.tsx";
+import {taskSearchConfig} from "./SearchConfigs.ts";
 
 type Props = {
     open: boolean;
@@ -14,24 +16,13 @@ type Props = {
 
 export function TaskSearch({open, onClose}: Props) {
     const {addTask} = use(FileContext);
-    const [inputValue, setInputValue] = useState<string[]>([]);
-    const [tasks, setTasks] = useState<Task[]>();
+    const [tasks] = useState<Task[]>();
     const options: SelectProps['options'] = Object.values(TaskType).map(type => ({
         label: '[Aufgabentyp] ' + type,
         value: type
     }))
     const subjectList = Object.values(Subject).map(subject => ({label: '[Fach] ' + subject, value: subject}));
     options.push(...subjectList);
-
-
-    useEffect(() => {
-        if (inputValue.length === 0) {
-            setTasks([]); // Ergebnisse ausblenden, wenn keine Suchbegriffe
-            return;
-        }
-        if (inputValue.length === 0 || !inputValue[0]) return;
-        searchTasks(inputValue).then(setTasks);
-    }, [inputValue]);
 
     const addFromSearch = (task: Task) => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -50,12 +41,9 @@ export function TaskSearch({open, onClose}: Props) {
                 key={'top'}
                 height={'80%'}>
                 {/*<Input placeholder="Suchbegriff eingeben..." style={{marginBottom: '20px'}}/>*/}
-                <Select
-                    mode="tags"
-                    style={{width: '100%'}}
-                    placeholder="Suchbegriffe eingeben und Enter drücken"
-                    onChange={(value: string[]) => setInputValue(value)}
-                    options={options}
+                <GenericSearchBar
+                    config={taskSearchConfig}
+                    onSearch={searchTasks}
                 />
                 {tasks?.map(task => {
                     return (

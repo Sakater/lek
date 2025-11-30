@@ -1,11 +1,12 @@
 // MultipleChoiceTaskForm.tsx
 import {use, useState} from 'react';
-import {Drawer, InputNumber} from 'antd';
+import {Button, Drawer, InputNumber} from 'antd';
 import {FileContext} from '../../FileContext';
 import {TaskView} from '../../view/TaskView';
 import type {MultipleChoiceTask, Task} from '../../types';
 import {BaseTaskFields} from '../BaseTaskFields';
 import {UploadTaskForm} from "../UploadTaskForm.tsx";
+import {UploadOutlined} from "@ant-design/icons";
 
 type Props = {
     task: MultipleChoiceTask;
@@ -24,6 +25,18 @@ export function MultipleChoiceTaskForm({task, open, onClose}: Props) {
             open={open}
             onClose={onClose}
             height={'80%'}
+            extra={
+                <Button
+                    type="primary"
+                    className="header-upload-btn"
+                    onClick={() => {
+                        setUploadFormOpen(true);
+                    }}
+                    icon={<UploadOutlined/>}
+                >
+                    <span className="btn-text">Upload</span>
+                </Button>
+            }
         >
             <div className={'task-form-grid'}>
                 <div>

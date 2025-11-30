@@ -14,16 +14,16 @@ type Props = {
 export function TaskFormSelector({task, open, onClose}: Props) {
 
     switch (task.type) {
-        case TaskType.MultipleChoice:
+        case TaskType.MULTIPLE_CHOICE:
             return <MultipleChoiceTaskForm task={task} open={open} onClose={onClose}/>;
 
-        case TaskType.WriteIn:
+        case TaskType.WRITE_IN:
             return <WriteInTaskForm task={task} open={open} onClose={onClose}/>;
 
-        case TaskType.Mixed:
+        case TaskType.MIXED:
             return <MixedTaskForm task={task} open={open} onClose={onClose}/>;
 
-        case TaskType.FillInTheBlanks:
+        case TaskType.FILL_IN_THE_BLANKS:
             return <FillInTheBlanksTaskForm task={task} open={open} onClose={onClose}/>;
 
         default: {

@@ -5,7 +5,7 @@ import {DeleteTwoTone, PlusCircleTwoTone} from '@ant-design/icons';
 import {FileContext} from '../FileContext';
 import {TextEditor} from '../editor/TextEditor';
 import {sanitizeHtml, sanitizeHtmlWithoutP} from '../utils/sanitizeHtml';
-import type {Task} from '../types';
+import {type Task, TaskType} from '../types';
 import {CentralToolbar} from "../editor/CentralToolbar.tsx";
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
 };
 
 export function BaseTaskFields({task}: Props) {
-    const { updateTask, updateOption, addOption, deleteOption,} = use(FileContext);
+    const {updateTask, updateOption, addOption, deleteOption} = use(FileContext);
 
     return (
         <>
@@ -32,7 +32,7 @@ export function BaseTaskFields({task}: Props) {
                         content={sanitizeHtml(task.question)}
                         onChange={e => {
                             updateTask(task.id, {question: sanitizeHtmlWithoutP(e)});
-                            console.log('e: ', e, "sanitized: ", sanitizeHtmlWithoutP(e));
+                            //console.log('e: ', e, "sanitized: ", sanitizeHtmlWithoutP(e));
                         }}
                         placeholder={"question"}
                     />
@@ -43,16 +43,16 @@ export function BaseTaskFields({task}: Props) {
                 onClick={() =>
                     addOption(task.id)
                 }
-                disabled={task.options.length >= 10 || (task.type === 'Freitext' && task.options.length >= 1)}
+                disabled={task.options.length >= 10 || (task.type === TaskType.WRITE_IN && task.options.length >= 1)}
             >
-                {task.type === 'Freitext'?<>Hinweis</>:<>Option</>}
+                {task.type === TaskType.WRITE_IN ? <>Hinweis</> : <>Option</>}
             </Button>
 
             {task.options.map((option) => (
                 <Row key={option.id} gutter={8} style={{marginBottom: 8}}>
                     <Col flex="auto">
                         <TextEditor
-                            content={option.value}
+                            content={option.optionText}
                             onChange={(e) => updateOption(task.id, option.id, sanitizeHtml(e))}
                             placeholder={'Option'}
                         />

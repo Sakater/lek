@@ -1,11 +1,12 @@
 // MixedTaskForm.tsx
 import {use, useState} from 'react';
-import {Drawer, InputNumber, Select} from 'antd';
+import {Button, Drawer, InputNumber, Select} from 'antd';
 import {FileContext} from '../../FileContext';
 import {TaskView} from '../../view/TaskView';
 import type {MixedTask, Task} from '../../types';
 import {BaseTaskFields} from '../BaseTaskFields';
 import {UploadTaskForm} from "../UploadTaskForm.tsx";
+import {UploadOutlined} from "@ant-design/icons";
 
 type Props = {
     task: MixedTask;
@@ -19,11 +20,23 @@ export function MixedTaskForm({task, open, onClose}: Props) {
 
     return (
         <Drawer
-            title="Mixed-Aufgabe bearbeiten"
+            title="MIXED-Aufgabe bearbeiten"
             placement="top"
             open={open}
             onClose={onClose}
             height={'80%'}
+            extra={
+                <Button
+                    type="primary"
+                    className="header-upload-btn"
+                    onClick={() => {
+                        setUploadFormOpen(true);
+                    }}
+                    icon={<UploadOutlined/>}
+                >
+                    <span className="btn-text">Upload</span>
+                </Button>
+            }
         >
             <div className={'task-form-grid'}>
                 <div>

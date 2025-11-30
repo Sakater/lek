@@ -49,7 +49,9 @@ export function Form() {
                         <Button onClick={() => openDrawer('taskOpen')} className={'plus-circle-2-tone'}
                                 icon={<PlusCircleTwoTone/>}>Aufgabe</Button>
                     </Col>
-                </Row>
+                </Row>{drawerState.searchOpen ?
+
+                <TaskSearch open={drawerState.searchOpen} onClose={() => closeDrawer('searchOpen')}/> : null}
                 <Reorder.Group
                     as={"span"}
                     values={file?.tasks ?? []}
@@ -68,9 +70,9 @@ export function Form() {
                         {file?.tasks.map((task, index) => (
 
 
-                                <div key={task.id} className={"taskForm-container"}>
-                                    <Task task={task} setActive={setActive} index={index}/>
-                                </div>
+                            <div key={task.id} className={"taskForm-container"}>
+                                <Task task={task} setActive={setActive} index={index}/>
+                            </div>
                         ))}
                     </AnimatePresence>
                 </Reorder.Group>
@@ -86,8 +88,8 @@ export function Form() {
                 }
                 {drawerState.taskOpen ?
                     <TaskChoice open={drawerState.taskOpen} onClose={() => closeDrawer('taskOpen')}/> : null}
-                {drawerState.searchOpen ?
-                    <TaskSearch open={drawerState.searchOpen} onClose={() => closeDrawer('searchOpen')}/> : null}
+
+
                 {drawerState.taskTypeChoiceOpen ?
                     <TaskTypeChoice open={drawerState.taskTypeChoiceOpen}
                                     onClose={() => closeDrawer('taskTypeChoiceOpen')}/> : null}

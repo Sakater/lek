@@ -15,10 +15,10 @@ export type FileContextType = {
     deleteTask: (taskId: string) => void;
 
     // Function Overloads für addTask mit typspezifischen Patches
-    // addTask(type: TaskType.WriteIn, patch?: Partial<Omit<WriteInTask, 'numeration'>>): WriteInTask;
-    // addTask(type: TaskType.MultipleChoice, patch?: Partial<Omit<MultipleChoiceTask, 'numeration'>>): MultipleChoiceTask;
-    // addTask(type: TaskType.Mixed, patch?: Partial<Omit<MixedTask, 'numeration'>>): MixedTask;
-    //addTask(type: TaskType.FillInTheBlanks, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): FillInTheBlanksTask;
+    // addTask(type: TaskType.WRITE_IN, patch?: Partial<Omit<WriteInTask, 'numeration'>>): WriteInTask;
+    // addTask(type: TaskType.MULTIPLE_CHOICE, patch?: Partial<Omit<MultipleChoiceTask, 'numeration'>>): MultipleChoiceTask;
+    // addTask(type: TaskType.MIXED, patch?: Partial<Omit<MixedTask, 'numeration'>>): MixedTask;
+    //addTask(type: TaskType.FILL_IN_THE_BLANKS, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): FillInTheBlanksTask;
     addTask(type: TaskType, patch?: Partial<Omit<Task, 'numeration'| 'id' | 'type'>>, index?:number): Task;
 
     addOption: (taskId: string, optionName?: string) => void;

@@ -12,7 +12,7 @@ export type DrawerContextType = {
     openDrawer: (drawer: keyof DrawerState) => void;
     closeDrawer: (drawer: keyof DrawerState) => void;
     toggleDrawer: (drawer: keyof DrawerState) => void;
-    selectedTaskId: string | null;
+    selectedTaskId: number | null;
     setSelectedTaskId: (taskId: string | null) => void;
 };
 
