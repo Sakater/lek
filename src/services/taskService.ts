@@ -19,7 +19,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             type: TaskType.MultipleChoice,
             numeration: "1",
             question: "Was ist Siyer?",
-            options: [{name: "Lebensgeschichte", id: "opt1"}, {name: "Gebet", id: "opt2"}],
+            options: [{value: "Lebensgeschichte", id: "opt1"}, {value: "Gebet", id: "opt2"}],
             optionsInARow: 2,
             id: "task1",
         },
@@ -28,7 +28,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             type: TaskType.WriteIn,
             numeration: "2",
             question: "Was bedeutet Fikih?",
-            options: [{name: "", id: "opt3"}],
+            options: [{value: "", id: "opt3"}],
             id: "task2",
             helpingLines: 2,
             totalLines: 2,
@@ -38,7 +38,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             type: TaskType.Mixed,
             numeration: "3",
             question: "Nenne ein Beispiel für Akaid.",
-            options: [{name: "Glaube", id: "opt4"}, {name: "Handlung", id: "opt5"}],
+            options: [{value: "Glaube", id: "opt4"}, {value: "Handlung", id: "opt5"}],
             optionsInARow: 2,
             id: "task3",
             helpingLines: 1,
@@ -49,7 +49,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             type: TaskType.FillInTheBlanks,
             numeration: "4",
             question: "Fülle die Lücke: Hadis ist ...",
-            options: [{name: "", id: "opt6"}],
+            options: [{value: "", id: "opt6"}],
             optionsInARow: 1,
             id: "task4",
         },
@@ -58,7 +58,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             type: TaskType.MultipleChoice,
             numeration: "5",
             question: "Was ist Kelam?",
-            options: [{name: "Theologie", id: "opt7"}, {name: "Geschichte", id: "opt8"}],
+            options: [{value: "Theologie", id: "opt7"}, {value: "Geschichte", id: "opt8"}],
             optionsInARow: 2,
             id: "task5",
         },
@@ -67,7 +67,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             type: TaskType.WriteIn,
             numeration: "6",
             question: "Was macht ein Tefsir?",
-            options: [{name: "", id: "opt9"}],
+            options: [{value: "", id: "opt9"}],
             id: "task6",
             helpingLines: 2,
             totalLines: 2,
@@ -77,7 +77,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             type: TaskType.Mixed,
             numeration: "7",
             question: "Was ist Arapça?",
-            options: [{name: "Sprache", id: "opt10"}, {name: "Land", id: "opt11"}],
+            options: [{value: "Sprache", id: "opt10"}, {value: "Land", id: "opt11"}],
             optionsInARow: 2,
             id: "task7",
             helpingLines: 1,
@@ -88,7 +88,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             type: TaskType.FillInTheBlanks,
             numeration: "8",
             question: "Kuran ist das ... Buch.",
-            options: [{name: "", id: "opt12"}],
+            options: [{value: "", id: "opt12"}],
             optionsInARow: 1,
             id: "task8",
         },
@@ -97,7 +97,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             type: TaskType.MultipleChoice,
             numeration: "9",
             question: "Was ist Dini Tarih?",
-            options: [{name: "Religiöse Geschichte", id: "opt13"}, {name: "Mathematik", id: "opt14"}],
+            options: [{value: "Religiöse Geschichte", id: "opt13"}, {value: "Mathematik", id: "opt14"}],
             optionsInARow: 2,
             id: "task9",
         },
@@ -106,7 +106,7 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             type: TaskType.WriteIn,
             numeration: "10",
             question: "Was fällt unter 'Diğer'?",
-            options: [{name: "", id: "opt15"}],
+            options: [{value: "", id: "opt15"}],
             id: "task10",
             helpingLines: 2,
             totalLines: 2,
@@ -116,10 +116,10 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             numeration: "1.",
             question: "Der Prophet Muhammad wurde in {0} geboren und lebte im {1} Jahrhundert.",
             options: [
-                { id: "1", name: "Mekka" },
-                { id: "2", name: "Medina" },
-                { id: "3", name: "6." },
-                { id: "4", name: "7." }
+                { id: "1", value: "Mekka" },
+                { id: "2", value: "Medina" },
+                { id: "3", value: "6." },
+                { id: "4", value: "7." }
             ],
             optionsInARow: 2,
             id: "task-1"
@@ -129,11 +129,11 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             numeration: "2.",
             question: "Erkläre die fünf Säulen des Islam:",
             options: [
-                { id: "1", name: "Schahada" },
-                { id: "2", name: "Salat" },
-                { id: "3", name: "Zakat" },
-                { id: "4", name: "Saum" },
-                { id: "5", name: "Hadsch" }
+                { id: "1", value: "Schahada" },
+                { id: "2", value: "Salat" },
+                { id: "3", value: "Zakat" },
+                { id: "4", value: "Saum" },
+                { id: "5", value: "Hadsch" }
             ],
             helpingLines: 2,
             totalLines: 8,
@@ -144,10 +144,10 @@ export async function searchTasks(queries: string[]): Promise<Task[]> {
             numeration: "3.",
             question: "Welche Eigenschaften hatte der Prophet Muhammad?",
             options: [
-                { id: "1", name: "Ehrlich" },
-                { id: "2", name: "Barmherzig" },
-                { id: "3", name: "Geduldig" },
-                { id: "4", name: "Gerecht" }
+                { id: "1", value: "Ehrlich" },
+                { id: "2", value: "Barmherzig" },
+                { id: "3", value: "Geduldig" },
+                { id: "4", value: "Gerecht" }
             ],
             optionsInARow: 2,
             helpingLines: 1,
@@ -184,4 +184,7 @@ export async function searchFiles(queries: string[]): Promise<File[]> {
         return dummyFiles;
     }
     throw new Error('Invalid file structure in JSON');
+}
+export async function saveTask(task: Partial<Task>): Promise<void> {
+    //*await fetch('/api/tasks/save', {
 }

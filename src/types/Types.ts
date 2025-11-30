@@ -9,16 +9,23 @@ export enum Subject {
     Siyer = 'Siyer',
     Fikih = 'Fikih',
     Akaid = 'Akaid',
+    Ahlak = 'Ahlak',
     Hadis = 'Hadis',
     Kelam = 'Kelam',
     Tefsir = 'Tefsir',
     Arapca = 'Arapça',
     Kuran = 'Kuran',
-    DiniTarih = 'Dini Tarih',
+    Dini_Tarih = 'Dini Tarih',
     Diger = 'Diğer',
 }
 
 type BaseTask = {
+    createdBy?: string;
+    points?: number;
+    level?: number;
+    hint?: string;
+    topic?:string;
+    grade?:number;
     subject?: Subject;
     numeration: string;
     question: string;
@@ -59,7 +66,7 @@ export type Task = MultipleChoiceTask | WriteInTask | MixedTask | FillInTheBlank
 
 
 export type Option = {
-    name: string;
+    value: string;
     id: Id;
 }
 export type Id = string;

@@ -1,9 +1,10 @@
-import {use} from 'react';
+import {use, useState} from 'react';
 import {Drawer, InputNumber, Select} from 'antd';
 import {FileContext} from '../../FileContext';
 import {TaskView} from '../../view/TaskView';
 import type {Task, WriteInTask} from '../../types';
 import {BaseTaskFields} from '../BaseTaskFields';
+import {UploadTaskForm} from "../UploadTaskForm.tsx";
 
 type Props = {
     task: WriteInTask;
@@ -13,6 +14,7 @@ type Props = {
 
 export function WriteInTaskForm({task, open, onClose}: Props) {
     const {updateTask} = use(FileContext);
+    const [uploadFormOpen, setUploadFormOpen] = useState(false);
 
     return (
         <Drawer
@@ -56,7 +58,10 @@ export function WriteInTaskForm({task, open, onClose}: Props) {
                         />
                     </div>
                 </div>
-                <TaskView task={task}/></div>
+                <TaskView task={task}/>
+            </div>
+            {uploadFormOpen ?
+                <UploadTaskForm task={task} open={uploadFormOpen} onClose={() => setUploadFormOpen(false)}/> : null}
         </Drawer>
     );
 }

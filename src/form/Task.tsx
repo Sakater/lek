@@ -19,25 +19,26 @@ export function Task({task, setActive, index}: Props) {
     const {openDrawer, setSelectedTaskId} = use(DrawerContext);
     const dragControls = useDragControls();
 
-    const duplicateTask = (task: Task, currentIndex:number) => {
+    const duplicateTask = (task: Task, currentIndex: number) => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { numeration, id, type, ...patch } = task;
+        const {numeration, id, type, ...patch} = task;
         addTask(task.type, patch, currentIndex);
     };
 
     const actions: ReactNode[] = [
-        <span className="icon-with-tooltip" data-tooltip="Bearbeiten">
-        <EditOutlined key="edit" onClick={() => {
+        <div className="icon-with-tooltip" data-tooltip="Bearbeiten" onClick={() => {
             openDrawer('taskFormOpen');
             setSelectedTaskId(task.id)
-        }}/>
-    </span>,
-        <span className="icon-with-tooltip" data-tooltip="Duplizieren">
-        <Duplicate key={"duplicate"} onClick={()=> duplicateTask(task, index)} style={{fontWeight:200}}/>
-    </span>,
-        <span className="icon-with-tooltip" data-tooltip="Löschen">
-        <DeleteTwoTone key={"delete"} onClick={() => deleteTask(task.id)} className="icon-delete-2-tone"/>
-    </span>
+        }}>
+            <EditOutlined key="edit"/>
+        </div>,
+        <div className="icon-with-tooltip" data-tooltip="Duplizieren" onClick={() => duplicateTask(task, index)}
+             style={{fontWeight: 200}}>
+            <Duplicate key={"duplicate"}/>
+        </div>,
+        <div className="icon-with-tooltip" data-tooltip="Löschen" onClick={() => deleteTask(task.id)}>
+            <DeleteTwoTone key={"delete"} className="icon-delete-2-tone"/>
+        </div>
     ];
     return (
         <>
@@ -59,7 +60,7 @@ export function Task({task, setActive, index}: Props) {
                 >
                     <div style={{position: 'absolute', top: 20, right: 20, zIndex: 10}}>
                         <HolderOutlined
-                            style={{cursor: 'grab', touchAction: 'none', fontSize:"17px"}}
+                            style={{cursor: 'grab', touchAction: 'none', fontSize: "17px"}}
                             onPointerDown={(e) => dragControls.start(e.nativeEvent)}
                         />
                     </div>

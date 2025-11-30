@@ -1,9 +1,11 @@
-import {use} from 'react';
-import {Drawer, InputNumber} from 'antd';
+import {use, useState} from 'react';
+import {Button, Drawer, InputNumber} from 'antd';
 import {FileContext} from '../../FileContext';
 import {TaskView} from '../../view/TaskView';
 import type {FillInTheBlanksTask, Task} from '../../types';
 import {BaseTaskFields} from '../BaseTaskFields';
+import {UploadOutlined} from "@ant-design/icons";
+import {UploadTaskForm} from "../UploadTaskForm.tsx";
 
 type Props = {
     task: FillInTheBlanksTask;
@@ -13,6 +15,7 @@ type Props = {
 
 export function FillInTheBlanksTaskForm({task, open, onClose}: Props) {
     const {updateTask} = use(FileContext);
+    const [uploadFormOpen, setUploadFormOpen] = useState(false);
 
     return (
         <Drawer
@@ -21,6 +24,18 @@ export function FillInTheBlanksTaskForm({task, open, onClose}: Props) {
             open={open}
             onClose={onClose}
             height={'80%'}
+            extra={
+                <Button
+                    type="primary"
+                    className="header-upload-btn"
+                    onClick={() => {
+                        setUploadFormOpen(true);
+                    }}
+                    icon={<UploadOutlined/>}
+                >
+                    <span className="btn-text">Upload</span>
+                </Button>
+            }
         >
             <div className={'task-form-grid'}>
                 <div>
@@ -44,6 +59,8 @@ export function FillInTheBlanksTaskForm({task, open, onClose}: Props) {
                 </div>
                 <TaskView task={task}/>
             </div>
+            {uploadFormOpen ?
+                <UploadTaskForm task={task} open={uploadFormOpen} onClose={() => setUploadFormOpen(false)}/> : null}
         </Drawer>
     );
 }

@@ -52,7 +52,7 @@ export function BaseTaskFields({task}: Props) {
                 <Row key={option.id} gutter={8} style={{marginBottom: 8}}>
                     <Col flex="auto">
                         <TextEditor
-                            content={option.name}
+                            content={option.value}
                             onChange={(e) => updateOption(task.id, option.id, sanitizeHtml(e))}
                             placeholder={'Option'}
                         />

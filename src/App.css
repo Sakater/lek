@@ -517,3 +517,20 @@
     opacity: 1;
     transition-delay: 0.8s; /* Verzögerung von 800ms */
 }
+
+/*----------------------*/
+.header-upload-btn .btn-text {
+    display: inline-block;
+}
+.header-upload-btn{
+    width: auto;
+    min-width: 70px;
+}
+
+/* Text ausblenden, wenn Bildschirm schmaler als 480px */
+@media (max-width: 480px) {
+    .header-upload-btn .btn-text {
+        display: none;
+    }
+    .header-upload-btn
+}

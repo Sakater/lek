@@ -1,10 +1,11 @@
 // MixedTaskForm.tsx
-import {use} from 'react';
+import {use, useState} from 'react';
 import {Drawer, InputNumber, Select} from 'antd';
 import {FileContext} from '../../FileContext';
 import {TaskView} from '../../view/TaskView';
 import type {MixedTask, Task} from '../../types';
 import {BaseTaskFields} from '../BaseTaskFields';
+import {UploadTaskForm} from "../UploadTaskForm.tsx";
 
 type Props = {
     task: MixedTask;
@@ -14,6 +15,7 @@ type Props = {
 
 export function MixedTaskForm({task, open, onClose}: Props) {
     const {updateTask} = use(FileContext);
+    const [uploadFormOpen, setUploadFormOpen] = useState(false);
 
     return (
         <Drawer
@@ -75,6 +77,8 @@ export function MixedTaskForm({task, open, onClose}: Props) {
                 </div>
                 <TaskView task={task}/>
             </div>
+            {uploadFormOpen ?
+                <UploadTaskForm task={task} open={uploadFormOpen} onClose={() => setUploadFormOpen(false)}/> : null}
         </Drawer>
     );
 }

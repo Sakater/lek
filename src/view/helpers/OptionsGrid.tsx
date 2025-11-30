@@ -28,7 +28,7 @@ export function OptionsGrid( {options, optionsInARow, isMultipleChoice = false}:
                             className="option-checkbox"
                         />
                     )}
-                    <label htmlFor={option.id} dangerouslySetInnerHTML={{__html: sanitizeHtml(option.name)}}/>
+                    <label htmlFor={option.id} dangerouslySetInnerHTML={{__html: sanitizeHtml(option.value)}}/>
                 </div>
             ))}
         </div>

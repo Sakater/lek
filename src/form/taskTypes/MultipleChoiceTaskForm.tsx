@@ -1,10 +1,11 @@
 // MultipleChoiceTaskForm.tsx
-import {use} from 'react';
+import {use, useState} from 'react';
 import {Drawer, InputNumber} from 'antd';
 import {FileContext} from '../../FileContext';
 import {TaskView} from '../../view/TaskView';
 import type {MultipleChoiceTask, Task} from '../../types';
 import {BaseTaskFields} from '../BaseTaskFields';
+import {UploadTaskForm} from "../UploadTaskForm.tsx";
 
 type Props = {
     task: MultipleChoiceTask;
@@ -14,6 +15,7 @@ type Props = {
 
 export function MultipleChoiceTaskForm({task, open, onClose}: Props) {
     const {updateTask} = use(FileContext);
+    const [uploadFormOpen, setUploadFormOpen] = useState(false);
 
     return (
         <Drawer
@@ -44,6 +46,8 @@ export function MultipleChoiceTaskForm({task, open, onClose}: Props) {
                 </div>
                 <TaskView task={task}/>
             </div>
+            {uploadFormOpen ?
+                <UploadTaskForm task={task} open={uploadFormOpen} onClose={() => setUploadFormOpen(false)}/> : null}
         </Drawer>
     );
 }
