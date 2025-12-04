@@ -88,7 +88,7 @@ export function MixedTaskForm({task, open, onClose}: Props) {
                         />
                     </div>
                 </div>
-                <TaskView task={task}/>
+                <TaskView task={task} scroll/>
             </div>
             {uploadFormOpen ?
                 <UploadTaskForm task={task} open={uploadFormOpen} onClose={() => setUploadFormOpen(false)}/> : null}

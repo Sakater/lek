@@ -3,6 +3,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import type {File, Task} from '../types';
 import {TaskView} from './TaskView';
 import {sanitizeHtmlWithoutP} from "../utils/sanitizeHtml.ts";
+import {Pagination} from "antd";
 
 interface PDFFileProps {
     file: File | null;
@@ -18,9 +19,9 @@ export const PDFFile: React.FC<PDFFileProps> = ({
                                                     onPaginationUpdate
                                                 }) => {
     const [currentPage, setCurrentPage] = useState(1);
-    const [taskHeights, setTaskHeights] = useState<Map<string, number>>(new Map());
+    const [taskHeights, setTaskHeights] = useState<Map<number, number>>(new Map());
     const [paginatedTasks, setPaginatedTasks] = useState<Task[][]>([]);
-    const taskRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+    const taskRefs = useRef<Map<number, HTMLDivElement>>(new Map());
     const [pdfScale, setPdfScale] = useState(1);
     const [computedScale, setComputedScale] = useState(1);
 
@@ -31,7 +32,7 @@ export const PDFFile: React.FC<PDFFileProps> = ({
                 setPdfScale(scale);
                 return;
             }
-            const availableWidth = window.innerWidth -40; // 40px padding
+            const availableWidth = window.innerWidth - 40; // 40px padding
             //console.log('Available width:', availableWidth);
             const newScale = Math.min(availableWidth / 794, pdfScale); // 794px = A4 Breite
 
@@ -51,7 +52,7 @@ export const PDFFile: React.FC<PDFFileProps> = ({
         if (!file?.tasks || file.tasks.length === 0) return;
 
         const measureTasks = () => {
-            const heights = new Map<string, number>();
+            const heights = new Map<number, number>();
 
             taskRefs.current.forEach((element, taskId) => {
                 if (element) {
@@ -160,24 +161,9 @@ export const PDFFile: React.FC<PDFFileProps> = ({
     const totalPages = paginatedTasks.length;
     const currentTasks = paginatedTasks[currentPage - 1] || [];
 
-    const goToNextPage = () => {
-        setCurrentPage((prev) => Math.min(prev + 1, totalPages));
-    };
-
-    const goToPreviousPage = () => {
-        setCurrentPage((prev) => Math.max(prev - 1, 1));
-    };
-
-    const goToFirstPage = () => {
-        setCurrentPage(1);
-    };
-
-    const goToLastPage = () => {
-        setCurrentPage(totalPages);
-    };
 
     // Ref Callback für Tasks
-    const setTaskRef = (taskId: string) => (element: HTMLDivElement | null) => {
+    const setTaskRef = (taskId: number) => (element: HTMLDivElement | null) => {
         if (element) {
             taskRefs.current.set(taskId, element);
         } else {
@@ -203,39 +189,19 @@ export const PDFFile: React.FC<PDFFileProps> = ({
             </div>
             {/* Navigation Controls */}
             <div className="pagination-controls">
-                <button
-                    onClick={goToFirstPage}
-                    disabled={currentPage === 1}
-                    className="pagination-button"
-                >
-                    ⟪ Erste
-                </button>
-                <button
-                    onClick={goToPreviousPage}
-                    disabled={currentPage === 1}
-                    className="pagination-button"
-                >
-                    ‹ Zurück
-                </button>
-
-                <span className="page-indicator">
-          Seite {currentPage} von {totalPages}
-        </span>
-
-                <button
-                    onClick={goToNextPage}
-                    disabled={currentPage === totalPages}
-                    className="pagination-button"
-                >
-                    Weiter ›
-                </button>
-                <button
-                    onClick={goToLastPage}
-                    disabled={currentPage === totalPages}
-                    className="pagination-button"
-                >
-                    Letzte ⟫
-                </button>
+                <Pagination
+                    simple
+                    current={currentPage}
+                    total={totalPages}
+                    pageSize={1}
+                    onChange={(page) => setCurrentPage(page)}
+                    showSizeChanger={false}
+                    //showTotal={(total) => `Seite ${currentPage} von ${total}`}
+                    style={{marginBottom: '20px', textAlign: 'center'}}
+                />
+                <div style={{color: 'rgba(0, 0, 0, 0.45)', fontSize: '14px'}}>
+                    Aufgaben: {currentTasks.map(task => task.numeration).join(', ')}
+                </div>
             </div>
 
             {/* Versteckte Messungs-Container für initiale Höhenberechnung */}
@@ -266,7 +232,7 @@ export const PDFFile: React.FC<PDFFileProps> = ({
                         {/* Header */}
                         <header className="page-header">
                             <span className="page-author"
-                                  dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(file?.author) || 'Autor'}}/>
+                                  dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(file?.createdBy) || 'Autor'}}/>
                             <div className="page-title"
                                  dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(file?.title) || 'Titel'}}/>
                             <span className="page-date"
@@ -339,7 +305,7 @@ export const PDFExportContainer: React.FC<PDFExportContainerProps> = ({
                     {/* Header */}
                     <header className="page-header">
                         <span className="page-author"
-                              dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(file?.author) || ''}}
+                              dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(file?.createdBy) || ''}}
                         />
                         <div className="page-title"
                              dangerouslySetInnerHTML={{__html: sanitizeHtmlWithoutP(file?.title) || 'Titel'}}

@@ -11,8 +11,8 @@ export type FileContextType = {
     openTemplateSearch: boolean;
     setOpenTemplateSearch: (open: boolean) => void;
     updateFile: (patch: Partial<File>) => void;
-    updateTask: (taskId: string, updates: Partial<Task> | Task) => void;
-    deleteTask: (taskId: string) => void;
+    updateTask: (taskId: number, updates: Partial<Task> | Task) => void;
+    deleteTask: (taskId: number) => void;
 
     // Function Overloads für addTask mit typspezifischen Patches
     // addTask(type: TaskType.WRITE_IN, patch?: Partial<Omit<WriteInTask, 'numeration'>>): WriteInTask;
@@ -21,9 +21,9 @@ export type FileContextType = {
     //addTask(type: TaskType.FILL_IN_THE_BLANKS, patch?: Partial<Omit<FillInTheBlanksTask, 'numeration'>>): FillInTheBlanksTask;
     addTask(type: TaskType, patch?: Partial<Omit<Task, 'numeration'| 'id' | 'type'>>, index?:number): Task;
 
-    addOption: (taskId: string, optionName?: string) => void;
-    updateOption: (taskId: string, optionId: string, newName: string) => void;
-    deleteOption: (taskId: string, optionId: string) => void;
+    addOption: (taskId: number, optionName?: string) => void;
+    updateOption: (taskId: number, optionId: number, newName: string) => void;
+    deleteOption: (taskId: number, optionId: number) => void;
     dynamicSize: (expanse: number) => number;
     size: number;
 }
@@ -31,11 +31,14 @@ export type FileContextType = {
 // Dummy-Defaultwerte für TypeScript
 export const FileContext = createContext<FileContextType>({
     file: {
-        id: '',
+        id: 0,
         title: '',
-        author: '',
+        createdBy: '',
         date: '',
-        tasks: []
+        tasks: [],
+        topic: [],
+        grade: 0,
+        subject: []
     },
     openCustomizer: false,
     setOpenCustomizer: () => {},

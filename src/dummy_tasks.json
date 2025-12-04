@@ -1,0 +1,491 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "numeration": "1.",
+      "question": "In welchem Jahr wurde der Prophet Muhammad (s.a.v.) geboren?",
+      "options": [
+        {"optionText": "570 n.Chr.", "id": 1},
+        {"optionText": "571 n.Chr.", "id": 2},
+        {"optionText": "580 n.Chr.", "id": 3}
+      ],
+      "type": "MULTIPLE_CHOICE",
+      "optionsInARow": 3,
+      "subject": "Siyer",
+      "grade": 7,
+      "level": 2,
+      "points": 10,
+      "topic": "Leben des Propheten"
+    },
+    {
+      "id": 2,
+      "numeration": "2.",
+      "question": "Welche Handlung bricht die Gebetswaschung (Wudu)?",
+      "options": [
+        {"optionText": "Windabgang", "id": 4},
+        {"optionText": "Sprechen", "id": 5},
+        {"optionText": "Gehen", "id": 6}
+      ],
+      "type": "MULTIPLE_CHOICE",
+      "optionsInARow": 1,
+      "subject": "Fikih",
+      "grade": 6,
+      "level": 1,
+      "points": 8,
+      "topic": "Tahara - Reinheit"
+    },
+    {
+      "id": 3,
+      "numeration": "3.",
+      "question": "Was bedeutet 'Tawhid' im Islam?",
+      "options": [
+        {"optionText": "Die Einheit Allahs", "id": 7},
+        {"optionText": "Das Gebet", "id": 8},
+        {"optionText": "Die Pilgerfahrt", "id": 9}
+      ],
+      "type": "MULTIPLE_CHOICE",
+      "optionsInARow": 2,
+      "subject": "Akaid",
+      "grade": 8,
+      "level": 2,
+      "points": 12,
+      "topic": "Glaubensgrundsätze"
+    },
+    {
+      "id": 4,
+      "numeration": "4.",
+      "question": "Erkläre die Bedeutung von 'Ihsan' (Güte) im Islam.",
+      "options": [],
+      "type": "WRITE_IN",
+      "helpingLines": 1,
+      "totalLines": 4,
+      "subject": "Ahlak",
+      "grade": 9,
+      "level": 3,
+      "points": 15,
+      "topic": "Islamische Moral"
+    },
+    {
+      "id": 5,
+      "numeration": "5.",
+      "question": "Wer überlieferte die meisten Hadithe unter den Gefährten?",
+      "options": [
+        {"optionText": "Abu Huraira (r.a.)", "id": 10},
+        {"optionText": "Abu Bakr (r.a.)", "id": 11},
+        {"optionText": "Umar (r.a.)", "id": 12}
+      ],
+      "type": "MULTIPLE_CHOICE",
+      "optionsInARow": 1,
+      "subject": "Hadis",
+      "grade": 10,
+      "level": 3,
+      "points": 10,
+      "topic": "Hadith-Überlieferer"
+    },
+    {
+      "id": 6,
+      "numeration": "6.",
+      "question": "Allah ist ___. Er sieht alles und hört alles.",
+      "options": [
+        {"optionText": "As-Sami' al-Basir", "id": 13},
+        {"optionText": "Ar-Rahman", "id": 14},
+        {"optionText": "Al-Malik", "id": 15}
+      ],
+      "type": "FILL_IN_THE_BLANKS",
+      "optionsInARow": 3,
+      "subject": "Kelam",
+      "grade": 7,
+      "level": 2,
+      "points": 8,
+      "topic": "Namen Allahs"
+    },
+    {
+      "id": 7,
+      "numeration": "7.",
+      "question": "Welche Sure wird 'das Herz des Korans' genannt?",
+      "options": [
+        {"optionText": "Sure Yasin", "id": 16},
+        {"optionText": "Sure Al-Fatiha", "id": 17},
+        {"optionText": "Sure Al-Ikhlas", "id": 18}
+      ],
+      "type": "MULTIPLE_CHOICE",
+      "optionsInARow": 2,
+      "subject": "Tefsir",
+      "grade": 9,
+      "level": 3,
+      "points": 12,
+      "topic": "Koranexegese"
+    },
+    {
+      "id": 8,
+      "numeration": "8.",
+      "question": "Übersetze ins Deutsche: 'Bismillah ar-Rahman ar-Rahim'",
+      "options": [],
+      "type": "WRITE_IN",
+      "helpingLines": 0,
+      "totalLines": 2,
+      "subject": "Arapca",
+      "grade": 6,
+      "level": 1,
+      "points": 10,
+      "topic": "Arabische Übersetzung"
+    },
+    {
+      "id": 9,
+      "numeration": "9.",
+      "question": "In welchem Jahr fand die Hidschra (Auswanderung nach Medina) statt?",
+      "options": [
+        {"optionText": "622 n.Chr.", "id": 19},
+        {"optionText": "610 n.Chr.", "id": 20},
+        {"optionText": "630 n.Chr.", "id": 21}
+      ],
+      "type": "MULTIPLE_CHOICE",
+      "optionsInARow": 3,
+      "subject": "Siyer",
+      "grade": 8,
+      "level": 2,
+      "points": 10,
+      "topic": "Prophetengeschichte"
+    },
+    {
+      "id": 10,
+      "numeration": "10.",
+      "question": "Wie viele Rakat hat das Morgengebet (Fajr)?",
+      "options": [
+        {"optionText": "2 Rakat", "id": 22},
+        {"optionText": "4 Rakat", "id": 23},
+        {"optionText": "3 Rakat", "id": 24}
+      ],
+      "type": "MULTIPLE_CHOICE",
+      "optionsInARow": 1,
+      "subject": "Fikih",
+      "grade": 6,
+      "level": 1,
+      "points": 8,
+      "topic": "Salah - Gebet"
+    },
+    {
+      "id": 11,
+      "numeration": "11.",
+      "question": "Nenne die sechs Glaubensartikel (Iman) im Islam.",
+      "options": [],
+      "type": "WRITE_IN",
+      "helpingLines": 1,
+      "totalLines": 5,
+      "subject": "Akaid",
+      "grade": 9,
+      "level": 3,
+      "points": 18,
+      "topic": "Iman"
+    },
+    {
+      "id": 12,
+      "numeration": "12.",
+      "question": "Warum ist Ehrlichkeit (Sidq) im Islam wichtig?",
+      "options": [
+        {"optionText": "Sie ist eine prophetische Eigenschaft", "id": 25},
+        {"optionText": "Sie ist unwichtig", "id": 26}
+      ],
+      "type": "MIXED",
+      "optionsInARow": 1,
+      "helpingLines": 1,
+      "totalLines": 3,
+      "subject": "Ahlak",
+      "grade": 8,
+      "level": 2,
+      "points": 12,
+      "topic": "Tugenden"
+    },
+    {
+      "id": 13,
+      "numeration": "13.",
+      "question": "Der Prophet (s.a.v.) sagte: 'Die besten unter euch sind diejenigen, die den ___ am besten behandeln.'",
+      "options": [
+        {"optionText": "Koran lernen", "id": 27},
+        {"optionText": "Frauen", "id": 28},
+        {"optionText": "Propheten", "id": 29}
+      ],
+      "type": "FILL_IN_THE_BLANKS",
+      "optionsInARow": 2,
+      "subject": "Hadis",
+      "grade": 9,
+      "level": 3,
+      "points": 10,
+      "topic": "Prophetenaussprüche"
+    },
+    {
+      "id": 14,
+      "numeration": "14.",
+      "question": "Was bedeutet der Name Allahs 'Ar-Razzaq'?",
+      "options": [
+        {"optionText": "Der Versorger", "id": 30},
+        {"optionText": "Der Schöpfer", "id": 31},
+        {"optionText": "Der Richter", "id": 32}
+      ],
+      "type": "MULTIPLE_CHOICE",
+      "optionsInARow": 3,
+      "subject": "Kelam",
+      "grade": 8,
+      "level": 2,
+      "points": 8,
+      "topic": "Asma ul-Husna"
+    },
+    {
+      "id": 15,
+      "numeration": "15.",
+      "question": "Wie viele Verse (Ayat) hat Sure Al-Fatiha?",
+      "options": [
+        {"optionText": "7 Verse", "id": 33},
+        {"optionText": "5 Verse", "id": 34},
+        {"optionText": "10 Verse", "id": 35}
+      ],
+      "type": "MULTIPLE_CHOICE",
+      "optionsInARow": 2,
+      "subject": "Kuran",
+      "grade": 7,
+      "level": 2,
+      "points": 8,
+      "topic": "Koran-Struktur"
+    },
+    {
+      "id": 16,
+      "numeration": "16.",
+      "question": "Erkläre die Bedeutung von 'Ayat al-Kursi'.",
+      "options": [],
+      "type": "WRITE_IN",
+      "helpingLines": 1,
+      "totalLines": 4,
+      "subject": "Tefsir",
+      "grade": 10,
+      "level": 4,
+      "points": 15,
+      "topic": "Vers-Interpretation"
+    },
+    {
+      "id": 17,
+      "numeration": "17.",
+      "question": "Was bedeutet das arabische Wort 'Salah'?",
+      "options": [
+        {"optionText": "Gebet", "id": 36},
+        {"optionText": "Fasten", "id": 37},
+        {"optionText": "Almosen", "id": 38}
+      ],
+      "type": "MULTIPLE_CHOICE",
+      "optionsInARow": 1,
+      "subject": "Arapca",
+      "grade": 6,
+      "level": 1,
+      "points": 6,
+      "topic": "Arabische Begriffe"
+    },
+    {
+      "id": 18,
+      "numeration": "18.",
+      "question": "Wer waren die vier rechtgeleiteten Kalifen (Khulafa ar-Raschidun)?",
+      "options": [],
+      "type": "WRITE_IN",
+      "helpingLines": 1,
+      "totalLines": 3,
+      "subject": "Dini_Tarih",
+      "grade": 9,
+      "level": 3,
+      "points": 16,
+      "topic": "Islamische Geschichte"
+    },
+    {
+      "id": 19,
+      "numeration": "19.",
+      "question": "Wie heißt die Nacht, in der der Koran herabgesandt wurde?",
+      "options": [
+        {"optionText": "Laylat al-Qadr", "id": 39},
+        {"optionText": "Laylat al-Miraj", "id": 40},
+        {"optionText": "Laylat al-Bara'ah", "id": 41}
+      ],
+      "type": "MULTIPLE_CHOICE",
+      "optionsInARow": 2,
+      "subject": "Kuran",
+      "grade": 8,
+      "level": 2,
+      "points": 10,
+      "topic": "Offenbarung"
+    },
+    {
+      "id": 20,
+      "numeration": "20.",
+      "question": "Der Glaube an das Schicksal (Qadar) ist der ___ Glaubensartikel.",
+      "options": [
+        {"optionText": "sechste", "id": 42},
+        {"optionText": "erste", "id": 43},
+        {"optionText": "dritte", "id": 44}
+      ],
+      "type": "FILL_IN_THE_BLANKS",
+      "optionsInARow": 3,
+      "subject": "Akaid",
+      "grade": 8,
+      "level": 2,
+      "points": 8,
+      "topic": "Glaubensgrundsätze"
+    },
+    {
+      "id": 21,
+      "numeration": "21.",
+      "question": "Was ist der Nisab-Betrag für Zakat auf Gold?",
+      "options": [
+        {"optionText": "85 Gramm Gold", "id": 45},
+        {"optionText": "50 Gramm Gold", "id": 46},
+        {"optionText": "100 Gramm Gold", "id": 47}
+      ],
+      "type": "MULTIPLE_CHOICE",
+      "optionsInARow": 1,
+      "subject": "Fikih",
+      "grade": 10,
+      "level": 3,
+      "points": 12,
+      "topic": "Zakat"
+    },
+    {
+      "id": 22,
+      "numeration": "22.",
+      "question": "Was ist der Unterschied zwischen Hadith und Sunnah?",
+      "options": [],
+      "type": "WRITE_IN",
+      "helpingLines": 1,
+      "totalLines": 4,
+      "subject": "Hadis",
+      "grade": 11,
+      "level": 4,
+      "points": 16,
+      "topic": "Hadith-Wissenschaft"
+    },
+    {
+      "id": 23,
+      "numeration": "23.",
+      "question": "Respekt gegenüber den Eltern ist im Islam ___.",
+      "options": [
+        {"optionText": "eine große Pflicht", "id": 48},
+        {"optionText": "optional", "id": 49},
+        {"optionText": "unwichtig", "id": 50}
+      ],
+      "type": "FILL_IN_THE_BLANKS",
+      "optionsInARow": 2,
+      "subject": "Ahlak",
+      "grade": 7,
+      "level": 2,
+      "points": 10,
+      "topic": "Familienwerte"
+    },
+    {
+      "id": 24,
+      "numeration": "24.",
+      "question": "In welchem Jahr wurde Mekka vom Propheten (s.a.v.) erobert?",
+      "options": [
+        {"optionText": "630 n.Chr. (8 n.H.)", "id": 51},
+        {"optionText": "622 n.Chr.", "id": 52},
+        {"optionText": "632 n.Chr.", "id": 53}
+      ],
+      "type": "MULTIPLE_CHOICE",
+      "optionsInARow": 3,
+      "subject": "Dini_Tarih",
+      "grade": 9,
+      "level": 3,
+      "points": 12,
+      "topic": "Eroberung von Mekka"
+    },
+    {
+      "id": 25,
+      "numeration": "25.",
+      "question": "Was sind die fünf Säulen des Islam? Nenne und erkläre sie kurz.",
+      "options": [],
+      "type": "WRITE_IN",
+      "helpingLines": 1,
+      "totalLines": 6,
+      "subject": "Fikih",
+      "grade": 8,
+      "level": 2,
+      "points": 20,
+      "topic": "Grundpflichten"
+    },
+    {
+      "id": 26,
+      "numeration": "26.",
+      "question": "Wie lautet die Shahada (Glaubensbekenntnis) auf Arabisch?",
+      "options": [
+        {"optionText": "La ilaha illa Allah, Muhammadun Rasul Allah", "id": 54}
+      ],
+      "type": "MIXED",
+      "optionsInARow": 1,
+      "helpingLines": 0,
+      "totalLines": 2,
+      "subject": "Arapca",
+      "grade": 7,
+      "level": 2,
+      "points": 10,
+      "topic": "Grundbegriffe"
+    },
+    {
+      "id": 27,
+      "numeration": "27.",
+      "question": "Was bedeutet 'Tafsir'?",
+      "options": [
+        {"optionText": "Koranauslegung", "id": 55},
+        {"optionText": "Koranrezitation", "id": 56},
+        {"optionText": "Koranübersetzung", "id": 57}
+      ],
+      "type": "MULTIPLE_CHOICE",
+      "optionsInARow": 2,
+      "subject": "Tefsir",
+      "grade": 9,
+      "level": 3,
+      "points": 8,
+      "topic": "Wissenschaften"
+    },
+    {
+      "id": 28,
+      "numeration": "28.",
+      "question": "Allah ist der Schöpfer. Sein Name dafür ist ___.",
+      "options": [
+        {"optionText": "Al-Khaliq", "id": 58},
+        {"optionText": "Al-Malik", "id": 59},
+        {"optionText": "Al-Alim", "id": 60}
+      ],
+      "type": "FILL_IN_THE_BLANKS",
+      "optionsInARow": 3,
+      "subject": "Kelam",
+      "grade": 7,
+      "level": 2,
+      "points": 8,
+      "topic": "Namen Allahs"
+    },
+    {
+      "id": 29,
+      "numeration": "29.",
+      "question": "Wer war die erste Frau, die den Islam annahm?",
+      "options": [
+        {"optionText": "Khadija (r.a.)", "id": 61},
+        {"optionText": "Aisha (r.a.)", "id": 62},
+        {"optionText": "Fatima (r.a.)", "id": 63}
+      ],
+      "type": "MULTIPLE_CHOICE",
+      "optionsInARow": 1,
+      "subject": "Siyer",
+      "grade": 8,
+      "level": 2,
+      "points": 10,
+      "topic": "Gefährtinnen des Propheten"
+    },
+    {
+      "id": 30,
+      "numeration": "30.",
+      "question": "Was ist die Kaaba und welche Bedeutung hat sie im Islam?",
+      "options": [],
+      "type": "WRITE_IN",
+      "helpingLines": 1,
+      "totalLines": 4,
+      "subject": "Diger",
+      "grade": 8,
+      "level": 2,
+      "points": 15,
+      "topic": "Heilige Stätten"
+    }
+  ]
+}

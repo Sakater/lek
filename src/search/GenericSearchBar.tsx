@@ -8,7 +8,7 @@ const { Text } = Typography;
 
 export type FilterType = 'select' | 'tags';
 
-export interface FilterDefinition<T> {
+export interface FilterDefinition {
     label: string;
     type: FilterType;
     options?: { label: string; value: any }[]; // Nur bei 'select'
@@ -18,7 +18,7 @@ export interface FilterDefinition<T> {
 }
 
 // Das ist die Map, die du übergeben musst: Key = Feldname im Request
-export type SearchConfig<T> = Partial<Record<keyof T, FilterDefinition<T>>>;
+export type SearchConfig<T> = Partial<Record<keyof T, FilterDefinition>>;
 
 // --- Die Komponente ---
 
@@ -88,7 +88,7 @@ export const GenericSearchBar = <T extends object>({
 
     // Dropdown Optionen bauen (nur verfügbare Configs)
     const addFilterOptions = Object.entries(config).map(([key, def]) => {
-        const definition = def as FilterDefinition<T>;
+        const definition = def as FilterDefinition;
         return {
             label: definition.label,
             value: key,

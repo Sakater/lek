@@ -83,7 +83,7 @@ export function FileContextProvider({children}: Props) {
     }
 
 
-    const updateTask = (taskId: string, updates: Partial<Task> | Task) => {
+    const updateTask = (taskId: number, updates: Partial<Task> | Task) => {
         if (!file) return;
         setFile({
             ...file,
@@ -112,7 +112,7 @@ export function FileContextProvider({children}: Props) {
         });
     };
 
-    const deleteTask = (taskId: string) => {
+    const deleteTask = (taskId: number) => {
         if (!file) return;
 
         setFile({
@@ -121,7 +121,7 @@ export function FileContextProvider({children}: Props) {
         });
     };
 
-    const addOption = (taskId: string, optionText: string = 'Neue Option') => {
+    const addOption = (taskId: number, optionText: string = 'Neue Option') => {
         if (!file) return;
 
         setFile({
@@ -155,7 +155,7 @@ export function FileContextProvider({children}: Props) {
     };
 
 
-    const updateOption = (taskId: string, optionId: string, newName: string) => {
+    const updateOption = (taskId: number, optionId: number, newName: string) => {
         if (!file) return;
 
         setFile({
@@ -185,7 +185,7 @@ export function FileContextProvider({children}: Props) {
         });
     };
 
-    const deleteOption = (taskId: string, optionId: string) => {
+    const deleteOption = (taskId: number, optionId: number) => {
         if (!file) return;
 
         setFile({

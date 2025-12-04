@@ -75,8 +75,12 @@ export type File = {
     id: Id;
     title: string;
     tasks: Task[];
-    author: string;
-    date: string;
+    date?: string;
+    createdBy?: string;
+    level?: number;
+    topic: string[];
+    grade: number;
+    subject: Subject[];
 
 }
 
@@ -91,4 +95,17 @@ export type TaskRequest = {
     hint?: string[];
     createdBy?: string[];
     topic?: string[];
+    // Pagination-Parameter
+    page?: number;
+    size?: number;
+    sort?: string[];
+}
+export type Page<T> = {
+    content: T[];
+    page: {
+        size: number;
+        number: number;
+        totalElements: number;
+        totalPages: number;
+    }
 }

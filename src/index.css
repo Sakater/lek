@@ -100,10 +100,7 @@ button:focus-visible {
     page-break-inside: avoid;
 }
 
-.task {
-    page-break-inside: avoid;
-    break-inside: avoid;
-}
+
 
 .icon-delete-2-tone {
     svg path:nth-of-type(1) {

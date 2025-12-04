@@ -1,0 +1,1750 @@
+[
+  {
+    "id": 1,
+    "title": "Testbogen Nr. 1 - Fikih",
+    "tasks": [
+      {
+        "id": 1,
+        "numeration": "1.",
+        "question": "Was sind die fünf Säulen des Islam?",
+        "options": [],
+        "subject": "FIKIH",
+        "grade": 8,
+        "level": 5,
+        "points": 14,
+        "type": "MIXED",
+        "optionsInARow": 2,
+        "helpingLines": 0,
+        "totalLines": 4
+      },
+      {
+        "id": 2,
+        "numeration": "2.",
+        "question": "In welchem Monat fasten Muslime?",
+        "options": [
+          {
+            "optionText": "Ramadan",
+            "id": 1
+          },
+          {
+            "optionText": "Schawwal",
+            "id": 2
+          },
+          {
+            "optionText": "Dhul-Hiddschah",
+            "id": 3
+          }
+        ],
+        "subject": "FIKIH",
+        "grade": 8,
+        "level": 5,
+        "points": 8,
+        "type": "FILL_IN_THE_BLANKS",
+        "optionsInARow": 3
+      },
+      {
+        "id": 3,
+        "numeration": "3.",
+        "question": "Was sind die fünf Säulen des Islam?",
+        "options": [],
+        "subject": "FIKIH",
+        "grade": 8,
+        "level": 5,
+        "points": 6,
+        "type": "MIXED",
+        "optionsInARow": 1,
+        "helpingLines": 1,
+        "totalLines": 2
+      },
+      {
+        "id": 4,
+        "numeration": "4.",
+        "question": "Was sind die fünf Säulen des Islam?",
+        "options": [],
+        "subject": "FIKIH",
+        "grade": 8,
+        "level": 5,
+        "points": 13,
+        "type": "MIXED",
+        "optionsInARow": 2,
+        "helpingLines": 1,
+        "totalLines": 4
+      },
+      {
+        "id": 5,
+        "numeration": "5.",
+        "question": "Was ist \"Zakat\"?",
+        "options": [
+          {
+            "optionText": "Die Pflichtabgabe für Bedürftige",
+            "id": 4
+          },
+          {
+            "optionText": "Das Fasten im Monat Ramadan",
+            "id": 5
+          },
+          {
+            "optionText": "Die Pilgerfahrt nach Mekka",
+            "id": 6
+          }
+        ],
+        "subject": "FIKIH",
+        "grade": 8,
+        "level": 5,
+        "points": 19,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 3
+      },
+      {
+        "id": 6,
+        "numeration": "6.",
+        "question": "Wie viele tägliche Pflichtgebete gibt es im Islam?",
+        "options": [
+          {
+            "optionText": "Fünf",
+            "id": 7
+          },
+          {
+            "optionText": "Drei",
+            "id": 8
+          },
+          {
+            "optionText": "Sieben",
+            "id": 9
+          }
+        ],
+        "subject": "FIKIH",
+        "grade": 8,
+        "level": 5,
+        "points": 17,
+        "type": "FILL_IN_THE_BLANKS",
+        "optionsInARow": 3
+      },
+      {
+        "id": 7,
+        "numeration": "7.",
+        "question": "Was sind die fünf Säulen des Islam?",
+        "options": [],
+        "subject": "FIKIH",
+        "grade": 8,
+        "level": 5,
+        "points": 18,
+        "type": "WRITE_IN",
+        "helpingLines": 0,
+        "totalLines": 4
+      }
+    ],
+    "topic": [
+      "Gemischte Aufgaben für Klasse 8"
+    ],
+    "grade": 8,
+    "subject": [
+      "Fikih"
+    ],
+    "level": 5,
+    "createdBy": "Gemini AI"
+  },
+  {
+    "id": 2,
+    "title": "Testbogen Nr. 2 - Kelam, Hadis, Fikih",
+    "tasks": [
+      {
+        "id": 8,
+        "numeration": "8.",
+        "question": "Was sind die fünf Säulen des Islam?",
+        "options": [],
+        "subject": "FIKIH",
+        "grade": 5,
+        "level": 2,
+        "points": 12,
+        "type": "WRITE_IN",
+        "helpingLines": 0,
+        "totalLines": 4
+      },
+      {
+        "id": 9,
+        "numeration": "9.",
+        "question": "Nenne einen der bekanntesten Hadith-Sammler.",
+        "options": [
+          {
+            "optionText": "Imam al-Bukhari",
+            "id": 10
+          },
+          {
+            "optionText": "Imam Abu Hanifa",
+            "id": 11
+          },
+          {
+            "optionText": "Imam al-Ghazali",
+            "id": 12
+          }
+        ],
+        "subject": "HADIS",
+        "grade": 5,
+        "level": 2,
+        "points": 17,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 3
+      },
+      {
+        "id": 10,
+        "numeration": "10.",
+        "question": "Was bricht das Fasten?",
+        "options": [
+          {
+            "optionText": "Absichtliches Essen und Trinken",
+            "id": 13
+          },
+          {
+            "optionText": "Schlafen",
+            "id": 14
+          },
+          {
+            "optionText": "Spazierengehen",
+            "id": 15
+          }
+        ],
+        "subject": "FIKIH",
+        "grade": 5,
+        "level": 2,
+        "points": 12,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 3
+      },
+      {
+        "id": 11,
+        "numeration": "11.",
+        "question": "Nenne die sechs Glaubensartikel im Islam.",
+        "options": [],
+        "subject": "KELAM",
+        "grade": 5,
+        "level": 2,
+        "points": 20,
+        "type": "MIXED",
+        "optionsInARow": 2,
+        "helpingLines": 1,
+        "totalLines": 4
+      },
+      {
+        "id": 12,
+        "numeration": "12.",
+        "question": "Nenne die sechs Glaubensartikel im Islam.",
+        "options": [],
+        "subject": "KELAM",
+        "grade": 5,
+        "level": 2,
+        "points": 7,
+        "type": "MIXED",
+        "optionsInARow": 2,
+        "helpingLines": 0,
+        "totalLines": 3
+      },
+      {
+        "id": 13,
+        "numeration": "13.",
+        "question": "Was bedeutet \"Isnad\" in der Hadith-Wissenschaft?",
+        "options": [
+          {
+            "optionText": "Die Kette der Überlieferer",
+            "id": 16
+          },
+          {
+            "optionText": "Der Text des Hadith",
+            "id": 17
+          },
+          {
+            "optionText": "Die Klassifizierung des Hadith",
+            "id": 18
+          }
+        ],
+        "subject": "HADIS",
+        "grade": 5,
+        "level": 2,
+        "points": 6,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 1
+      }
+    ],
+    "topic": [
+      "Gemischte Aufgaben für Klasse 5"
+    ],
+    "grade": 5,
+    "subject": [
+      "Kelam",
+      "Hadis",
+      "Fikih"
+    ],
+    "level": 2,
+    "createdBy": "Gemini AI"
+  },
+  {
+    "id": 3,
+    "title": "Testbogen Nr. 3 - Ahlak",
+    "tasks": [
+      {
+        "id": 14,
+        "numeration": "14.",
+        "question": "Warum ist Geduld (Sabr) eine wichtige Tugend?",
+        "options": [],
+        "subject": "AHLAK",
+        "grade": 11,
+        "level": 4,
+        "points": 18,
+        "type": "WRITE_IN",
+        "helpingLines": 1,
+        "totalLines": 4
+      },
+      {
+        "id": 15,
+        "numeration": "15.",
+        "question": "\"Ein Lächeln für deinen Bruder ist eine ___.\"",
+        "options": [
+          {
+            "optionText": "Sadaqa (Spende)",
+            "id": 19
+          },
+          {
+            "optionText": "Pflicht",
+            "id": 20
+          },
+          {
+            "optionText": "Sünde",
+            "id": 21
+          }
+        ],
+        "subject": "AHLAK",
+        "grade": 11,
+        "level": 4,
+        "points": 11,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 2
+      },
+      {
+        "id": 16,
+        "numeration": "16.",
+        "question": "\"Ein Lächeln für deinen Bruder ist eine ___.\"",
+        "options": [
+          {
+            "optionText": "Sadaqa (Spende)",
+            "id": 22
+          },
+          {
+            "optionText": "Pflicht",
+            "id": 23
+          },
+          {
+            "optionText": "Sünde",
+            "id": 24
+          }
+        ],
+        "subject": "AHLAK",
+        "grade": 11,
+        "level": 4,
+        "points": 18,
+        "type": "FILL_IN_THE_BLANKS",
+        "optionsInARow": 3
+      },
+      {
+        "id": 17,
+        "numeration": "17.",
+        "question": "Nenne ein Beispiel für gutes Verhalten gegenüber den Eltern.",
+        "options": [],
+        "subject": "AHLAK",
+        "grade": 11,
+        "level": 4,
+        "points": 18,
+        "type": "WRITE_IN",
+        "helpingLines": 0,
+        "totalLines": 5
+      },
+      {
+        "id": 18,
+        "numeration": "18.",
+        "question": "Was bedeutet \"Aufrichtigkeit\" (Ikhlas) im Islam?",
+        "options": [
+          {
+            "optionText": "Handlungen nur für Allah zu verrichten",
+            "id": 25
+          },
+          {
+            "optionText": "Immer die Wahrheit zu sagen",
+            "id": 26
+          },
+          {
+            "optionText": "Freundlich zu sein",
+            "id": 27
+          }
+        ],
+        "subject": "AHLAK",
+        "grade": 11,
+        "level": 4,
+        "points": 6,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 3
+      },
+      {
+        "id": 19,
+        "numeration": "19.",
+        "question": "Was bedeutet \"Aufrichtigkeit\" (Ikhlas) im Islam?",
+        "options": [
+          {
+            "optionText": "Handlungen nur für Allah zu verrichten",
+            "id": 28
+          },
+          {
+            "optionText": "Immer die Wahrheit zu sagen",
+            "id": 29
+          },
+          {
+            "optionText": "Freundlich zu sein",
+            "id": 30
+          }
+        ],
+        "subject": "AHLAK",
+        "grade": 11,
+        "level": 4,
+        "points": 7,
+        "type": "FILL_IN_THE_BLANKS",
+        "optionsInARow": 3
+      },
+      {
+        "id": 20,
+        "numeration": "20.",
+        "question": "\"Ein Lächeln für deinen Bruder ist eine ___.\"",
+        "options": [
+          {
+            "optionText": "Sadaqa (Spende)",
+            "id": 31
+          },
+          {
+            "optionText": "Pflicht",
+            "id": 32
+          },
+          {
+            "optionText": "Sünde",
+            "id": 33
+          }
+        ],
+        "subject": "AHLAK",
+        "grade": 11,
+        "level": 4,
+        "points": 15,
+        "type": "FILL_IN_THE_BLANKS",
+        "optionsInARow": 3
+      },
+      {
+        "id": 21,
+        "numeration": "21.",
+        "question": "Nenne ein Beispiel für gutes Verhalten gegenüber den Eltern.",
+        "options": [],
+        "subject": "AHLAK",
+        "grade": 11,
+        "level": 4,
+        "points": 13,
+        "type": "WRITE_IN",
+        "helpingLines": 0,
+        "totalLines": 3
+      }
+    ],
+    "topic": [
+      "Gemischte Aufgaben für Klasse 11"
+    ],
+    "grade": 11,
+    "subject": [
+      "Ahlak"
+    ],
+    "level": 4,
+    "createdBy": "Gemini AI"
+  },
+  {
+    "id": 4,
+    "title": "Testbogen Nr. 4 - Diger",
+    "tasks": [
+      {
+        "id": 22,
+        "numeration": "22.",
+        "question": "Was ist ein Minarett?",
+        "options": [
+          {
+            "optionText": "Ein Turm an einer Moschee, von dem zum Gebet gerufen wird",
+            "id": 34
+          },
+          {
+            "optionText": "Ein Gebetsteppich",
+            "id": 35
+          },
+          {
+            "optionText": "Ein islamischer Kalender",
+            "id": 36
+          }
+        ],
+        "subject": "DIGER",
+        "grade": 9,
+        "level": 3,
+        "points": 15,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 3
+      },
+      {
+        "id": 23,
+        "numeration": "23.",
+        "question": "Was ist ein Minarett?",
+        "options": [
+          {
+            "optionText": "Ein Turm an einer Moschee, von dem zum Gebet gerufen wird",
+            "id": 37
+          },
+          {
+            "optionText": "Ein Gebetsteppich",
+            "id": 38
+          },
+          {
+            "optionText": "Ein islamischer Kalender",
+            "id": 39
+          }
+        ],
+        "subject": "DIGER",
+        "grade": 9,
+        "level": 3,
+        "points": 17,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 2
+      },
+      {
+        "id": 24,
+        "numeration": "24.",
+        "question": "Was ist ein Minarett?",
+        "options": [
+          {
+            "optionText": "Ein Turm an einer Moschee, von dem zum Gebet gerufen wird",
+            "id": 40
+          },
+          {
+            "optionText": "Ein Gebetsteppich",
+            "id": 41
+          },
+          {
+            "optionText": "Ein islamischer Kalender",
+            "id": 42
+          }
+        ],
+        "subject": "DIGER",
+        "grade": 9,
+        "level": 3,
+        "points": 13,
+        "type": "FILL_IN_THE_BLANKS",
+        "optionsInARow": 3
+      },
+      {
+        "id": 25,
+        "numeration": "25.",
+        "question": "Was ist ein Minarett?",
+        "options": [
+          {
+            "optionText": "Ein Turm an einer Moschee, von dem zum Gebet gerufen wird",
+            "id": 43
+          },
+          {
+            "optionText": "Ein Gebetsteppich",
+            "id": 44
+          },
+          {
+            "optionText": "Ein islamischer Kalender",
+            "id": 45
+          }
+        ],
+        "subject": "DIGER",
+        "grade": 9,
+        "level": 3,
+        "points": 18,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 1
+      },
+      {
+        "id": 26,
+        "numeration": "26.",
+        "question": "Was ist ein Minarett?",
+        "options": [
+          {
+            "optionText": "Ein Turm an einer Moschee, von dem zum Gebet gerufen wird",
+            "id": 46
+          },
+          {
+            "optionText": "Ein Gebetsteppich",
+            "id": 47
+          },
+          {
+            "optionText": "Ein islamischer Kalender",
+            "id": 48
+          }
+        ],
+        "subject": "DIGER",
+        "grade": 9,
+        "level": 3,
+        "points": 18,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 2
+      },
+      {
+        "id": 27,
+        "numeration": "27.",
+        "question": "Was ist ein Minarett?",
+        "options": [
+          {
+            "optionText": "Ein Turm an einer Moschee, von dem zum Gebet gerufen wird",
+            "id": 49
+          },
+          {
+            "optionText": "Ein Gebetsteppich",
+            "id": 50
+          },
+          {
+            "optionText": "Ein islamischer Kalender",
+            "id": 51
+          }
+        ],
+        "subject": "DIGER",
+        "grade": 9,
+        "level": 3,
+        "points": 18,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 2
+      },
+      {
+        "id": 28,
+        "numeration": "28.",
+        "question": "Was ist ein Minarett?",
+        "options": [
+          {
+            "optionText": "Ein Turm an einer Moschee, von dem zum Gebet gerufen wird",
+            "id": 52
+          },
+          {
+            "optionText": "Ein Gebetsteppich",
+            "id": 53
+          },
+          {
+            "optionText": "Ein islamischer Kalender",
+            "id": 54
+          }
+        ],
+        "subject": "DIGER",
+        "grade": 9,
+        "level": 3,
+        "points": 6,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 1
+      }
+    ],
+    "topic": [
+      "Gemischte Aufgaben für Klasse 9"
+    ],
+    "grade": 9,
+    "subject": [
+      "Diger"
+    ],
+    "level": 3,
+    "createdBy": "Gemini AI"
+  },
+  {
+    "id": 5,
+    "title": "Testbogen Nr. 5 - Tefsir, Dini_Tarih",
+    "tasks": [
+      {
+        "id": 29,
+        "numeration": "29.",
+        "question": "Was ist die erste Sure im Koran?",
+        "options": [
+          {
+            "optionText": "Al-Fatiha",
+            "id": 55
+          },
+          {
+            "optionText": "Al-Baqara",
+            "id": 56
+          },
+          {
+            "optionText": "Al-Ikhlas",
+            "id": 57
+          }
+        ],
+        "subject": "TEFSIR",
+        "grade": 10,
+        "level": 5,
+        "points": 12,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 1
+      },
+      {
+        "id": 30,
+        "numeration": "30.",
+        "question": "Wie viele Suren hat der Koran?",
+        "options": [
+          {
+            "optionText": "114",
+            "id": 58
+          },
+          {
+            "optionText": "99",
+            "id": 59
+          },
+          {
+            "optionText": "120",
+            "id": 60
+          }
+        ],
+        "subject": "TEFSIR",
+        "grade": 10,
+        "level": 5,
+        "points": 11,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 2
+      },
+      {
+        "id": 31,
+        "numeration": "31.",
+        "question": "Die Offenbarung des Korans an den Propheten Muhammad (s.a.v.) dauerte ungefähr ___ Jahre.",
+        "options": [
+          {
+            "optionText": "23",
+            "id": 61
+          },
+          {
+            "optionText": "10",
+            "id": 62
+          },
+          {
+            "optionText": "40",
+            "id": 63
+          }
+        ],
+        "subject": "TEFSIR",
+        "grade": 10,
+        "level": 5,
+        "points": 14,
+        "type": "FILL_IN_THE_BLANKS",
+        "optionsInARow": 3
+      },
+      {
+        "id": 32,
+        "numeration": "32.",
+        "question": "Die Offenbarung des Korans an den Propheten Muhammad (s.a.v.) dauerte ungefähr ___ Jahre.",
+        "options": [
+          {
+            "optionText": "23",
+            "id": 64
+          },
+          {
+            "optionText": "10",
+            "id": 65
+          },
+          {
+            "optionText": "40",
+            "id": 66
+          }
+        ],
+        "subject": "TEFSIR",
+        "grade": 10,
+        "level": 5,
+        "points": 5,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 2
+      },
+      {
+        "id": 33,
+        "numeration": "33.",
+        "question": "Was ist die erste Sure im Koran?",
+        "options": [
+          {
+            "optionText": "Al-Fatiha",
+            "id": 67
+          },
+          {
+            "optionText": "Al-Baqara",
+            "id": 68
+          },
+          {
+            "optionText": "Al-Ikhlas",
+            "id": 69
+          }
+        ],
+        "subject": "TEFSIR",
+        "grade": 10,
+        "level": 5,
+        "points": 14,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 2
+      },
+      {
+        "id": 34,
+        "numeration": "34.",
+        "question": "Die Offenbarung des Korans an den Propheten Muhammad (s.a.v.) dauerte ungefähr ___ Jahre.",
+        "options": [
+          {
+            "optionText": "23",
+            "id": 70
+          },
+          {
+            "optionText": "10",
+            "id": 71
+          },
+          {
+            "optionText": "40",
+            "id": 72
+          }
+        ],
+        "subject": "TEFSIR",
+        "grade": 10,
+        "level": 5,
+        "points": 14,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 3
+      },
+      {
+        "id": 35,
+        "numeration": "35.",
+        "question": "Wo erhielt der Prophet Muhammad (s.a.v.) die erste Offenbarung?",
+        "options": [
+          {
+            "optionText": "In der Höhle Hira",
+            "id": 73
+          },
+          {
+            "optionText": "In Medina",
+            "id": 74
+          },
+          {
+            "optionText": "Auf dem Berg Arafat",
+            "id": 75
+          }
+        ],
+        "subject": "DINI_TARIH",
+        "grade": 10,
+        "level": 5,
+        "points": 12,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 3
+      },
+      {
+        "id": 36,
+        "numeration": "36.",
+        "question": "Die Offenbarung des Korans an den Propheten Muhammad (s.a.v.) dauerte ungefähr ___ Jahre.",
+        "options": [
+          {
+            "optionText": "23",
+            "id": 76
+          },
+          {
+            "optionText": "10",
+            "id": 77
+          },
+          {
+            "optionText": "40",
+            "id": 78
+          }
+        ],
+        "subject": "TEFSIR",
+        "grade": 10,
+        "level": 5,
+        "points": 17,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 2
+      }
+    ],
+    "topic": [
+      "Gemischte Aufgaben für Klasse 10"
+    ],
+    "grade": 10,
+    "subject": [
+      "Tefsir",
+      "Dini_Tarih"
+    ],
+    "level": 5,
+    "createdBy": "Gemini AI"
+  },
+  {
+    "id": 6,
+    "title": "Testbogen Nr. 6 - Dini_Tarih",
+    "tasks": [
+      {
+        "id": 37,
+        "numeration": "37.",
+        "question": "Was bedeutet das Wort \"Hidschra\"?",
+        "options": [
+          {
+            "optionText": "Die Auswanderung von Mekka nach Medina",
+            "id": 79
+          },
+          {
+            "optionText": "Die erste Offenbarung",
+            "id": 80
+          },
+          {
+            "optionText": "Die Eroberung von Mekka",
+            "id": 81
+          }
+        ],
+        "subject": "DINI_TARIH",
+        "grade": 8,
+        "level": 5,
+        "points": 12,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 2
+      },
+      {
+        "id": 38,
+        "numeration": "38.",
+        "question": "In welchem Jahr wurde der Prophet Muhammad (s.a.v.) geboren?",
+        "options": [
+          {
+            "optionText": "571 n.Chr.",
+            "id": 82
+          },
+          {
+            "optionText": "610 n.Chr.",
+            "id": 83
+          },
+          {
+            "optionText": "622 n.Chr.",
+            "id": 84
+          }
+        ],
+        "subject": "DINI_TARIH",
+        "grade": 8,
+        "level": 5,
+        "points": 12,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 2
+      },
+      {
+        "id": 39,
+        "numeration": "39.",
+        "question": "Wer war der erste Kalif nach dem Tod des Propheten Muhammad (s.a.v.)?",
+        "options": [
+          {
+            "optionText": "Abu Bakr (r.a.)",
+            "id": 85
+          },
+          {
+            "optionText": "Umar ibn al-Khattab (r.a.)",
+            "id": 86
+          },
+          {
+            "optionText": "Ali ibn Abi Talib (r.a.)",
+            "id": 87
+          }
+        ],
+        "subject": "DINI_TARIH",
+        "grade": 8,
+        "level": 5,
+        "points": 8,
+        "type": "FILL_IN_THE_BLANKS",
+        "optionsInARow": 3
+      },
+      {
+        "id": 40,
+        "numeration": "40.",
+        "question": "Vervollständige den Satz: Der Prophet Muhammad (s.a.v) gehört zum Stamm der ___.",
+        "options": [
+          {
+            "optionText": "Quraysh",
+            "id": 88
+          },
+          {
+            "optionText": "Banu Hashim",
+            "id": 89
+          },
+          {
+            "optionText": "Banu Umayya",
+            "id": 90
+          }
+        ],
+        "subject": "DINI_TARIH",
+        "grade": 8,
+        "level": 5,
+        "points": 7,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 3
+      },
+      {
+        "id": 41,
+        "numeration": "41.",
+        "question": "Was bedeutet das Wort \"Hidschra\"?",
+        "options": [
+          {
+            "optionText": "Die Auswanderung von Mekka nach Medina",
+            "id": 91
+          },
+          {
+            "optionText": "Die erste Offenbarung",
+            "id": 92
+          },
+          {
+            "optionText": "Die Eroberung von Mekka",
+            "id": 93
+          }
+        ],
+        "subject": "DINI_TARIH",
+        "grade": 8,
+        "level": 5,
+        "points": 14,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 3
+      },
+      {
+        "id": 42,
+        "numeration": "42.",
+        "question": "Vervollständige den Satz: Der Prophet Muhammad (s.a.v) gehört zum Stamm der ___.",
+        "options": [
+          {
+            "optionText": "Quraysh",
+            "id": 94
+          },
+          {
+            "optionText": "Banu Hashim",
+            "id": 95
+          },
+          {
+            "optionText": "Banu Umayya",
+            "id": 96
+          }
+        ],
+        "subject": "DINI_TARIH",
+        "grade": 8,
+        "level": 5,
+        "points": 6,
+        "type": "FILL_IN_THE_BLANKS",
+        "optionsInARow": 3
+      },
+      {
+        "id": 43,
+        "numeration": "43.",
+        "question": "Vervollständige den Satz: Der Prophet Muhammad (s.a.v) gehört zum Stamm der ___.",
+        "options": [
+          {
+            "optionText": "Quraysh",
+            "id": 97
+          },
+          {
+            "optionText": "Banu Hashim",
+            "id": 98
+          },
+          {
+            "optionText": "Banu Umayya",
+            "id": 99
+          }
+        ],
+        "subject": "DINI_TARIH",
+        "grade": 8,
+        "level": 5,
+        "points": 10,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 3
+      },
+      {
+        "id": 44,
+        "numeration": "44.",
+        "question": "In welchem Jahr wurde der Prophet Muhammad (s.a.v.) geboren?",
+        "options": [
+          {
+            "optionText": "571 n.Chr.",
+            "id": 100
+          },
+          {
+            "optionText": "610 n.Chr.",
+            "id": 101
+          },
+          {
+            "optionText": "622 n.Chr.",
+            "id": 102
+          }
+        ],
+        "subject": "DINI_TARIH",
+        "grade": 8,
+        "level": 5,
+        "points": 18,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 3
+      }
+    ],
+    "topic": [
+      "Gemischte Aufgaben für Klasse 8"
+    ],
+    "grade": 8,
+    "subject": [
+      "Dini_Tarih"
+    ],
+    "level": 5,
+    "createdBy": "Gemini AI"
+  },
+  {
+    "id": 7,
+    "title": "Testbogen Nr. 7 - Kuran",
+    "tasks": [
+      {
+        "id": 45,
+        "numeration": "45.",
+        "question": "Wie viele Suren hat der Koran?",
+        "options": [
+          {
+            "optionText": "114",
+            "id": 103
+          },
+          {
+            "optionText": "99",
+            "id": 104
+          },
+          {
+            "optionText": "120",
+            "id": 105
+          }
+        ],
+        "subject": "KURAN",
+        "grade": 11,
+        "level": 2,
+        "points": 15,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 3
+      },
+      {
+        "id": 46,
+        "numeration": "46.",
+        "question": "Wie viele Suren hat der Koran?",
+        "options": [
+          {
+            "optionText": "114",
+            "id": 106
+          },
+          {
+            "optionText": "99",
+            "id": 107
+          },
+          {
+            "optionText": "120",
+            "id": 108
+          }
+        ],
+        "subject": "KURAN",
+        "grade": 11,
+        "level": 2,
+        "points": 8,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 2
+      },
+      {
+        "id": 47,
+        "numeration": "47.",
+        "question": "Die Offenbarung des Korans an den Propheten Muhammad (s.a.v.) dauerte ungefähr ___ Jahre.",
+        "options": [
+          {
+            "optionText": "23",
+            "id": 109
+          },
+          {
+            "optionText": "10",
+            "id": 110
+          },
+          {
+            "optionText": "40",
+            "id": 111
+          }
+        ],
+        "subject": "KURAN",
+        "grade": 11,
+        "level": 2,
+        "points": 11,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 1
+      },
+      {
+        "id": 48,
+        "numeration": "48.",
+        "question": "Die Offenbarung des Korans an den Propheten Muhammad (s.a.v.) dauerte ungefähr ___ Jahre.",
+        "options": [
+          {
+            "optionText": "23",
+            "id": 112
+          },
+          {
+            "optionText": "10",
+            "id": 113
+          },
+          {
+            "optionText": "40",
+            "id": 114
+          }
+        ],
+        "subject": "KURAN",
+        "grade": 11,
+        "level": 2,
+        "points": 16,
+        "type": "FILL_IN_THE_BLANKS",
+        "optionsInARow": 3
+      },
+      {
+        "id": 49,
+        "numeration": "49.",
+        "question": "Was ist die erste Sure im Koran?",
+        "options": [
+          {
+            "optionText": "Al-Fatiha",
+            "id": 115
+          },
+          {
+            "optionText": "Al-Baqara",
+            "id": 116
+          },
+          {
+            "optionText": "Al-Ikhlas",
+            "id": 117
+          }
+        ],
+        "subject": "KURAN",
+        "grade": 11,
+        "level": 2,
+        "points": 14,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 2
+      },
+      {
+        "id": 50,
+        "numeration": "50.",
+        "question": "Was ist die erste Sure im Koran?",
+        "options": [
+          {
+            "optionText": "Al-Fatiha",
+            "id": 118
+          },
+          {
+            "optionText": "Al-Baqara",
+            "id": 119
+          },
+          {
+            "optionText": "Al-Ikhlas",
+            "id": 120
+          }
+        ],
+        "subject": "KURAN",
+        "grade": 11,
+        "level": 2,
+        "points": 7,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 1
+      },
+      {
+        "id": 51,
+        "numeration": "51.",
+        "question": "Wie viele Suren hat der Koran?",
+        "options": [
+          {
+            "optionText": "114",
+            "id": 121
+          },
+          {
+            "optionText": "99",
+            "id": 122
+          },
+          {
+            "optionText": "120",
+            "id": 123
+          }
+        ],
+        "subject": "KURAN",
+        "grade": 11,
+        "level": 2,
+        "points": 5,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 1
+      }
+    ],
+    "topic": [
+      "Gemischte Aufgaben für Klasse 11"
+    ],
+    "grade": 11,
+    "subject": [
+      "Kuran"
+    ],
+    "level": 2,
+    "createdBy": "Gemini AI"
+  },
+  {
+    "id": 8,
+    "title": "Testbogen Nr. 8 - Siyer, Ahlak",
+    "tasks": [
+      {
+        "id": 52,
+        "numeration": "52.",
+        "question": "Warum ist gutes Benehmen (Ahlak) im Islam wichtig?",
+        "options": [],
+        "subject": "AHLAK",
+        "grade": 12,
+        "level": 4,
+        "points": 20,
+        "type": "WRITE_IN",
+        "helpingLines": 1,
+        "totalLines": 4
+      },
+      {
+        "id": 53,
+        "numeration": "53.",
+        "question": "Was bedeutet \"Aufrichtigkeit\" (Ikhlas) im Islam?",
+        "options": [
+          {
+            "optionText": "Handlungen nur für Allah zu verrichten",
+            "id": 124
+          },
+          {
+            "optionText": "Immer die Wahrheit zu sagen",
+            "id": 125
+          },
+          {
+            "optionText": "Freundlich zu sein",
+            "id": 126
+          }
+        ],
+        "subject": "AHLAK",
+        "grade": 12,
+        "level": 4,
+        "points": 11,
+        "type": "FILL_IN_THE_BLANKS",
+        "optionsInARow": 3
+      },
+      {
+        "id": 54,
+        "numeration": "54.",
+        "question": "Warum ist gutes Benehmen (Ahlak) im Islam wichtig?",
+        "options": [],
+        "subject": "AHLAK",
+        "grade": 12,
+        "level": 4,
+        "points": 16,
+        "type": "MIXED",
+        "optionsInARow": 2,
+        "helpingLines": 1,
+        "totalLines": 3
+      },
+      {
+        "id": 55,
+        "numeration": "55.",
+        "question": "Warum ist Geduld (Sabr) eine wichtige Tugend?",
+        "options": [],
+        "subject": "AHLAK",
+        "grade": 12,
+        "level": 4,
+        "points": 11,
+        "type": "MIXED",
+        "optionsInARow": 2,
+        "helpingLines": 0,
+        "totalLines": 3
+      },
+      {
+        "id": 56,
+        "numeration": "56.",
+        "question": "Warum ist gutes Benehmen (Ahlak) im Islam wichtig?",
+        "options": [],
+        "subject": "AHLAK",
+        "grade": 12,
+        "level": 4,
+        "points": 20,
+        "type": "WRITE_IN",
+        "helpingLines": 0,
+        "totalLines": 2
+      },
+      {
+        "id": 57,
+        "numeration": "57.",
+        "question": "Warum ist gutes Benehmen (Ahlak) im Islam wichtig?",
+        "options": [],
+        "subject": "AHLAK",
+        "grade": 12,
+        "level": 4,
+        "points": 13,
+        "type": "MIXED",
+        "optionsInARow": 2,
+        "helpingLines": 0,
+        "totalLines": 4
+      }
+    ],
+    "topic": [
+      "Gemischte Aufgaben für Klasse 12"
+    ],
+    "grade": 12,
+    "subject": [
+      "Siyer",
+      "Ahlak"
+    ],
+    "level": 4,
+    "createdBy": "Gemini AI"
+  },
+  {
+    "id": 9,
+    "title": "Testbogen Nr. 9 - Siyer, Ahlak, Arapca",
+    "tasks": [
+      {
+        "id": 58,
+        "numeration": "58.",
+        "question": "\"Ein Lächeln für deinen Bruder ist eine ___.\"",
+        "options": [
+          {
+            "optionText": "Sadaqa (Spende)",
+            "id": 127
+          },
+          {
+            "optionText": "Pflicht",
+            "id": 128
+          },
+          {
+            "optionText": "Sünde",
+            "id": 129
+          }
+        ],
+        "subject": "AHLAK",
+        "grade": 10,
+        "level": 3,
+        "points": 11,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 2
+      },
+      {
+        "id": 59,
+        "numeration": "59.",
+        "question": "Was bedeutet \"Aufrichtigkeit\" (Ikhlas) im Islam?",
+        "options": [
+          {
+            "optionText": "Handlungen nur für Allah zu verrichten",
+            "id": 130
+          },
+          {
+            "optionText": "Immer die Wahrheit zu sagen",
+            "id": 131
+          },
+          {
+            "optionText": "Freundlich zu sein",
+            "id": 132
+          }
+        ],
+        "subject": "AHLAK",
+        "grade": 10,
+        "level": 3,
+        "points": 17,
+        "type": "FILL_IN_THE_BLANKS",
+        "optionsInARow": 3
+      },
+      {
+        "id": 60,
+        "numeration": "60.",
+        "question": "Übersetze \"as-salamu alaykum\".",
+        "options": [
+          {
+            "optionText": "Friede sei mit euch",
+            "id": 133
+          },
+          {
+            "optionText": "Guten Morgen",
+            "id": 134
+          },
+          {
+            "optionText": "Auf Wiedersehen",
+            "id": 135
+          }
+        ],
+        "subject": "ARAPCA",
+        "grade": 10,
+        "level": 3,
+        "points": 8,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 2
+      },
+      {
+        "id": 61,
+        "numeration": "61.",
+        "question": "Übersetze \"as-salamu alaykum\".",
+        "options": [
+          {
+            "optionText": "Friede sei mit euch",
+            "id": 136
+          },
+          {
+            "optionText": "Guten Morgen",
+            "id": 137
+          },
+          {
+            "optionText": "Auf Wiedersehen",
+            "id": 138
+          }
+        ],
+        "subject": "ARAPCA",
+        "grade": 10,
+        "level": 3,
+        "points": 9,
+        "type": "FILL_IN_THE_BLANKS",
+        "optionsInARow": 3
+      },
+      {
+        "id": 62,
+        "numeration": "62.",
+        "question": "Warum ist Geduld (Sabr) eine wichtige Tugend?",
+        "options": [],
+        "subject": "AHLAK",
+        "grade": 10,
+        "level": 3,
+        "points": 8,
+        "type": "WRITE_IN",
+        "helpingLines": 0,
+        "totalLines": 4
+      },
+      {
+        "id": 63,
+        "numeration": "63.",
+        "question": "Was bedeutet das Wort \"Kitab\"?",
+        "options": [
+          {
+            "optionText": "Buch",
+            "id": 139
+          },
+          {
+            "optionText": "Stift",
+            "id": 140
+          },
+          {
+            "optionText": "Haus",
+            "id": 141
+          }
+        ],
+        "subject": "ARAPCA",
+        "grade": 10,
+        "level": 3,
+        "points": 16,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 2
+      },
+      {
+        "id": 64,
+        "numeration": "64.",
+        "question": "Wo erhielt der Prophet Muhammad (s.a.v.) die erste Offenbarung?",
+        "options": [
+          {
+            "optionText": "In der Höhle Hira",
+            "id": 142
+          },
+          {
+            "optionText": "In Medina",
+            "id": 143
+          },
+          {
+            "optionText": "Auf dem Berg Arafat",
+            "id": 144
+          }
+        ],
+        "subject": "SIYER",
+        "grade": 10,
+        "level": 3,
+        "points": 20,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 3
+      }
+    ],
+    "topic": [
+      "Gemischte Aufgaben für Klasse 10"
+    ],
+    "grade": 10,
+    "subject": [
+      "Siyer",
+      "Ahlak",
+      "Arapca"
+    ],
+    "level": 3,
+    "createdBy": "Gemini AI"
+  },
+  {
+    "id": 10,
+    "title": "Testbogen Nr. 10 - Siyer, Dini_Tarih",
+    "tasks": [
+      {
+        "id": 65,
+        "numeration": "65.",
+        "question": "Was bedeutet das Wort \"Hidschra\"?",
+        "options": [
+          {
+            "optionText": "Die Auswanderung von Mekka nach Medina",
+            "id": 145
+          },
+          {
+            "optionText": "Die erste Offenbarung",
+            "id": 146
+          },
+          {
+            "optionText": "Die Eroberung von Mekka",
+            "id": 147
+          }
+        ],
+        "subject": "SIYER",
+        "grade": 10,
+        "level": 1,
+        "points": 17,
+        "type": "FILL_IN_THE_BLANKS",
+        "optionsInARow": 3
+      },
+      {
+        "id": 66,
+        "numeration": "66.",
+        "question": "Vervollständige den Satz: Der Prophet Muhammad (s.a.v) gehört zum Stamm der ___.",
+        "options": [
+          {
+            "optionText": "Quraysh",
+            "id": 148
+          },
+          {
+            "optionText": "Banu Hashim",
+            "id": 149
+          },
+          {
+            "optionText": "Banu Umayya",
+            "id": 150
+          }
+        ],
+        "subject": "DINI_TARIH",
+        "grade": 10,
+        "level": 1,
+        "points": 7,
+        "type": "FILL_IN_THE_BLANKS",
+        "optionsInARow": 3
+      },
+      {
+        "id": 67,
+        "numeration": "67.",
+        "question": "Wo erhielt der Prophet Muhammad (s.a.v.) die erste Offenbarung?",
+        "options": [
+          {
+            "optionText": "In der Höhle Hira",
+            "id": 151
+          },
+          {
+            "optionText": "In Medina",
+            "id": 152
+          },
+          {
+            "optionText": "Auf dem Berg Arafat",
+            "id": 153
+          }
+        ],
+        "subject": "DINI_TARIH",
+        "grade": 10,
+        "level": 1,
+        "points": 17,
+        "type": "FILL_IN_THE_BLANKS",
+        "optionsInARow": 3
+      },
+      {
+        "id": 68,
+        "numeration": "68.",
+        "question": "Wo erhielt der Prophet Muhammad (s.a.v.) die erste Offenbarung?",
+        "options": [
+          {
+            "optionText": "In der Höhle Hira",
+            "id": 154
+          },
+          {
+            "optionText": "In Medina",
+            "id": 155
+          },
+          {
+            "optionText": "Auf dem Berg Arafat",
+            "id": 156
+          }
+        ],
+        "subject": "SIYER",
+        "grade": 10,
+        "level": 1,
+        "points": 13,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 2
+      },
+      {
+        "id": 69,
+        "numeration": "69.",
+        "question": "In welchem Jahr wurde der Prophet Muhammad (s.a.v.) geboren?",
+        "options": [
+          {
+            "optionText": "571 n.Chr.",
+            "id": 157
+          },
+          {
+            "optionText": "610 n.Chr.",
+            "id": 158
+          },
+          {
+            "optionText": "622 n.Chr.",
+            "id": 159
+          }
+        ],
+        "subject": "SIYER",
+        "grade": 10,
+        "level": 1,
+        "points": 15,
+        "type": "FILL_IN_THE_BLANKS",
+        "optionsInARow": 3
+      },
+      {
+        "id": 70,
+        "numeration": "70.",
+        "question": "Wer war der erste Kalif nach dem Tod des Propheten Muhammad (s.a.v.)?",
+        "options": [
+          {
+            "optionText": "Abu Bakr (r.a.)",
+            "id": 160
+          },
+          {
+            "optionText": "Umar ibn al-Khattab (r.a.)",
+            "id": 161
+          },
+          {
+            "optionText": "Ali ibn Abi Talib (r.a.)",
+            "id": 162
+          }
+        ],
+        "subject": "SIYER",
+        "grade": 10,
+        "level": 1,
+        "points": 17,
+        "type": "MULTIPLE_CHOICE",
+        "optionsInARow": 2
+      },
+      {
+        "id": 71,
+        "numeration": "71.",
+        "question": "Wer war der erste Kalif nach dem Tod des Propheten Muhammad (s.a.v.)?",
+        "options": [
+          {
+            "optionText": "Abu Bakr (r.a.)",
+            "id": 163
+          },
+          {
+            "optionText": "Umar ibn al-Khattab (r.a.)",
+            "id": 164
+          },
+          {
+            "optionText": "Ali ibn Abi Talib (r.a.)",
+            "id": 165
+          }
+        ],
+        "subject": "DINI_TARIH",
+        "grade": 10,
+        "level": 1,
+        "points": 6,
+        "type": "FILL_IN_THE_BLANKS",
+        "optionsInARow": 3
+      }
+    ],
+    "topic": [
+      "Gemischte Aufgaben für Klasse 10"
+    ],
+    "grade": 10,
+    "subject": [
+      "Siyer",
+      "Dini_Tarih"
+    ],
+    "level": 1,
+    "createdBy": "Gemini AI"
+  }
+]

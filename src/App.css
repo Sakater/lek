@@ -50,6 +50,8 @@
     margin-bottom: 20px;
     padding: 15px;
     border-bottom: 1px solid #e0e0e0;
+    page-break-inside: avoid;
+    break-inside: avoid;
 }
 
 .task-header {
@@ -372,7 +374,13 @@
         page-break-inside: avoid;
     }
 }
-
+.pagination-controls{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
 /*Drawer Cards*/
 .card {
@@ -485,6 +493,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    width: 100vw;
 }
 
 

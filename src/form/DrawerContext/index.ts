@@ -13,7 +13,7 @@ export type DrawerContextType = {
     closeDrawer: (drawer: keyof DrawerState) => void;
     toggleDrawer: (drawer: keyof DrawerState) => void;
     selectedTaskId: number | null;
-    setSelectedTaskId: (taskId: string | null) => void;
+    setSelectedTaskId: (taskId: number | null) => void;
 };
 
 // Dummy-Defaultwerte für TypeScript
