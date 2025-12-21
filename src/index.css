@@ -155,8 +155,10 @@ code {
 }
 
 .ant-drawer-title {
-    width: 100%;
+    width: 100vw;
     text-align: center;
+    overflow: hidden;
+
 }
 
 /* Wrapper-Styling für EditorContent */

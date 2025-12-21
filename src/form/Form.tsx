@@ -19,7 +19,7 @@ export function Form() {
     const {drawerState, openDrawer, closeDrawer, selectedTaskId, setSelectedTaskId} = use(DrawerContext)
     const {file, updateFile} = use(FileContext);
     const selectedTask = selectedTaskId ? file?.tasks.find(task => task.id === selectedTaskId) ?? null : null;
-    const [active, setActive] = useState<number>(0)
+    const [, setActive] = useState<number>(0)
     const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(10);
 
@@ -78,12 +78,17 @@ export function Form() {
                 <Reorder.Group
                     as={"span"}
                     values={currentTasks}
-                    onReorder={(e) => {
+                    onReorder={(reorderedTasks) => {
+                        // Erstelle eine Kopie der Gesamtliste
                         const newTasks = [...(file?.tasks ?? [])];
-                        e.forEach((task, newIndex) => {
-                            const oldIndex = newTasks.findIndex(t => t.id === task.id);
-                            newTasks[oldIndex] = task;
+
+                        // Ersetze die Tasks der aktuellen Seite mit den neu angeordneten
+                        reorderedTasks.forEach((task, index) => {
+                            const globalIndex = startIndex + index;
+                            newTasks[globalIndex] = task;
                         });
+
+                        // Aktualisiere die komplette Liste
                         updateFile({tasks: newTasks});
                     }}
                 >

@@ -2,7 +2,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import type {File, Task} from '../types';
 import {TaskView} from './TaskView';
-import {sanitizeHtmlWithoutP} from "../utils/sanitizeHtml.ts";
+import {sanitizeHtmlToRaw, sanitizeHtmlWithoutP} from "../utils/sanitizeHtml.ts";
 import {Pagination} from "antd";
 
 interface PDFFileProps {
@@ -61,7 +61,7 @@ export const PDFFile: React.FC<PDFFileProps> = ({
                 }
             });
 
-            // Nur State aktualisieren wenn sich Höhen tatsächlich geändert haben
+            // Nur State aktualisieren, wenn sich Höhen tatsächlich geändert haben
             setTaskHeights(prev => {
                 if (prev.size !== heights.size) return heights;
 
@@ -140,6 +140,7 @@ export const PDFFile: React.FC<PDFFileProps> = ({
 
         /*console.log('Available height:', availableHeight);
         console.log('Task heights:', Array.from(taskHeights.entries()));
+        console.log('sum tasks heights:', Array.from(taskHeights.values()).reduce((a, b) => a + b, 0));
         console.log('Header height:', headerHeight);
         console.log('Footer height:', footerHeight);
         console.log('Measured spacing:', measuredSpacing);*/
@@ -200,7 +201,7 @@ export const PDFFile: React.FC<PDFFileProps> = ({
                     style={{marginBottom: '20px', textAlign: 'center'}}
                 />
                 <div style={{color: 'rgba(0, 0, 0, 0.45)', fontSize: '14px'}}>
-                    Aufgaben: {currentTasks.map(task => task.numeration).join(', ')}
+                    Aufgaben: {currentTasks.map(task => sanitizeHtmlToRaw(task.numeration)).join(', ')}
                 </div>
             </div>
 

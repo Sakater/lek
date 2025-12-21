@@ -3,6 +3,8 @@ export enum TaskType {
     WRITE_IN = 'WRITE_IN',
     MIXED = 'MIXED',
     FILL_IN_THE_BLANKS = 'FILL_IN_THE_BLANKS',
+    LISTING = 'LISTING',
+    MAPPING = 'MAPPING',
 }
 
 export enum Subject {
@@ -61,12 +63,26 @@ export type FillInTheBlanksTask = BaseTask & {
     optionsInARow: number;
 };
 
-export type Task = MultipleChoiceTask | WriteInTask | MixedTask | FillInTheBlanksTask;
+export type ListingTask = BaseTask & {
+    type: TaskType.LISTING;
+    optionsInARow: number;
+};
+export type MappingTask = BaseTask & {
+    type: TaskType.MAPPING;
+    sourceOptions: Option[];
+    targetOptions: Option[];
+    sourceType: 'text' | 'image';
+    targetType: 'text' | 'image';
+    optionsInARow: number;
+};
+
+export type Task = MultipleChoiceTask | WriteInTask | MixedTask | FillInTheBlanksTask | ListingTask | MappingTask;
 
 
 export type Option = {
     optionText: string;
     id: Id;
+    optionType: 'checkbox' | 'radio' | 'hidden';
 }
 export type Id = number;
 

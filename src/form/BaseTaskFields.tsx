@@ -53,7 +53,7 @@ export function BaseTaskFields({task}: Props) {
                     <Col flex="auto">
                         <TextEditor
                             content={option.optionText}
-                            onChange={(e) => updateOption(task.id, option.id, sanitizeHtml(e))}
+                            onChange={(e) => updateOption(task.id, option.id, {optionText:sanitizeHtml(e)})}
                             placeholder={'Option'}
                         />
                     </Col>

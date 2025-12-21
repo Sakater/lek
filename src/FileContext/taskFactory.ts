@@ -27,7 +27,7 @@ export const createWriteInTask = (overrides: Partial<WriteInTask> = {}): WriteIn
         options: [] as Option[],
         helpingLines: 1,
         totalLines: 1,
-        id: generateUUID() as Id
+        id: generateUUID() as unknown as Id
     };
 
     return {
@@ -46,7 +46,7 @@ export const createMultipleChoiceTask = (overrides: Partial<MultipleChoiceTask> 
         question: 'Neue Frage',
         options: [] as Option[],
         optionsInARow: 2,
-        id: generateUUID() as Id
+        id: generateUUID() as unknown as Id
     };
 
     return {
@@ -67,7 +67,7 @@ export const createMixedTask = (overrides: Partial<MixedTask> = {}): MixedTask =
         optionsInARow: 2,
         helpingLines: 1,
         totalLines: 1,
-        id: generateUUID() as Id
+        id: generateUUID() as unknown as Id
     };
 
     return {
@@ -86,7 +86,7 @@ export const createFillInTheBlanksTask = (overrides: Partial<FillInTheBlanksTask
         question: 'Neue Frage mit {0} und {1}',
         options: [] as Option[],
         optionsInARow: 2,
-        id: generateUUID() as Id
+        id: generateUUID() as unknown as Id
     };
 
     return {

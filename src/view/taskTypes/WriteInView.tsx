@@ -10,36 +10,12 @@ interface WriteInTaskProps {
     scroll?: boolean;
 }
 
-export const WriteInView: React.FC<WriteInTaskProps> = ({task, scroll}) => {
+export const WriteInView: React.FC<WriteInTaskProps> = ({task}) => {
     // Prüfen ob Optionen für Auflistung vorhanden sind
     const hasOptions = task.options && task.options.length > 0;
 
-    return (scroll ?
-            <div style={{overflowX: "scroll", maxWidth: "100vw"}}>
-                <div className="task write-in-task">
-                    <TaskHeader
-                        numeration={task.numeration}
-                        question={task.question}
-                    />
-
-                    {/* Optionen anzeigen, falls eine Auflistung verlangt wird */}
-                    {hasOptions && (
-                        <div className="task-options-list">
-                            <OptionsGrid
-                                options={task.options}
-                                optionsInARow={1}
-                                isMultipleChoice={false}
-                            />
-                        </div>
-                    )}
-
-                    {/* Schreiblinien für die Antwort */}
-                    <WritingLines
-                        helpingLines={task.helpingLines}
-                        totalLines={task.totalLines}
-                    />
-                </div>
-            </div> :
+    return (
+        <div style={{minWidth: 'fit-content'}}>
             <div className="task write-in-task">
                 <TaskHeader
                     numeration={task.numeration}
@@ -63,5 +39,6 @@ export const WriteInView: React.FC<WriteInTaskProps> = ({task, scroll}) => {
                     totalLines={task.totalLines}
                 />
             </div>
+        </div>
     );
 };

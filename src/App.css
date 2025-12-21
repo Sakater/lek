@@ -47,7 +47,6 @@
 
 /* TaskView.css */
 .task {
-    margin-bottom: 20px;
     padding: 15px;
     border-bottom: 1px solid #e0e0e0;
     page-break-inside: avoid;
@@ -57,17 +56,19 @@
 .task-header {
     margin-bottom: 15px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .task-numeration {
     font-weight: bold;
     margin-right: 10px;
     font-size: 1.1em;
+    line-height: 1.6;
+    flex-shrink: 0;
 }
 
 .task-question {
-    margin: 5px 0;
+    margin-bottom: 5px;
     line-height: 1.6;
 }
 
@@ -121,9 +122,9 @@
 
 /* FillInTheBlanksTask */
 .fill-in-blanks-task .task-question-with-blanks {
-    line-height: 2;
+    line-height: 1.6;
     font-size: 1.1em;
-    margin: 10px 0;
+    margin-bottom: 5px;
 }
 
 .fill-in-blank-input {
@@ -249,7 +250,7 @@
 .header-divider {
     border: none;
     border-top: 2px solid #333;
-    margin: 10px 0 5mm 0;
+    margin: 10px 0 0 0;
 }
 
 /* Aufgabenbereich */
@@ -340,12 +341,6 @@
 .tasks-section {
     flex-grow: 1;
     overflow: visible;
-}
-
-.task-wrapper {
-    margin-bottom: 20px;
-    break-inside: avoid; /* Verhindert Schnitte beim Drucken */
-    page-break-inside: avoid; /* Fallback für ältere Browser */
 }
 
 .page-footer {
@@ -445,7 +440,7 @@
 .task-wrapper {
     break-inside: avoid;
     page-break-inside: avoid;
-    margin-bottom: 15px;
+    padding-top: 15px;
 }
 
 /* Export-spezifisch */
@@ -494,6 +489,7 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     width: 100vw;
+    overflow: hidden;
 }
 
 

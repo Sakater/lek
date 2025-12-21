@@ -56,9 +56,6 @@ export async function searchFiles(queries: string[]): Promise<File[]> {
         if (!Array.isArray(data)) return false;
 
         return data.every((item: File) =>
-            typeof item.title === 'string' &&
-            typeof item.createdBy === 'string' &&
-            typeof item.date === 'string' &&
             Array.isArray(item.tasks)
         );
     }

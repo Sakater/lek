@@ -1,9 +1,10 @@
 import {type ReactNode, useEffect, useState} from 'react';
 import type {FileContextType} from './index';
 import {FileContext} from './index';
-import type {File, FillInTheBlanksTask, MixedTask, MultipleChoiceTask, Task, WriteInTask} from '../types';
+import type {File, FillInTheBlanksTask, MixedTask, MultipleChoiceTask, Option, Task, WriteInTask} from '../types';
 import {TaskType} from '../types';
 import {createTask} from "./taskFactory.ts";
+import type {ListingTask, MappingTask} from "../types/Types.ts";
 
 
 type Props = {
@@ -104,6 +105,10 @@ export function FileContextProvider({children}: Props) {
                         return updatedTask as MixedTask;
                     case TaskType.FILL_IN_THE_BLANKS:
                         return updatedTask as FillInTheBlanksTask;
+                    case TaskType.LISTING:
+                        return updatedTask as ListingTask;
+                    case TaskType.MAPPING:
+                        return updatedTask as MappingTask;
                     default: {
                         return task;
                     }
@@ -120,7 +125,25 @@ export function FileContextProvider({children}: Props) {
             tasks: file.tasks.filter(task => task.id !== taskId)
         });
     };
-
+    const returnOptionsWithType = (task: Task, updatedOptions:Option[]) => {
+        switch (task.type) {
+            case TaskType.WRITE_IN:
+                return {...task, options: updatedOptions} as WriteInTask;
+            case TaskType.MULTIPLE_CHOICE:
+                return {...task, options: updatedOptions} as MultipleChoiceTask;
+            case TaskType.MIXED:
+                return {...task, options: updatedOptions} as MixedTask;
+            case TaskType.FILL_IN_THE_BLANKS:
+                return {...task, options: updatedOptions} as FillInTheBlanksTask;
+            case TaskType.LISTING:
+                return {...task, options: updatedOptions} as ListingTask;
+            case TaskType.MAPPING:
+                return {...task, options: updatedOptions} as MappingTask;
+            default: {
+                return task;
+            }
+        }
+    }
     const addOption = (taskId: number, optionText: string = 'Neue Option') => {
         if (!file) return;
 
@@ -130,32 +153,21 @@ export function FileContextProvider({children}: Props) {
                 if (task.id !== taskId) return task;
                 // Neue Option erstellen
                 const newOption = {
-                    id: crypto.randomUUID(),
-                    optionText: optionText
+                    id: crypto.randomUUID() as unknown as number,
+                    optionText: optionText,
+                    optionType: 'checkbox' as const
                 };
 
                 const updatedOptions = [...task.options, newOption];
 
                 // Type-spezifische Rückgabe
-                switch (task.type) {
-                    case TaskType.WRITE_IN:
-                        return {...task, options: updatedOptions} as WriteInTask;
-                    case TaskType.MULTIPLE_CHOICE:
-                        return {...task, options: updatedOptions} as MultipleChoiceTask;
-                    case TaskType.MIXED:
-                        return {...task, options: updatedOptions} as MixedTask;
-                    case TaskType.FILL_IN_THE_BLANKS:
-                        return {...task, options: updatedOptions} as FillInTheBlanksTask;
-                    default: {
-                        return task;
-                    }
-                }
+               return returnOptionsWithType(task, updatedOptions);
             })
         });
     };
 
 
-    const updateOption = (taskId: number, optionId: number, newName: string) => {
+    const updateOption = (taskId: number, optionId: number, updates: Partial<Option> | Option) => {
         if (!file) return;
 
         setFile({
@@ -165,22 +177,11 @@ export function FileContextProvider({children}: Props) {
 
                 // Typsichere Aktualisierung basierend auf dem Task-Typ
                 const updatedOptions = task.options.map(option =>
-                    option.id === optionId ? {...option, optionText: newName} : option
+                    option.id === optionId ? {...option, ...updates} : option
                 );
 
                 // Type-spezifische Rückgabe, um Discriminated Union zu erhalten
-                switch (task.type) {
-                    case TaskType.WRITE_IN:
-                        return {...task, options: updatedOptions} as WriteInTask;
-                    case TaskType.MULTIPLE_CHOICE:
-                        return {...task, options: updatedOptions} as MultipleChoiceTask;
-                    case TaskType.MIXED:
-                        return {...task, options: updatedOptions} as MixedTask;
-                    case TaskType.FILL_IN_THE_BLANKS:
-                        return {...task, options: updatedOptions} as FillInTheBlanksTask;
-                    default:
-                        return task;
-                }
+                return returnOptionsWithType(task, updatedOptions);
             })
         });
     };
@@ -197,18 +198,7 @@ export function FileContextProvider({children}: Props) {
                 const filteredOptions = task.options.filter(option => option.id !== optionId);
 
                 // Type-spezifische Rückgabe
-                switch (task.type) {
-                    case TaskType.WRITE_IN:
-                        return {...task, options: filteredOptions} as WriteInTask;
-                    case TaskType.MULTIPLE_CHOICE:
-                        return {...task, options: filteredOptions} as MultipleChoiceTask;
-                    case TaskType.MIXED:
-                        return {...task, options: filteredOptions} as MixedTask;
-                    case TaskType.FILL_IN_THE_BLANKS:
-                        return {...task, options: filteredOptions} as FillInTheBlanksTask;
-                    default:
-                        return task;
-                }
+                return returnOptionsWithType(task, filteredOptions);
             })
         });
     };

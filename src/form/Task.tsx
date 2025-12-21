@@ -70,7 +70,7 @@ export function Task({task, setActive, index}: Props) {
                                 style={{cursor: 'grab', touchAction: 'none'}}
                                 onPointerDown={(e) => dragControls.start(e)}
                             />}*/
-                        title={"Aufgabe " + sanitizeHtml(task.numeration)}
+                        title={"Aufgabe " + sanitizeHtmlToRaw(task.numeration)}
                         description={
                             <>
                                 <p dangerouslySetInnerHTML={{__html: sanitizeHtmlToRaw(task.question)}}/>

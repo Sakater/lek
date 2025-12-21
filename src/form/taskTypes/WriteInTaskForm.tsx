@@ -36,9 +36,23 @@ export function WriteInTaskForm({task, open, onClose}: Props) {
                     <span className="btn-text">Upload</span>
                 </Button>
             }
+            className={"ant-drawer-title"}
+            styles={{
+                body: {
+                    overflow: 'hidden',
+                    padding: 0,
+                    height: '100%'
+                }
+            }}
         >
-            <div className={'task-form-grid'}>
-                <div>
+            <div className={'task-form-grid'} style={{
+                height: '100%',
+                overflow: 'hidden'
+            }}>
+                <div style={{
+                    overflowY: 'auto',
+                    padding: '24px'
+                }}>
                     <BaseTaskFields task={task}/>
 
                     <div style={{marginTop: 16}}>
@@ -71,7 +85,13 @@ export function WriteInTaskForm({task, open, onClose}: Props) {
                         />
                     </div>
                 </div>
-                <TaskView task={task} scroll/>
+                <div style={{
+                    overflowX: 'auto',
+                    overflowY: 'hidden',
+                    padding: '24px'
+                }}>
+                    <TaskView task={task} scroll={true}/>
+                </div>
             </div>
             {uploadFormOpen ?
                 <UploadTaskForm task={task} open={uploadFormOpen} onClose={() => setUploadFormOpen(false)}/> : null}
