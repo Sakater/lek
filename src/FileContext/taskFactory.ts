@@ -1,5 +1,5 @@
 // taskFactory.ts
-import type {FillInTheBlanksTask, Id, MixedTask, MultipleChoiceTask, Option, Task, WriteInTask} from '../types';
+import type {FillInTheBlanksTask, Id, MixedTask, MultipleChoiceTask, Option, Task, WriteInTask, ListingTask, MappingTask} from '../types';
 import {Subject, TaskType} from '../types';
 
 
@@ -56,6 +56,44 @@ export const createMultipleChoiceTask = (overrides: Partial<MultipleChoiceTask> 
     };
 };
 
+// Factory-Funktion für MultipleChoiceTask
+export const createListingTask = (overrides: Partial<ListingTask> = {}): ListingTask => {
+    const baseTask: ListingTask = {
+        type: TaskType.LISTING,
+        subject: Subject.Akaid,
+        numeration: '1)',
+        question: 'Neue Frage',
+        options: [] as Option[],
+        optionsInARow: 2,
+        id: generateUUID() as unknown as Id
+    };
+
+    return {
+        ...baseTask,
+        ...overrides,
+        type: TaskType.LISTING
+    };
+};
+
+// Factory-Funktion für MultipleChoiceTask
+export const createMappingTask = (overrides: Partial<MappingTask> = {}): MappingTask => {
+    const baseTask: MappingTask = {
+        type: TaskType.MAPPING,
+        subject: Subject.Akaid,
+        numeration: '1)',
+        question: 'Neue Frage',
+        options: [] as Option[],
+        optionsInARow: 2,
+        id: generateUUID() as unknown as Id
+    };
+
+    return {
+        ...baseTask,
+        ...overrides,
+        type: TaskType.MAPPING
+    };
+};
+
 // Factory-Funktion für MixedTask
 export const createMixedTask = (overrides: Partial<MixedTask> = {}): MixedTask => {
     const baseTask: MixedTask = {
@@ -103,6 +141,10 @@ export const createTask = (type: TaskType, overrides: Partial<Task> = {}): Task 
             return createWriteInTask(overrides as Partial<WriteInTask>);
         case TaskType.MULTIPLE_CHOICE:
             return createMultipleChoiceTask(overrides as Partial<MultipleChoiceTask>);
+       case TaskType.LISTING:
+            return createListingTask(overrides as Partial<ListingTask>);
+       case TaskType.MAPPING:
+            return createMappingTask(overrides as Partial<MappingTask>);
         case TaskType.MIXED:
             return createMixedTask(overrides as Partial<MixedTask>);
         case TaskType.FILL_IN_THE_BLANKS:

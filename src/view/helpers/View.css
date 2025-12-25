@@ -1,0 +1,7 @@
+.task-mapping-options{
+    display: flex;
+    justify-content: space-evenly;
+}
+.task-mapping-sources, .task-mapping-targets{
+    min-width: 50%;
+}

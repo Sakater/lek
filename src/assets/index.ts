@@ -9,3 +9,4 @@ export { default as AddOption } from './format_list_bulleted_add.svg?react';
 export { default as ToPdf } from './picture_as_pdf.svg?react';
 export { default as Puzzle } from './puzzle.svg?react';
 export { default as Duplicate } from './shadow_add.svg?react';
+export { default as VisibilityOff } from './visibility_off.svg?react';

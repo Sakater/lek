@@ -1,16 +1,15 @@
 // MultipleChoiceTask.tsx
 import React from 'react';
-import type {MultipleChoiceTask as MultipleChoiceTaskType} from '../../types';
+import type {ListingTask} from '../../types';
 import {TaskHeader} from '../helpers/TaskHeader.tsx';
 import {OptionsGrid} from '../helpers/OptionsGrid.tsx';
 
-interface MultipleChoiceTaskProps {
-    task: MultipleChoiceTaskType;
+interface ListingTaskProps {
+    task: ListingTask;
     scroll?: boolean;
 }
 
-export const MultipleChoiceView: React.FC<MultipleChoiceTaskProps> = ({task, scroll}) => {
-
+export const ListingView: React.FC<ListingTaskProps> = ({task,  scroll}) => {
     return (scroll ?
             <div style={{overflowX: "scroll", maxWidth: "100vw", width: "794px"}}>
                 <div className="task multiple-choice-task">

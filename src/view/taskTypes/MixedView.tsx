@@ -1,17 +1,16 @@
 // MixedTask.tsx
 import React from 'react';
 import type {MixedTask as MixedTaskType} from '../../types';
-import {TaskHeader} from '../TaskHeader';
+import {TaskHeader} from '../helpers/TaskHeader.tsx';
 import {OptionsGrid} from '../helpers/OptionsGrid';
 import {WritingLines} from '../helpers/WritingLines';
 
 interface MixedTaskProps {
     task: MixedTaskType;
     scroll?: boolean;
-    optionsType?: 'checkbox' | 'radio' | 'hidden';
 }
 
-export const MixedView: React.FC<MixedTaskProps> = ({task, optionsType = 'checkbox', scroll}) => {
+export const MixedView: React.FC<MixedTaskProps> = ({task, scroll}) => {
     return (scroll ?
             <div style={{overflowX: "scroll", maxWidth: "100vw"}}>
                 <div className="task mixed-task">
@@ -26,8 +25,6 @@ export const MixedView: React.FC<MixedTaskProps> = ({task, optionsType = 'checkb
                             <OptionsGrid
                                 options={task.options}
                                 optionsInARow={task.optionsInARow}
-                                isMultipleChoice={true}
-                                optionsType={optionsType}
                             />
                         </div>
                     )}
@@ -54,8 +51,6 @@ export const MixedView: React.FC<MixedTaskProps> = ({task, optionsType = 'checkb
                         <OptionsGrid
                             options={task.options}
                             optionsInARow={task.optionsInARow}
-                            optionsType={optionsType}
-                            isMultipleChoice={true}
                         />
                     </div>
                 )}

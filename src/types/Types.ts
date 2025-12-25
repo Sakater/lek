@@ -69,23 +69,24 @@ export type ListingTask = BaseTask & {
 };
 export type MappingTask = BaseTask & {
     type: TaskType.MAPPING;
-    sourceOptions: Option[];
-    targetOptions: Option[];
-    sourceType: 'text' | 'image';
-    targetType: 'text' | 'image';
     optionsInARow: number;
 };
 
-export type Task = MultipleChoiceTask | WriteInTask | MixedTask | FillInTheBlanksTask | ListingTask | MappingTask;
-
+export type Task =
+    | MultipleChoiceTask
+    | WriteInTask
+    | MixedTask
+    | FillInTheBlanksTask
+    | ListingTask
+    | MappingTask;
 
 export type Option = {
     optionText: string;
     id: Id;
-    optionType: 'checkbox' | 'radio' | 'hidden';
-}
+    inputType?: 'checkbox' | 'radio' | 'hidden';
+    optionType?: 'source' | 'target';
+};
 export type Id = number;
-
 
 export type File = {
     id: Id;
@@ -97,8 +98,7 @@ export type File = {
     topic: string[];
     grade: number;
     subject: Subject[];
-
-}
+};
 
 export type TaskRequest = {
     text?: string[];
@@ -115,7 +115,24 @@ export type TaskRequest = {
     page?: number;
     size?: number;
     sort?: string[];
-}
+};
+
+export type FileRequest = {
+    text?: string[];
+    id?: number[];
+    title?: string[];
+    date?: string[];
+    createdBy?: string[];
+    level?: number[];
+    topic?: string[];
+    grade?: number[];
+    subject?: Subject[];
+    // Pagination
+    page?: number;
+    size?: number;
+    sort?: string[];
+};
+
 export type Page<T> = {
     content: T[];
     page: {
@@ -123,5 +140,5 @@ export type Page<T> = {
         number: number;
         totalElements: number;
         totalPages: number;
-    }
-}
+    };
+};

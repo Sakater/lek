@@ -1,4 +1,17 @@
 //types/index.ts
-export type {File, Option, Id, Task, TaskRequest, Page} from './Types';
-export {TaskType, Subject,} from './Types';
-export type {MultipleChoiceTask, WriteInTask, MixedTask, FillInTheBlanksTask} from './Types';
+export type {
+    File,
+    FileRequest,
+    FillInTheBlanksTask,
+    Id,
+    ListingTask,
+    MappingTask,
+    MixedTask,
+    MultipleChoiceTask,
+    Option,
+    Page,
+    Task,
+    TaskRequest,
+    WriteInTask,
+} from './Types';
+export { Subject, TaskType } from './Types';

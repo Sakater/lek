@@ -1,79 +1,172 @@
-import type {SelectProps} from 'antd';
-import {Button, Card, Col, Drawer, Row, Select,} from "antd";
-import {use, useEffect, useState} from "react";
-import {searchFiles} from '../services/taskService.ts';
-import type {File} from "../types";
-import {TaskType} from "../types";
-import {Subject} from "../types";
-import {FileContext} from "../FileContext";
-import {PDFFile} from "../view/PDFFile.tsx";
-
+import {Button, Card, Col, Drawer, Empty, Pagination, Row, Spin} from 'antd';
+import {use, useState} from 'react';
+import {FileContext} from '../FileContext';
+import {searchFiles} from '../services/fileService.ts';
+import type {File, FileRequest} from '../types';
+import {PDFFile} from '../view/PDFFile.tsx';
+import {GenericSearchBar} from './GenericSearchBar.tsx';
+import {fileSearchConfig} from './SearchConfigs.ts';
 
 export function FileSearch() {
-    const {updateFile, setOpenTemplateSearch, setOpenCustomizer, openTemplateSearch} = use(FileContext);
-    const [inputValue, setInputValue] = useState<string[]>([]);
-    const [templates, setTemplates] = useState<File[]>();
+    const { updateFile, setOpenTemplateSearch, setOpenCustomizer, openTemplateSearch } =
+        use(FileContext);
 
-    const options: SelectProps['options'] = Object.values(TaskType).map(type => ({
-        label: '[Aufgabentyp] ' + type,
-        value: type
-    }))
-    const subjectList: SelectProps['options'] = Object.values(Subject).map(subject => ({
-        label: '[Fach] ' + subject,
-        value: subject
-    }));
-    options.push(...subjectList);
+    const [foundFiles, setFoundFiles] = useState<File[]>([]);
+    const [pageVariables, setPageVariables] = useState<{
+        totalElements: number;
+        totalPages: number;
+        number: number;
+        size: number;
+    } | null>(null);
+    const [loading, setLoading] = useState(false);
+    const [lastRequest, setLastRequest] = useState<FileRequest | null>(null);
 
-    useEffect(() => {
-        if (inputValue.length === 0) {
-            setTemplates([]); // Ergebnisse ausblenden, wenn keine Suchbegriffe
-            return;
+    const handleSearch = async (request: FileRequest) => {
+        setLoading(true);
+        setLastRequest(request);
+        try {
+            const results = await searchFiles(request);
+
+            setFoundFiles(results?.content || []);
+            setPageVariables({
+                totalElements: results?.page?.totalElements ?? 0,
+                totalPages: results?.page?.totalPages ?? 0,
+                number: results?.page?.number ?? 0,
+                size: results?.page?.size ?? request.size ?? 20,
+            });
+        } catch (error) {
+            console.error('Fehler bei der Suche:', error);
+            setFoundFiles([]);
+            setPageVariables(null);
+        } finally {
+            setLoading(false);
         }
-        if (inputValue.length === 0 || !inputValue[0]) return;
-        searchFiles(inputValue).then(setTemplates);
-    }, [inputValue]);
+    };
+
+    const handlePageChange = (page: number, pageSize?: number) => {
+        if (!lastRequest) return;
+        const newRequest: FileRequest = {
+            ...lastRequest,
+            page: page - 1,
+            size: pageSize ?? lastRequest.size,
+        };
+        void handleSearch(newRequest);
+    };
+
+    const selectFile = (file: File) => {
+        updateFile(file);
+        setOpenTemplateSearch(false);
+        setOpenCustomizer(true);
+    };
 
     return (
         <div>
             <Drawer
                 title={'Dokumente finden'}
                 placement={'top'}
-                closable={false}
-                onClose={() => {
-                    setOpenTemplateSearch(false);
-                }}
+                onClose={() => setOpenTemplateSearch(false)}
                 open={openTemplateSearch}
                 key={'top'}
-                height={'80%'}>
-                {/*<Input placeholder="Suchbegriff eingeben..." style={{marginBottom: '20px'}}/>*/}
-                <Select
-                    mode="tags"
-                    style={{width: '100%'}}
-                    placeholder="Suchbegriffe eingeben und Enter drücken"
-                    onChange={(value: string[]) => setInputValue(value)}
-                    options={options}
-                />
-                {templates?.map(template => {
-                    return (
-                        <Row>
-                            <Col>
-                                <Card>
+                height={'80%'}
+                styles={{ body: { paddingBottom: 80 } }}
+            >
+                <div style={{ marginBottom: 24 }}>
+                    <GenericSearchBar config={fileSearchConfig} onSearch={handleSearch} />
+                </div>
 
-                                    <PDFFile file={template} scale={0.5}/>
-                                </Card>
-                            </Col>
-                            <Col>
-                                <Button type="default" onClick={() => {
-                                    updateFile(template);
-                                    setOpenTemplateSearch(false);
-                                    setOpenCustomizer(true)
-                                }}/>
-                            </Col>
-                        </Row>
-                    )
-                })}
+                {loading && (
+                    <div style={{ textAlign: 'center', padding: 20 }}>
+                        <Spin />
+                    </div>
+                )}
 
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                    {!loading && foundFiles.length === 0 ? (
+                        <Empty
+                            description="Keine Dokumente gefunden"
+                            image={Empty.PRESENTED_IMAGE_SIMPLE}
+                        />
+                    ) : (
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                gap: 8,
+                            }}
+                        >
+                            <Pagination
+                                current={(pageVariables?.number ?? 0) + 1}
+                                pageSize={pageVariables?.size}
+                                total={pageVariables?.totalElements}
+                                onChange={handlePageChange}
+                                onShowSizeChange={handlePageChange}
+                                showSizeChanger={true}
+                                pageSizeOptions={['10', '20', '50', '100']}
+                                responsive={true}
+                                showLessItems={true}
+                            />
+                            <div style={{ color: 'rgba(0, 0, 0, 0.45)', fontSize: '14px' }}>
+                                {pageVariables &&
+                                    `${Math.min(pageVariables.number * pageVariables.size + 1, pageVariables.totalElements)}-${Math.min((pageVariables.number + 1) * pageVariables.size, pageVariables.totalElements)} von ${pageVariables.totalElements} Treffern`}
+                            </div>
+                        </div>
+                    )}
+                    <Row gutter={24}>
+                        {foundFiles.map((file) => (
+                            <Col xs={24} xl={12} key={file.id}>
+                                <div
+                                    style={{
+                                        padding: '15px',
+                                        display: 'flex',
+                                        justifyContent: 'space-evenly',
+                                    }}
+                                >
+                                    <Card
+                                        size="small"
+                                        hoverable
+                                        style={{ width: '810px', overflowY: 'auto' }}
+                                        extra={
+                                            <Button type="primary" onClick={() => selectFile(file)}>
+                                                Auswählen
+                                            </Button>
+                                        }
+                                    >
+                                        <PDFFile file={file} scale={0.5} />
+                                    </Card>
+                                </div>
+                            </Col>
+                        ))}
+                    </Row>
+
+                    {!loading && foundFiles.length > 0 && (
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                gap: 8,
+                            }}
+                        >
+                            <Pagination
+                                current={(pageVariables?.number ?? 0) + 1}
+                                pageSize={pageVariables?.size}
+                                total={pageVariables?.totalElements}
+                                onChange={handlePageChange}
+                                onShowSizeChange={handlePageChange}
+                                showSizeChanger={true}
+                                pageSizeOptions={['10', '20', '50', '100']}
+                                responsive={true}
+                                showLessItems={true}
+                            />
+                            <div style={{ color: 'rgba(0, 0, 0, 0.45)', fontSize: '14px' }}>
+                                {pageVariables &&
+                                    `${Math.min(pageVariables.number * pageVariables.size + 1, pageVariables.totalElements)}-${Math.min((pageVariables.number + 1) * pageVariables.size, pageVariables.totalElements)} von ${pageVariables.totalElements} Treffern`}
+                            </div>
+                        </div>
+                    )}
+                </div>
             </Drawer>
         </div>
-    )
+    );
 }

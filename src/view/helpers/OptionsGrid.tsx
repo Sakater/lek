@@ -1,14 +1,12 @@
-import type { Option } from '../../types';
-import {sanitizeHtml} from "../../utils/sanitizeHtml.ts";
+import type {Option} from '../../types';
+import {sanitizeHtml} from '../../utils/sanitizeHtml.ts';
 
-type OptionsGridProps= {
+type OptionsGridProps = {
     options: Option[];
     optionsInARow: number;
-    isMultipleChoice?: boolean;
-    optionsType?: 'checkbox' | 'radio' | 'hidden';
-}
+};
 
-export function OptionsGrid( {options, optionsInARow, isMultipleChoice = false, optionsType}: OptionsGridProps) {
+export function OptionsGrid({ options = [], optionsInARow }: OptionsGridProps) {
     return (
         <div
             className="options-grid"
@@ -16,22 +14,43 @@ export function OptionsGrid( {options, optionsInARow, isMultipleChoice = false, 
                 display: 'grid',
                 gridTemplateColumns: `repeat(${optionsInARow}, 1fr)`,
                 gap: '10px',
-                marginTop: '10px'
+                marginTop: '10px',
             }}
         >
-            {options.map((option) => (
-                <div key={option.id} className="option-item">
-                    {isMultipleChoice && (
+            {options?.map((option) =>
+                option.optionType === 'source' ? (
+                    <div key={option.id} className="option-item">
+                        <label
+                            htmlFor={option.id.toString()}
+                            dangerouslySetInnerHTML={{ __html: sanitizeHtml(option.optionText) }}
+                        />
+
                         <input
-                            type={optionsType}
+                            type={option.inputType}
                             id={option.id.toString()}
                             name={option.id.toString()}
                             className="option-checkbox"
+                            checked={false}
+                            readOnly
                         />
-                    )}
-                    <label htmlFor={option.id.toString()} dangerouslySetInnerHTML={{__html: sanitizeHtml(option.optionText)}}/>
-                </div>
-            ))}
+                    </div>
+                ) : (
+                    <div key={option.id} className="option-item">
+                        <input
+                            type={option.inputType}
+                            id={option.id.toString()}
+                            name={option.id.toString()}
+                            className="option-checkbox"
+                            checked={false}
+                            readOnly
+                        />
+                        <label
+                            htmlFor={option.id.toString()}
+                            dangerouslySetInnerHTML={{ __html: sanitizeHtml(option.optionText) }}
+                        />
+                    </div>
+                )
+            )}
         </div>
     );
-};
+}

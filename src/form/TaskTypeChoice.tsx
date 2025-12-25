@@ -112,6 +112,32 @@ export function TaskTypeChoice({open, onClose}: Props) {
                             <Meta title="Lückentext" description="Erstelle einen Lückentext und lasse diese befüllen"/>
                         </Card>
                     </Col>
+                    <Col>
+                        <Card className={'card'}
+                              type={'inner'}
+                              hoverable
+                              cover={
+                                  <Puzzle
+                                      style={{display: 'block', paddingTop: '20px',}}/>
+                              }
+                              onClick={() => handleTaskCreation(TaskType.LISTING)}
+                        >
+                            <Meta title="Auflistung" description="Erstelle eine Aufgabe zur Auflistung von Begriffen"/>
+                        </Card>
+                    </Col>
+                    <Col>
+                        <Card className={'card'}
+                              type={'inner'}
+                              hoverable
+                              cover={
+                                  <Puzzle
+                                      style={{display: 'block', paddingTop: '20px',}}/>
+                              }
+                              onClick={() => handleTaskCreation(TaskType.MAPPING)}
+                        >
+                            <Meta title="Zuordnung" description="Lasse Wörter/Texte einander zuordnen"/>
+                        </Card>
+                    </Col>
                 </div>
 
             </Drawer>

@@ -1,8 +1,16 @@
 import {type ReactNode, useEffect, useState} from 'react';
 import type {FileContextType} from './index';
 import {FileContext} from './index';
-import type {File, FillInTheBlanksTask, MixedTask, MultipleChoiceTask, Option, Task, WriteInTask} from '../types';
-import {TaskType} from '../types';
+import {
+    type File,
+    type FillInTheBlanksTask,
+    type MixedTask,
+    type MultipleChoiceTask,
+    type Option,
+    type Task,
+    TaskType,
+    type WriteInTask
+} from '../types';
 import {createTask} from "./taskFactory.ts";
 import type {ListingTask, MappingTask} from "../types/Types.ts";
 
@@ -125,7 +133,7 @@ export function FileContextProvider({children}: Props) {
             tasks: file.tasks.filter(task => task.id !== taskId)
         });
     };
-    const returnOptionsWithType = (task: Task, updatedOptions:Option[]) => {
+    const returnOptionsWithType = (task: Task, updatedOptions: Option[]) => {
         switch (task.type) {
             case TaskType.WRITE_IN:
                 return {...task, options: updatedOptions} as WriteInTask;
@@ -155,13 +163,14 @@ export function FileContextProvider({children}: Props) {
                 const newOption = {
                     id: crypto.randomUUID() as unknown as number,
                     optionText: optionText,
-                    optionType: 'checkbox' as const
+                    inputType: task.type === TaskType.LISTING ? 'hidden' as const : 'checkbox' as const,
+                    optionType: task.type === TaskType.MAPPING ? 'source' as const : undefined
                 };
 
                 const updatedOptions = [...task.options, newOption];
 
                 // Type-spezifische Rückgabe
-               return returnOptionsWithType(task, updatedOptions);
+                return returnOptionsWithType(task, updatedOptions);
             })
         });
     };

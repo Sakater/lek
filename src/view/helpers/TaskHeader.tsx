@@ -1,4 +1,4 @@
-import {sanitizeHtmlWithoutP} from "../utils/sanitizeHtml.ts";
+import {sanitizeHtmlWithoutP} from "../../utils/sanitizeHtml.ts";
 
 type Props = {
     numeration: string;

@@ -1,7 +1,7 @@
 // WriteInTask.tsx
 import React from 'react';
 import type {WriteInTask as WriteInTaskType} from '../../types';
-import {TaskHeader} from '../TaskHeader';
+import {TaskHeader} from '../helpers/TaskHeader.tsx';
 import {WritingLines} from '../helpers/WritingLines';
 import {OptionsGrid} from '../helpers/OptionsGrid';
 
@@ -28,7 +28,6 @@ export const WriteInView: React.FC<WriteInTaskProps> = ({task}) => {
                         <OptionsGrid
                             options={task.options}
                             optionsInARow={1}
-                            isMultipleChoice={false}
                         />
                     </div>
                 )}

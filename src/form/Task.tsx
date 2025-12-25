@@ -3,7 +3,7 @@ import {FileContext} from '../FileContext';
 import {Card} from 'antd';
 import {DeleteTwoTone, EditOutlined, HolderOutlined} from "@ant-design/icons";
 import type {Task} from '../types';
-import {sanitizeHtml, sanitizeHtmlToRaw} from "../utils/sanitizeHtml.ts";
+import {sanitizeHtmlToRaw} from "../utils/sanitizeHtml.ts";
 import {DrawerContext} from "./DrawerContext";
 import {Reorder, useDragControls} from "framer-motion";
 import {Duplicate} from "../assets";
