@@ -61,7 +61,6 @@ export const FillInTheBlanksView: React.FC<FillInTheBlanksTaskProps> = ({task, s
                             <OptionsGrid
                                 options={task.options}
                                 optionsInARow={task.optionsInARow}
-                                isMultipleChoice={false}
                             />
                         </div>
                     )}
@@ -83,7 +82,6 @@ export const FillInTheBlanksView: React.FC<FillInTheBlanksTaskProps> = ({task, s
                         <OptionsGrid
                             options={task.options}
                             optionsInARow={task.optionsInARow}
-                            isMultipleChoice={false}
                         />
                     </div>
                 )}

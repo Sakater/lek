@@ -537,5 +537,5 @@
     .header-upload-btn .btn-text {
         display: none;
     }
-    .header-upload-btn
+    .header-upload-btn{}
 }

@@ -13,21 +13,20 @@ interface TaskViewProps {
     task: Task;
     key?: React.Key;
     scroll?: boolean;
-    inputType?: 'checkbox' | 'radio' | 'hidden';
 }
 
-export const TaskView: React.FC<TaskViewProps> = ({task, inputType='checkbox',scroll}) => {
+export const TaskView: React.FC<TaskViewProps> = ({task,scroll}) => {
     switch (task.type) {
         case TaskType.MAPPING:
-            return <MappingView task={task} inputType={inputType} scroll={scroll}/>;
+            return <MappingView task={task} scroll={scroll}/>;
         case TaskType.LISTING:
-            return <ListingView task={task} inputType={inputType} scroll={scroll}/>;
+            return <ListingView task={task} scroll={scroll}/>;
         case TaskType.MULTIPLE_CHOICE:
-            return <MultipleChoiceView task={task} inputType={inputType} scroll={scroll}/>;
+            return <MultipleChoiceView task={task}  scroll={scroll}/>;
         case TaskType.WRITE_IN:
             return <WriteInView task={task}/>;
         case TaskType.MIXED:
-            return <MixedView task={task} inputType={inputType} scroll={scroll}/>;
+            return <MixedView task={task} scroll={scroll}/>;
         case TaskType.FILL_IN_THE_BLANKS:
             return <FillInTheBlanksView task={task} scroll={scroll}/>;
         default:

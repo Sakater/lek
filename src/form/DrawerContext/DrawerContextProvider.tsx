@@ -13,7 +13,7 @@ export function DrawerContextProvider({children}: Props) {
         searchOpen: false,
         taskFormOpen: false,
     });
-    const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null)
+    const [selectedTaskId, setSelectedTaskId] = useState<number | null>(null)
     const openDrawer = (drawer: keyof DrawerState) => {
         setDrawerState(prev => ({...prev, [drawer]: true}));
     };
