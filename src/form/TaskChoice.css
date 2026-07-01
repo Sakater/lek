@@ -1,0 +1,166 @@
+.task-choice-modal {
+    padding: 0;
+}
+
+.task-choice-modal .ant-modal-content {
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+}
+
+.task-choice-modal .ant-modal-body {
+    padding: 0;
+}
+
+.task-choice-header {
+    text-align: center;
+    padding: 32px 24px 8px;
+}
+
+.task-choice-header h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 4px;
+}
+
+.task-choice-header p {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+.task-choice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 20px 24px 32px;
+}
+
+.task-choice-card {
+    background: white;
+    border-radius: var(--border-radius-md);
+    padding: 32px 20px;
+    cursor: pointer;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: var(--transition-default);
+    position: relative;
+    overflow: hidden;
+}
+
+.task-choice-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+}
+
+.task-choice-card.search-card::before {
+    background: #4f46e5;
+}
+
+.task-choice-card.search-card .task-choice-icon {
+    background: rgba(79, 70, 229, 0.1);
+    color: #4f46e5;
+}
+
+.task-choice-card.search-card:hover {
+    border-color: #4f46e5;
+    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.15);
+}
+
+.task-choice-card.search-card:hover .task-choice-icon {
+    background: #4f46e5;
+    color: white;
+}
+
+.task-choice-card.create-card::before {
+    background: #059669;
+}
+
+.task-choice-card.create-card .task-choice-icon {
+    background: rgba(5, 150, 105, 0.1);
+    color: #059669;
+}
+
+.task-choice-card.create-card:hover {
+    border-color: #059669;
+    box-shadow: 0 8px 24px rgba(5, 150, 105, 0.15);
+}
+
+.task-choice-card.create-card:hover .task-choice-icon {
+    background: #059669;
+    color: white;
+}
+
+.task-choice-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    font-size: 26px;
+    transition: var(--transition-default);
+}
+
+.task-choice-icon svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+    transition: var(--transition-default);
+}
+
+.task-choice-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 6px;
+}
+
+.task-choice-card p {
+    font-size: 0.82rem;
+    color: #9ca3af;
+    margin: 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .task-choice-modal {
+        max-width: 100vw !important;
+        margin: 0 !important;
+        top: 0 !important;
+    }
+
+    .task-choice-modal .ant-modal {
+        max-width: 100vw;
+    }
+
+    .task-choice-modal .ant-modal-content {
+        border-radius: 0;
+        min-height: 100vh;
+    }
+
+    .task-choice-grid {
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .task-choice-card {
+        padding: 28px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .task-choice-grid {
+        grid-template-columns: 1fr;
+    }
+}

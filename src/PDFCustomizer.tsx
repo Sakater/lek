@@ -9,6 +9,7 @@ import {PDFExportView} from "./view/PDFExportView.tsx";
 import type {Task} from "./types";
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import "./PDFCustomizer.css";
 
 export function PDFCustomizer() {
     const { file } = use(FileContext);
@@ -63,34 +64,37 @@ export function PDFCustomizer() {
 
     return (
         <DrawerContextProvider>
-            <Row style={{ padding: '20px', overflow:"hidden" }}>
-                <Col xs={24} xxl={12}>
+            <Row className="editor-layout">
+                <Col xs={24} xxl={12} className="editor-form-col">
                     <Form />
                 </Col>
-                <Col xs={24} xxl={12}>
-                    <Button
-                        onClick={exportPDF}
-                        type="primary"
-                        loading={isExporting}
-                        disabled={paginatedTasks.length === 0}
-                    >
-                        <ToPdf/>{isExporting ? 'Generiere PDF...' : 'PDF exportieren'}
-                    </Button>
+                <Col xs={24} xxl={12} className="editor-preview-col">
+                    <div className="editor-preview-header">
+                        <span className="editor-preview-title">
+                            <ToPdf/> PDF-Vorschau
+                        </span>
+                        <Button
+                            onClick={exportPDF}
+                            type="primary"
+                            loading={isExporting}
+                            disabled={paginatedTasks.length === 0}
+                            className="editor-export-btn"
+                            icon={<ToPdf/>}
+                        >
+                            {isExporting ? 'Generiere PDF...' : 'PDF exportieren'}
+                        </Button>
+                    </div>
 
                     <PDFFile
                         file={file}
                         onPaginationUpdate={handlePaginationUpdate}
                     />
 
-                    <div style={{ marginTop: '20px' }}>
-
-
-                        {paginatedTasks.length > 0 && (
-                            <span style={{ marginLeft: '10px', color: '#666' }}>
-                                ({paginatedTasks.length} Seiten)
-                            </span>
-                        )}
-                    </div>
+                    {paginatedTasks.length > 0 && (
+                        <div className="editor-page-count">
+                            {paginatedTasks.length} {paginatedTasks.length === 1 ? 'Seite' : 'Seiten'}
+                        </div>
+                    )}
                 </Col>
             </Row>
 

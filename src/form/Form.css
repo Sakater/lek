@@ -1,0 +1,110 @@
+.form-container {
+    padding: 0 8px;
+}
+
+.form-header-card {
+    background: white;
+    border-radius: var(--border-radius-md);
+    padding: 16px 20px 12px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    margin-bottom: 16px;
+}
+
+.form-header-fields {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.form-header-fields .form-author {
+    flex: 0 0 140px;
+    min-width: 100px;
+}
+
+.form-header-fields .form-title {
+    flex: 1 1 200px;
+    min-width: 150px;
+}
+
+.form-header-fields .form-date {
+    flex: 0 0 150px;
+    min-width: 120px;
+}
+
+.form-header-fields .form-field-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.form-header-fields .form-field-label svg {
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+.form-toolbar-wrapper {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.form-add-task-section {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0;
+}
+
+.form-add-task-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border-radius: 10px;
+    border: 2px dashed #d1d5db;
+    background: white;
+    color: #6b7280;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-default);
+    width: auto;
+    height: auto;
+}
+
+.form-add-task-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: rgba(79, 70, 229, 0.03);
+}
+
+.form-add-task-btn svg {
+    font-size: 18px;
+}
+
+.form-pagination-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin: 20px 0 16px;
+}
+
+.form-pagination-info {
+    font-size: 0.82rem;
+    color: #9ca3af;
+}
+
+.form-task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}

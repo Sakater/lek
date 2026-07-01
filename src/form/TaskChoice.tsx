@@ -1,89 +1,101 @@
-import {use} from 'react';
-import {Card, Col, Drawer, Row} from "antd";
+import {Modal} from "antd";
 import {PlusCircleTwoTone, SearchOutlined} from "@ant-design/icons";
 import {DrawerContext} from "./DrawerContext";
+import {use, useEffect, useState} from "react";
+import {motion} from "framer-motion";
+import "./TaskChoice.css";
 
-const {Meta} = Card;
 type Props = {
     open: boolean;
     onClose: () => void;
-}
+};
+
+const containerVariants = {
+    hidden: {opacity: 0},
+    visible: {
+        opacity: 1,
+        transition: {staggerChildren: 0.1, delayChildren: 0.15},
+    },
+};
+
+const cardVariants = {
+    hidden: {opacity: 0, y: 20, scale: 0.95},
+    visible: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: {duration: 0.35, ease: "easeOut" as const},
+    },
+};
 
 export function TaskChoice({open, onClose}: Props) {
-    const {openDrawer} = use(DrawerContext)
+    const {openDrawer} = use(DrawerContext);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 768);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     return (
-        <div>
-            <Drawer
-                title={'Aufgabenwahl'}
-                placement={'top'}
-                closable={false}
-                onClose={onClose}
-                open={open}
-                key={'top'}
-                size={'default'}
-                height={'35%'}
+        <Modal
+            open={open}
+            onCancel={onClose}
+            footer={null}
+            width={isMobile ? "100vw" : 480}
+            centered={!isMobile}
+            closable={true}
+            className="task-choice-modal"
+            style={isMobile ? {top: 0, maxWidth: "100vw", padding: 0, height: "100vh"} : undefined}
+            destroyOnClose
+        >
+            <div className="task-choice-header">
+                <h2>Aufgabe hinzufügen</h2>
+                <p>Wähle, wie du eine neue Aufgabe erstellen möchtest</p>
+            </div>
+
+            <motion.div
+                className="task-choice-grid"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                key={open ? "open" : "closed"}
             >
-                <Row gutter={24} style={{
-                    display: 'flex',
-                    justifyContent: 'space-evenly',
-                    alignItems: 'center',
-                    textAlign: 'center',
-                    gap: '20px',
-                    width: '50%',
-                    justifySelf: 'center'
-                }}>
-                    <Col>
-                        <Card
-                            hoverable
-                            style={{
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                textAlign: 'center',
-                                width: '200px',
-                                height: '180px'
-                            }}
-                            cover={
-                                <SearchOutlined
-                                    style={{fontSize: 40, display: 'block', paddingTop: '20px', color: 'darkblue'}}/>
-                            }
-                            onClick={() => {
-                                openDrawer('searchOpen');
-                                onClose()
-                            }}
-                        >
-                            <Meta title="Frage finden" description="Suche nach Fragen und übernehme sie"/>
-                        </Card>
-                    </Col>
-                    <Col>
-                        <Card
-                            type={'inner'}
-                            hoverable
-                            style={{
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                textAlign: 'center',
-                                width: '200px',
-                                height: '180px'
-                            }}
-                            cover={
-                                <PlusCircleTwoTone
-                                    style={{fontSize: 40, display: 'block', paddingTop: '20px', color: 'darkblue'}}/>
-                            }
-                            onClick={() => {
-                                openDrawer('taskTypeChoiceOpen')
-                                onClose();
-                            }}
-                        >
-                            <Meta title="Neue Frage erstellen"
-                                  description="Erstelle deine eigene Frage"/>
-                        </Card>
+                <motion.div
+                    className="task-choice-card search-card"
+                    variants={cardVariants}
+                    whileHover={{y: -4, scale: 1.02}}
+                    whileTap={{scale: 0.98}}
+                    onClick={() => {
+                        openDrawer("searchOpen");
+                        onClose();
+                    }}
+                >
+                    <div className="task-choice-icon">
+                        <SearchOutlined/>
+                    </div>
+                    <h3>Frage finden</h3>
+                    <p>Suche nach vorhandenen Fragen und übernehme sie</p>
+                </motion.div>
 
-                    </Col>
-                </Row>
-            </Drawer>
-
-
-        </div>
+                <motion.div
+                    className="task-choice-card create-card"
+                    variants={cardVariants}
+                    whileHover={{y: -4, scale: 1.02}}
+                    whileTap={{scale: 0.98}}
+                    onClick={() => {
+                        openDrawer("taskTypeChoiceOpen");
+                        onClose();
+                    }}
+                >
+                    <div className="task-choice-icon">
+                        <PlusCircleTwoTone/>
+                    </div>
+                    <h3>Neue Frage erstellen</h3>
+                    <p>Erstelle eine eigene Frage von Grund auf</p>
+                </motion.div>
+            </motion.div>
+        </Modal>
     );
 }
