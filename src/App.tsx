@@ -1,23 +1,18 @@
 import './App.css'
-import {use} from "react";
+import {useState} from "react";
 import {FileContextProvider} from "./FileContext/FileContextProvider.tsx";
-import {Route, Routes, useNavigate} from "react-router"
+import {Route, Routes} from "react-router"
 import {routesDefs} from "./routesDefs.tsx";
-import {Button} from "antd";
-import {HomeFilled} from "@ant-design/icons";
-import {FileContext} from "./FileContext";
+import {Sidebar} from "./navigation/Sidebar.tsx";
+import "./navigation/Sidebar.css";
 
 function App() {
-    const {setOpenTemplateSearch} = use(FileContext);
-    const navigate= useNavigate()
+    const [sidebarExpanded, setSidebarExpanded] = useState(true);
+
     return (
         <FileContextProvider>
-            <div className={'App'}>
-                <div className={'home-button'}>
-                    <Button onClick={() => {
-                        navigate('/')
-                        setOpenTemplateSearch(false);
-                    }} icon={<HomeFilled/>}/></div>
+            <Sidebar expanded={sidebarExpanded} onToggle={setSidebarExpanded}/>
+            <div className={`main-content ${sidebarExpanded ? 'sidebar-expanded' : 'sidebar-collapsed'}`}>
                 <Routes>
                     {routesDefs.map(({path, element}) => (
                         <Route key={path} path={path} element={element}/>
@@ -25,7 +20,6 @@ function App() {
                 </Routes>
             </div>
         </FileContextProvider>
-
     )
 }
 

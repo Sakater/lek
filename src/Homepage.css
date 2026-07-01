@@ -5,104 +5,6 @@
     flex-direction: column;
 }
 
-.homepage-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 40px;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.homepage-nav-logo {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--color-primary);
-    letter-spacing: -0.5px;
-}
-
-.homepage-nav-links {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
-
-.homepage-nav-link {
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #374151;
-    cursor: pointer;
-    transition: var(--transition-default);
-    border: none;
-    background: none;
-    text-decoration: none;
-}
-
-.homepage-nav-link:hover {
-    background: rgba(79, 70, 229, 0.08);
-    color: var(--color-primary);
-}
-
-.homepage-nav-link.active {
-    background: var(--color-primary);
-    color: white;
-}
-
-.homepage-hamburger {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    color: #374151;
-    width: auto;
-}
-
-.homepage-hamburger svg {
-    display: block;
-}
-
-.homepage-mobile-menu {
-    display: none;
-    flex-direction: column;
-    padding: 8px 16px 16px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    gap: 4px;
-}
-
-.homepage-mobile-menu.open {
-    display: flex;
-}
-
-.homepage-mobile-link {
-    padding: 12px 16px;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #374151;
-    cursor: pointer;
-    transition: var(--transition-default);
-    border: none;
-    background: none;
-    text-align: left;
-    width: 100%;
-}
-
-.homepage-mobile-link:hover {
-    background: rgba(79, 70, 229, 0.08);
-    color: var(--color-primary);
-}
-
 .homepage-hero {
     display: flex;
     flex-direction: column;
@@ -256,18 +158,6 @@
 }
 
 @media (max-width: 768px) {
-    .homepage-nav {
-        padding: 12px 16px;
-    }
-
-    .homepage-nav-links {
-        display: none;
-    }
-
-    .homepage-hamburger {
-        display: block;
-    }
-
     .homepage-hero {
         padding: 40px 20px 32px;
     }

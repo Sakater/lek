@@ -97,7 +97,7 @@ export const GenericSearchBar = <T extends object>({
     });
 
     return (
-        <div style={{ padding: 12, background: '#f9f9f9', borderRadius: 8, border: '1px solid #eee' }}>
+        <div style={{ padding: 12, background: 'white', borderRadius: 'var(--border-radius-md)', border: '1px solid #f0f0f0', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
             <Space direction="vertical" style={{ width: '100%' }} size="middle">
                 {activeFilters.map((filter, index) => {
                     const def = config[filter.field];

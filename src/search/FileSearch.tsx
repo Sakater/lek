@@ -1,11 +1,12 @@
-import {Button, Card, Col, Drawer, Empty, Pagination, Row, Spin} from 'antd';
-import {use, useState} from 'react';
-import {FileContext} from '../FileContext';
-import {searchFiles} from '../services/fileService.ts';
-import type {File, FileRequest} from '../types';
-import {PDFFile} from '../view/PDFFile.tsx';
-import {GenericSearchBar} from './GenericSearchBar.tsx';
-import {fileSearchConfig} from './SearchConfigs.ts';
+import { Button, Drawer, Empty, Pagination, Spin } from 'antd';
+import { use, useState } from 'react';
+import { FileContext } from '../FileContext';
+import { searchFiles } from '../services/fileService.ts';
+import type { File, FileRequest } from '../types';
+import { GenericSearchBar } from './GenericSearchBar.tsx';
+import { fileSearchConfig } from './SearchConfigs.ts';
+import { FolderOutlined } from '@ant-design/icons';
+import './Search.css';
 
 export function FileSearch() {
     const { updateFile, setOpenTemplateSearch, setOpenCustomizer, openTemplateSearch } =
@@ -59,114 +60,90 @@ export function FileSearch() {
         setOpenCustomizer(true);
     };
 
-    return (
-        <div>
-            <Drawer
-                title={'Dokumente finden'}
-                placement={'top'}
-                onClose={() => setOpenTemplateSearch(false)}
-                open={openTemplateSearch}
-                key={'top'}
-                height={'80%'}
-                styles={{ body: { paddingBottom: 80 } }}
-            >
-                <div style={{ marginBottom: 24 }}>
-                    <GenericSearchBar config={fileSearchConfig} onSearch={handleSearch} />
+    const renderHeader = () => (
+        <div className="search-drawer-header">
+            <div className="search-drawer-header-left">
+                <div className="search-drawer-header-icon">
+                    <FolderOutlined />
                 </div>
-
-                {loading && (
-                    <div style={{ textAlign: 'center', padding: 20 }}>
-                        <Spin />
-                    </div>
+                <span className="search-drawer-header-title">Dokumente suchen</span>
+                {pageVariables && (
+                    <span className="search-drawer-header-count">
+                        {pageVariables.totalElements} Treffer
+                    </span>
                 )}
-
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                    {!loading && foundFiles.length === 0 ? (
-                        <Empty
-                            description="Keine Dokumente gefunden"
-                            image={Empty.PRESENTED_IMAGE_SIMPLE}
-                        />
-                    ) : (
-                        <div
-                            style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                gap: 8,
-                            }}
-                        >
-                            <Pagination
-                                current={(pageVariables?.number ?? 0) + 1}
-                                pageSize={pageVariables?.size}
-                                total={pageVariables?.totalElements}
-                                onChange={handlePageChange}
-                                onShowSizeChange={handlePageChange}
-                                showSizeChanger={true}
-                                pageSizeOptions={['10', '20', '50', '100']}
-                                responsive={true}
-                                showLessItems={true}
-                            />
-                            <div style={{ color: 'rgba(0, 0, 0, 0.45)', fontSize: '14px' }}>
-                                {pageVariables &&
-                                    `${Math.min(pageVariables.number * pageVariables.size + 1, pageVariables.totalElements)}-${Math.min((pageVariables.number + 1) * pageVariables.size, pageVariables.totalElements)} von ${pageVariables.totalElements} Treffern`}
-                            </div>
-                        </div>
-                    )}
-                    <Row gutter={24}>
-                        {foundFiles.map((file) => (
-                            <Col xs={24} xl={12} key={file.id}>
-                                <div
-                                    style={{
-                                        padding: '15px',
-                                        display: 'flex',
-                                        justifyContent: 'space-evenly',
-                                    }}
-                                >
-                                    <Card
-                                        size="small"
-                                        hoverable
-                                        style={{ width: '810px', overflowY: 'auto' }}
-                                        extra={
-                                            <Button type="primary" onClick={() => selectFile(file)}>
-                                                Auswählen
-                                            </Button>
-                                        }
-                                    >
-                                        <PDFFile file={file} scale={0.5} />
-                                    </Card>
-                                </div>
-                            </Col>
-                        ))}
-                    </Row>
-
-                    {!loading && foundFiles.length > 0 && (
-                        <div
-                            style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                gap: 8,
-                            }}
-                        >
-                            <Pagination
-                                current={(pageVariables?.number ?? 0) + 1}
-                                pageSize={pageVariables?.size}
-                                total={pageVariables?.totalElements}
-                                onChange={handlePageChange}
-                                onShowSizeChange={handlePageChange}
-                                showSizeChanger={true}
-                                pageSizeOptions={['10', '20', '50', '100']}
-                                responsive={true}
-                                showLessItems={true}
-                            />
-                            <div style={{ color: 'rgba(0, 0, 0, 0.45)', fontSize: '14px' }}>
-                                {pageVariables &&
-                                    `${Math.min(pageVariables.number * pageVariables.size + 1, pageVariables.totalElements)}-${Math.min((pageVariables.number + 1) * pageVariables.size, pageVariables.totalElements)} von ${pageVariables.totalElements} Treffern`}
-                            </div>
-                        </div>
-                    )}
-                </div>
-            </Drawer>
+            </div>
         </div>
+    );
+
+    return (
+        <Drawer
+            title={renderHeader()}
+            placement="right"
+            onClose={() => setOpenTemplateSearch(false)}
+            open={openTemplateSearch}
+            width={window.innerWidth <= 768 ? '100vw' : '55%'}
+            className="search-drawer"
+            styles={{ body: { paddingBottom: 24 } }}
+        >
+            <GenericSearchBar config={fileSearchConfig} onSearch={handleSearch} />
+
+            {loading && (
+                <div className="search-loading">
+                    <Spin size="large" />
+                </div>
+            )}
+
+            {!loading && foundFiles.length === 0 && (
+                <div className="search-empty">
+                    <Empty description="Keine Dokumente gefunden" image={Empty.PRESENTED_IMAGE_SIMPLE} />
+                </div>
+            )}
+
+            <div className="search-results">
+                {foundFiles.map((file) => (
+                    <div key={file.id} className="search-result-card">
+                        <div className="search-result-card-badge file">
+                            <FolderOutlined />
+                        </div>
+                        <div className="search-result-card-content">
+                            <div className="search-result-card-title">{file.title}</div>
+                            <div className="search-result-card-meta">
+                                {file.createdBy && <span>{file.createdBy}</span>}
+                                {file.date && <span>{file.date}</span>}
+                                {file.subject?.length > 0 && <span>{file.subject.join(', ')}</span>}
+                                {file.grade && <span>Klasse {file.grade}</span>}
+                                {file.level && <span>Level {file.level}</span>}
+                            </div>
+                        </div>
+                        <div className="search-result-card-action">
+                            <Button type="primary" size="small" onClick={() => selectFile(file)}>
+                                Auswählen
+                            </Button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {pageVariables && foundFiles.length > 0 && (
+                <div className="search-pagination-wrapper">
+                    <Pagination
+                        current={(pageVariables.number ?? 0) + 1}
+                        pageSize={pageVariables.size}
+                        total={pageVariables.totalElements}
+                        onChange={handlePageChange}
+                        onShowSizeChange={handlePageChange}
+                        showSizeChanger={true}
+                        pageSizeOptions={['10', '20', '50', '100']}
+                        responsive={true}
+                        showLessItems={true}
+                        size="small"
+                    />
+                    <div className="search-pagination-info">
+                        {`${Math.min(pageVariables.number * pageVariables.size + 1, pageVariables.totalElements)}-${Math.min((pageVariables.number + 1) * pageVariables.size, pageVariables.totalElements)} von ${pageVariables.totalElements} Treffern`}
+                    </div>
+                </div>
+            )}
+        </Drawer>
     );
 }

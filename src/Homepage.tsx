@@ -1,4 +1,4 @@
-import {use, useState} from "react";
+import {use} from "react";
 import {FileContext} from "./FileContext";
 import {AddNotes, DocumentSearch} from "./assets";
 import {FileSearch} from "./search/FileSearch.tsx";
@@ -9,7 +9,6 @@ import "./Homepage.css";
 export function Homepage() {
     const {openTemplateSearch, setOpenTemplateSearch} = use(FileContext);
     const navigate = useNavigate();
-    const [menuOpen, setMenuOpen] = useState(false);
 
     const cardVariants = {
         hidden: {opacity: 0, y: 30},
@@ -22,29 +21,6 @@ export function Homepage() {
 
     return (
         <div className="homepage">
-            <nav className="homepage-nav">
-                <span className="homepage-nav-logo">TestWriter</span>
-                <div className="homepage-nav-links">
-                    <button className="homepage-nav-link active" onClick={() => {
-                        setOpenTemplateSearch(false);
-                        navigate('/');
-                    }}>Start</button>
-                    <button className="homepage-nav-link" onClick={() => navigate('/editor')}>Editor</button>
-                </div>
-                <button className="homepage-hamburger" onClick={() => setMenuOpen(p => !p)} aria-label="Menü">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                        <line x1="3" y1="6" x2="21" y2="6"/>
-                        <line x1="3" y1="12" x2="21" y2="12"/>
-                        <line x1="3" y1="18" x2="21" y2="18"/>
-                    </svg>
-                </button>
-            </nav>
-
-            <div className={`homepage-mobile-menu ${menuOpen ? 'open' : ''}`}>
-                <button className="homepage-mobile-link" onClick={() => { setMenuOpen(false); setOpenTemplateSearch(false); navigate('/'); }}>Start</button>
-                <button className="homepage-mobile-link" onClick={() => { setMenuOpen(false); navigate('/editor'); }}>Editor</button>
-            </div>
-
             {!openTemplateSearch ? (
                 <>
                     <motion.div
