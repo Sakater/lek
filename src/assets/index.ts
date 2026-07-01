@@ -10,3 +10,5 @@ export { default as ToPdf } from './picture_as_pdf.svg?react';
 export { default as Puzzle } from './puzzle.svg?react';
 export { default as Duplicate } from './shadow_add.svg?react';
 export { default as VisibilityOff } from './visibility_off.svg?react';
+export { default as ListIcon } from './list.svg?react';
+export { default as MappingIcon } from './mapping.svg?react';
